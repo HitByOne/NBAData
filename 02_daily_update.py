@@ -47,12 +47,12 @@ def load(path, cols):
 
 
 def pull_date(day: date, position_map: dict | None):
-    """Returns (players, team_rows, games) for one date, or None if the date is not final yet."""
+    """Returns (players, team_rows, games, complete) for one date: every game on it that is final, and whether that
+    was all of them. A late-night run saves the games that are over; the next run picks up the rest."""
     events = fetch_scoreboard(day)
     if not events:
-        return [], [], []
-    if not date_is_final(events):
-        return None
+        return [], [], [], True
+    complete = date_is_final(events)
     players, teams, games = [], [], []
     for ev in events:
         done, skip = event_status(ev)
@@ -74,7 +74,7 @@ def pull_date(day: date, position_map: dict | None):
         games.append(g)
         print(f"  Loaded {ev.get('shortName', gid)}  ({len(p)} players)")
         time.sleep(0.15)
-    return players, teams, games
+    return players, teams, games, complete
 
 
 def main():
@@ -95,8 +95,10 @@ def main():
         d = date.fromisoformat(args.date)
         dates = [d]
     else:
+        # Start AT the last saved date (not the day after): a late-night run may have saved only the games that were
+        # over, so that date is re-checked and its remaining games added. Already-saved games are simply replaced.
         last = max(games["Date"].astype(str)) if len(games) else None
-        start = date.fromisoformat(last) + timedelta(days=1) if last else SEASON_SCAN_START
+        start = date.fromisoformat(last) if last else SEASON_SCAN_START
         dates = list(daterange(start, today))
 
     if not dates:
@@ -107,26 +109,23 @@ def main():
     pos_map = None
     new_p, new_t, new_g = [], [], []
     for d in dates:
-        res = pull_date(d, pos_map)
-        if res is None:
-            if args.date:
-                print(f"{d}: not every game is final yet -- nothing written.")
-                return 0
-            print(f"{d}: games still in progress or not played yet -- stopping here; the next run picks it up.")
+        p, t, g, complete = pull_date(d, pos_map)
+        if not g and not complete:
+            print(f"{d}: no game on this date is final yet -- stopping here; the next run picks it up.")
             break
-        p, t, g = res
-        if not g:
-            continue
         if any(not r["Position"] for r in p) and pos_map is None:
             print("  Some box-score rows had no position; loading rosters as a fallback...")
             pos_map = build_player_position_map()
             for r in p:
                 if not r["Position"]:
                     r["Position"] = r["ESPN Pos"] = pos_map.get(r["Player ID"], "")
-        print(f"{d}: {len(g)} games")
+        if g:
+            print(f"{d}: {len(g)} final game(s){'' if complete else ' -- the rest are still to play or in progress; the next run adds them'}")
         new_p += p
         new_t += t
         new_g += g
+        if not complete:
+            break
 
     if not new_g:
         print("No new finished dates.")
