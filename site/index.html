@@ -749,14 +749,11 @@
   <div class="main-layout">
     <nav class="tabs" id="tabs">
       <button data-tab="board" class="active">Game Board</button>
-      <button data-tab="picksg">Best Picks</button>
-      <button data-tab="court">Court View</button>
-      <button data-tab="fb">First Basket</button>
-      <button data-tab="q3">3Q Scoring</button>
-      <button data-tab="lines">Lines &amp; Props</button>
+      <button data-tab="picksg">Picks</button>
+      <button data-tab="specials">Specials</button>
+      <button data-tab="matchupsg">Matchups</button>
       <button data-tab="playersg">Players</button>
       <button data-tab="teamsg">Teams</button>
-      <button data-tab="injuries">Injury Report</button>
       <button data-tab="live">Live Games</button>
       <button data-tab="backtest">How the Model Does</button>
     </nav>
@@ -3331,7 +3328,7 @@ function renderMatchup(){
   <div class="mu-layout">
   <div class="mu-main">
   <div class="panel">
-    <div class="panel-title">Matchup Explorer</div>
+    <div class="panel-title">Position Breakdown</div>
     <div class="panel-note">Pick an offense, a defense, and a position (PG / SG / SF / PF / C), or click an upcoming game on the right. Left table is that offense's players game by game. Right table is every other team's player at that position who has played against the selected defense (the offense's own team is left out, so a past meeting between these two teams isn't double-counted).</div>
     <div class="controls">
       <label style="font-family:var(--mono);font-size:12px;color:var(--chalk-dim);">OFFENSE</label>
@@ -7559,14 +7556,15 @@ const renderers = {
 };
 // Tabs that share one nav button: the button opens the group, a row of buttons on top switches between its views.
 const TAB_GROUPS = {
-  picksg:   [['picks', 'Best Picks'], ['dd', 'Double-Doubles']],
-  lines:    [['booklines', 'Book Lines'], ['propprices', 'Prop Prices']],
-  playersg: [['players', 'Game Logs'], ['streaks', 'Streaks']],
-  teamsg:   [['teams', 'Summary'], ['power', 'Power Rankings'], ['epa', 'Efficiency'], ['coaching', 'Play Style'],
-             ['sos', 'Strength of Schedule'], ['restload', 'Schedule Load'], ['teamweek', 'Game Log']],
+  picksg:    [['picks', 'Best Picks'], ['booklines', 'Book Lines'], ['propprices', 'Prop Prices']],
+  specials:  [['fb', 'First Basket'], ['q3', '3Q Scoring'], ['dd', 'Double-Doubles']],
+  matchupsg: [['court', 'Court View'], ['matchup', 'Position Breakdown']],
+  playersg:  [['players', 'Game Logs'], ['streaks', 'Streaks'], ['injuries', 'Injuries']],
+  teamsg:    [['teams', 'Summary'], ['power', 'Power Rankings'], ['epa', 'Efficiency'], ['coaching', 'Play Style'],
+              ['sos', 'Strength of Schedule'], ['restload', 'Schedule Load'], ['teamweek', 'Game Log']],
 };
 // Tabs that were folded into others: anything that still links to them lands somewhere sensible.
-const TAB_REDIRECT = {home: 'board', week2: 'court', matchup: 'court', defense: 'court', overview: 'board', milestones: 'playersg', predictions: 'board', mypicks: 'board', friends: 'board'};
+const TAB_REDIRECT = {home: 'board', week2: 'court', defense: 'matchup', overview: 'board', milestones: 'playersg', predictions: 'board', mypicks: 'board', friends: 'board'};
 const SUBTAB_KEY = 'nba_ledger_subtab_';
 function showTab(tab){
   if(window.__liveNowTimer){ clearInterval(window.__liveNowTimer); window.__liveNowTimer = null; }
