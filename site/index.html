@@ -651,13 +651,16 @@
   .subtab:hover{color:var(--chalk);border-color:var(--hash);}
   .subtab.active{color:var(--field);background:var(--gold);border-color:var(--gold);}
   /* ---- Court View ---- */
-  .cv-help{position:relative;cursor:help;display:inline-flex;align-items:center;gap:8px;outline:none;}
+  .cv-help,.info-help{position:relative;cursor:help;display:inline-flex;align-items:center;gap:8px;outline:none;}
+  .info-help.icon-only{margin-left:8px;vertical-align:middle;}
   .cv-i{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--chalk-dim);
     color:var(--chalk-dim);font-family:var(--mono);font-size:11px;font-style:italic;}
   .cv-tip{display:none;position:absolute;left:0;top:calc(100% + 8px);z-index:50;width:min(560px,86vw);background:var(--field-deep);border:1px solid var(--gold);
     border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:12px;line-height:1.5;color:var(--chalk-dim);font-weight:400;box-shadow:0 10px 30px rgba(0,0,0,.6);}
   .cv-tip b{color:var(--chalk);}
-  .cv-help:hover .cv-tip,.cv-help:focus .cv-tip,.cv-help.show .cv-tip{display:block;}
+  .cv-tip.flip{left:auto;right:0;}
+  .cv-tip{white-space:normal;text-transform:none;letter-spacing:0;text-align:left;}
+  .cv-help:hover .cv-tip,.cv-help:focus .cv-tip,.cv-help.show .cv-tip,.info-help:hover .cv-tip,.info-help:focus .cv-tip,.info-help.show .cv-tip{display:block;}
   :root{ --cv-floor:#141B2B; --cv-paint:rgba(255,138,61,0.07); --cv-line:#3A4560; }
   .cv-games{display:flex;flex-direction:column;gap:8px;margin:4px 0 10px;}
   .cv-day{display:flex;gap:10px;align-items:flex-start;}
@@ -3227,10 +3230,6 @@ function mountCourt(){
   $$('#cv-stat .pill').forEach(p => p.addEventListener('click', () => { stat = p.dataset.stat; $$('#cv-stat .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
   $$('#cv-basis .pill').forEach(p => p.addEventListener('click', () => { basis = p.dataset.basis; $$('#cv-basis .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
   $$('.cv-games .cv-game').forEach(b => b.addEventListener('click', () => { $('#cv-away').value = b.dataset.away; $('#cv-home').value = b.dataset.home; open = null; save(); draw(); }));
-  // Touch screens have no hover: tap the title to show / hide the explanation.
-  const help = $('#cv-help');
-  help.addEventListener('click', e => { e.stopPropagation(); help.classList.toggle('show'); if(!help.classList.contains('show')) help.blur(); });
-  if(!window.__cvHelpClose){ window.__cvHelpClose = true; document.addEventListener('click', () => { const h = $('#cv-help'); if(h){ h.classList.remove('show'); h.blur(); } }); }
   // Redraw when the width crosses the full-court / half-court line (rotating an iPad, resizing a window).
   if(window.ResizeObserver){
     const ro = new ResizeObserver(() => {
@@ -7554,6 +7553,47 @@ const renderers = {
   booklines: {render: renderBookLines, mount: mountBookLines},
   restload: {render: renderRest, mount: mountRest},
 };
+// ---- Explanations as an (i) on the title ----
+// Every panel's explanation paragraph (the grey note right under its title) is folded into the title: hover the title
+// (or tap it on a touch screen) to read it. Notes with an id or controls inside are live status lines and stay visible.
+function infoizeNotes(root){
+  $$('.panel-title + .panel-note', root).forEach(note => {
+    if(note.id || note.querySelector('button,select,input,textarea') || !note.textContent.trim()) return;
+    const title = note.previousElementSibling;
+    if(!title || title.querySelector('.cv-help,.info-help')) return;
+    const help = document.createElement('span');
+    help.className = 'info-help'; help.tabIndex = 0;
+    const interactive = title.querySelector('button,select,input,a');
+    if(!interactive){ while(title.firstChild) help.appendChild(title.firstChild); }
+    else help.classList.add('icon-only');
+    help.insertAdjacentHTML('beforeend', '<span class="cv-i">i</span>');
+    const tip = document.createElement('span');
+    tip.className = 'cv-tip'; tip.setAttribute('role', 'tooltip');
+    while(note.firstChild) tip.appendChild(note.firstChild);
+    help.appendChild(tip);
+    title.appendChild(help);
+    note.remove();
+  });
+}
+(function(){
+  let t = null;
+  const run = () => { t = null; const c = document.getElementById('content'); if(c) infoizeNotes(c); };
+  document.addEventListener('DOMContentLoaded', () => {
+    const c = document.getElementById('content');
+    if(c) new MutationObserver(() => { if(!t) t = setTimeout(run, 30); }).observe(c, {childList: true, subtree: true});
+  });
+  // Keep the box on screen: open it to the left when the title sits near the right edge.
+  const place = h => { const tip = h.querySelector('.cv-tip'); if(!tip) return; tip.classList.remove('flip');
+    const r = h.getBoundingClientRect(); if(r.left + Math.min(560, window.innerWidth * 0.86) > window.innerWidth - 8) tip.classList.add('flip'); };
+  document.addEventListener('mouseover', e => { const h = e.target.closest && e.target.closest('.info-help,.cv-help'); if(h) place(h); });
+  // Touch screens have no hover: tap to open, tap again or anywhere else to close.
+  document.addEventListener('click', e => {
+    const h = e.target.closest && e.target.closest('.info-help,.cv-help');
+    $$('.info-help.show,.cv-help.show').forEach(x => { if(x !== h){ x.classList.remove('show'); x.blur(); } });
+    if(h && !e.target.closest('.cv-tip')){ place(h); h.classList.toggle('show'); if(!h.classList.contains('show')) h.blur(); }
+  });
+})();
+
 // Tabs that share one nav button: the button opens the group, a row of buttons on top switches between its views.
 const TAB_GROUPS = {
   picksg:    [['picks', 'Best Picks'], ['booklines', 'Book Lines'], ['propprices', 'Prop Prices']],
