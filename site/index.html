@@ -641,11 +641,25 @@
   .gb-props-title + .gb-pe{border-top:none;}
   @media (max-width:900px){ .gb-pe{grid-template-columns:1fr 1fr;} .gb-pe-name,.gb-pe-bet{grid-column:1 / -1;} }
   /* ---- Court View ---- */
+  .cv-help{position:relative;cursor:help;display:inline-flex;align-items:center;gap:8px;outline:none;}
+  .cv-i{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--chalk-dim);
+    color:var(--chalk-dim);font-family:var(--mono);font-size:11px;font-style:italic;}
+  .cv-tip{display:none;position:absolute;left:0;top:calc(100% + 8px);z-index:50;width:min(560px,86vw);background:var(--field-deep);border:1px solid var(--gold);
+    border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:12px;line-height:1.5;color:var(--chalk-dim);font-weight:400;box-shadow:0 10px 30px rgba(0,0,0,.6);}
+  .cv-tip b{color:var(--chalk);}
+  .cv-help:hover .cv-tip,.cv-help:focus .cv-tip,.cv-help.show .cv-tip{display:block;}
   :root{ --cv-floor:#141B2B; --cv-paint:rgba(255,138,61,0.07); --cv-line:#3A4560; }
-  .cv-games{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;margin-bottom:4px;}
-  .cv-game{flex:0 0 auto;background:var(--field-deep);border:1px solid var(--panel-border);color:var(--chalk);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:12px;cursor:pointer;text-align:left;}
-  .cv-game span{display:block;color:var(--chalk-dim);font-size:10px;margin-top:2px;}
-  .cv-game.active,.cv-game:hover{border-color:var(--gold);}
+  .cv-games{display:flex;flex-direction:column;gap:8px;margin:4px 0 10px;}
+  .cv-day{display:flex;gap:10px;align-items:flex-start;}
+  .cv-day-label{flex:0 0 86px;font-family:var(--mono);font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;padding-top:7px;}
+  .cv-day-games{flex:1;min-width:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:6px;}
+  .cv-game{display:flex;align-items:baseline;gap:4px;background:var(--field-deep);border:1px solid var(--panel-border);color:var(--chalk);border-radius:7px;
+    padding:5px 8px;font-family:var(--mono);font-size:12px;cursor:pointer;white-space:nowrap;}
+  .cv-game i{font-style:normal;color:var(--chalk-dim);font-size:10px;}
+  .cv-game span{margin-left:auto;color:var(--chalk-dim);font-size:10px;}
+  .cv-game.active{border-color:var(--gold);background:rgba(255,138,61,0.12);}
+  .cv-game:hover{border-color:var(--gold);}
+  @media (max-width:600px){ .cv-day{flex-direction:column;gap:4px;} .cv-day-label{flex:none;padding:0;} .cv-day-games{width:100%;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));} }
   .cv-title{font-size:18px;margin:6px 0 10px;}
   .cv-dim{color:var(--chalk-dim);font-weight:400;font-size:0.85em;}
   .cv-wrap{container-type:inline-size;max-width:1500px;margin:0 auto;}
@@ -2441,7 +2455,7 @@ function buildTable(container, columns, rows, opts={}){
 }
 
 // ---------- TAB: OVERVIEW ----------
-const OVERVIEW_STATS = {'Points':'Points', 'Rebounds':'Rebounds', 'Assists':'Assists', '3PM':'Threes made', 'Pts+Reb+Ast':'Pts + Reb + Ast', 'Fantasy Points':'Fantasy points (DK)', 'Steals':'Steals', 'Blocks':'Blocks'};
+const OVERVIEW_STATS = {'Points':'Points', 'Rebounds':'Rebounds', 'Assists':'Assists', '3PM':'Threes made', 'Pts+Reb+Ast':'Pts + Reb + Ast', 'Steals':'Steals', 'Blocks':'Blocks'};
 function renderOverview(){
   const ts = DATA.teamSummary;
   if(!ts.length) return '<div class="empty">No games logged yet.</div>';
@@ -2663,7 +2677,6 @@ const PLAYER_LOG_COLS = [
   {key:'Turnovers', label:'TO', numeric:true},
   {key:'FGM', label:'FG', numeric:true, render:(v,r)=>`${fmt(v,0)}-${fmt(r.FGA,0)}`},
   {key:'Pts+Reb+Ast', label:'PRA', numeric:true},
-  {key:'Fantasy Points', label:'DK FP', numeric:true, render:v=>fmt(v)},
 ];
 function mountPlayers(){
   let pos = '';
@@ -2705,8 +2718,8 @@ function mountPlayers(){
 }
 
 // ---------- TAB: DEFENSE VS POSITION ----------
-const DVP_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Steals', 'Blocks', 'Pts+Reb+Ast', 'Fantasy Points'];
-const DVP_LABEL = {'Points':'PTS', 'Rebounds':'REB', 'Assists':'AST', '3PM':'3PM', 'Steals':'STL', 'Blocks':'BLK', 'Pts+Reb+Ast':'PRA', 'Fantasy Points':'DK FP'};
+const DVP_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Steals', 'Blocks', 'Pts+Reb+Ast'];
+const DVP_LABEL = {'Points':'PTS', 'Rebounds':'REB', 'Assists':'AST', '3PM':'3PM', 'Steals':'STL', 'Blocks':'BLK', 'Pts+Reb+Ast':'PRA'};
 function renderDefense(){
   return `
   <div class="panel">
@@ -2716,13 +2729,13 @@ function renderDefense(){
       Click a row for the game-by-game log behind the numbers, since an average can hide one blowout. Mint = weak defense (good matchup), coral = tough.</div>
     <div class="controls">
       <div class="pill-group" id="def-pos-pills"><span class="pill active" data-pos="PG">PG</span><span class="pill" data-pos="SG">SG</span><span class="pill" data-pos="SF">SF</span><span class="pill" data-pos="PF">PF</span><span class="pill" data-pos="C">C</span></div>
-      <label class="ctl-label">Rank by <select id="def-rank">${DVP_STATS.map(k => `<option value="${k}" ${k === 'Fantasy Points' ? 'selected' : ''}>${DVP_LABEL[k]}</option>`).join('')}</select></label>
+      <label class="ctl-label">Rank by <select id="def-rank">${DVP_STATS.map(k => `<option value="${k}" ${k === 'Points' ? 'selected' : ''}>${DVP_LABEL[k]}</option>`).join('')}</select></label>
     </div>
     <div id="def-table"></div>
   </div>`;
 }
 function totalPerGameCol(totalKey, perGameKey, label){ return {key: perGameKey, totalKey, label}; }
-const DEFENSE_RANK_STAT = {G:'Fantasy Points Allowed Per Game', F:'Fantasy Points Allowed Per Game', C:'Fantasy Points Allowed Per Game'};
+const DEFENSE_RANK_STAT = {PG:'Points Allowed Per Game', SG:'Points Allowed Per Game', SF:'Points Allowed Per Game', PF:'Points Allowed Per Game', C:'Points Allowed Per Game'};
 const DEFENSE_STAT_RAW_MAP = Object.fromEntries(DVP_STATS.map(k => [k + ' Allowed', k]));
 // Per game day: what every opposing player at this position produced against this defense, added up.
 function getDefenseWeeklyLog(defense, position){
@@ -2746,7 +2759,7 @@ function mountDefense(){
     const sorted = [...rows].sort((a,b)=> num(b[rankStat]) - num(a[rankStat]));
     const maxRank = sorted.length;
     const cols = DVP_STATS.map(k => totalPerGameCol(k + ' Allowed', k + ' Allowed Per Game', DVP_LABEL[k]));
-    const starterKey = ['Points','Rebounds','Assists','3PM','Pts+Reb+Ast','Fantasy Points'].includes(stat) ? `Starter ${stat} Allowed Per Player` : null;
+    const starterKey = ['Points','Rebounds','Assists','3PM','Pts+Reb+Ast'].includes(stat) ? `Starter ${stat} Allowed Per Player` : null;
     const headCells = ['', '#', 'Defense', 'GP', `Last 5 (${DVP_LABEL[stat]})`, ...(starterKey ? [`Per starter (${DVP_LABEL[stat]})`] : []), ...cols.map(c=>c.label)];
     const bodyHtml = sorted.map((row, i)=>{
       const rank = i + 1, defense = row.Defense;
@@ -2913,10 +2926,10 @@ function mountWeek2(){
         let tag = '';
         if(dvp){
           const all = (DATA.defVsPos || []).filter(d=>d.Position===p.Position);
-          const v = num(dvp['Fantasy Points Allowed Per Game']);
-          const lo = Math.min(...all.map(d=>num(d['Fantasy Points Allowed Per Game']))), hi = Math.max(...all.map(d=>num(d['Fantasy Points Allowed Per Game'])));
+          const v = num(dvp['Points Allowed Per Game']);
+          const lo = Math.min(...all.map(d=>num(d['Points Allowed Per Game']))), hi = Math.max(...all.map(d=>num(d['Points Allowed Per Game'])));
           const pct = hi > lo ? (v - lo) / (hi - lo) : 0.5;
-          tag = `<span class="player-preview-matchup" style="color:${meterColor(pct)};">${opp} gives ${p.Position}s ${fmt(num(dvp['Points Allowed Per Game']))} pts, ${fmt(num(dvp['Rebounds Allowed Per Game']))} reb, ${fmt(num(dvp['Assists Allowed Per Game']))} ast a game (#${fmt(dvp['Fantasy Points Allowed Rank'],0)} most FP)</span>`;
+          tag = `<span class="player-preview-matchup" style="color:${meterColor(pct)};">${opp} gives ${p.Position}s ${fmt(num(dvp['Points Allowed Per Game']))} pts, ${fmt(num(dvp['Rebounds Allowed Per Game']))} reb, ${fmt(num(dvp['Assists Allowed Per Game']))} ast a game (#${fmt(dvp['Points Allowed Rank'],0)} most pts)</span>`;
         }
         const injured = (DATA.injuries || []).find(r => r.Player === p.Player && isRelevantInjury(r));
         return `<div class="player-preview">
@@ -2971,7 +2984,7 @@ function mountWeek2(){
 // "Whole position" = everyone at that position combined, per game. Tap a card for his last 5 games and the games
 // behind the defense's number. On a narrow screen it switches to one half court at a time.
 const CV_POS = ['PG', 'SG', 'SF', 'PF', 'C'];
-const CV_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Pts+Reb+Ast', 'Fantasy Points'];
+const CV_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Pts+Reb+Ast'];
 // Half court (basket at the bottom), % of the court box.
 const CV_SPOTS = {PG: {x: 50, y: 21}, SG: {x: 83, y: 41}, SF: {x: 17, y: 41}, PF: {x: 29, y: 75}, C: {x: 71, y: 75}};
 // Full court, left half (basket on the left), % of the whole court; the right half is the mirror image.
@@ -3022,18 +3035,26 @@ function renderCourt(){
   const home = teams.includes(prefs.home) ? prefs.home : first ? first.home : teams[1];
   const stat = CV_STATS.includes(prefs.stat) ? prefs.stat : 'Points';
   const basis = prefs.basis === 'all' ? 'all' : 'starter';
-  const chips = games.map(g => {
+  // Every game on the slate at once, grouped by day, wrapping onto as many rows as it needs (no sideways scrolling).
+  const byDay = [];
+  games.forEach(g => {
+    const key = String(g.week);
+    let grp = byDay.find(x => x.key === key);
+    if(!grp){ grp = {key, label: dayLabel(g.week, {long: true}), games: []}; byDay.push(grp); }
+    grp.games.push(g);
+  });
+  const chips = byDay.map(grp => `<div class="cv-day"><div class="cv-day-label">${grp.label}</div><div class="cv-day-games">${grp.games.map(g => {
     const dt = new Date(g.date);
-    const when = isNaN(dt) ? '' : `${dayLabel(g.week)} ${dt.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'})}`;
-    return `<button type="button" class="cv-game" data-away="${g.away}" data-home="${g.home}"><b>${g.away}</b> @ <b>${g.home}</b><span>${when}</span></button>`;
-  }).join('');
+    const t = isNaN(dt) ? '' : dt.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}).replace(':00', '').replace(' ', '').toLowerCase();
+    return `<button type="button" class="cv-game" data-away="${g.away}" data-home="${g.home}" title="${teamName(g.away)} at ${teamName(g.home)}"><b>${g.away}</b><i>@</i><b>${g.home}</b><span>${t}</span></button>`;
+  }).join('')}</div></div>`).join('');
   return `<div class="panel">
-    <div class="panel-title">Court View</div>
-    <div class="panel-note">Both teams on one court: the away team attacks the left basket against the home defense, the home team attacks the right
+    <div class="panel-title"><span class="cv-help" tabindex="0" id="cv-help">Court View <span class="cv-i">i</span>
+      <span class="cv-tip" role="tooltip">Both teams on one court: the away team attacks the left basket against the home defense, the home team attacks the right
       basket against the away defense. Each card is that team's projected starter at the spot: his <b>projection</b> (big number), his average, his
       last 5, what the defense <b>allows</b> to his position, and a meter for where that defense ranks (<b>#1 gives up the most</b>, mint = soft, coral = tough).
       <b>Per starter</b> is what one starting player at the position averaged against them (what Best Picks uses); <b>Whole position</b> is everyone at
-      the position combined, per game. Tap a card for that player's last 5 games and every game behind the defense's number.</div>
+      the position combined, per game. Tap a card for that player's last 5 games and every game behind the defense's number.</span></span></div>
     ${chips ? `<div class="cv-games">${chips}</div>` : ''}
     <div class="controls">
       <label class="ctl-label">Away (left) <select id="cv-away">${teams.map(t => `<option value="${t}" ${t === away ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
@@ -3154,7 +3175,7 @@ function mountCourt(){
       .sort((a, b) => num(b.Week) - num(a.Week) || getStatValue(b, stat) - getStatValue(a, stat));
     const d = cvDefenseAt(def, pos, stat, basis);
     // The offense's player(s) at this spot: their last 5 games, the chosen stat highlighted.
-    const cols = [['Points', 'PTS'], ['Rebounds', 'REB'], ['Assists', 'AST'], ['3PM', '3PM'], ['Steals', 'STL'], ['Blocks', 'BLK'], ['Pts+Reb+Ast', 'PRA'], ['Fantasy Points', 'DK FP']];
+    const cols = [['Points', 'PTS'], ['Rebounds', 'REB'], ['Assists', 'AST'], ['3PM', '3PM'], ['Steals', 'STL'], ['Blocks', 'BLK'], ['Pts+Reb+Ast', 'PRA']];
     const hl = k => k === stat ? ' style="color:var(--gold);font-weight:700;"' : '';
     const playerHtml = (cvLineup(off)[pos] || []).map(p => {
       const last = p.games.slice().sort((a, b) => num(a.Week) - num(b.Week)).slice(-5).reverse();
@@ -3226,6 +3247,10 @@ function mountCourt(){
   $$('#cv-stat .pill').forEach(p => p.addEventListener('click', () => { stat = p.dataset.stat; $$('#cv-stat .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
   $$('#cv-basis .pill').forEach(p => p.addEventListener('click', () => { basis = p.dataset.basis; $$('#cv-basis .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
   $$('.cv-games .cv-game').forEach(b => b.addEventListener('click', () => { $('#cv-away').value = b.dataset.away; $('#cv-home').value = b.dataset.home; open = null; save(); draw(); }));
+  // Touch screens have no hover: tap the title to show / hide the explanation.
+  const help = $('#cv-help');
+  help.addEventListener('click', e => { e.stopPropagation(); help.classList.toggle('show'); if(!help.classList.contains('show')) help.blur(); });
+  if(!window.__cvHelpClose){ window.__cvHelpClose = true; document.addEventListener('click', () => { const h = $('#cv-help'); if(h){ h.classList.remove('show'); h.blur(); } }); }
   // Redraw when the width crosses the full-court / half-court line (rotating an iPad, resizing a window).
   if(window.ResizeObserver){
     const ro = new ResizeObserver(() => {
@@ -3583,7 +3608,7 @@ function mountMatchup(){
       const rank = sorted.findIndex(r=>r.Defense===def) + 1;
       const maxRank = sorted.length;
       const statVal = fmt(defVs[rankStat]);
-      const statLabel = 'DK fantasy pts/g allowed';
+      const statLabel = 'pts/g allowed';
       $('#mu-rank').innerHTML = `<div style="margin-bottom:14px;"><span class="heat" style="${heatColor(rank, maxRank)}">${teamChip(def)} ranks #${rank} of ${maxRank} vs ${pos} &middot; ${statVal} ${statLabel}</span></div>`;
     } else {
       $('#mu-rank').innerHTML = '';
