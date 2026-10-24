@@ -1,0 +1,79 @@
+name: Daily NBA Dashboard Refresh
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full = everything, quick = injuries + tonight''s slate + props'
+        type: choice
+        options: [full, quick]
+        default: full
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pandas requests
+
+      - name: Run pipeline
+        env:
+          QUICK: ${{ (github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'quick') && '1' || '' }}
+        run: |
+          if [ "$QUICK" = "1" ]; then python3 run_daily.py --quick; else python3 run_daily.py; fi
+
+      - name: Fetch player prop prices
+        continue-on-error: true
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
+          ODDS_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
+        run: |
+          python3 17_prop_odds.py
+          echo "--- status file ---"
+          cat site/data/nba_2027_prop_odds_status.csv || true
+
+      - name: Commit refreshed CSVs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/data
+          git diff --staged --quiet || git commit -m "Daily data refresh"
+          git pull --rebase -X theirs origin main || true
+          git push || (sleep 5 && git pull --rebase -X theirs origin main && git push)
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: refresh
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
