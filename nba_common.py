@@ -67,7 +67,7 @@ PLAYER_COLUMNS = [
     "Game ID", "Date", "Game Day", "Team", "Opponent", "Home/Away", "Player", "Player ID",
     "Position", "ESPN Pos", "Starter", "Minutes", "Points", "Rebounds", "Off Rebounds", "Def Rebounds",
     "Assists", "Steals", "Blocks", "Turnovers", "Fouls", "FGM", "FGA", "3PM", "3PA", "FTM",
-    "FTA", "Plus Minus", "Pts+Reb+Ast", "Fantasy Points", "Double Double", "Triple Double",
+    "FTA", "Plus Minus", "Pts+Reb+Ast", "Double Double", "Triple Double",
 ]
 TEAM_BOX_COLUMNS = [
     "Game ID", "Date", "Game Day", "Team", "Opponent", "Home/Away", "Points", "FGM", "FGA",
@@ -271,15 +271,6 @@ def _field_index(stat_block: dict) -> dict[str, int]:
     return idx
 
 
-def fantasy_points(r: dict) -> float:
-    """DraftKings NBA scoring: PTS 1, 3PM 0.5, REB 1.25, AST 1.5, STL 2, BLK 2, TO -0.5, DD +1.5, TD +3."""
-    fp = (r["Points"] + 0.5 * r["3PM"] + 1.25 * r["Rebounds"] + 1.5 * r["Assists"]
-          + 2 * r["Steals"] + 2 * r["Blocks"] - 0.5 * r["Turnovers"])
-    if r["Triple Double"]:
-        fp += 3
-    if r["Double Double"]:
-        fp += 1.5
-    return round(fp, 2)
 
 
 def parse_summary(summary: dict, game_id: str, game_date: str, position_map: dict | None = None):
@@ -336,7 +327,6 @@ def parse_summary(summary: dict, game_id: str, game_date: str, position_map: dic
                 r["Double Double"] = 1 if tens >= 2 else 0
                 r["Triple Double"] = 1 if tens >= 3 else 0
                 r["Pts+Reb+Ast"] = r["Points"] + r["Rebounds"] + r["Assists"]
-                r["Fantasy Points"] = fantasy_points(r)
                 players.append(r)
 
     team_rows = []
