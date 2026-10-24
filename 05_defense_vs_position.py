@@ -2,9 +2,9 @@
 """
 05_defense_vs_position.py
 
-What each defense gives up to guards, forwards and centers (ESPN's own G / F / C
-positions): season totals and per-game rates for points, rebounds, assists,
-threes, steals, blocks, turnovers, PRA and DraftKings fantasy points, plus the
+What each defense gives up to each position (PG / SG / SF / PF / C, from
+11_positions.py): season totals and per-game rates for points, rebounds, assists,
+threes, steals, blocks, turnovers and PRA, plus the
 same per-game numbers for STARTERS only (the box score marks who started).
 Rank 1 = gives up the most = best matchup, same convention as the NFL page.
 """
@@ -20,7 +20,7 @@ if not PLAYER_FILE.exists():
 
 df = pd.read_csv(PLAYER_FILE, dtype={"Game ID": str})
 df = df[df["Position"].isin(POSITIONS)].copy()
-STATS = ["Points", "Rebounds", "Assists", "3PM", "Steals", "Blocks", "Turnovers", "Pts+Reb+Ast", "Fantasy Points", "Minutes"]
+STATS = ["Points", "Rebounds", "Assists", "3PM", "Steals", "Blocks", "Turnovers", "Pts+Reb+Ast", "Minutes"]
 for c in STATS + ["Starter"]:
     df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0)
 
@@ -32,14 +32,13 @@ for c in STATS:
 
 st = df[df["Starter"] == 1].groupby(["Opponent", "Position"])
 starter_games = st["Game ID"].nunique()
-for c in ["Points", "Rebounds", "Assists", "3PM", "Pts+Reb+Ast", "Fantasy Points"]:
+for c in ["Points", "Rebounds", "Assists", "3PM", "Pts+Reb+Ast"]:
     # per starter-game: what one starting player at this position averaged against them
     out[f"Starter {c} Allowed Per Player"] = (st[c].sum() / st[c].count()).round(2)
 out["Starter Games"] = starter_games
 out = out.reset_index().rename(columns={"Opponent": "Defense"})
-out["Fantasy Points Allowed Rank"] = out.groupby("Position")["Fantasy Points Allowed Per Game"].rank(method="min", ascending=False).astype(int)
 out["Points Allowed Rank"] = out.groupby("Position")["Points Allowed Per Game"].rank(method="min", ascending=False).astype(int)
 out["Matchup Label"] = out["Position"] + " vs " + out["Defense"]
-out = out.sort_values(["Position", "Fantasy Points Allowed Per Game"], ascending=[True, False]).reset_index(drop=True)
+out = out.sort_values(["Position", "Points Allowed Per Game"], ascending=[True, False]).reset_index(drop=True)
 out.to_csv(DVP_FILE, index=False)
 print(f"Defense-vs-position table built: {len(out)} rows. Saved: {DVP_FILE.name}")
