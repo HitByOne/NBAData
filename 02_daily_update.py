@@ -139,7 +139,7 @@ def main():
 
     # Counting stats are whole numbers: store them that way (13, not 13.0).
     text_cols = {"Game ID", "Date", "Team", "Opponent", "Home/Away", "Player", "Player ID", "Position", "ESPN Pos", "Tip", "Away", "Home", "Spread"}
-    for df, skip in ((players, {"Minutes", "Fantasy Points"}), (teams, set()), (games, {"Over/Under"})):
+    for df, skip in ((players, {"Minutes"}), (teams, set()), (games, {"Over/Under"})):
         for c in df.columns:
             if c in text_cols or c in skip or c == "Game Day":
                 continue
