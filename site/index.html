@@ -644,6 +644,12 @@
   .gb-pe{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(230px,1.6fr) minmax(190px,1.3fr) minmax(140px,1fr) 56px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--panel-border);font-size:13px;}
   .gb-props-title + .gb-pe{border-top:none;}
   @media (max-width:900px){ .gb-pe{grid-template-columns:1fr 1fr;} .gb-pe-name,.gb-pe-bet{grid-column:1 / -1;} }
+  /* ---- sub-tabs inside a grouped tab ---- */
+  .subtabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;}
+  .subtab{background:var(--panel);border:1px solid var(--panel-border);color:var(--chalk-dim);border-radius:8px;padding:7px 14px;
+    font-family:var(--cond);font-size:15px;font-weight:600;cursor:pointer;}
+  .subtab:hover{color:var(--chalk);border-color:var(--hash);}
+  .subtab.active{color:var(--field);background:var(--gold);border-color:var(--gold);}
   /* ---- Court View ---- */
   .cv-help{position:relative;cursor:help;display:inline-flex;align-items:center;gap:8px;outline:none;}
   .cv-i{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--chalk-dim);
@@ -743,43 +749,16 @@
   <div class="main-layout">
     <nav class="tabs" id="tabs">
       <button data-tab="board" class="active">Game Board</button>
-      <button data-tab="picks">Best Picks</button>
+      <button data-tab="picksg">Best Picks</button>
       <button data-tab="court">Court View</button>
       <button data-tab="fb">First Basket</button>
       <button data-tab="q3">3Q Scoring</button>
-      <button data-tab="propprices">Prop Prices</button>
-      <button data-tab="booklines">Book Lines</button>
-      <button data-tab="players">Players</button>
+      <button data-tab="lines">Lines &amp; Props</button>
+      <button data-tab="playersg">Players</button>
+      <button data-tab="teamsg">Teams</button>
+      <button data-tab="injuries">Injury Report</button>
+      <button data-tab="live">Live Games</button>
       <button data-tab="backtest">How the Model Does</button>
-      <button type="button" class="nav-more-btn" id="nav-more-btn" aria-expanded="false">More tools &#9662;</button>
-      <div class="nav-more" id="nav-more" hidden>
-        <button data-tab="overview">Season Overview</button>
-        <button data-tab="home">Today (simple home)</button>
-        <button data-tab="week2">Upcoming Games</button>
-
-        <div class="tab-group-label">Games</div>
-        <button data-tab="live">Live Matchups</button>
-        <button data-tab="matchup">Matchup Explorer</button>
-
-        <div class="tab-group-label">Team Data</div>
-        <button data-tab="teams">Team Summary</button>
-        <button data-tab="teamweek">Team Game Log</button>
-        <button data-tab="power">Power Rankings</button>
-        <button data-tab="epa">Efficiency</button>
-        <button data-tab="coaching">Play Style</button>
-        <button data-tab="sos">Strength of Schedule</button>
-        <button data-tab="defense">Defense vs Position</button>
-
-        <div class="tab-group-label">Player Data</div>
-        <button data-tab="streaks">Streaks</button>
-        <button data-tab="milestones">Milestone Watch</button>
-        <button data-tab="injuries">Injury Report</button>
-
-        <div class="tab-group-label">More Picks Tools</div>
-        <button data-tab="restload">Schedule Load</button>
-        <button data-tab="predictions">Predictions</button>
-        <button data-tab="dd">Double-Double Props</button>
-      </div>
     </nav>
 
     <div id="content"><div class="empty" style="padding:60px 20px;">Loading latest stats&hellip;</div></div>
@@ -2223,7 +2202,10 @@ function goToGameDetails(away, home, state, id){
   }
   const upcoming = (DATA.week2 || []).some(r => id ? String(r['Game ID']) === String(id) : ((r.Team===away && r.Opponent===home) || (r.Team===home && r.Opponent===away)));
   if(upcoming && state !== 'post'){
-    showTab('week2');
+    // Upcoming game: open it on the Court View.
+    { const pr = cvLoadPrefs(); const g = (DATA.week2 || []).find(r => id ? String(r['Game ID']) === String(id) : (r.Team === away && r.Opponent === home));
+      pr.away = away; pr.home = home; if(g && g['Home/Away'] === 'Home'){ pr.away = home; pr.home = away; } cvSavePrefs(pr); }
+    showTab('court');
     const card = document.querySelector(`.matchup-card[data-away="${away}"][data-home="${home}"]`);
     if(card){
       card.scrollIntoView({behavior:'smooth', block:'center'});
@@ -7575,13 +7557,36 @@ const renderers = {
   booklines: {render: renderBookLines, mount: mountBookLines},
   restload: {render: renderRest, mount: mountRest},
 };
+// Tabs that share one nav button: the button opens the group, a row of buttons on top switches between its views.
+const TAB_GROUPS = {
+  picksg:   [['picks', 'Best Picks'], ['dd', 'Double-Doubles']],
+  lines:    [['booklines', 'Book Lines'], ['propprices', 'Prop Prices']],
+  playersg: [['players', 'Game Logs'], ['streaks', 'Streaks']],
+  teamsg:   [['teams', 'Summary'], ['power', 'Power Rankings'], ['epa', 'Efficiency'], ['coaching', 'Play Style'],
+             ['sos', 'Strength of Schedule'], ['restload', 'Schedule Load'], ['teamweek', 'Game Log']],
+};
+// Tabs that were folded into others: anything that still links to them lands somewhere sensible.
+const TAB_REDIRECT = {home: 'board', week2: 'court', matchup: 'court', defense: 'court', overview: 'board', milestones: 'playersg', predictions: 'board', mypicks: 'board', friends: 'board'};
+const SUBTAB_KEY = 'nba_ledger_subtab_';
 function showTab(tab){
   if(window.__liveNowTimer){ clearInterval(window.__liveNowTimer); window.__liveNowTimer = null; }
-  $$('#tabs button[data-tab]').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
-  const inMore = $('#nav-more button[data-tab="' + tab + '"]');
-  if(inMore && $('#nav-more').hidden){ $('#nav-more').hidden = false; const mb = $('#nav-more-btn'); mb.setAttribute('aria-expanded','true'); mb.innerHTML = 'Fewer tools &#9652;'; }
-  const r = renderers[tab];
-  $('#content').innerHTML = r.render();
+  if(TAB_REDIRECT[tab]) tab = TAB_REDIRECT[tab];
+  let group = TAB_GROUPS[tab] ? tab : Object.keys(TAB_GROUPS).find(g => TAB_GROUPS[g].some(x => x[0] === tab));
+  let sub = null;
+  if(group){
+    const subs = TAB_GROUPS[group].map(x => x[0]);
+    if(TAB_GROUPS[tab]){ let saved = null; try { saved = localStorage.getItem(SUBTAB_KEY + group); } catch(e){} sub = subs.includes(saved) ? saved : subs[0]; }
+    else sub = tab;
+    try { localStorage.setItem(SUBTAB_KEY + group, sub); } catch(e){}
+  }
+  $$('#tabs button[data-tab]').forEach(b=>b.classList.toggle('active', b.dataset.tab === (group || tab)));
+  const r = renderers[sub || tab];
+  if(group){
+    $('#content').innerHTML = `<div class="subtabs">${TAB_GROUPS[group].map(([id, label]) => `<button type="button" class="subtab${id === sub ? ' active' : ''}" data-sub="${id}">${label}</button>`).join('')}</div>` + r.render();
+    $$('#content .subtabs .subtab').forEach(b => b.addEventListener('click', () => showTab(b.dataset.sub)));
+  } else {
+    $('#content').innerHTML = r.render();
+  }
   r.mount();
 }
 async function loadCSV(path){
