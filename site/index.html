@@ -974,7 +974,7 @@
       <h1 class="hero-title">NBA <span>LEDGER</span></h1>
       <div class="hero-sub" id="hero-sub"></div>
     </div>
-    <div class="layout-pick" id="layout-pick"><div class="lp" title="Two ways to use the app: Classic (all the tools) or Tonight (one screen: player vs defense vs line)"><button type="button" data-layout="classic">Classic</button><button type="button" data-layout="tonight">Tonight</button></div><button type="button" class="theme-btn" id="theme-btn" title="Dark / light">&#9790;</button></div>
+    <div class="layout-pick" id="layout-pick"><div class="lp" title="Two ways to use the app: Tonight (one screen: player vs defense vs line) or Classic (all the tools)"><button type="button" data-layout="tonight">Tonight</button><button type="button" data-layout="classic">Classic</button></div><button type="button" class="theme-btn" id="theme-btn" title="Dark / light">&#9790;</button></div>
     <div class="hero-meta" id="hero-meta">
     </div>
   </div>
@@ -8254,7 +8254,8 @@ function infoizeNotes(root){
 // Classic: every tool, in the side menu. Tonight: one main screen (player vs defense vs line, as a list or on the court)
 // with a short menu across the top. The choice is remembered per browser; ?layout=tonight or ?layout=classic in the
 // address opens one directly (handy for bookmarks or sending someone a link).
-const LAYOUT_KEY = 'nba_ledger_layout';
+// New key so everyone (including browsers that last used Classic) opens on Tonight once; after that the choice is remembered.
+const LAYOUT_KEY = 'nba_ledger_layout_v2';
 const NAV_LAYOUTS = {
   classic: [['board', 'Game Board'], ['picksg', 'Picks'], ['specials', 'Specials'], ['matchupsg', 'Matchups'], ['playersg', 'Players'],
             ['teamsg', 'Teams'], ['live', 'Live Games'], ['backtest', 'How the Model Does']],
@@ -8279,10 +8280,10 @@ function getLayout(){
   const q = new URLSearchParams(location.search).get('layout');
   if(q && NAV_LAYOUTS[q]){ try { localStorage.setItem(LAYOUT_KEY, q); } catch(e){} return q; }
   let v = null; try { v = localStorage.getItem(LAYOUT_KEY); } catch(e){}
-  return NAV_LAYOUTS[v] ? v : 'classic';
+  return NAV_LAYOUTS[v] ? v : 'tonight';
 }
 function applyLayout(name){
-  if(!NAV_LAYOUTS[name]) name = 'classic';
+  if(!NAV_LAYOUTS[name]) name = 'tonight';
   try { localStorage.setItem(LAYOUT_KEY, name); } catch(e){}
   document.body.classList.toggle('layout-tonight', name === 'tonight');
   $('#tabs').innerHTML = NAV_LAYOUTS[name].map(([id, label], i) => `<button data-tab="${id}"${i === 0 ? ' class="active"' : ''}>${label}</button>`).join('');
