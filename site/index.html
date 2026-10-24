@@ -644,6 +644,106 @@
   .gb-pe{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(230px,1.6fr) minmax(190px,1.3fr) minmax(140px,1fr) 56px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--panel-border);font-size:13px;}
   .gb-props-title + .gb-pe{border-top:none;}
   @media (max-width:900px){ .gb-pe{grid-template-columns:1fr 1fr;} .gb-pe-name,.gb-pe-bet{grid-column:1 / -1;} }
+  /* ---- Layout switch (Classic / Tonight) ---- */
+  .layout-pick{display:inline-flex;border:1px solid var(--panel-border);border-radius:9px;overflow:hidden;align-self:center;}
+  .layout-pick button{background:transparent;border:none;color:var(--chalk-dim);font-family:var(--mono);font-size:12px;padding:7px 14px;cursor:pointer;}
+  .layout-pick button.on{background:var(--gold);color:var(--field);font-weight:700;}
+  body.layout-tonight .main-layout{display:block;}
+  body.layout-tonight nav.tabs{flex-direction:row;flex-wrap:wrap;position:static;max-height:none;overflow:visible;border-right:none;
+    border-bottom:1px solid var(--panel-border);padding:0 0 10px;margin-bottom:16px;gap:4px;}
+  body.layout-tonight nav.tabs > button{border-left:none;border-radius:8px;padding:8px 16px;font-size:17px;font-weight:700;}
+  body.layout-tonight nav.tabs > button.active{background:var(--gold);color:var(--field);border-left:none;}
+  /* ---- Tonight ---- */
+  .tn-wrap{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;align-items:start;}
+  .tn-side{background:var(--panel);border:1px solid var(--panel-border);border-radius:10px;padding:12px;position:sticky;top:70px;}
+  .tn-h4{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:1px;margin:0 0 8px;}
+  .tn-g{display:flex;justify-content:space-between;align-items:center;width:100%;background:transparent;border:1px solid transparent;color:var(--chalk);
+    padding:6px 8px;border-radius:6px;font-family:var(--mono);font-size:12px;margin-bottom:3px;cursor:pointer;text-align:left;}
+  .tn-g small{color:var(--chalk-dim);font-size:10px;}
+  .tn-g.on{border-color:var(--gold);background:rgba(255,138,61,.1);}
+  .tn-ck{width:12px;height:12px;border:1px solid var(--chalk-dim);border-radius:3px;margin-right:7px;display:inline-block;vertical-align:-2px;}
+  .tn-ck.radio{border-radius:50%;}
+  .tn-g.on .tn-ck{background:var(--gold);border-color:var(--gold);}
+  .tn-main{container-type:inline-size;min-width:0;}
+  .tn-titlebar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .tn-toggle{display:inline-flex;border:1px solid var(--panel-border);border-radius:8px;overflow:hidden;flex:none;}
+  .tn-toggle button{background:transparent;border:none;color:var(--chalk-dim);font-family:var(--mono);font-size:12px;padding:7px 15px;cursor:pointer;}
+  .tn-toggle button.on{background:var(--gold);color:var(--field);font-weight:700;}
+  .tn-sort{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--chalk-dim);}
+  .tn-sort button{background:none;border:none;color:var(--chalk-dim);font-family:var(--mono);font-size:12px;cursor:pointer;padding:0;}
+  .tn-sort button.on{color:var(--chalk);font-weight:700;}
+  .tn-head,.tn-row{display:grid;grid-template-columns:minmax(150px,1.5fr) 74px 96px minmax(120px,2fr) 62px 104px 70px;gap:12px;align-items:center;}
+  .tn-head{font-family:var(--mono);font-size:10px;color:var(--chalk-dim);letter-spacing:.5px;padding:0 14px 6px;}
+  .tn-row{background:var(--panel);border:1px solid var(--panel-border);border-left:4px solid var(--m);border-radius:10px;padding:10px 14px;margin-bottom:6px;cursor:pointer;}
+  .tn-row:hover{border-color:var(--hash);border-left-color:var(--m);}
+  .tn-row.open{border-color:var(--gold);border-left-color:var(--m);border-radius:10px 10px 0 0;margin-bottom:0;}
+  .tn-who{display:flex;gap:9px;align-items:center;min-width:0;}
+  .tn-badge{width:32px;height:32px;border-radius:50%;border:2px solid var(--m);background:#1d2538;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none;}
+  .tn-nm{font-size:17px;font-weight:700;line-height:1.05;}
+  .tn-inj{font-family:var(--mono);font-size:10px;color:var(--gold);font-weight:400;}
+  .tn-sub{font-family:var(--mono);font-size:10px;color:var(--chalk-dim);}
+  .tn-num .v{font-size:22px;font-weight:800;line-height:1;} .tn-num .l{font-family:var(--mono);font-size:9px;color:var(--chalk-dim);margin-top:3px;white-space:nowrap;}
+  .tn-num .l span{color:var(--chalk);} .tn-num.def .v,.tn-num.def .l span{color:var(--m);}
+  .tn-bar{position:relative;height:34px;}
+  .tn-bar .track{position:absolute;left:0;right:0;top:15px;height:4px;border-radius:2px;background:#1d2538;}
+  .tn-bar .gap{position:absolute;top:15px;height:4px;background:var(--m);opacity:.55;border-radius:2px;}
+  .tn-bar .dot{position:absolute;top:10px;width:14px;height:14px;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 0 2px var(--panel);}
+  .tn-bar .dot.me{background:var(--chalk);} .tn-bar .dot.dv{background:var(--m);}
+  .tn-bar .line{position:absolute;top:4px;bottom:4px;width:2px;background:var(--gold);transform:translateX(-50%);}
+  .tn-bar .line b{position:absolute;top:-6px;left:5px;font-family:var(--mono);font-size:9px;color:var(--gold);}
+  .tn-book .v{font-size:16px;font-weight:700;} .tn-book .v span{font-family:var(--mono);font-size:11px;color:var(--chalk-dim);} .tn-book .v.dim{color:var(--chalk-dim);font-size:13px;}
+  .tn-spark{display:flex;gap:2px;align-items:flex-end;height:18px;margin:3px 0 1px;} .tn-spark i{width:8px;border-radius:1px;}
+  .tn-book .l{font-family:var(--mono);font-size:9px;color:var(--chalk-dim);}
+  .tn-edge{border:1px solid;border-radius:8px;text-align:center;padding:4px 0;} .tn-edge b{display:block;font-size:14px;} .tn-edge span{font-family:var(--mono);font-size:12px;}
+  .tn-edge.none{color:var(--chalk-dim);border-color:var(--panel-border);}
+  .tn-detail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;background:var(--field-deep);border:1px solid var(--gold);border-top:none;border-radius:0 0 10px 10px;padding:12px 16px;margin-bottom:6px;}
+  .tn-detail.solo{border-top:1px solid var(--gold);border-radius:10px;margin-top:12px;}
+  .tn-dt{font-size:15px;font-weight:700;margin-bottom:6px;}
+  .tn-detail table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;}
+  .tn-detail th{text-align:left;color:var(--gold);font-weight:600;padding:3px 4px;} .tn-detail td{padding:3px 4px;border-top:1px solid var(--hash-line);}
+  .tn-detail td.o{color:var(--mint);font-weight:700;} .tn-detail td.u{color:var(--red);font-weight:700;}
+  .tn-why p{font-family:var(--mono);font-size:11.5px;color:var(--chalk-dim);line-height:1.5;margin:0 0 8px;} .tn-why b{color:var(--chalk);}
+  .tn-teams{display:flex;justify-content:space-between;font-size:17px;font-weight:700;margin-top:6px;}
+  .tn-teams span{display:block;font-family:var(--mono);font-size:10px;color:var(--chalk-dim);font-weight:400;}
+  .tn-court{position:relative;width:100%;aspect-ratio:940/500;margin-top:6px;}
+  .tn-chip{position:absolute;transform:translate(-50%,-50%);width:21.5%;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;background:rgba(18,24,38,.97);
+    border:1px solid var(--panel-border);border-left:4px solid var(--m);border-radius:9px;padding:6px 7px;box-shadow:0 4px 14px rgba(0,0,0,.45);color:var(--chalk);
+    font-family:var(--cond);text-align:left;cursor:pointer;}
+  .tn-chip.sel{outline:2px solid var(--gold);outline-offset:2px;}
+  .tn-cb{width:26px;height:26px;border-radius:50%;border:2px solid var(--m);background:#1d2538;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;flex:none;}
+  .tn-cn{flex:1;min-width:0;font-size:max(12px,1.35cqw);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .tn-cl{border:1px solid;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:700;flex:none;}
+  .tn-cl.none{color:var(--chalk-dim);border-color:var(--panel-border);font-size:9px;}
+  .tn-cs{flex-basis:100%;font-family:var(--mono);font-size:max(8px,0.85cqw);color:var(--chalk-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:2px;}
+  .tn-cs b{color:var(--chalk);}
+  .tn-chiplist{display:grid;grid-template-columns:1fr;gap:6px;}
+  .tn-chiplist .tn-chip{position:static;transform:none;width:100%;}
+  .tn-chiplist .tn-cn{font-size:15px;} .tn-chiplist .tn-cs{font-size:11px;}
+  @container (max-width:820px){
+    .tn-head{display:none;}
+    .tn-row{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"who who who edge" "gets def proj book" "bar bar bar bar";row-gap:8px;}
+    .tn-row > :nth-child(1){grid-area:who;} .tn-row > :nth-child(2){grid-area:gets;} .tn-row > :nth-child(3){grid-area:def;}
+    .tn-row > :nth-child(4){grid-area:bar;} .tn-row > :nth-child(5){grid-area:proj;} .tn-row > :nth-child(6){grid-area:book;} .tn-row > :nth-child(7){grid-area:edge;}
+    .tn-detail{grid-template-columns:1fr;}
+  }
+  @container (max-width:960px){
+    .tn-court .w{display:none;}
+    .tn-court .tn-cn{flex-basis:calc(100% - 34px);font-size:13px;}
+    .tn-court .tn-cs{flex:1 1 auto;flex-basis:auto;font-size:10px;padding-left:0;}
+    .tn-court .tn-cl{font-size:10px;}
+  }
+  .tn-side .tn-h4 ~ .tn-h4{margin-top:10px;}
+  @media (max-width:900px){
+    .tn-wrap{grid-template-columns:1fr;}
+    .tn-side{position:static;display:flex;flex-wrap:wrap;gap:4px;}
+    .tn-side .tn-h4{flex-basis:100%;margin:4px 0;}
+    .tn-g{width:auto;margin:0;gap:8px;}
+    body.layout-tonight nav.tabs{flex-wrap:nowrap;overflow-x:auto;}
+    body.layout-tonight nav.tabs > button{font-size:15px;padding:7px 12px;}
+  }
+  @media (max-width:520px){
+    .tn-side{padding:8px;gap:3px;} .tn-g{font-size:11px;padding:4px 6px;} .tn-g small{display:none;} .tn-side .tn-h4{font-size:10px;margin:2px 0;}
+  }
   /* ---- sub-tabs inside a grouped tab ---- */
   .subtabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;}
   .subtab{background:var(--panel);border:1px solid var(--panel-border);color:var(--chalk-dim);border-radius:8px;padding:7px 14px;
@@ -738,6 +838,7 @@
       <h1 class="hero-title">NBA <span>LEDGER</span></h1>
       <div class="hero-sub" id="hero-sub"></div>
     </div>
+    <div class="layout-pick" id="layout-pick" title="Two ways to use the app: Classic (all the tools) or Tonight (one screen: player vs defense vs line)"><button type="button" data-layout="classic">Classic</button><button type="button" data-layout="tonight">Tonight</button></div>
     <div class="hero-meta" id="hero-meta">
     </div>
   </div>
@@ -3241,6 +3342,254 @@ function mountCourt(){
     ro.observe($('#cv-wrap'));
   }
   draw();
+}
+
+// ---------- TONIGHT (the alternate layout's main screen) ----------
+// Every starter on the slate in one list: what he gets, what tonight's defense gives up to his position, the book
+// line, and a lean. List mode sorts the whole slate; Court mode puts one game on the floor (same numbers).
+// Built on the Court View helpers (cvDefenseAt / cvPlayerLine / cvLineup / cvColor) so both layouts agree.
+const TN_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Pts+Reb+Ast'];
+const TN_KEY = 'nba_ledger_tonight';
+const TN_LEAN_MIN = 1;   // projection must clear the line by this much to lean
+function tnLoad(){ try { return JSON.parse(localStorage.getItem(TN_KEY) || '{}') || {}; } catch(e){ return {}; } }
+function tnSave(p){ try { localStorage.setItem(TN_KEY, JSON.stringify(p)); } catch(e){} }
+const tnState = Object.assign({stat: 'Points', pos: '', sort: 'edge', mode: 'list', starters: true, lines: false, hideInj: false, games: null, focus: null, open: null}, (() => { const p = tnLoad(); delete p.games; delete p.open; return p; })());
+
+function tnInjury(name){
+  const r = (DATA.injuries || []).find(x => x.Player === name && isRelevantInjury(x));
+  return r ? String(r.Status || '').trim() : '';
+}
+function tnTime(g){ const dt = new Date(g.date); return isNaN(dt) ? '' : dt.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}).replace(':00', '').replace(' ', '').toLowerCase(); }
+
+// One player's row: everything the list, the court chip and the detail panel show.
+function tnRow(p, off, def, g, stat){
+  const pos = p.Position || p.pos;
+  const d = cvDefenseAt(def, pos, stat, 'starter');
+  const l = cvPlayerLine({games: p.games}, stat, d);
+  const book = propMainFor(p.Player || p.name, stat);
+  const line = book ? book.line : null;
+  const odds = book && book.bo ? propAmerican(book.bo.dec) : (book && book.bu ? 'u ' + propAmerican(book.bu.dec) : '');
+  const proj = l.proj !== null ? l.proj : null;
+  const edge = line !== null && proj !== null ? proj - line : null;
+  const lean = edge === null ? '' : edge >= TN_LEAN_MIN ? 'OVER' : edge <= -TN_LEAN_MIN ? 'UNDER' : 'PASS';
+  const games = p.games.slice().sort((a, b) => num(a.Week) - num(b.Week));
+  const last = games.slice(-5);
+  const lastVals = last.map(x => getStatValue(x, stat));
+  const name = p.Player || p.name;
+  return {key: off + '|' + name, name, pos, off, def, g, stat, d, avg: l.avg, l5: l.l5, proj, line, odds, edge, lean,
+    last, lastVals, hits: line === null ? null : lastVals.filter(v => v > line).length, inj: tnInjury(name), bench: !!p.bench};
+}
+
+function tnPlayersFor(off){
+  if(tnState.starters) return projectedStarters(off).map(p => ({...p, bench: false}));
+  return teamRotation(off).filter(p => p.l5mpg >= 15 && !isPlayerOut(p.Player)).map(p => ({Player: p.Player, Position: p.Position, games: p.games, bench: false}));
+}
+
+function tnSlate(){
+  const teams = new Set((DATA.teamSummary || []).map(r => r.Team));
+  return matchupScheduleGames().filter(g => teams.has(g.away) && teams.has(g.home));
+}
+function tnSelectedGames(all){
+  if(!tnState.games){ const first = all.length ? all[0].week : null; tnState.games = new Set(all.filter(g => g.week === first).map(g => g.id)); }
+  return all.filter(g => tnState.games.has(g.id));
+}
+
+function tnRows(games){
+  const rows = [];
+  games.forEach(g => [[g.away, g.home], [g.home, g.away]].forEach(([off, def]) => {
+    tnPlayersFor(off).forEach(p => rows.push(tnRow(p, off, def, g, tnState.stat)));
+  }));
+  let out = rows.filter(r => (!tnState.pos || r.pos === tnState.pos) && (!tnState.lines || r.line !== null) && (!tnState.hideInj || !r.inj));
+  const boost = r => r.d && r.d.league ? r.d.val / r.d.league : 1;
+  if(tnState.sort === 'soft') out.sort((a, b) => (a.d ? a.d.rank : 99) - (b.d ? b.d.rank : 99) || b.avg - a.avg);
+  else if(tnState.sort === 'time') out.sort((a, b) => (+new Date(a.g.date) - +new Date(b.g.date)) || a.g.id.localeCompare(b.g.id) || a.off.localeCompare(b.off) || CV_POS.indexOf(a.pos) - CV_POS.indexOf(b.pos));
+  else out.sort((a, b) => (b.edge !== null) - (a.edge !== null) || (b.edge !== null ? Math.abs(b.edge) - Math.abs(a.edge) : 0) || boost(b) - boost(a));
+  return out;
+}
+
+function renderTonight(){
+  return `<div class="tn-wrap">
+    <aside class="tn-side" id="tn-side"></aside>
+    <div class="tn-main" id="tn-main"></div>
+  </div>`;
+}
+
+function tnSideHtml(all){
+  const byDay = [];
+  all.forEach(g => { let d = byDay.find(x => x.week === g.week); if(!d){ d = {week: g.week, games: []}; byDay.push(d); } d.games.push(g); });
+  const court = tnState.mode === 'court';
+  const sel = id => court ? tnState.focus === id : tnState.games.has(id);
+  const days = byDay.map(d => `<div class="tn-h4">${dayLabel(d.week, {long: true}).toUpperCase()} &middot; ${d.games.length} GAME${d.games.length === 1 ? '' : 'S'}</div>
+    ${court ? '' : `<button type="button" class="tn-g tn-all${d.games.every(g => tnState.games.has(g.id)) ? ' on' : ''}" data-day="${d.week}"><span class="tn-ck"></span>All games</button>`}
+    ${d.games.map(g => `<button type="button" class="tn-g${sel(g.id) ? ' on' : ''}" data-gid="${g.id}"><span><span class="tn-ck${court ? ' radio' : ''}"></span>${g.away} @ ${g.home}</span><small>${tnTime(g)}</small></button>`).join('')}`).join('');
+  const opt = (k, label) => `<button type="button" class="tn-g tn-opt${tnState[k] ? ' on' : ''}" data-opt="${k}"><span><span class="tn-ck"></span>${label}</span></button>`;
+  return `${days || '<div class="empty" style="padding:8px 0;">No games on the slate yet.</div>'}
+    <div class="tn-h4" style="margin-top:14px;">SHOW</div>
+    ${opt('starters', 'Starters only')}${court ? '' : opt('lines', 'Has a book line')}${court ? '' : opt('hideInj', 'Hide injured')}`;
+}
+
+function tnBarScale(rows){
+  const vals = rows.flatMap(r => [r.avg, r.d ? r.d.val : 0, r.line || 0]);
+  const m = Math.max(1, ...vals);
+  const step = m > 30 ? 10 : m > 12 ? 5 : 2;
+  return Math.ceil(m * 1.12 / step) * step;
+}
+
+function tnLeanHtml(r, cls){
+  if(r.line === null) return `<div class="${cls} none"><b>&mdash;</b><span>no line</span></div>`;
+  const c = r.lean === 'OVER' ? 'var(--mint)' : r.lean === 'UNDER' ? 'var(--red)' : 'var(--chalk-dim)';
+  return `<div class="${cls}" style="color:${c};border-color:${c};"><b>${r.lean}</b><span>${r.edge >= 0 ? '+' : ''}${fmt(r.edge)}</span></div>`;
+}
+
+function tnRowHtml(r, scale){
+  const m = r.d ? cvColor(r.d.rank, r.d.of) : 'var(--chalk-dim)';
+  const x = v => Math.max(0, Math.min(100, v / scale * 100));
+  const al = r.d ? r.d.val : null;
+  const lo = al === null ? r.avg : Math.min(r.avg, al), hi = al === null ? r.avg : Math.max(r.avg, al);
+  const ref = r.line !== null ? r.line : r.proj;
+  const spark = r.lastVals.map(v => `<i style="height:${Math.max(8, Math.round(v / scale * 100))}%;background:${ref === null ? 'var(--chalk-dim)' : v > ref ? 'var(--mint)' : 'var(--red)'};"></i>`).join('');
+  const open = tnState.open === r.key;
+  const lab = DVP_LABEL[r.stat];
+  return `<div class="tn-row${open ? ' open' : ''}" data-key="${frEsc(r.key)}" style="--m:${m};" role="button" tabindex="0">
+    <div class="tn-who"><div class="tn-badge">${r.pos}</div><div style="min-width:0;"><div class="tn-nm">${frEsc(r.name)}${r.inj ? ` <span class="tn-inj">${frEsc(r.inj)}</span>` : ''}</div>
+      <div class="tn-sub">${r.off} ${r.g.home === r.off ? 'vs' : '@'} ${r.def} &middot; ${tnTime(r.g)}</div></div></div>
+    <div class="tn-num"><div class="v">${fmt(r.avg)}</div><div class="l">HE GETS <span>L5 ${fmt(r.l5)}</span></div></div>
+    <div class="tn-num def"><div class="v">${al === null ? '--' : fmt(al)}</div><div class="l">${r.def} GIVES ${r.pos}s ${r.d ? `<span>#${r.d.rank}</span>` : ''}</div></div>
+    <div class="tn-bar" title="white = his average, colored = what ${r.def} gives up, orange = book line">
+      <div class="track"></div>
+      ${al === null ? '' : `<div class="gap" style="left:${x(lo)}%;width:${x(hi) - x(lo)}%;"></div><div class="dot dv" style="left:${x(al)}%;"></div>`}
+      <div class="dot me" style="left:${x(r.avg)}%;"></div>
+      ${r.line !== null ? `<div class="line" style="left:${x(r.line)}%;"><b>${fmt(r.line)}</b></div>` : ''}
+    </div>
+    <div class="tn-num"><div class="v">${r.proj === null ? '--' : fmt(r.proj)}</div><div class="l">PROJ ${lab}</div></div>
+    <div class="tn-book">${r.line !== null ? `<div class="v">o${fmt(r.line)} <span>${r.odds}</span></div>` : '<div class="v dim">no line</div>'}
+      <div class="tn-spark">${spark}</div><div class="l">${r.hits !== null ? `${r.hits}/${r.lastVals.length} over` : `last ${r.lastVals.length}`}</div></div>
+    ${tnLeanHtml(r, 'tn-edge')}
+  </div>${open ? tnDetailHtml(r) : ''}`;
+}
+
+function tnDetailHtml(r){
+  const lab = DVP_LABEL[r.stat];
+  const ref = r.line !== null ? r.line : null;
+  const cls = v => ref === null ? '' : v > ref ? ' class="o"' : ' class="u"';
+  const mine = r.last.slice().reverse().map(x => { const v = getStatValue(x, r.stat); return `<tr><td>${dayLabel(x.Week)}</td><td>${x['Home/Away'] === 'Home' ? 'vs' : '@'} ${x.Opponent}</td><td>${fmt(x.Minutes, 0)}</td><td${cls(v)}>${fmt(v)}</td></tr>`; }).join('');
+  const vs = (DATA.playerGame || []).filter(x => x.Opponent === r.def && x.Position === r.pos && x.Team !== r.off && isStarter(x))
+    .sort((a, b) => num(b.Week) - num(a.Week)).slice(0, 5);
+  const vsHtml = vs.map(x => { const v = getStatValue(x, r.stat); return `<tr><td>${dayLabel(x.Week)}</td><td>${frEsc(x.Player)} <span class="cv-dim">${x.Team}</span></td><td>${fmt(x.Minutes, 0)}</td><td${cls(v)}>${fmt(v)}</td></tr>`; }).join('');
+  const dh = ref === null ? null : vs.filter(x => getStatValue(x, r.stat) > ref).length;
+  const why = [];
+  if(r.d) why.push(`${teamName(r.def)} gives starting ${r.pos}s <b>${fmt(r.d.val)}</b> ${lab} a game, <b>#${r.d.rank}</b> most in the league (league ${fmt(r.d.league)}).`);
+  why.push(`${frEsc(r.name)} averages <b>${fmt(r.avg)}</b>, and <b>${fmt(r.l5)}</b> over his last ${r.lastVals.length}.`);
+  if(r.line !== null) why.push(`Projection <b>${fmt(r.proj)}</b> vs a line of <b>${fmt(r.line)}</b>: he's cleared it in <b>${r.hits} of ${r.lastVals.length}</b>${vs.length ? `, and starting ${r.pos}s cleared it in <b>${dh} of ${vs.length}</b> against ${r.def}` : ''}.`);
+  else why.push(`No book line posted yet. Projection <b>${r.proj === null ? '--' : fmt(r.proj)}</b>.`);
+  if(r.inj) why.push(`<span style="color:var(--gold);">Injury report: ${frEsc(r.inj)}.</span>`);
+  return `<div class="tn-detail">
+    <div><div class="tn-dt">${frEsc(r.name)} &middot; last ${r.lastVals.length}</div>
+      <table data-no-enhance><thead><tr><th>Date</th><th>Opp</th><th>Min</th><th>${lab}</th></tr></thead><tbody>${mine}</tbody></table></div>
+    <div><div class="tn-dt">Starting ${r.pos}s vs ${teamName(r.def)}</div>
+      ${vsHtml ? `<table data-no-enhance><thead><tr><th>Date</th><th>Player</th><th>Min</th><th>${lab}</th></tr></thead><tbody>${vsHtml}</tbody></table>` : '<div class="empty" style="padding:6px 0;">No games yet.</div>'}</div>
+    <div class="tn-why"><div class="tn-dt">Why</div>${why.map(w => `<p>${w}</p>`).join('')}</div>
+  </div>`;
+}
+
+function tnChipHtml(r, x, y){
+  const m = r.d ? cvColor(r.d.rank, r.d.of) : 'var(--chalk-dim)';
+  const c = r.lean === 'OVER' ? 'var(--mint)' : r.lean === 'UNDER' ? 'var(--red)' : 'var(--chalk-dim)';
+  const lean = r.line === null ? '<span class="tn-cl none">NO LINE</span>' : `<span class="tn-cl" style="color:${c};border-color:${c};">${r.lean}</span>`;
+  return `<button type="button" class="tn-chip${tnState.open === r.key ? ' sel' : ''}" data-key="${frEsc(r.key)}" style="${x !== null ? `left:${x}%;top:${y}%;` : ''}--m:${m};">
+    <span class="tn-cb">${r.pos}</span><span class="tn-cn">${frEsc(r.name)}</span>${lean}
+    <span class="tn-cs"><b>${fmt(r.avg)}</b><span class="w"> gets</span> &middot; <b style="color:${m};">${r.d ? fmt(r.d.val) : '--'}</b><span class="w"> allowed</span>${r.line !== null ? ` &middot; <b style="color:var(--gold);">o${fmt(r.line)}</b>` : ''}</span></button>`;
+}
+
+function mountTonight(){
+  const all = tnSlate();
+  const draw = () => {
+    if(!$('#tn-main')) return;
+    tnSelectedGames(all);
+    if(!tnState.focus || !all.some(g => g.id === tnState.focus)) tnState.focus = (all.find(g => tnState.games.has(g.id)) || all[0] || {}).id || null;
+    tnSave({stat: tnState.stat, pos: tnState.pos, sort: tnState.sort, mode: tnState.mode, starters: tnState.starters, lines: tnState.lines, hideInj: tnState.hideInj});
+    $('#tn-side').innerHTML = tnSideHtml(all);
+    const court = tnState.mode === 'court';
+    const pills = (id, list, cur, label) => `<div class="pill-group" id="${id}">${list.map(k => `<span class="pill ${k === cur ? 'active' : ''}" data-v="${k}">${label(k)}</span>`).join('')}</div>`;
+    const toggle = `<div class="tn-toggle"><button type="button" data-mode="list" class="${court ? '' : 'on'}">List</button><button type="button" data-mode="court" class="${court ? 'on' : ''}">Court</button></div>`;
+    const statPills = pills('tn-stat', TN_STATS, tnState.stat, k => DVP_LABEL[k]);
+    let body;
+    if(!court){
+      const games = all.filter(g => tnState.games.has(g.id));
+      const rows = tnRows(games);
+      const scale = tnBarScale(rows);
+      const sorts = [['edge', 'Best edge'], ['soft', 'Softest defense'], ['time', 'Tip time']];
+      body = `<div class="tn-titlebar"><div><div class="panel-title" style="font-size:24px;">Tonight's matchups</div>
+          <div class="panel-note">Every ${tnState.starters ? 'projected starter' : 'rotation player (15+ minutes lately)'} on the games you picked: what he gets, what tonight's defense gives up to starting players at his position, and the book line. The bar puts all three on one scale: <b>white</b> = his average, <b>colored dot</b> = what the defense gives up (mint = soft, coral = tough), <b>orange tick</b> = the book line. Projection = his average scaled by how this defense treats his position. A lean needs the projection ${TN_LEAN_MIN}+ away from the line. Tap a row for the games behind it.</div></div>${toggle}</div>
+        <div class="controls">${statPills}${pills('tn-pos', ['', ...CV_POS], tnState.pos, k => k || 'All')}
+          <div class="tn-sort">Sort: ${sorts.map(([k, l]) => `<button type="button" data-sort="${k}" class="${tnState.sort === k ? 'on' : ''}">${l}</button>`).join(' &middot; ')}</div></div>
+        ${rows.length ? `<div class="tn-head"><div>PLAYER</div><div>HE GETS</div><div>DEFENSE GIVES</div><div>HIM vs DEFENSE vs LINE (0&ndash;${scale} ${DVP_LABEL[tnState.stat]})</div><div>PROJ</div><div>BOOK &middot; LAST 5</div><div>LEAN</div></div>
+          <div class="tn-list">${rows.map(r => tnRowHtml(r, scale)).join('')}</div>`
+          : `<div class="empty" style="padding:30px 0;">${games.length ? 'Nobody matches these filters.' : 'Pick at least one game on the left.'}</div>`}
+        ${propHasData() ? '' : '<div class="line-note" style="margin-top:10px;">No book lines loaded yet (the prop-price feed fills these in), so leans are blank. The player and defense numbers still work.</div>'}`;
+    } else {
+      const g = all.find(x => x.id === tnState.focus);
+      if(!g) body = `<div class="tn-titlebar"><div class="panel-title" style="font-size:24px;">Court</div>${toggle}</div><div class="empty">No games on the slate yet.</div>`;
+      else {
+        const sideRows = (off, def) => {
+          const lineup = cvLineup(off);
+          return CV_POS.map(pos => { const p = (lineup[pos] || [])[0]; return p ? tnRow({Player: p.name, Position: pos, games: p.games, bench: p.bench}, off, def, g, tnState.stat) : null; });
+        };
+        const A = sideRows(g.away, g.home), H = sideRows(g.home, g.away);
+        const full = ($('#tn-main').clientWidth || 0) >= 680;
+        const chips = full
+          ? CV_POS.map((pos, i) => { const sp = CV_FULL_SPOTS[pos]; return (A[i] ? tnChipHtml(A[i], sp.x, sp.y) : '') + (H[i] ? tnChipHtml(H[i], 100 - sp.x, sp.y) : ''); }).join('')
+          : '';
+        const listFallback = full ? '' : [[g.away, A], [g.home, H]].map(([t, rs]) => `<div class="tn-dt" style="margin-top:10px;">${teamName(t)} on offense</div><div class="tn-chiplist">${rs.filter(Boolean).map(r => tnChipHtml(r, null, null)).join('')}</div>`).join('');
+        const openRow = [...A, ...H].find(r => r && r.key === tnState.open);
+        body = `<div class="tn-titlebar"><div><div class="panel-title" style="font-size:24px;">${g.away} @ ${g.home} &middot; ${tnTime(g)}</div>
+            <div class="panel-note">Same numbers as the list, on the floor: each player shows what he gets, what the defense gives up to his position, and the book line. Tap a player for the games behind it. Pick a different game on the left.</div></div>${toggle}</div>
+          <div class="controls">${statPills}</div>
+          ${full ? `<div class="tn-teams"><div>&larr; ${teamName(g.away)} on offense<span>vs ${teamName(g.home)} defense</span></div><div style="text-align:right;">${teamName(g.home)} on offense &rarr;<span>vs ${teamName(g.away)} defense</span></div></div>
+            <div class="tn-court">${cvFullSvg()}${chips}</div>` : listFallback}
+          ${openRow ? tnDetailHtml(openRow).replace('class="tn-detail"', 'class="tn-detail solo"') : ''}`;
+      }
+    }
+    $('#tn-main').innerHTML = body;
+    wire();
+  };
+  const wire = () => {
+    $$('#tn-side .tn-g[data-gid]').forEach(b => b.addEventListener('click', () => {
+      const id = b.dataset.gid;
+      if(tnState.mode === 'court'){ tnState.focus = id; tnState.open = null; }
+      else { tnState.games.has(id) ? tnState.games.delete(id) : tnState.games.add(id); tnState.focus = id; }
+      draw();
+    }));
+    $$('#tn-side .tn-all').forEach(b => b.addEventListener('click', () => {
+      const day = all.filter(g => String(g.week) === b.dataset.day);
+      const allOn = day.every(g => tnState.games.has(g.id));
+      day.forEach(g => allOn ? tnState.games.delete(g.id) : tnState.games.add(g.id));
+      draw();
+    }));
+    $$('#tn-side .tn-opt').forEach(b => b.addEventListener('click', () => { tnState[b.dataset.opt] = !tnState[b.dataset.opt]; tnState.open = null; draw(); }));
+    $$('#tn-main .tn-toggle button').forEach(b => b.addEventListener('click', () => { tnState.mode = b.dataset.mode; tnState.open = null; draw(); }));
+    $$('#tn-stat .pill').forEach(p => p.addEventListener('click', () => { tnState.stat = p.dataset.v; draw(); }));
+    $$('#tn-pos .pill').forEach(p => p.addEventListener('click', () => { tnState.pos = p.dataset.v; draw(); }));
+    $$('#tn-main .tn-sort button').forEach(b => b.addEventListener('click', () => { tnState.sort = b.dataset.sort; draw(); }));
+    $$('#tn-main .tn-row, #tn-main .tn-chip').forEach(el => el.addEventListener('click', () => {
+      tnState.open = tnState.open === el.dataset.key ? null : el.dataset.key;
+      draw();
+      const t = tnState.mode === 'court' ? $('#tn-main .tn-detail') : $(`#tn-main .tn-row[data-key="${CSS.escape(el.dataset.key)}"]`);
+      if(t && tnState.open) t.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+    }));
+  };
+  draw();
+  // Court mode switches between the full court and a list when the width changes (rotating an iPad).
+  if(window.ResizeObserver){
+    let wasFull = null;
+    const ro = new ResizeObserver(() => {
+      const m = $('#tn-main'); if(!m){ ro.disconnect(); return; }
+      const f = m.clientWidth >= 680;
+      if(wasFull !== null && f !== wasFull && tnState.mode === 'court') draw();
+      wasFull = f;
+    });
+    ro.observe($('#tn-main'));
+  }
 }
 
 // ---------- TAB: MATCHUP EXPLORER ----------
@@ -7529,6 +7878,7 @@ const renderers = {
   live: {render: renderLiveHub, mount: mountLiveHub},
   matchup: {render: renderMatchup, mount: mountMatchup},
   court: {render: renderCourt, mount: mountCourt},
+  tonight: {render: renderTonight, mount: mountTonight},
   teams: {render: renderTeams, mount: mountTeams},
   teamweek: {render: renderTeamWeek, mount: mountTeamWeek},
   players: {render: renderPlayers, mount: mountPlayers},
@@ -7593,6 +7943,32 @@ function infoizeNotes(root){
     if(h && !e.target.closest('.cv-tip')){ place(h); h.classList.toggle('show'); if(!h.classList.contains('show')) h.blur(); }
   });
 })();
+
+// ---- Two layouts in one page ----
+// Classic: every tool, in the side menu. Tonight: one main screen (player vs defense vs line, as a list or on the court)
+// with a short menu across the top. The choice is remembered per browser; ?layout=tonight or ?layout=classic in the
+// address opens one directly (handy for bookmarks or sending someone a link).
+const LAYOUT_KEY = 'nba_ledger_layout';
+const NAV_LAYOUTS = {
+  classic: [['board', 'Game Board'], ['picksg', 'Picks'], ['specials', 'Specials'], ['matchupsg', 'Matchups'], ['playersg', 'Players'],
+            ['teamsg', 'Teams'], ['live', 'Live Games'], ['backtest', 'How the Model Does']],
+  tonight: [['tonight', 'Tonight'], ['matchupsg', 'Matchups'], ['specials', 'Specials'], ['playersg', 'Players'], ['teamsg', 'Teams'],
+            ['live', 'Live'], ['backtest', 'Record']],
+};
+function getLayout(){
+  const q = new URLSearchParams(location.search).get('layout');
+  if(q && NAV_LAYOUTS[q]){ try { localStorage.setItem(LAYOUT_KEY, q); } catch(e){} return q; }
+  let v = null; try { v = localStorage.getItem(LAYOUT_KEY); } catch(e){}
+  return NAV_LAYOUTS[v] ? v : 'classic';
+}
+function applyLayout(name){
+  if(!NAV_LAYOUTS[name]) name = 'classic';
+  try { localStorage.setItem(LAYOUT_KEY, name); } catch(e){}
+  document.body.classList.toggle('layout-tonight', name === 'tonight');
+  $('#tabs').innerHTML = NAV_LAYOUTS[name].map(([id, label], i) => `<button data-tab="${id}"${i === 0 ? ' class="active"' : ''}>${label}</button>`).join('');
+  $$('#layout-pick button').forEach(b => b.classList.toggle('on', b.dataset.layout === name));
+  showTab(NAV_LAYOUTS[name][0][0]);
+}
 
 // Tabs that share one nav button: the button opens the group, a row of buttons on top switches between its views.
 const TAB_GROUPS = {
@@ -7822,7 +8198,8 @@ async function init(){
     : (DATA.playerGame && DATA.playerGame.length ? Math.max(...DATA.playerGame.map(r=>num_(r.Week))) : null);
   PREVIEW_WEEK = DATA.week2 && DATA.week2.length ? num_(DATA.week2[0].Week) : (LATEST_RESULTS_WEEK ? LATEST_RESULTS_WEEK + 1 : null);
 
-  $$('#tabs button[data-tab]').forEach(b=> b.addEventListener('click', ()=> showTab(b.dataset.tab)));
+  $('#tabs').addEventListener('click', e => { const b = e.target.closest('button[data-tab]'); if(b) showTab(b.dataset.tab); });
+  $$('#layout-pick button').forEach(b => b.addEventListener('click', () => applyLayout(b.dataset.layout)));
   const moreBtn = $('#nav-more-btn');
   if(moreBtn) moreBtn.addEventListener('click', ()=>{
     const m = $('#nav-more'); m.hidden = !m.hidden;
@@ -7835,7 +8212,7 @@ async function init(){
   });
   renderHero();
   renderTicker();
-  showTab(!document.body.classList.contains('no-tickets') && acctReadInvite() ? 'friends' : 'board');
+  applyLayout(getLayout());
 }
 init();
 document.addEventListener('DOMContentLoaded', tblWatch);
