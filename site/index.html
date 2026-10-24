@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NBA Ledger — 2026-27 NBA Stats</title>
+<title>Hardwood Ledger — 2026-27 NBA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -880,6 +880,37 @@
   .tn-notes{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;font-size:12px;color:var(--t-dim);line-height:1.35;}
   .tn-notes b{color:var(--t);margin-right:3px;}
   @container (max-width:1000px){ .tn-floor{grid-template-columns:minmax(0,1fr);} }
+  /* ---- Power 5 ---- */
+  .p5-floor{grid-template-columns:minmax(0,760px) minmax(300px,1fr);}
+  .p5-list{display:flex;flex-direction:column;gap:8px;} .p5-list .p5-card{position:static;transform:none;width:100%;}
+  .p5-court{position:relative;aspect-ratio:500/470;max-width:760px;width:100%;}
+  .p5-court svg{position:absolute;inset:0;width:100%;height:100%;}
+  .p5-card{position:absolute;transform:translate(-50%,-50%);width:31%;text-align:left;border:none;cursor:pointer;color:var(--t-text);font-family:var(--t-font);
+    padding:10px 12px;border-radius:16px;background:var(--t-pc);box-shadow:0 8px 24px rgba(0,0,0,.35),inset 0 0 0 1px var(--t-faint);backdrop-filter:blur(14px);}
+  .p5-card.sel{box-shadow:0 0 0 2px #FF5A6E,0 10px 30px rgba(255,46,136,.25);}
+  .p5-card .h{display:flex;align-items:center;gap:7px;min-width:0;}
+  .p5-card .n,.p5-opt .n{flex:1;min-width:0;font-size:clamp(12px,1.5cqw,16px);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .p5-sw{font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--t-accent-1);}
+  .p5-mt{font-size:11px;color:var(--t-dim);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .p5-pick{font-family:var(--t-num);font-size:clamp(15px,1.9cqw,21px);font-weight:700;color:var(--t-over);margin-top:6px;letter-spacing:-.3px;}
+  .p5-pick.sm{font-size:15px;margin-top:6px;}
+  .p5-sub{font-family:var(--t-font);font-size:11px;font-weight:500;color:var(--t-dim);}
+  .p5-foot{display:flex;justify-content:space-between;align-items:center;margin-top:7px;font-size:10px;color:var(--t-dim);}
+  .p5-foot .hd{display:flex;gap:3px;} .p5-foot .hd em{width:7px;height:7px;border-radius:50%;}
+  .p5-slip{background:var(--t-faint);border-radius:14px;padding:12px;}
+  .p5-leg{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--t-faint);font-size:13px;}
+  .p5-leg:last-of-type{border-bottom:none;} .p5-leg .n{flex:1;font-weight:600;} .p5-leg b{font-family:var(--t-num);color:var(--t-over);font-size:13px;}
+  .p5-pay{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-top:8px;font-size:11px;color:var(--t-dim);}
+  .p5-pay b{font-family:var(--t-num);font-size:22px;color:var(--t-text);}
+  .p5-reset{margin-top:10px;width:100%;background:none;border:1px solid var(--t-line);color:var(--t-dim);border-radius:999px;padding:6px;font-family:var(--t-font);font-size:12px;cursor:pointer;}
+  .p5-reset:disabled{opacity:.4;cursor:default;}
+  .p5-opt{background:var(--t-faint);border-radius:14px;padding:10px 12px;margin-top:8px;}
+  .p5-oh{display:flex;align-items:center;gap:10px;}
+  .p5-rank{width:22px;height:22px;border-radius:50%;background:var(--t-card2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t-dim);flex:none;}
+  .p5-in{background:var(--t-accent);color:var(--t-on-accent);border:none;border-radius:999px;padding:6px 12px;font-family:var(--t-font);font-size:12px;font-weight:700;cursor:pointer;flex:none;}
+  .p5-why{font-size:11px;color:var(--t-dim);margin-top:4px;line-height:1.4;}
+  @container (max-width:1000px){ .p5-floor{grid-template-columns:minmax(0,1fr);} .p5-court{margin:0 auto;} }
+  .p5-list .p5-card .n{font-size:15px;} .p5-list .p5-pick{font-size:18px;}
   /* ---- sub-tabs inside a grouped tab ---- */
   .subtabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;}
   .subtab{background:var(--panel);border:1px solid var(--panel-border);color:var(--chalk-dim);border-radius:8px;padding:7px 14px;
@@ -971,7 +1002,7 @@
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <h1 class="hero-title">NBA <span>LEDGER</span></h1>
+      <h1 class="hero-title">HARDWOOD <span>LEDGER</span></h1>
       <div class="hero-sub" id="hero-sub"></div>
     </div>
     <div class="layout-pick" id="layout-pick"><div class="lp" title="Two ways to use the app: Tonight (one screen: player vs defense vs line) or Classic (all the tools)"><button type="button" data-layout="tonight">Tonight</button><button type="button" data-layout="classic">Classic</button></div><button type="button" class="theme-btn" id="theme-btn" title="Dark / light">&#9790;</button></div>
@@ -1002,7 +1033,7 @@
   </div>
 </div>
 
-<footer>NBA LEDGER &mdash; built from ESPN box scores by your daily pipeline &middot; not affiliated with the NBA</footer>
+<footer>HARDWOOD LEDGER &mdash; built from ESPN box scores by your daily pipeline &middot; not affiliated with the NBA</footer>
 
 <script>
 let DATA = { teamSummary:[], teamWeek:[], playerGame:[], defVsPos:[], sos:[], week2:[] };
@@ -3571,7 +3602,10 @@ function tnRow(p, off, def, g, stat){
   const last = games.slice(-5);
   const lastVals = last.map(x => getStatValue(x, stat));
   const l5 = lastVals.reduce((s, v) => s + v, 0) / (lastVals.length || 1);
-  return {key: off + '|' + p.Player, name: p.Player, pos, off, def, g, stat, d, avg, l5, proj, line, odds, edge, lean, gp: win.length, split,
+  // how much this stat usually swings game to game (season), floored so a short or steady sample can't look certain
+  const allV = games.map(x => getStatValue(x, stat)), mu = allV.reduce((s, v) => s + v, 0) / (allV.length || 1);
+  const sd = Math.max(allV.length > 1 ? Math.sqrt(allV.reduce((s, v) => s + (v - mu) * (v - mu), 0) / (allV.length - 1)) : 0, Math.sqrt(Math.max(mu, 1)), 1);
+  return {sd, key: off + '|' + p.Player, name: p.Player, pos, off, def, g, stat, d, avg, l5, proj, line, odds, edge, lean, gp: win.length, split,
     last, lastVals, hits: line === null ? null : lastVals.filter(v => v > line).length, inj: tnInjury(p.Player), bench: !!p.bench};
 }
 function tnLeanColor(r){ return r.lean === 'OVER' ? 'var(--t-over)' : r.lean === 'UNDER' ? 'var(--t-under)' : 'var(--t-pass)'; }
@@ -3896,6 +3930,148 @@ function mountTonight(){
     });
     ro.observe($('#tn-main'));
   }
+}
+
+// ---------- POWER 5 (Tonight layout) ----------
+// Each night, one player per position who should have the best night against tonight's matchups, laid out like a
+// lineup on a half court, with the bet for each. Tap a player for three swaps: the next best at that position.
+// Three ways to pick (the switch at the top):
+//   Best bet      -- each player's strongest OVER tonight across PTS / REB / AST / 3PM / PRA: how far his projection
+//                    clears the book line (as a share of the line), nudged by how often he cleared it in his last 5.
+//   Points only   -- the same, points props only.
+//   Matchup boost -- no line needed: the stat where tonight's projection beats his own average by the most
+//                    (minimum average so tiny numbers don't win: 8 pts, 3 reb, 2 ast, 1 three, 15 PRA).
+// Uses the same numbers as Tonight (projected starters, Season / Last 10 / Last 5, home/away).
+const P5_MODES = [['best', 'Best bet'], ['points', 'Points only'], ['boost', 'Matchup boost']];
+const P5_MIN_AVG = {'Points': 8, 'Rebounds': 3, 'Assists': 2, '3PM': 1, 'Pts+Reb+Ast': 15};
+const P5_SLOTS = {PG: {x: 50, y: 18}, SG: {x: 80, y: 38}, SF: {x: 20, y: 38}, PF: {x: 30, y: 72}, C: {x: 70, y: 72}};
+const p5State = {mode: (() => { try { return localStorage.getItem('nba_ledger_p5_mode') || 'best'; } catch(e){ return 'best'; } })(), swaps: {}, sel: 'PG', day: null};
+
+// Score one player's stat rows for the current mode -> {r, score, why} for his best option, or null.
+function p5Best(rows){
+  let best = null;
+  rows.forEach(r => {
+    let score = null;
+    if(p5State.mode === 'boost'){
+      if(r.proj === null || r.avg < (P5_MIN_AVG[r.stat] || 0)) return;
+      score = (r.proj - r.avg) / r.sd;
+    } else {
+      if(p5State.mode === 'points' && r.stat !== 'Points') return;
+      if(r.line === null || r.proj === null || r.lean !== 'OVER') return;
+      score = (r.proj - r.line) / r.sd + 0.08 * ((r.hits || 0) - r.lastVals.length / 2);
+    }
+    if(score !== null && (!best || score > best.score)) best = {r, score};
+  });
+  return best;
+}
+function p5Label(b){
+  const r = b.r, st = TN_STAT_SHORT[r.stat];
+  if(p5State.mode === 'boost') return {main: `${st} ${fmt(r.proj)}`, sub: `+${fmt((r.proj / r.avg - 1) * 100, 0)}% on his ${fmt(r.avg)} average`};
+  return {main: `OVER ${fmt(r.line)} ${st}`, sub: `proj ${fmt(r.proj)}${r.odds ? ' &middot; ' + r.odds : ''}`};
+}
+
+function p5Pool(games){
+  const byPos = Object.fromEntries(CV_POS.map(p => [p, []]));
+  games.forEach(g => [[g.away, g.home], [g.home, g.away]].forEach(([off, def]) => {
+    projectedStarters(off).forEach(p => {
+      if(!byPos[p.Position]) return;
+      const rows = TN_STATS.map(st => tnRow({Player: p.Player, Position: p.Position, games: p.games}, off, def, g, st));
+      const b = p5Best(rows);
+      if(b) byPos[p.Position].push({key: rows[0].key, name: p.Player, pos: p.Position, off, def, g, rows, best: b, inj: rows[0].inj});
+    });
+  }));
+  CV_POS.forEach(p => byPos[p].sort((a, b) => b.best.score - a.best.score));
+  return byPos;
+}
+
+function renderPower5(){
+  return `<div class="tn-wrap court-mode p5" id="tn-wrap"><div class="tn-main" id="p5-main"></div></div>`;
+}
+
+function p5CardHtml(c, slot, sel, swapped){
+  const lab = p5Label(c.best), r = c.best.r;
+  const ref = p5State.mode === 'boost' ? r.proj : r.line;
+  const dots = ref === null ? '' : r.lastVals.map(v => `<em style="background:${v > ref ? 'var(--t-over)' : 'var(--t-under)'};"></em>`).join('');
+  return `<button type="button" class="p5-card${sel ? ' sel' : ''}" data-slot="${slot}" style="left:${P5_SLOTS[slot].x}%;top:${P5_SLOTS[slot].y}%;">
+    <div class="h"><span class="tn-cb" style="--m:${r.d ? cvColor(r.d.rank, r.d.of) : 'var(--t-dim)'};">${slot}</span><span class="n">${frEsc(c.name)}</span>${swapped ? '<span class="p5-sw">swap</span>' : ''}</div>
+    <div class="p5-mt">${c.off} ${c.g.home === c.off ? 'vs' : '@'} ${c.def} &middot; ${tnTime(c.g)}${c.inj ? ` &middot; <b class="tn-inj">${frEsc(c.inj)}</b>` : ''}</div>
+    <div class="p5-pick">${lab.main}</div><div class="p5-sub">${lab.sub}</div>
+    <div class="p5-foot"><span class="hd">${dots}</span><span>${r.d ? `${c.def} #${r.d.rank} vs ${slot}s` : ''}</span></div></button>`;
+}
+
+function p5SwapHtml(c, cur, i){
+  const lab = p5Label(c.best), r = c.best.r, cr = cur.best.r;
+  const diff = c.best.score - cur.best.score;
+  const notes = [];
+  if(p5State.mode !== 'boost') notes.push(`clears the line by ${fmt(r.proj - r.line)}`);
+  if(r.hits !== null) notes.push(`${r.hits}/${r.lastVals.length} over lately`);
+  if(r.d) notes.push(`${r.def} #${r.d.rank} vs ${c.pos}s`);
+  if(c.inj) notes.push(`<b class="tn-inj">${frEsc(c.inj)}</b>`);
+  return `<div class="p5-opt">
+    <div class="p5-oh"><span class="p5-rank">${i + 2}</span><div style="min-width:0;flex:1;"><div class="n">${frEsc(c.name)}</div><div class="p5-mt">${c.off} ${c.g.home === c.off ? 'vs' : '@'} ${c.def} &middot; ${tnTime(c.g)}</div></div>
+      <button type="button" class="p5-in" data-key="${frEsc(c.key)}">Swap in</button></div>
+    <div class="p5-pick sm">${lab.main} <span class="p5-sub">${lab.sub}</span></div>
+    <div class="p5-why">${notes.join(' &middot; ')}${Math.abs(diff) < 0.02 ? ' &middot; about even' : diff < 0 ? ' &middot; a step down' : ''}</div></div>`;
+}
+
+function mountPower5(){
+  const all = tnSlate();
+  const days = [...new Set(all.map(g => g.week))];
+  if(!p5State.day || !days.includes(p5State.day)) p5State.day = days[0] || null;
+  const seg = (id, list, cur, label) => `<div class="tn-seg" id="${id}">${list.map(k => `<button type="button" data-v="${k}" class="${String(k) === String(cur) ? 'on' : ''}">${label(k)}</button>`).join('')}</div>`;
+  const draw = () => {
+    const m = $('#p5-main'); if(!m) return;
+    try { localStorage.setItem('nba_ledger_p5_mode', p5State.mode); } catch(e){}
+    const games = all.filter(g => g.week === p5State.day);
+    const pool = p5Pool(games);
+    // the lineup: the top player at each position, or the swap you picked
+    const lineup = {};
+    CV_POS.forEach(pos => {
+      const list = pool[pos]; if(!list.length) return;
+      const sw = p5State.swaps[pos] && list.find(c => c.key === p5State.swaps[pos]);
+      lineup[pos] = sw || list[0];
+    });
+    if(!lineup[p5State.sel]) p5State.sel = CV_POS.find(p => lineup[p]) || 'PG';
+    const line = 'stroke="var(--t-line)" stroke-width="2" fill="none"';
+    const svg = `<svg viewBox="0 0 500 470" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="498" height="468" rx="18" fill="var(--t-court)" ${line}/>
+      <rect x="170" y="280" width="160" height="189" fill="var(--t-paint)" ${line}/><circle cx="250" cy="280" r="60" ${line}/>
+      <path d="M 30 469 L 30 330 A 237.5 237.5 0 0 1 470 330 L 470 469" ${line}/><path d="M 210 417.5 A 40 40 0 0 1 290 417.5" ${line}/>
+      <circle cx="250" cy="417.5" r="8" fill="none" stroke="var(--t-rim)" stroke-width="2.5"/><path d="M 190 1 A 60 60 0 0 0 310 1" ${line}/></svg>`;
+    const cards = CV_POS.map(pos => lineup[pos] ? p5CardHtml(lineup[pos], pos, pos === p5State.sel, lineup[pos] !== pool[pos][0]) : '').join('');
+    // the slip: five legs and, when every leg has a book price, what the five together would pay
+    const legs = CV_POS.filter(p => lineup[p]).map(p => lineup[p]);
+    let slip = '';
+    if(legs.length){
+      const decs = legs.map(c => { const b = c.best.r.odds ? propMainFor(c.name, c.best.r.stat) : null; return b && b.bo ? b.bo.dec : null; });
+      const allPriced = p5State.mode !== 'boost' && decs.every(d => d);
+      const dec = allPriced ? decs.reduce((a, d) => a * d, 1) : null;
+      slip = `<div class="p5-slip"><div class="tn-h">Tonight's Power 5</div>
+        ${legs.map(c => `<div class="p5-leg"><span class="tn-cb" style="--m:var(--t-dim);">${c.pos}</span><span class="n">${frEsc(tnShort(c.name))}</span><b>${p5Label(c.best).main}</b></div>`).join('')}
+        ${dec ? `<div class="p5-pay"><span>All five at the book's best prices</span><b>${propAmerican(dec)}</b></div>` : `<div class="p5-pay"><span>${p5State.mode === 'boost' ? 'Matchup boost picks are not tied to a line.' : 'Payout shows once every leg has a book price.'}</span></div>`}
+        <button type="button" class="p5-reset"${Object.keys(p5State.swaps).length ? '' : ' disabled'}>Reset to the top 5</button></div>`;
+    }
+    const cur = lineup[p5State.sel];
+    const others = cur ? pool[p5State.sel].filter(c => c.key !== cur.key).slice(0, 3) : [];
+    const side = `<div class="tn-drawer p5-side">${slip}
+      <div class="tn-h" style="margin-top:16px;">Swap the ${p5State.sel}${cur ? ` (${frEsc(tnShort(cur.name))})` : ''}</div>
+      ${others.length ? others.map((c, i) => p5SwapHtml(c, cur, i)).join('') : '<div class="tn-empty" style="padding:10px 0;">No other options at this position tonight.</div>'}</div>`;
+    const empty = !legs.length;
+    m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Power 5</div>
+        <div class="panel-note">One player per position who should have the best night against tonight's matchups. <b>Best bet</b>: each player's strongest OVER across points, rebounds, assists, threes and PRA: how far his projection clears the book line measured in his usual game-to-game swing for that stat (so a 2-point edge on a steady player beats it on a streaky one), with a nudge for how often he cleared it in his last 5. <b>Points only</b>: the same for points. <b>Matchup boost</b>: the stat where his projection beats his own average by the most (again in his usual swing), no line needed. Projections are the same as Tonight's (his average for the window you pick, home/away, and how this defense treats his position). Tap a player for the next three at that position and swap one in; the slip at the right shows the five legs and, when they all have prices, what they would pay together.</div>
+        <div class="tn-sub">${days.length ? dayLabel(p5State.day, {long: true}) + ' &middot; ' + games.length + ' game' + (games.length === 1 ? '' : 's') : 'No games on the slate'} &middot; tap a player to swap</div></div></div>
+      <div class="tn-bar">${seg('p5-mode', P5_MODES.map(x => x[0]), p5State.mode, k => P5_MODES.find(x => x[0] === k)[1])}
+        ${seg('tn-win', TN_WINDOWS.map(w => w[0]), tnState.win, k => TN_WINDOWS.find(w => w[0] === k)[1])}
+        ${days.length > 1 ? seg('p5-day', days, p5State.day, d => dayLabel(d)) : ''}</div>
+      ${empty ? `<div class="tn-empty" style="padding:40px 0;">${p5State.mode === 'boost' ? 'No projected starters on this slate yet.' : 'No player has an OVER call yet. That needs book lines (the prop-price feed). Try Matchup boost, which works without lines.'}</div>`
+        : `<div class="tn-floor p5-floor">${(m.clientWidth || 0) >= 560 ? `<div class="p5-court">${svg}${cards}</div>` : `<div class="p5-list">${cards}</div>`}${side}</div>`}`;
+    $$('#p5-mode button').forEach(b => b.addEventListener('click', () => { p5State.mode = b.dataset.v; p5State.swaps = {}; draw(); }));
+    $$('#p5-main #tn-win button').forEach(b => b.addEventListener('click', () => { tnState.win = b.dataset.v; draw(); }));
+    $$('#p5-day button').forEach(b => b.addEventListener('click', () => { p5State.day = b.dataset.v; p5State.swaps = {}; draw(); }));
+    $$('#p5-main .p5-card').forEach(b => b.addEventListener('click', () => { p5State.sel = b.dataset.slot; draw(); }));
+    $$('#p5-main .p5-in').forEach(b => b.addEventListener('click', () => { p5State.swaps[p5State.sel] = b.dataset.key; draw(); }));
+    const rs = $('#p5-main .p5-reset'); if(rs) rs.addEventListener('click', () => { p5State.swaps = {}; draw(); });
+  };
+  draw();
 }
 
 // ---------- TAB: MATCHUP EXPLORER ----------
@@ -8185,6 +8361,7 @@ const renderers = {
   matchup: {render: renderMatchup, mount: mountMatchup},
   court: {render: renderCourt, mount: mountCourt},
   tonight: {render: renderTonight, mount: mountTonight},
+  power5: {render: renderPower5, mount: mountPower5},
   teams: {render: renderTeams, mount: mountTeams},
   teamweek: {render: renderTeamWeek, mount: mountTeamWeek},
   players: {render: renderPlayers, mount: mountPlayers},
@@ -8259,7 +8436,7 @@ const LAYOUT_KEY = 'nba_ledger_layout_v2';
 const NAV_LAYOUTS = {
   classic: [['board', 'Game Board'], ['picksg', 'Picks'], ['specials', 'Specials'], ['matchupsg', 'Matchups'], ['playersg', 'Players'],
             ['teamsg', 'Teams'], ['live', 'Live Games'], ['backtest', 'How the Model Does']],
-  tonight: [['tonight', 'Tonight'], ['matchupsg', 'Matchups'], ['specials', 'Specials'], ['playersg', 'Players'], ['teamsg', 'Teams'],
+  tonight: [['tonight', 'Tonight'], ['power5', 'Power 5'], ['matchupsg', 'Matchups'], ['specials', 'Specials'], ['playersg', 'Players'], ['teamsg', 'Teams'],
             ['live', 'Live'], ['backtest', 'Record']],
 };
 // Dark / light (the Tonight layout's look). First visit follows the device setting; after that the choice is remembered.
