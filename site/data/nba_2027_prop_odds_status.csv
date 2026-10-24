@@ -1,2 +1,2 @@
 ran_at,outcome,detail,games,rows,calls
-2026-10-24 01:16 UTC,no key,"No key reached the workflow. Add RAPIDAPI_KEY as a repository secret (Settings, Secrets and variables, Actions, Repository secrets) and make sure the NEW daily_refresh.yml is in .github/workflows/ so it is passed to the step.",,,
+2026-10-24 01:23 UTC,no key,"No key reached the workflow. Add RAPIDAPI_KEY as a repository secret (Settings, Secrets and variables, Actions, Repository secrets) and make sure the NEW daily_refresh.yml is in .github/workflows/ so it is passed to the step.",,,
