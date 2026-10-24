@@ -107,7 +107,7 @@ def main():
         def_games = hist.groupby("Opponent")["Game Day"].nunique().to_dict()
         hs = hist[hist["Starter"] == 1]
         league = {(pos, s): float(hs[hs["Position"] == pos][s].mean()) if len(hs[hs["Position"] == pos]) else 0.0
-                  for pos in ("G", "F", "C") for s in FLOORS}
+                  for pos in POSITIONS for s in FLOORS}
 
         for off, d in {(r.Team, r.Opponent) for r in cur.itertuples(index=False)}:
             for (team, player), slot in starters.items():
