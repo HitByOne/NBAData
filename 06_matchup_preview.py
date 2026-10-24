@@ -95,8 +95,8 @@ if TEAM_SUMMARY_FILE.exists():
 if DVP_FILE.exists():
     dvp = pd.read_csv(DVP_FILE)
     wide = dvp.pivot_table(index="Defense", columns="Position",
-                           values=["Fantasy Points Allowed Per Game", "Points Allowed Per Game", "Rebounds Allowed Per Game",
-                                   "Assists Allowed Per Game", "3PM Allowed Per Game", "Fantasy Points Allowed Rank"], aggfunc="first")
+                           values=["Points Allowed Per Game", "Rebounds Allowed Per Game",
+                                   "Assists Allowed Per Game", "3PM Allowed Per Game", "Points Allowed Rank"], aggfunc="first")
     wide.columns = [f"{s} vs {p}" for s, p in wide.columns]
     up = up.merge(wide.reset_index(), left_on="Opponent", right_on="Defense", how="left").drop(columns=["Defense"])
 
