@@ -1,2 +1,2 @@
 ran_at,outcome,detail,games,rows,calls
-2026-10-24 04:13 UTC,api error,"HTTP 401 on /sports: {""error"":401,""message"":""invalid apiKey"",""code"":""invalid_api_key""}. 401/403: the key was rejected (check it is the RapidAPI key for this API and that you are subscribed). 429: request limit used up.",,,1
+2026-10-24 04:24 UTC,ok,10 prices from 1 books. 0 market types not mapped to a stat.,8,10,17
