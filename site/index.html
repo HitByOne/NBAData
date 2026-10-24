@@ -640,6 +640,51 @@
   .gb-pe{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(230px,1.6fr) minmax(190px,1.3fr) minmax(140px,1fr) 56px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--panel-border);font-size:13px;}
   .gb-props-title + .gb-pe{border-top:none;}
   @media (max-width:900px){ .gb-pe{grid-template-columns:1fr 1fr;} .gb-pe-name,.gb-pe-bet{grid-column:1 / -1;} }
+  /* ---- Court View ---- */
+  :root{ --cv-floor:#141B2B; --cv-paint:rgba(255,138,61,0.07); --cv-line:#3A4560; }
+  .cv-games{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;margin-bottom:4px;}
+  .cv-game{flex:0 0 auto;background:var(--field-deep);border:1px solid var(--panel-border);color:var(--chalk);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:12px;cursor:pointer;text-align:left;}
+  .cv-game span{display:block;color:var(--chalk-dim);font-size:10px;margin-top:2px;}
+  .cv-game.active,.cv-game:hover{border-color:var(--gold);}
+  .cv-title{font-size:18px;margin:6px 0 10px;}
+  .cv-dim{color:var(--chalk-dim);font-weight:400;font-size:0.85em;}
+  .cv-wrap{container-type:inline-size;max-width:820px;margin:0 auto;}
+  .cv-court{position:relative;width:100%;aspect-ratio:500/470;}
+  .cv-svg{position:absolute;inset:0;width:100%;height:100%;}
+  .cv-spot{position:absolute;transform:translate(-50%,-50%);width:28%;padding:8px 10px;border-radius:12px;cursor:pointer;
+    font-family:var(--cond);text-align:left;backdrop-filter:blur(2px);box-shadow:0 4px 18px rgba(0,0,0,0.45);}
+  .cv-spot{background-color:rgba(18,24,38,0.9);}
+  .cv-spot.open{outline:2px solid var(--gold);outline-offset:2px;}
+  .cv-head{display:flex;justify-content:space-between;align-items:center;}
+  .cv-pos{font-family:var(--display);font-size:20px;letter-spacing:0.5px;}
+  .cv-rank{font-family:var(--mono);font-size:13px;font-weight:700;}
+  .cv-big{font-family:var(--display);font-size:26px;line-height:1.1;margin-top:2px;}
+  .cv-unit{font-family:var(--mono);font-size:11px;color:var(--chalk-dim);font-weight:400;}
+  .cv-sub{font-family:var(--mono);font-size:11px;color:var(--chalk-dim);margin-bottom:4px;}
+  .cv-player{border-top:1px solid rgba(255,255,255,0.12);padding-top:4px;margin-top:4px;}
+  .cv-name{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cv-line{font-family:var(--mono);font-size:11px;color:var(--chalk-dim);}
+  .cv-line b{color:var(--chalk);}
+  .cv-legend{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--chalk-dim);margin:10px 0 4px;}
+  .cv-sw{display:inline-block;width:16px;height:12px;border-radius:3px;margin-left:8px;}
+  .cv-detail{margin-top:14px;}
+  .cv-list{display:none;}
+  .cv-row{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border-radius:10px;padding:8px 10px;margin-top:8px;cursor:pointer;font-family:var(--cond);font-size:14px;}
+  .cv-row .cv-pos{min-width:34px;font-size:17px;}
+  .cv-rowmain{flex:1;min-width:0;}
+  @container (max-width:520px){
+    .cv-list{display:block;}
+    .cv-spot{width:auto !important;min-width:58px;text-align:center;}
+    .cv-spot .cv-player,.cv-spot .cv-sub{display:none;}
+    .cv-head{justify-content:center;gap:6px;}
+  }
+  @container (max-width:620px){
+    .cv-spot{width:31%;padding:5px 6px;border-radius:9px;}
+    .cv-pos{font-size:14px;} .cv-rank{font-size:11px;} .cv-big{font-size:17px;}
+    .cv-unit,.cv-hide-sm{display:none;} .cv-sub{font-size:9px;margin-bottom:2px;}
+    .cv-name{font-size:12px;} .cv-line{font-size:9px;}
+    .cv-second{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -665,6 +710,7 @@
     <nav class="tabs" id="tabs">
       <button data-tab="board" class="active">Game Board</button>
       <button data-tab="picks">Best Picks</button>
+      <button data-tab="court">Court View</button>
       <button data-tab="fb">First Basket</button>
       <button data-tab="q3">3Q Scoring</button>
       <button data-tab="propprices">Prop Prices</button>
@@ -2897,6 +2943,198 @@ function mountWeek2(){
   }
   $('#wk2-search').addEventListener('input', apply);
   apply();
+}
+
+// ---------- TAB: COURT VIEW ----------
+// The defense-vs-position numbers drawn on a half court. Each of the five spots (PG, SG, SF, PF, C) shows what the
+// defense gives up to that position, ranked against the league (#1 = gives up the most = best matchup, mint; tough
+// matchups go coral), and the offense's projected starter at that spot with his own average and a projection
+// (his average scaled by how this defense treats his position, shrunk toward neutral until the defense has 10 games).
+// "Per starter" = what one STARTING player at the position averaged against them (the Best Picks basis);
+// "Whole position" = everyone at that position combined, per game. Click a spot for the game-by-game list.
+const CV_POS = ['PG', 'SG', 'SF', 'PF', 'C'];
+const CV_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Pts+Reb+Ast', 'Fantasy Points'];
+const CV_SPOTS = {PG: {x: 50, y: 21}, SG: {x: 83, y: 41}, SF: {x: 17, y: 41}, PF: {x: 29, y: 75}, C: {x: 71, y: 75}};
+const CV_SHRINK = 10;
+const CV_KEY = 'nba_ledger_court_view';
+function cvLoadPrefs(){ try { return JSON.parse(localStorage.getItem(CV_KEY) || '{}') || {}; } catch(e){ return {}; } }
+function cvSavePrefs(p){ try { localStorage.setItem(CV_KEY, JSON.stringify(p)); } catch(e){} }
+
+function cvCourtSvg(){
+  // NBA half court, 1 unit = 0.1 ft: 50 ft wide, 47 ft deep, baseline at the bottom.
+  const line = 'stroke="var(--cv-line)" stroke-width="2.2" fill="none"';
+  return `<svg class="cv-svg" viewBox="0 0 500 470" preserveAspectRatio="none" aria-hidden="true">
+    <rect x="1" y="1" width="498" height="468" rx="4" fill="var(--cv-floor)" ${line}/>
+    <rect x="170" y="280" width="160" height="189" fill="var(--cv-paint)" ${line}/>
+    <circle cx="250" cy="280" r="60" ${line}/>
+    <path d="M 30 469 L 30 330 A 237.5 237.5 0 0 1 470 330 L 470 469" ${line}/>
+    <path d="M 210 417.5 A 40 40 0 0 1 290 417.5" ${line}/>
+    <line x1="220" y1="430" x2="280" y2="430" stroke="var(--cv-line)" stroke-width="3"/>
+    <circle cx="250" cy="417.5" r="7.5" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+    <path d="M 190 1 A 60 60 0 0 0 310 1" ${line}/>
+  </svg>`;
+}
+
+function renderCourt(){
+  const teams = [...new Set((DATA.teamSummary || []).map(r => r.Team))].sort();
+  const games = matchupScheduleGames().filter(g => teams.includes(g.away) && teams.includes(g.home));
+  const prefs = cvLoadPrefs();
+  const first = games[0];
+  const off = teams.includes(prefs.off) ? prefs.off : first ? first.away : teams[0];
+  const def = teams.includes(prefs.def) ? prefs.def : first ? first.home : teams[1];
+  const stat = CV_STATS.includes(prefs.stat) ? prefs.stat : 'Points';
+  const basis = prefs.basis === 'all' ? 'all' : 'starter';
+  const chips = games.map(g => {
+    const dt = new Date(g.date);
+    const when = isNaN(dt) ? '' : `${dayLabel(g.week)} ${dt.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'})}`;
+    return `<button type="button" class="cv-game" data-away="${g.away}" data-home="${g.home}"><b>${g.away}</b> @ <b>${g.home}</b><span>${when}</span></button>`;
+  }).join('');
+  return `<div class="panel">
+    <div class="panel-title">Court View</div>
+    <div class="panel-note">What the defense gives up to each position, drawn where those players stand. Each spot shows the defense's number for that
+      position and its league rank (<b>#1 gives up the most</b>, mint = good matchup, coral = tough), plus the offense's projected starter there:
+      his own average and a projection scaled by how this defense treats his position. <b>Per starter</b> is what one starting player at the
+      position averaged against them (what Best Picks uses); <b>Whole position</b> is everyone at the position combined, per game. Tap a spot for the games behind it.</div>
+    ${chips ? `<div class="cv-games">${chips}</div>` : ''}
+    <div class="controls">
+      <label class="ctl-label">Offense <select id="cv-off"><option value="">None (defense only)</option>${teams.map(t => `<option value="${t}" ${t === off ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
+      <button class="save-pick-btn" id="cv-flip" title="Swap offense and defense">&#8646; Flip</button>
+      <label class="ctl-label">Defense <select id="cv-def">${teams.map(t => `<option value="${t}" ${t === def ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
+    </div>
+    <div class="controls">
+      <div class="pill-group" id="cv-stat">${CV_STATS.map(k => `<span class="pill ${k === stat ? 'active' : ''}" data-stat="${k}">${DVP_LABEL[k]}</span>`).join('')}</div>
+      <div class="pill-group" id="cv-basis"><span class="pill ${basis === 'starter' ? 'active' : ''}" data-basis="starter">Per starter</span><span class="pill ${basis === 'all' ? 'active' : ''}" data-basis="all">Whole position</span></div>
+    </div>
+    <div class="cv-title" id="cv-title"></div>
+    <div class="cv-wrap"><div class="cv-court" id="cv-court">${cvCourtSvg()}<div id="cv-spots"></div></div><div class="cv-list" id="cv-list"></div></div>
+    <div class="cv-legend"><span class="cv-sw" style="${heatColor(1, 30)}"></span> gives up the most <span class="cv-sw" style="${heatColor(15, 30)}"></span> middle <span class="cv-sw" style="${heatColor(30, 30)}"></span> gives up the least</div>
+    <div id="cv-detail"></div>
+  </div>`;
+}
+
+function cvColumn(stat, basis){ return basis === 'starter' ? `Starter ${stat} Allowed Per Player` : `${stat} Allowed Per Game`; }
+
+// The defense's number at one position, its rank among all teams, and the league average.
+function cvDefenseAt(def, pos, stat, basis){
+  const col = cvColumn(stat, basis);
+  const rows = (DATA.defVsPos || []).filter(r => r.Position === pos && r[col] !== '' && r[col] !== undefined);
+  const row = rows.find(r => r.Defense === def);
+  if(!row) return null;
+  const val = num(row[col]);
+  const sorted = rows.map(r => num(r[col])).sort((a, b) => b - a);
+  const league = sorted.reduce((s, v) => s + v, 0) / (sorted.length || 1);
+  const games = num(basis === 'starter' ? row['Starter Games'] : row['Games Played']);
+  return {val, rank: sorted.indexOf(val) + 1, of: sorted.length, league, games, faced: num(row['Players Faced'])};
+}
+
+// Who the offense puts at each spot: projected starters by position; an empty spot gets his team's top healthy
+// player at that position by recent minutes (marked bench).
+function cvLineup(off){
+  const spots = Object.fromEntries(CV_POS.map(p => [p, []]));
+  if(!off) return spots;
+  const starters = projectedStarters(off);
+  starters.forEach(p => { if(spots[p.Position]) spots[p.Position].push({name: p.Player, games: p.games, bench: false}); });
+  const taken = new Set(starters.map(p => p.Player));
+  const rot = teamRotation(off).filter(p => !taken.has(p.Player) && !isPlayerOut(p.Player)).sort((a, b) => b.l5mpg - a.l5mpg);
+  CV_POS.forEach(pos => {
+    if(spots[pos].length) return;
+    const p = rot.find(r => r.Position === pos);
+    if(p) spots[pos].push({name: p.Player, games: p.games, bench: true});
+  });
+  return spots;
+}
+
+function cvPlayerLine(p, stat, d){
+  const vals = p.games.map(g => getStatValue(g, stat));
+  const avg = vals.reduce((s, v) => s + v, 0) / (vals.length || 1);
+  const l5v = vals.slice(-5);
+  const l5 = l5v.reduce((s, v) => s + v, 0) / (l5v.length || 1);
+  let proj = null, factor = null;
+  if(d && d.league > 0){
+    const raw = d.val / d.league;
+    factor = 1 + (raw - 1) * Math.min(1, d.games / CV_SHRINK);
+    proj = avg * factor;
+  }
+  return {avg, l5, proj, factor, gp: vals.length};
+}
+
+function mountCourt(){
+  const prefs = cvLoadPrefs();
+  let stat = CV_STATS.includes(prefs.stat) ? prefs.stat : 'Points';
+  let basis = prefs.basis === 'all' ? 'all' : 'starter';
+  let openPos = null;
+  const save = () => cvSavePrefs({off: $('#cv-off').value, def: $('#cv-def').value, stat, basis});
+
+  function detail(){
+    const box = $('#cv-detail');
+    if(!openPos){ box.innerHTML = ''; return; }
+    const def = $('#cv-def').value, off = $('#cv-off').value;
+    const rows = (DATA.playerGame || []).filter(r => r.Opponent === def && r.Position === openPos && r.Team !== off && (basis === 'all' || isStarter(r)))
+      .sort((a, b) => num(b.Week) - num(a.Week) || getStatValue(b, stat) - getStatValue(a, stat));
+    const d = cvDefenseAt(def, openPos, stat, basis);
+    const body = rows.slice(0, 40).map(r => `<tr><td>${dayLabel(r.Week)}</td><td>${frEsc(r.Player)}${isStarter(r) ? '' : ' <span class="cv-dim">bench</span>'}</td><td>${r.Team}</td><td class="num">${fmt(r.Minutes, 0)}</td><td class="num"><b>${fmt(getStatValue(r, stat))}</b></td></tr>`).join('');
+    box.innerHTML = `<div class="cv-detail">
+      <div class="panel-title" style="font-size:17px;">${openPos}s against ${teamName(def)} &middot; ${DVP_LABEL[stat]}
+        <button class="save-pick-btn" id="cv-close" style="float:right;">Close</button></div>
+      <div class="line-note" style="margin:0 0 10px;">${d ? `${fmt(d.val)} ${basis === 'starter' ? 'per starter' : 'per game'} (league ${fmt(d.league)}), #${d.rank} of ${d.of}. ` : ''}${basis === 'starter' ? 'Starters only.' : 'Everyone at the position.'}${off ? ` ${teamName(off)}'s own games against them are left out.` : ''}</div>
+      ${body ? `<div class="table-scroll"><table><thead><tr><th>Date</th><th>Player</th><th>Team</th><th>Min</th><th>${DVP_LABEL[stat]}</th></tr></thead><tbody>${body}</tbody></table></div>`
+             : '<div class="empty" style="padding:8px 0;">No games yet.</div>'}
+    </div>`;
+    $('#cv-close').addEventListener('click', () => { openPos = null; draw(); });
+  }
+
+  function draw(){
+    const off = $('#cv-off').value, def = $('#cv-def').value;
+    const lineup = cvLineup(off);
+    const label = DVP_LABEL[stat];
+    $('#cv-title').innerHTML = off
+      ? `<b>${teamName(off)}</b> on offense <span class="cv-dim">vs</span> <b>${teamName(def)}</b> defense`
+      : `What <b>${teamName(def)}</b> gives up by position`;
+    $('#cv-spots').innerHTML = CV_POS.map(pos => {
+      const s = CV_SPOTS[pos], d = cvDefenseAt(def, pos, stat, basis);
+      const style = d ? heatColor(d.rank, d.of) : '';
+      const diff = d && d.league ? Math.round((d.val / d.league - 1) * 100) : null;
+      const players = (lineup[pos] || []).map((p, i) => {
+        const l = cvPlayerLine(p, stat, d);
+        const up = l.proj !== null && l.proj >= l.avg;
+        return `<div class="cv-player${i ? ' cv-second' : ''}">
+          <div class="cv-name">${frEsc(p.name)}${p.bench ? ' <span class="cv-dim">bench</span>' : ''}</div>
+          <div class="cv-line">avg <b>${fmt(l.avg)}</b> <span class="cv-hide-sm">&middot; L5 ${fmt(l.l5)}</span>${l.proj !== null ? ` &middot; proj <b style="color:${up ? 'var(--mint)' : 'var(--red)'};">${fmt(l.proj)}</b>` : ''}</div>
+        </div>`;
+      }).join('');
+      return `<button type="button" class="cv-spot${openPos === pos ? ' open' : ''}" data-pos="${pos}" style="left:${s.x}%;top:${s.y}%;${style}">
+        <div class="cv-head"><span class="cv-pos">${pos}</span>${d ? `<span class="cv-rank">#${d.rank}</span>` : ''}</div>
+        ${d ? `<div class="cv-big">${fmt(d.val)}<span class="cv-unit"> ${label}</span></div>
+               <div class="cv-sub">${diff === null ? '' : `${diff >= 0 ? '+' : ''}${diff}% vs avg`}<span class="cv-hide-sm"> &middot; ${d.games} g</span></div>`
+            : '<div class="cv-sub">no games yet</div>'}
+        ${players}
+      </button>`;
+    }).join('');
+    // Phone-width list under the court (the court spots shrink to the number and rank there).
+    $('#cv-list').innerHTML = CV_POS.map(pos => {
+      const d = cvDefenseAt(def, pos, stat, basis);
+      const ppl = (lineup[pos] || []).map(p => { const l = cvPlayerLine(p, stat, d);
+        return `<div class="cv-line"><b>${frEsc(p.name)}</b>${p.bench ? ' <span class="cv-dim">bench</span>' : ''} &middot; avg ${fmt(l.avg)}${l.proj !== null ? ` &middot; proj <b style="color:${l.proj >= l.avg ? 'var(--mint)' : 'var(--red)'};">${fmt(l.proj)}</b>` : ''}</div>`; }).join('');
+      return `<button type="button" class="cv-row" data-pos="${pos}" style="${d ? heatColor(d.rank, d.of) : ''}">
+        <span class="cv-pos">${pos}</span><span class="cv-rowmain">${d ? `<b>${fmt(d.val)}</b> ${label} allowed &middot; #${d.rank} of ${d.of}` : 'no games yet'}${ppl}</span></button>`;
+    }).join('');
+    $$('#cv-list .cv-row').forEach(b => b.addEventListener('click', () => { openPos = openPos === b.dataset.pos ? null : b.dataset.pos; draw(); if(openPos) $('#cv-detail').scrollIntoView({behavior: 'smooth', block: 'nearest'}); }));
+    $$('#cv-spots .cv-spot').forEach(b => b.addEventListener('click', () => { openPos = openPos === b.dataset.pos ? null : b.dataset.pos; draw(); if(openPos) $('#cv-detail').scrollIntoView({behavior: 'smooth', block: 'nearest'}); }));
+    $$('#cv-games .cv-game, .cv-games .cv-game').forEach(b => b.classList.toggle('active', b.dataset.away === off && b.dataset.home === def));
+    detail();
+  }
+
+  $('#cv-off').addEventListener('change', () => { save(); draw(); });
+  $('#cv-def').addEventListener('change', () => { save(); draw(); });
+  $('#cv-flip').addEventListener('click', () => {
+    const o = $('#cv-off').value, d = $('#cv-def').value;
+    if(!o) return;
+    $('#cv-off').value = d; $('#cv-def').value = o; save(); draw();
+  });
+  $$('#cv-stat .pill').forEach(p => p.addEventListener('click', () => { stat = p.dataset.stat; $$('#cv-stat .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
+  $$('#cv-basis .pill').forEach(p => p.addEventListener('click', () => { basis = p.dataset.basis; $$('#cv-basis .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
+  $$('.cv-games .cv-game').forEach(b => b.addEventListener('click', () => { $('#cv-off').value = b.dataset.away; $('#cv-def').value = b.dataset.home; save(); draw(); }));
+  draw();
 }
 
 // ---------- TAB: MATCHUP EXPLORER ----------
@@ -7184,6 +7422,7 @@ const renderers = {
   overview: {render: renderOverview, mount: mountOverview},
   live: {render: renderLiveHub, mount: mountLiveHub},
   matchup: {render: renderMatchup, mount: mountMatchup},
+  court: {render: renderCourt, mount: mountCourt},
   teams: {render: renderTeams, mount: mountTeams},
   teamweek: {render: renderTeamWeek, mount: mountTeamWeek},
   players: {render: renderPlayers, mount: mountPlayers},
