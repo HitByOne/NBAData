@@ -648,8 +648,22 @@
   .cv-game.active,.cv-game:hover{border-color:var(--gold);}
   .cv-title{font-size:18px;margin:6px 0 10px;}
   .cv-dim{color:var(--chalk-dim);font-weight:400;font-size:0.85em;}
-  .cv-wrap{container-type:inline-size;max-width:860px;margin:0 auto;}
-  .cv-court{position:relative;width:100%;aspect-ratio:500/470;}
+  .cv-wrap{container-type:inline-size;max-width:1500px;margin:0 auto;}
+  .cv-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:6px 0 8px;flex-wrap:wrap;}
+  .cv-side{font-size:18px;font-weight:700;} .cv-side span{display:block;font-family:var(--mono);font-size:11px;color:var(--chalk-dim);font-weight:400;}
+  .cv-court.cv-is-half{max-width:860px;margin:0 auto;aspect-ratio:500/470;}
+  .cv-court.cv-is-full{aspect-ratio:940/500;}
+  .cv-is-full .cv-spot{width:17.5%;padding:0.6cqw 0.8cqw;}
+  .cv-is-full .cv-hd{gap:0.55cqw;}
+  .cv-is-full .cv-badge{width:2.3cqw;height:2.3cqw;font-size:max(9px,1cqw);}
+  .cv-is-full .cv-nm{font-size:max(11px,1.33cqw);}
+  .cv-is-full .cv-pj .v{font-size:max(14px,1.75cqw);}
+  .cv-is-full .cv-pj .l,.cv-is-full .cv-box .l{font-size:max(7px,0.66cqw);}
+  .cv-is-full .cv-box .v{font-size:max(12px,1.33cqw);}
+  .cv-is-full .cv-boxes{gap:0.35cqw;margin:0.6cqw 0 0.65cqw;}
+  .cv-is-full .cv-ml,.cv-is-full .cv-also{font-size:max(7px,0.75cqw);}
+  .cv-is-full .cv-meter{height:5px;}
+  .cv-court{position:relative;width:100%;}
   .cv-svg{position:absolute;inset:0;width:100%;height:100%;}
   .cv-card{background:rgba(18,24,38,0.96);border:1px solid var(--panel-border);border-radius:10px;padding:9px 11px 9px;color:var(--chalk);
     font-family:var(--cond);text-align:left;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,0.45);display:block;}
@@ -666,6 +680,7 @@
   .cv-box{background:var(--field-deep);border-radius:6px;text-align:center;padding:4px 0;min-width:0;}
   .cv-box .l{font-family:var(--mono);font-size:9px;color:var(--chalk-dim);letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 2px;}
   .cv-box .v{font-size:18px;font-weight:700;}
+  .cv-boxes.one{grid-template-columns:1fr;}
   .cv-box.hl{outline:1px solid var(--m);} .cv-box.hl .v{color:var(--m);}
   .cv-meter{position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--red),var(--chalk-dim),var(--mint));}
   .cv-meter i{position:absolute;top:-4px;width:4px;height:14px;background:#fff;border-radius:2px;transform:translateX(-50%);box-shadow:0 0 0 1px var(--field-deep);}
@@ -2947,23 +2962,30 @@ function mountWeek2(){
 }
 
 // ---------- TAB: COURT VIEW ----------
-// The defense-vs-position numbers drawn on a half court. Each of the five spots (PG, SG, SF, PF, C) shows what the
-// defense gives up to that position, ranked against the league (#1 = gives up the most = best matchup, mint; tough
-// matchups go coral), and the offense's projected starter at that spot with his own average and a projection
-// (his average scaled by how this defense treats his position, shrunk toward neutral until the defense has 10 games).
+// The defense-vs-position numbers drawn on the court. Full court, sideways: the away team on offense attacking the left
+// basket against the home team's defense, and the home team attacking the right basket against the away defense.
+// Each card is the offense's projected starter at that spot: his projection (his average scaled by how this defense
+// treats his position, shrunk toward neutral until the defense has 10 games), his average, his last 5, what the
+// defense allows to the position, and a meter for the defense's league rank (#1 gives up the most = soft = mint).
 // "Per starter" = what one STARTING player at the position averaged against them (the Best Picks basis);
-// "Whole position" = everyone at that position combined, per game. Click a spot for the game-by-game list.
+// "Whole position" = everyone at that position combined, per game. Tap a card for his last 5 games and the games
+// behind the defense's number. On a narrow screen it switches to one half court at a time.
 const CV_POS = ['PG', 'SG', 'SF', 'PF', 'C'];
 const CV_STATS = ['Points', 'Rebounds', 'Assists', '3PM', 'Pts+Reb+Ast', 'Fantasy Points'];
+// Half court (basket at the bottom), % of the court box.
 const CV_SPOTS = {PG: {x: 50, y: 21}, SG: {x: 83, y: 41}, SF: {x: 17, y: 41}, PF: {x: 29, y: 75}, C: {x: 71, y: 75}};
+// Full court, left half (basket on the left), % of the whole court; the right half is the mirror image.
+const CV_FULL_SPOTS = {PG: {x: 38, y: 50}, SG: {x: 27, y: 12.5}, SF: {x: 27, y: 87.5}, PF: {x: 10, y: 36}, C: {x: 10, y: 64}};
+const CV_FULL_MIN = 800;   // narrower than this (px of court) -> one half court at a time
 const CV_SHRINK = 10;
 const CV_KEY = 'nba_ledger_court_view';
 function cvLoadPrefs(){ try { return JSON.parse(localStorage.getItem(CV_KEY) || '{}') || {}; } catch(e){ return {}; } }
 function cvSavePrefs(p){ try { localStorage.setItem(CV_KEY, JSON.stringify(p)); } catch(e){} }
 
-function cvCourtSvg(){
+const CV_LINE = 'stroke="var(--cv-line)" stroke-width="2.2" fill="none"';
+function cvHalfSvg(){
   // NBA half court, 1 unit = 0.1 ft: 50 ft wide, 47 ft deep, baseline at the bottom.
-  const line = 'stroke="var(--cv-line)" stroke-width="2.2" fill="none"';
+  const line = CV_LINE;
   return `<svg class="cv-svg" viewBox="0 0 500 470" preserveAspectRatio="none" aria-hidden="true">
     <rect x="1" y="1" width="498" height="468" rx="4" fill="var(--cv-floor)" ${line}/>
     <rect x="170" y="280" width="160" height="189" fill="var(--cv-paint)" ${line}/>
@@ -2975,14 +2997,29 @@ function cvCourtSvg(){
     <path d="M 190 1 A 60 60 0 0 0 310 1" ${line}/>
   </svg>`;
 }
+function cvFullSvg(){
+  // Full court sideways: 94 ft x 50 ft.
+  const line = CV_LINE;
+  const end = `<rect x="0" y="170" width="190" height="160" fill="var(--cv-paint)" ${line}/>
+    <circle cx="190" cy="250" r="60" ${line}/>
+    <path d="M 0 30 L 140 30 A 237.5 237.5 0 0 1 140 470 L 0 470" ${line}/>
+    <path d="M 52.5 210 A 40 40 0 0 1 52.5 290" ${line}/>
+    <line x1="40" y1="220" x2="40" y2="280" stroke="var(--cv-line)" stroke-width="4"/>
+    <circle cx="52.5" cy="250" r="7.5" fill="none" stroke="var(--gold)" stroke-width="2.5"/>`;
+  return `<svg class="cv-svg" viewBox="0 0 940 500" preserveAspectRatio="none" aria-hidden="true">
+    <rect x="1" y="1" width="938" height="498" rx="4" fill="var(--cv-floor)" ${line}/>
+    <line x1="470" y1="1" x2="470" y2="499" ${line}/><circle cx="470" cy="250" r="60" ${line}/><circle cx="470" cy="250" r="20" ${line}/>
+    ${end}<g transform="translate(940,0) scale(-1,1)">${end}</g>
+  </svg>`;
+}
 
 function renderCourt(){
   const teams = [...new Set((DATA.teamSummary || []).map(r => r.Team))].sort();
   const games = matchupScheduleGames().filter(g => teams.includes(g.away) && teams.includes(g.home));
   const prefs = cvLoadPrefs();
   const first = games[0];
-  const off = teams.includes(prefs.off) ? prefs.off : first ? first.away : teams[0];
-  const def = teams.includes(prefs.def) ? prefs.def : first ? first.home : teams[1];
+  const away = teams.includes(prefs.away) ? prefs.away : first ? first.away : teams[0];
+  const home = teams.includes(prefs.home) ? prefs.home : first ? first.home : teams[1];
   const stat = CV_STATS.includes(prefs.stat) ? prefs.stat : 'Points';
   const basis = prefs.basis === 'all' ? 'all' : 'starter';
   const chips = games.map(g => {
@@ -2992,30 +3029,33 @@ function renderCourt(){
   }).join('');
   return `<div class="panel">
     <div class="panel-title">Court View</div>
-    <div class="panel-note">What the defense gives up to each position, drawn where those players stand. Each spot shows the defense's number for that
-      position and its league rank (<b>#1 gives up the most</b>, mint = good matchup, coral = tough), plus the offense's projected starter there:
-      his own average and a projection scaled by how this defense treats his position. <b>Per starter</b> is what one starting player at the
-      position averaged against them (what Best Picks uses); <b>Whole position</b> is everyone at the position combined, per game. Tap a card for that player's last 5 games and every game behind the defense's number.</div>
+    <div class="panel-note">Both teams on one court: the away team attacks the left basket against the home defense, the home team attacks the right
+      basket against the away defense. Each card is that team's projected starter at the spot: his <b>projection</b> (big number), his average, his
+      last 5, what the defense <b>allows</b> to his position, and a meter for where that defense ranks (<b>#1 gives up the most</b>, mint = soft, coral = tough).
+      <b>Per starter</b> is what one starting player at the position averaged against them (what Best Picks uses); <b>Whole position</b> is everyone at
+      the position combined, per game. Tap a card for that player's last 5 games and every game behind the defense's number.</div>
     ${chips ? `<div class="cv-games">${chips}</div>` : ''}
     <div class="controls">
-      <label class="ctl-label">Offense <select id="cv-off"><option value="">None (defense only)</option>${teams.map(t => `<option value="${t}" ${t === off ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
-      <button class="save-pick-btn" id="cv-flip" title="Swap offense and defense">&#8646; Flip</button>
-      <label class="ctl-label">Defense <select id="cv-def">${teams.map(t => `<option value="${t}" ${t === def ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
+      <label class="ctl-label">Away (left) <select id="cv-away">${teams.map(t => `<option value="${t}" ${t === away ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
+      <button class="save-pick-btn" id="cv-flip" title="Swap the two teams">&#8646; Flip</button>
+      <label class="ctl-label">Home (right) <select id="cv-home">${teams.map(t => `<option value="${t}" ${t === home ? 'selected' : ''}>${teamName(t)}</option>`).join('')}</select></label>
     </div>
     <div class="controls">
       <div class="pill-group" id="cv-stat">${CV_STATS.map(k => `<span class="pill ${k === stat ? 'active' : ''}" data-stat="${k}">${DVP_LABEL[k]}</span>`).join('')}</div>
       <div class="pill-group" id="cv-basis"><span class="pill ${basis === 'starter' ? 'active' : ''}" data-basis="starter">Per starter</span><span class="pill ${basis === 'all' ? 'active' : ''}" data-basis="all">Whole position</span></div>
     </div>
-    <div class="cv-title" id="cv-title"></div>
-    <div class="cv-wrap"><div class="cv-court" id="cv-court">${cvCourtSvg()}<div id="cv-spots"></div></div><div class="cv-list" id="cv-list"></div></div>
+    <div class="cv-wrap" id="cv-wrap">
+      <div class="cv-top" id="cv-top"></div>
+      <div class="cv-court" id="cv-court"></div>
+      <div class="cv-list" id="cv-list"></div>
+    </div>
     <div class="cv-legend"><span class="cv-sw" style="background:${cvColor(1, 30)}"></span> soft (gives up the most) <span class="cv-sw" style="background:${cvColor(15.5, 30)}"></span> middle <span class="cv-sw" style="background:${cvColor(30, 30)}"></span> tough (gives up the least)</div>
     <div id="cv-detail"></div>
   </div>`;
 }
 
-function cvColumn(stat, basis){ return basis === 'starter' ? `Starter ${stat} Allowed Per Player` : `${stat} Allowed Per Game`; }
-
 // The defense's number at one position, its rank among all teams, and the league average.
+function cvColumn(stat, basis){ return basis === 'starter' ? `Starter ${stat} Allowed Per Player` : `${stat} Allowed Per Game`; }
 function cvDefenseAt(def, pos, stat, basis){
   const col = cvColumn(stat, basis);
   const rows = (DATA.defVsPos || []).filter(r => r.Position === pos && r[col] !== '' && r[col] !== undefined);
@@ -3025,7 +3065,7 @@ function cvDefenseAt(def, pos, stat, basis){
   const sorted = rows.map(r => num(r[col])).sort((a, b) => b - a);
   const league = sorted.reduce((s, v) => s + v, 0) / (sorted.length || 1);
   const games = num(basis === 'starter' ? row['Starter Games'] : row['Games Played']);
-  return {val, rank: sorted.indexOf(val) + 1, of: sorted.length, league, games, faced: num(row['Players Faced'])};
+  return {val, rank: sorted.indexOf(val) + 1, of: sorted.length, league, games};
 }
 
 // Who the offense puts at each spot: projected starters by position; an empty spot gets his team's top healthy
@@ -3046,17 +3086,17 @@ function cvLineup(off){
 }
 
 function cvPlayerLine(p, stat, d){
-  const vals = p.games.map(g => getStatValue(g, stat));
+  const games = p.games.slice().sort((a, b) => num(a.Week) - num(b.Week));
+  const vals = games.map(g => getStatValue(g, stat));
   const avg = vals.reduce((s, v) => s + v, 0) / (vals.length || 1);
   const l5v = vals.slice(-5);
   const l5 = l5v.reduce((s, v) => s + v, 0) / (l5v.length || 1);
-  let proj = null, factor = null;
+  let proj = null;
   if(d && d.league > 0){
-    const raw = d.val / d.league;
-    factor = 1 + (raw - 1) * Math.min(1, d.games / CV_SHRINK);
+    const factor = 1 + (d.val / d.league - 1) * Math.min(1, d.games / CV_SHRINK);
     proj = avg * factor;
   }
-  return {avg, l5, proj, factor, gp: vals.length};
+  return {avg, l5, proj, gp: vals.length};
 }
 
 // Matchup color: coral (tough) -> grey (middle) -> mint (soft), from the defense's rank. Rank 1 gives up the most.
@@ -3067,11 +3107,12 @@ function cvColor(rank, of){
   const c = t < 0.5 ? lerp(bad, mid, t * 2) : lerp(mid, good, (t - 0.5) * 2);
   return `rgb(${c.join(',')})`;
 }
-// One position card: badge + name + big projection, AVG / L5 / what the defense allows, then the matchup meter.
-function cvCardParts(pos, def, players, stat, basis, label){
+
+// One card: badge + name + big projection, AVG / L5 / what the defense allows, then the matchup meter.
+function cvCardParts(pos, def, players, stat, basis){
+  const label = DVP_LABEL[stat];
   const d = cvDefenseAt(def, pos, stat, basis);
   const color = d ? cvColor(d.rank, d.of) : 'var(--chalk-dim)';
-  const diff = d && d.league ? Math.round((d.val / d.league - 1) * 100) : null;
   const meterPct = d && d.of > 1 ? Math.round((1 - (d.rank - 1) / (d.of - 1)) * 100) : 50;
   const p = players[0], l = p ? cvPlayerLine(p, stat, d) : null;
   const box = (lab, v, hl) => `<div class="cv-box${hl ? ' hl' : ''}"><div class="l">${lab}</div><div class="v">${v}</div></div>`;
@@ -3079,89 +3120,122 @@ function cvCardParts(pos, def, players, stat, basis, label){
   const head = p
     ? `<div class="cv-hd"><div class="cv-badge">${pos}</div><div class="cv-nm">${frEsc(p.name)}${p.bench ? '<span class="cv-dim">bench</span>' : ''}</div>
         <div class="cv-pj"><div class="v">${l.proj !== null ? fmt(l.proj) : fmt(l.avg)}</div><div class="l">${l.proj !== null ? 'PROJ' : 'AVG'} ${label}</div></div></div>`
-    : `<div class="cv-hd"><div class="cv-badge">${pos}</div><div class="cv-nm">${pos === 'C' ? 'Centers' : pos + 's'}<span class="cv-dim">${def} defense</span></div>
-        <div class="cv-pj"><div class="v">${allowed}</div><div class="l">${label} ALLOWED</div></div></div>`;
-  const boxes = p
-    ? box('AVG', fmt(l.avg)) + box('L5', fmt(l.l5)) + box('ALLOWS', allowed, true)
-    : box('LEAGUE', d ? fmt(d.league) : '--') + box('GAMES', d ? d.games : '--') + box('RANK', d ? '#' + d.rank : '--', true);
+    : `<div class="cv-hd"><div class="cv-badge">${pos}</div><div class="cv-nm">No ${pos} <span class="cv-dim">on the roster</span></div></div>`;
+  const boxes = p ? box('AVG', fmt(l.avg)) + box('L5', fmt(l.l5)) + box('ALLOWS', allowed, true) : box(def + ' ALLOWS', allowed, true);
   const meter = d
     ? `<div class="cv-meter"><i style="left:${meterPct}%"></i></div>
        <div class="cv-ml"><span>tough</span><span><b>#${d.rank} of ${d.of}</b></span><span>soft</span></div>`
     : '<div class="cv-ml" style="justify-content:center;">no games against them yet</div>';
   const also = players.slice(1).map(q => { const m = cvPlayerLine(q, stat, d); return `<div class="cv-also">also ${pos}: <b>${frEsc(q.name)}</b> &middot; proj ${fmt(m.proj !== null ? m.proj : m.avg)}</div>`; }).join('');
-  const mini = `<div class="cv-mini"><span class="p">${pos}</span><span class="v">${allowed}</span><span class="r">${d ? '#' + d.rank : ''}</span></div>`;
-  return {color, html: head + `<div class="cv-boxes">${boxes}</div>` + meter + also, mini};
+  const mini = `<div class="cv-mini"><span class="p">${pos}</span><span class="v">${l ? fmt(l.proj !== null ? l.proj : l.avg) : allowed}</span><span class="r">${d ? '#' + d.rank : ''}</span></div>`;
+  return {color, html: head + `<div class="cv-boxes${p ? '' : ' one'}">${boxes}</div>` + meter + also, mini};
 }
 
 function mountCourt(){
   const prefs = cvLoadPrefs();
   let stat = CV_STATS.includes(prefs.stat) ? prefs.stat : 'Points';
   let basis = prefs.basis === 'all' ? 'all' : 'starter';
-  let openPos = null;
-  const save = () => cvSavePrefs({off: $('#cv-off').value, def: $('#cv-def').value, stat, basis});
+  let side = prefs.side === 'home' ? 'home' : 'away';   // which team's half is shown on a narrow screen
+  let open = null;                                       // {side, pos} of the tapped card
+  let mode = null;
+  const save = () => cvSavePrefs({away: $('#cv-away').value, home: $('#cv-home').value, stat, basis, side});
+  const teamsFor = s => { const a = $('#cv-away').value, h = $('#cv-home').value; return s === 'away' ? {off: a, def: h} : {off: h, def: a}; };
+  const toggle = (s, pos) => {
+    open = open && open.side === s && open.pos === pos ? null : {side: s, pos};
+    draw();
+    if(open) $('#cv-detail').scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  };
 
   function detail(){
     const box = $('#cv-detail');
-    if(!openPos){ box.innerHTML = ''; return; }
-    const def = $('#cv-def').value, off = $('#cv-off').value;
-    const rows = (DATA.playerGame || []).filter(r => r.Opponent === def && r.Position === openPos && r.Team !== off && (basis === 'all' || isStarter(r)))
+    if(!open){ box.innerHTML = ''; return; }
+    const {off, def} = teamsFor(open.side), pos = open.pos;
+    const rows = (DATA.playerGame || []).filter(r => r.Opponent === def && r.Position === pos && r.Team !== off && (basis === 'all' || isStarter(r)))
       .sort((a, b) => num(b.Week) - num(a.Week) || getStatValue(b, stat) - getStatValue(a, stat));
-    const d = cvDefenseAt(def, openPos, stat, basis);
+    const d = cvDefenseAt(def, pos, stat, basis);
     // The offense's player(s) at this spot: their last 5 games, the chosen stat highlighted.
     const cols = [['Points', 'PTS'], ['Rebounds', 'REB'], ['Assists', 'AST'], ['3PM', '3PM'], ['Steals', 'STL'], ['Blocks', 'BLK'], ['Pts+Reb+Ast', 'PRA'], ['Fantasy Points', 'DK FP']];
-    const mine = off ? (cvLineup(off)[openPos] || []) : [];
-    const playerHtml = mine.map(p => {
+    const hl = k => k === stat ? ' style="color:var(--gold);font-weight:700;"' : '';
+    const playerHtml = (cvLineup(off)[pos] || []).map(p => {
       const last = p.games.slice().sort((a, b) => num(a.Week) - num(b.Week)).slice(-5).reverse();
-      const avgRow = cols.map(([k]) => last.reduce((t, g) => t + getStatValue(g, k), 0) / (last.length || 1));
-      const tr = last.map(g => `<tr><td>${dayLabel(g.Week)}</td><td>${g['Home/Away'] === 'Home' ? 'vs' : '@'} ${g.Opponent}</td><td class="num">${fmt(g.Minutes, 0)}</td>${cols.map(([k]) => `<td class="num"${k === stat ? ' style="color:var(--gold);font-weight:700;"' : ''}>${fmt(getStatValue(g, k))}</td>`).join('')}</tr>`).join('');
-      return `<div class="panel-title" style="font-size:17px;margin-top:4px;">${frEsc(p.name)} &middot; last ${last.length} games${p.bench ? ' <span class="cv-dim">bench</span>' : ''}</div>
-        <div class="table-scroll" style="margin-bottom:14px;"><table data-no-enhance><thead><tr><th>Date</th><th>Opp</th><th>Min</th>${cols.map(([k, l]) => `<th${k === stat ? ' style="color:var(--gold);"' : ''}>${l}</th>`).join('')}</tr></thead>
-        <tbody>${tr}<tr style="font-weight:700;border-top:2px solid var(--panel-border);"><td colspan="2">Last ${last.length} avg</td><td class="num">${fmt(last.reduce((t, g) => t + num(g.Minutes), 0) / (last.length || 1))}</td>${avgRow.map((v, i) => `<td class="num"${cols[i][0] === stat ? ' style="color:var(--gold);"' : ''}>${fmt(v)}</td>`).join('')}</tr></tbody></table></div>`;
+      const n = last.length || 1;
+      const tr = last.map(g => `<tr><td>${dayLabel(g.Week)}</td><td>${g['Home/Away'] === 'Home' ? 'vs' : '@'} ${g.Opponent}</td><td class="num">${fmt(g.Minutes, 0)}</td>${cols.map(([k]) => `<td class="num"${hl(k)}>${fmt(getStatValue(g, k))}</td>`).join('')}</tr>`).join('');
+      const avg = `<tr style="font-weight:700;"><td colspan="2">Last ${last.length} avg</td><td class="num">${fmt(last.reduce((t, g) => t + num(g.Minutes), 0) / n)}</td>${cols.map(([k]) => `<td class="num"${hl(k)}>${fmt(last.reduce((t, g) => t + getStatValue(g, k), 0) / n)}</td>`).join('')}</tr>`;
+      return `<div class="panel-title" style="font-size:17px;margin-top:4px;">${frEsc(p.name)} <span class="cv-dim">${off} ${pos}${p.bench ? ', bench' : ''}</span> &middot; last ${last.length} games</div>
+        <div class="table-scroll" style="margin-bottom:14px;"><table data-no-enhance><thead><tr><th>Date</th><th>Opp</th><th>Min</th>${cols.map(([k, lab]) => `<th${hl(k)}>${lab}</th>`).join('')}</tr></thead><tbody>${tr}${avg}</tbody></table></div>`;
     }).join('');
     const body = rows.slice(0, 40).map(r => `<tr><td>${dayLabel(r.Week)}</td><td>${frEsc(r.Player)}${isStarter(r) ? '' : ' <span class="cv-dim">bench</span>'}</td><td>${r.Team}</td><td class="num">${fmt(r.Minutes, 0)}</td><td class="num"><b>${fmt(getStatValue(r, stat))}</b></td></tr>`).join('');
     box.innerHTML = `<div class="cv-detail">
       <div style="text-align:right;"><button class="save-pick-btn" id="cv-close">Close</button></div>
       ${playerHtml}
-      <div class="panel-title" style="font-size:17px;">${openPos}s against ${teamName(def)} &middot; ${DVP_LABEL[stat]}</div>
-      <div class="line-note" style="margin:0 0 10px;">${d ? `${fmt(d.val)} ${basis === 'starter' ? 'per starter' : 'per game'} #${d.rank} of ${d.of}. ` : ''}${basis === 'starter' ? 'Starters only.' : 'Everyone at the position.'}${off ? ` ${teamName(off)}'s own games against them are left out.` : ''}</div>
+      <div class="panel-title" style="font-size:17px;">${pos}s against ${teamName(def)} &middot; ${DVP_LABEL[stat]}</div>
+      <div class="line-note" style="margin:0 0 10px;">${d ? `${fmt(d.val)} ${basis === 'starter' ? 'per starter' : 'per game'}, #${d.rank} of ${d.of}. ` : ''}${basis === 'starter' ? 'Starters only.' : 'Everyone at the position.'} ${teamName(off)}'s own games against them are left out.</div>
       ${body ? `<div class="table-scroll"><table><thead><tr><th>Date</th><th>Player</th><th>Team</th><th>Min</th><th>${DVP_LABEL[stat]}</th></tr></thead><tbody>${body}</tbody></table></div>`
              : '<div class="empty" style="padding:8px 0;">No games yet.</div>'}
     </div>`;
-    $('#cv-close').addEventListener('click', () => { openPos = null; draw(); });
+    $('#cv-close').addEventListener('click', () => { open = null; draw(); });
+  }
+
+  function cardBtn(s, pos, c, cls, style){
+    const isOpen = open && open.side === s && open.pos === pos;
+    return `<button type="button" class="cv-card ${cls}${isOpen ? ' open' : ''}" data-side="${s}" data-pos="${pos}" style="${style}--m:${c.color};"><div class="cv-full">${c.html}</div>${c.mini}</button>`;
   }
 
   function draw(){
-    const off = $('#cv-off').value, def = $('#cv-def').value;
-    const lineup = cvLineup(off);
-    const label = DVP_LABEL[stat];
-    $('#cv-title').innerHTML = off
-      ? `<b>${teamName(off)}</b> on offense <span class="cv-dim">vs</span> <b>${teamName(def)}</b> defense`
-      : `What <b>${teamName(def)}</b> gives up by position`;
-    const cards = {};
-    CV_POS.forEach(pos => { cards[pos] = cvCardParts(pos, def, lineup[pos] || [], stat, basis, label); });
-    $('#cv-spots').innerHTML = CV_POS.map(pos => {
-      const s = CV_SPOTS[pos], c = cards[pos];
-      return `<button type="button" class="cv-card cv-spot${openPos === pos ? ' open' : ''}" data-pos="${pos}" style="left:${s.x}%;top:${s.y}%;--m:${c.color};">
-        <div class="cv-full">${c.html}</div>${c.mini}</button>`;
-    }).join('');
-    // Phone width: small markers on the court, the full cards listed underneath.
-    $('#cv-list').innerHTML = CV_POS.map(pos => `<button type="button" class="cv-card cv-row${openPos === pos ? ' open' : ''}" data-pos="${pos}" style="--m:${cards[pos].color};">${cards[pos].html}</button>`).join('');
-    $$('#cv-list .cv-row').forEach(b => b.addEventListener('click', () => { openPos = openPos === b.dataset.pos ? null : b.dataset.pos; draw(); if(openPos) $('#cv-detail').scrollIntoView({behavior: 'smooth', block: 'nearest'}); }));
-    $$('#cv-spots .cv-spot').forEach(b => b.addEventListener('click', () => { openPos = openPos === b.dataset.pos ? null : b.dataset.pos; draw(); if(openPos) $('#cv-detail').scrollIntoView({behavior: 'smooth', block: 'nearest'}); }));
-    $$('#cv-games .cv-game, .cv-games .cv-game').forEach(b => b.classList.toggle('active', b.dataset.away === off && b.dataset.home === def));
+    const wrap = $('#cv-wrap');
+    if(!wrap) return;
+    mode = wrap.clientWidth >= CV_FULL_MIN ? 'full' : 'half';
+    const away = $('#cv-away').value, home = $('#cv-home').value;
+    const sides = {away: teamsFor('away'), home: teamsFor('home')};
+    const cards = {away: {}, home: {}};
+    ['away', 'home'].forEach(s => {
+      const lineup = cvLineup(sides[s].off);
+      CV_POS.forEach(pos => { cards[s][pos] = cvCardParts(pos, sides[s].def, lineup[pos] || [], stat, basis); });
+    });
+    const court = $('#cv-court');
+    court.className = 'cv-court ' + (mode === 'full' ? 'cv-is-full' : 'cv-is-half');
+    if(mode === 'full'){
+      $('#cv-top').innerHTML = `<div class="cv-side">&larr; ${teamName(away)} on offense<span>vs ${teamName(home)} defense</span></div>
+        <div class="cv-side" style="text-align:right;">${teamName(home)} on offense &rarr;<span>vs ${teamName(away)} defense</span></div>`;
+      court.innerHTML = cvFullSvg() + ['away', 'home'].map(s => CV_POS.map(pos => {
+        const sp = CV_FULL_SPOTS[pos], x = s === 'away' ? sp.x : 100 - sp.x;
+        return cardBtn(s, pos, cards[s][pos], 'cv-spot', `left:${x}%;top:${sp.y}%;`);
+      }).join('')).join('');
+      $('#cv-list').innerHTML = '';
+    } else {
+      const t = sides[side];
+      $('#cv-top').innerHTML = `<div class="pill-group" id="cv-side">
+          <span class="pill ${side === 'away' ? 'active' : ''}" data-side="away">${away} on offense</span>
+          <span class="pill ${side === 'home' ? 'active' : ''}" data-side="home">${home} on offense</span></div>
+        <div class="cv-side" style="margin-top:6px;">${teamName(t.off)} <span style="display:inline;">vs ${teamName(t.def)} defense</span></div>`;
+      court.innerHTML = cvHalfSvg() + CV_POS.map(pos => cardBtn(side, pos, cards[side][pos], 'cv-spot', `left:${CV_SPOTS[pos].x}%;top:${CV_SPOTS[pos].y}%;`)).join('');
+      // Phone width: small markers on the court, the full cards listed underneath.
+      $('#cv-list').innerHTML = CV_POS.map(pos => cardBtn(side, pos, cards[side][pos], 'cv-row', '')).join('');
+      $$('#cv-side .pill').forEach(p => p.addEventListener('click', () => { side = p.dataset.side; open = null; save(); draw(); }));
+    }
+    $$('#cv-wrap .cv-card').forEach(b => b.addEventListener('click', () => toggle(b.dataset.side, b.dataset.pos)));
+    $$('.cv-games .cv-game').forEach(b => b.classList.toggle('active', b.dataset.away === away && b.dataset.home === home));
     detail();
   }
 
-  $('#cv-off').addEventListener('change', () => { save(); draw(); });
-  $('#cv-def').addEventListener('change', () => { save(); draw(); });
+  $('#cv-away').addEventListener('change', () => { open = null; save(); draw(); });
+  $('#cv-home').addEventListener('change', () => { open = null; save(); draw(); });
   $('#cv-flip').addEventListener('click', () => {
-    const o = $('#cv-off').value, d = $('#cv-def').value;
-    if(!o) return;
-    $('#cv-off').value = d; $('#cv-def').value = o; save(); draw();
+    const a = $('#cv-away').value; $('#cv-away').value = $('#cv-home').value; $('#cv-home').value = a; open = null; save(); draw();
   });
   $$('#cv-stat .pill').forEach(p => p.addEventListener('click', () => { stat = p.dataset.stat; $$('#cv-stat .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
   $$('#cv-basis .pill').forEach(p => p.addEventListener('click', () => { basis = p.dataset.basis; $$('#cv-basis .pill').forEach(x => x.classList.toggle('active', x === p)); save(); draw(); }));
-  $$('.cv-games .cv-game').forEach(b => b.addEventListener('click', () => { $('#cv-off').value = b.dataset.away; $('#cv-def').value = b.dataset.home; save(); draw(); }));
+  $$('.cv-games .cv-game').forEach(b => b.addEventListener('click', () => { $('#cv-away').value = b.dataset.away; $('#cv-home').value = b.dataset.home; open = null; save(); draw(); }));
+  // Redraw when the width crosses the full-court / half-court line (rotating an iPad, resizing a window).
+  if(window.ResizeObserver){
+    const ro = new ResizeObserver(() => {
+      const w = $('#cv-wrap');
+      if(!w){ ro.disconnect(); return; }
+      const m = w.clientWidth >= CV_FULL_MIN ? 'full' : 'half';
+      if(m !== mode) draw();
+    });
+    ro.observe($('#cv-wrap'));
+  }
   draw();
 }
 
