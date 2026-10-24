@@ -442,6 +442,10 @@
     transition:background .15s;
   }
   .save-pick-btn:hover{background:rgba(227,169,59,0.12);}
+  /* My Tickets and Friends are switched off for now (remove class="no-tickets" from <body> to bring them back, and
+     put their two buttons back in the nav). This hides every "save to my tickets" button across the tabs. */
+  .no-tickets .save-pick-btn[data-player],.no-tickets .save-pick-btn[data-week],.no-tickets .save-pick-btn[data-stat],
+  .no-tickets .save-pick-btn[data-floor],.no-tickets #home-tickets{display:none !important;}
   .save-pick-btn:disabled{color:var(--mint);border-color:var(--mint);cursor:default;background:rgba(51,214,166,0.1);}
   .context-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
   .context-chip{
@@ -717,7 +721,7 @@
   }
 </style>
 </head>
-<body>
+<body class="no-tickets">
 
 <header class="hero">
   <div class="hero-inner">
@@ -745,8 +749,6 @@
       <button data-tab="q3">3Q Scoring</button>
       <button data-tab="propprices">Prop Prices</button>
       <button data-tab="booklines">Book Lines</button>
-      <button data-tab="mypicks">My Tickets</button>
-      <button data-tab="friends">Friends</button>
       <button data-tab="players">Players</button>
       <button data-tab="backtest">How the Model Does</button>
       <button type="button" class="nav-more-btn" id="nav-more-btn" aria-expanded="false">More tools &#9662;</button>
@@ -1691,7 +1693,6 @@ function renderHome(){
     ['booklines', 'Book Lines', "The line the book sets, next to this app's projection."],
     ['fb', 'First Basket', 'Tip record, who scores first, and each starter\'s chance.'],
     ['q3', '3Q Scoring', 'Who scores, and who gives up, 100 through three quarters.'],
-    ['mypicks', 'My Tickets', 'Save your picks, check them live and share with friends.'],
     ['players', 'Players', "Search anyone's game-by-game stats."],
     ['week2', 'Upcoming Games', 'Who plays who, spreads, rest and matchup notes.'],
     ['backtest', 'How the Model Does', 'Has it been right? Hit rates by stat.']
@@ -1708,7 +1709,7 @@ function renderHome(){
   <div class="panel"><div class="panel-title">Top picks right now</div><div class="panel-note">The strongest floor picks for games that have not been decided yet. Each one is a number a player has cleared in most of his games, against a defense that gives it up often.</div><div id="home-picks"></div></div>
   <div class="grid-2">
     <div class="panel"><div class="panel-title">Lines worth a second look</div><div class="panel-note">Where the book's own line and this app disagree most. A question to check, not a signal.</div><div id="home-lines"></div></div>
-    <div class="panel"><div class="panel-title">How the model is doing</div><div id="home-record"></div><div class="panel-title" style="margin-top:18px;">My tickets</div><div id="home-tickets"></div></div>
+    <div class="panel"><div class="panel-title">How the model is doing</div><div id="home-record"></div><div id="home-tickets" hidden></div></div>
   </div>`;
 }
 function mountHome(){
@@ -7791,7 +7792,7 @@ async function init(){
   });
   renderHero();
   renderTicker();
-  showTab(acctReadInvite() ? 'friends' : 'board');
+  showTab(!document.body.classList.contains('no-tickets') && acctReadInvite() ? 'friends' : 'board');
 }
 init();
 document.addEventListener('DOMContentLoaded', tblWatch);
