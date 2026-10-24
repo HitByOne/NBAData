@@ -1,11 +1,51 @@
 game,kickoff,player,market,stat,line,side,ou,decimal_odds,american_odds,book,active,fetched
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Kyle Kuzma,Player First Point,Points,,Yes,yes,16.0,+1500,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Tyler Herro,Player First Point,Points,,Yes,yes,8.5,+750,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Jaime Jaquez Jr.,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Tyrese Maxey,Player First Point,Points,,Yes,yes,7.0,+600,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Ryan Rollins,Player First Point,Points,,Yes,yes,12.0,+1100,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,VJ Edgecombe,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Joel Embiid,Player First Point,Points,,Yes,yes,5.1,+410,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,LeBron James,Player First Point,Points,,Yes,yes,8.0,+700,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Myles Turner,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T04:24Z
-Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Jaylen Brown,Player First Point,Points,,Yes,yes,6.5,+550,fanduel,True,2026-10-24T04:24Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Jarrett Allen,Player First Point,Points,,Yes,yes,6.0,+500,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Donovan Mitchell,Player First Point,Points,,Yes,yes,6.5,+550,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Michael Porter Jr.,Player First Point,Points,,Yes,yes,8.5,+750,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Keon Ellis,Player First Point,Points,,Yes,yes,17.0,+1600,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Day'Ron Sharpe,Player First Point,Points,,Yes,yes,12.0,+1100,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Evan Mobley,Player First Point,Points,,Yes,yes,5.2,+420,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Peyton Watson,Player First Point,Points,,Yes,yes,10.5,+950,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Egor Demin,Player First Point,Points,,Yes,yes,14.0,+1300,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,James Harden,Player First Point,Points,,Yes,yes,8.5,+750,fanduel,True,2026-10-24T05:05Z
+Cleveland Cavaliers vs Brooklyn Nets,2026-10-24T23:30Z,Julius Randle,Player First Point,Points,,Yes,yes,9.0,+800,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Kyle Kuzma,Player First Point,Points,,Yes,yes,16.0,+1500,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Tyler Herro,Player First Point,Points,,Yes,yes,8.5,+750,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Jaime Jaquez Jr.,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Tyrese Maxey,Player First Point,Points,,Yes,yes,7.0,+600,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Ryan Rollins,Player First Point,Points,,Yes,yes,12.0,+1100,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,VJ Edgecombe,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Joel Embiid,Player First Point,Points,,Yes,yes,5.1,+410,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,LeBron James,Player First Point,Points,,Yes,yes,8.0,+700,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Myles Turner,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T05:05Z
+Philadelphia 76ers vs Milwaukee Bucks,2026-10-24T23:30Z,Jaylen Brown,Player First Point,Points,,Yes,yes,6.5,+550,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Trae Young,Player First Point,Points,,Yes,yes,8.5,+750,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Jalen Smith,Player First Point,Points,,Yes,yes,9.0,+800,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Josh Giddey,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Caleb Wilson,Player First Point,Points,,Yes,yes,9.5,+850,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Bilal Coulibaly,Player First Point,Points,,Yes,yes,10.5,+950,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Kyshawn George,Player First Point,Points,,Yes,yes,8.0,+700,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Alexandre Sarr,Player First Point,Points,,Yes,yes,8.0,+700,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Matas Buzelis,Player First Point,Points,,Yes,yes,9.5,+850,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Anthony Davis,Player First Point,Points,,Yes,yes,5.7,+470,fanduel,True,2026-10-24T05:05Z
+Chicago Bulls vs Washington Wizards,2026-10-25T00:00Z,Norman Powell,Player First Point,Points,,Yes,yes,9.5,+850,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Fred VanVleet,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Nickeil Alexander-Walker,Player First Point,Points,,Yes,yes,8.0,+700,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Onyeka Okongwu,Player First Point,Points,,Yes,yes,9.5,+850,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Alperen Sengun,Player First Point,Points,,Yes,yes,6.0,+500,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Jalen Johnson,Player First Point,Points,,Yes,yes,7.5,+650,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Jabari Smith,Player First Point,Points,,Yes,yes,11.0,+1000,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Dyson Daniels,Player First Point,Points,,Yes,yes,12.0,+1100,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Amen Thompson,Player First Point,Points,,Yes,yes,10.5,+950,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,Kevin Durant,Player First Point,Points,,Yes,yes,7.0,+600,fanduel,True,2026-10-24T05:05Z
+Atlanta Hawks vs Houston Rockets,2026-10-25T00:30Z,CJ McCollum,Player First Point,Points,,Yes,yes,7.5,+650,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Miles Bridges,Player First Point,Points,,Yes,yes,4.8,+380,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Dillon Brooks,Player First Point,Points,,Yes,yes,4.4,+340,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Jalen Green,Player First Point,Points,,Yes,yes,3.9,+290,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Brandin Podziemski,Player First Point,Points,,Yes,yes,4.1,+310,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Gui Santos,Player First Point,Points,,Yes,yes,6.0,+500,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Yaxel Lendeborg,Player First Point,Points,,Yes,yes,3.6,+260,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Khaman Maluach,Player First Point,Points,,Yes,yes,5.7,+470,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Draymond Green,Player First Point,Points,,Yes,yes,6.0,+500,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Stephen Curry,Player First Point,Points,,Yes,yes,3.3,+230,fanduel,True,2026-10-24T05:05Z
+Phoenix Suns vs Golden State Warriors,2026-10-25T02:00Z,Devin Booker,Player First Point,Points,,Yes,yes,3.8,+280,fanduel,True,2026-10-24T05:05Z
