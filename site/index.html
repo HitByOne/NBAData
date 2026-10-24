@@ -789,7 +789,7 @@
   .tn-empty{color:var(--t-dim);font-size:13px;text-align:center;}
   .tn-note{color:var(--t-dim);font-size:12px;margin-top:10px;}
   .tn-floor{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;align-items:start;}
-  .tn-court{position:relative;aspect-ratio:940/500;}
+  .tn-court{position:relative;aspect-ratio:940/620;}
   .tn-court svg{position:absolute;inset:0;width:100%;height:100%;}
   .tn-cl{position:absolute;top:10px;font-size:12px;font-weight:600;color:var(--t-dim);}
   .tn-pl{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;cursor:pointer;color:var(--t-text);font-family:var(--t-font);padding:0;}
@@ -830,14 +830,14 @@
     body.layout-tonight nav.tabs{width:auto;}
   }
   /* ---- Tonight: court mode with stat cards ---- */
-  body.layout-tonight{--t-nol2:rgba(242,244,250,.28);--t-paint:rgba(255,122,47,.04);}
-  body.layout-tonight[data-theme="light"]{--t-nol2:#C4C8D0;--t-paint:rgba(255,122,47,.05);}
+  body.layout-tonight{--t-nol2:rgba(242,244,250,.28);--t-paint:rgba(255,122,47,.04);--t-warn:#FFC24D;--t-ms:#C79BFF;--t-bday:#FF6FB5;--t-hot:#FF7A2F;--t-cold:#7FB2FF;}
+  body.layout-tonight[data-theme="light"]{--t-nol2:#C4C8D0;--t-paint:rgba(255,122,47,.05);--t-warn:#B7791F;--t-ms:#7C4DDB;--t-bday:#D63B8A;--t-hot:#E25A12;--t-cold:#2F6FD6;}
   .tn-wrap.court-mode{grid-template-columns:minmax(0,1fr);}
   .tn-wrap.court-mode .tn-side{display:none;}
   .tn-chips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 12px;}
   .tn-chips .tn-g{width:auto;gap:10px;padding:8px 12px;font-size:13px;}
   .tn-floor{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start;}
-  .tn-pc{position:absolute;transform:translate(-50%,-50%);width:20.5%;padding:8px;border-radius:14px;background:var(--t-pc);
+  .tn-pc{position:absolute;transform:translate(-50%,-50%);width:21.5%;padding:8px;border-radius:14px;background:var(--t-pc);
     box-shadow:0 8px 24px rgba(0,0,0,.35),inset 0 0 0 1px var(--t-faint);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
   body.layout-tonight{--t-pc:rgba(22,24,36,.86);} body.layout-tonight[data-theme="light"]{--t-pc:rgba(255,255,255,.96);}
   body.layout-tonight[data-theme="light"] .tn-pc{box-shadow:0 6px 18px rgba(16,24,40,.10),inset 0 0 0 1px #E6E8EE;}
@@ -866,6 +866,19 @@
   .tn-ml{display:flex;justify-content:space-between;font-size:10px;color:var(--t-dim);margin-bottom:12px;} .tn-ml b{font-size:11px;}
   #tn-win button.on{background:var(--t-text);color:var(--t-card2,#000);}
   body.layout-tonight[data-theme="dark"] #tn-win button.on{color:#07080F;}
+  .tn-sb .hd{display:flex;justify-content:center;gap:1.5px;margin-top:2px;height:4px;} .tn-sb .hd em{width:4px;height:4px;border-radius:50%;}
+  .tn-sb.on .hd em{box-shadow:0 0 0 1px rgba(255,255,255,.7);}
+  .tn-mn{font-family:var(--t-num);font-size:clamp(10px,1cqw,12px);font-weight:700;white-space:nowrap;flex:none;}
+  .tn-mn u{text-decoration:none;font-family:var(--t-font);font-size:8px;font-weight:600;color:var(--t-dim);margin:0 2px 0 1px;}
+  .tn-up{color:var(--t-over);font-size:9px;} .tn-dn{color:var(--t-under);font-size:9px;}
+  .tn-tgs{display:flex;gap:4px;margin-top:6px;overflow:hidden;}
+  .tn-tg{display:inline-flex;align-items:center;gap:3px;min-width:0;font-size:9px;font-weight:700;color:var(--t);border-radius:999px;padding:2px 7px;white-space:nowrap;overflow:hidden;
+    background:color-mix(in srgb,var(--t) 15%,transparent);}
+  .tn-tg small{font-size:8.5px;font-weight:600;color:var(--t-text);opacity:.8;overflow:hidden;text-overflow:ellipsis;}
+  .tn-pclist .tn-tg{font-size:11px;} .tn-pclist .tn-tg small{font-size:10.5px;} .tn-pclist .tn-sb .hd em{width:5px;height:5px;}
+  .tn-split div.on{box-shadow:inset 0 0 0 1.5px var(--t-accent-1);}
+  .tn-notes{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;font-size:12px;color:var(--t-dim);line-height:1.35;}
+  .tn-notes b{color:var(--t);margin-right:3px;}
   @container (max-width:1000px){ .tn-floor{grid-template-columns:minmax(0,1fr);} }
   /* ---- sub-tabs inside a grouped tab ---- */
   .subtabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;}
@@ -2263,6 +2276,7 @@ const CSV_FILES = {
   propOdds:    'data/nba_2027_prop_odds.csv',
   propStatus:  'data/nba_2027_prop_odds_status.csv',
   flow:        'data/nba_2027_game_flow.csv',
+  playerInfo:  'data/nba_2027_player_info.csv',
 };
 
 const TEAM_NAMES = {
@@ -3484,7 +3498,8 @@ const TN_WINDOWS = [['season', 'Season'], ['10', 'Last 10'], ['5', 'Last 5']];
 const TN_KEY = 'nba_ledger_tonight';
 const TN_LEAN_MIN = 1;   // the projection must clear the line by this much to make a call
 const TN_SHRINK = 10;    // a defense's number is fully trusted once it has 10 games in the window
-const TN_SPOTS = {PG: {x: 38, y: 50}, SG: {x: 28, y: 13}, SF: {x: 28, y: 87}, PF: {x: 10.8, y: 36}, C: {x: 10.8, y: 64}};
+const TN_VENUE_K = 5;    // home/away split: weight it gets = games at that venue / (games + 5)
+const TN_SPOTS = {PG: {x: 38.5, y: 50}, SG: {x: 27.5, y: 13}, SF: {x: 27.5, y: 87}, PF: {x: 11.2, y: 36}, C: {x: 11.2, y: 64}};
 function tnLoad(){ try { return JSON.parse(localStorage.getItem(TN_KEY) || '{}') || {}; } catch(e){ return {}; } }
 function tnSave(p){ try { localStorage.setItem(TN_KEY, JSON.stringify(p)); } catch(e){} }
 const tnState = Object.assign({stat: 'Points', pos: '', sort: 'edge', mode: 'list', win: 'season', starters: true, lines: false, hideInj: false,
@@ -3539,7 +3554,15 @@ function tnRow(p, off, def, g, stat){
   const win = games.slice(-Math.min(n, games.length));
   const d = tnDefAt(def, pos, stat, n);
   const avg = win.reduce((s, x) => s + getStatValue(x, stat), 0) / (win.length || 1);
-  const proj = d && d.league > 0 ? avg * (1 + (d.val / d.league - 1) * Math.min(1, d.games / TN_SHRINK)) : null;
+  // Home / away: his season average where tonight's game is, against his season average overall. The ratio is
+  // shrunk toward 1 until he has TN_VENUE_K games at that venue, then applied to his (windowed) average.
+  const home = g.home === off;
+  const av = arr => arr.length ? arr.reduce((s, x) => s + getStatValue(x, stat), 0) / arr.length : null;
+  const atV = games.filter(x => (x['Home/Away'] === 'Home') === home), other = games.filter(x => (x['Home/Away'] === 'Home') !== home);
+  const seasonAvg = av(games), vAvg = av(atV), oAvg = av(other);
+  const vf = seasonAvg && vAvg !== null ? 1 + (vAvg / seasonAvg - 1) * atV.length / (atV.length + TN_VENUE_K) : 1;
+  const split = {home, vAvg, vN: atV.length, oAvg, oN: other.length, seasonAvg, factor: vf};
+  const proj = d && d.league > 0 ? avg * vf * (1 + (d.val / d.league - 1) * Math.min(1, d.games / TN_SHRINK)) : null;
   const book = propMainFor(p.Player, stat);
   const line = book ? book.line : null;
   const odds = book && book.bo ? propAmerican(book.bo.dec) : '';
@@ -3548,7 +3571,7 @@ function tnRow(p, off, def, g, stat){
   const last = games.slice(-5);
   const lastVals = last.map(x => getStatValue(x, stat));
   const l5 = lastVals.reduce((s, v) => s + v, 0) / (lastVals.length || 1);
-  return {key: off + '|' + p.Player, name: p.Player, pos, off, def, g, stat, d, avg, l5, proj, line, odds, edge, lean, gp: win.length,
+  return {key: off + '|' + p.Player, name: p.Player, pos, off, def, g, stat, d, avg, l5, proj, line, odds, edge, lean, gp: win.length, split,
     last, lastVals, hits: line === null ? null : lastVals.filter(v => v > line).length, inj: tnInjury(p.Player), bench: !!p.bench};
 }
 function tnLeanColor(r){ return r.lean === 'OVER' ? 'var(--t-over)' : r.lean === 'UNDER' ? 'var(--t-under)' : 'var(--t-pass)'; }
@@ -3639,6 +3662,7 @@ function tnBreakdownHtml(r, wide){
   const why = [];
   if(r.d) why.push(`${teamName(r.def)} gives starting ${r.pos}s <b>${fmt(r.d.val)}</b> ${lab.toLowerCase()} a game over ${tnWinLabel()}, <b>#${r.d.rank}</b> most in the league (average ${fmt(r.d.league)}).`);
   why.push(`He averages <b>${fmt(r.avg)}</b> over ${tnWinLabel()}, and <b>${fmt(r.l5)}</b> over his last ${r.lastVals.length}.`);
+  if(r.split && r.split.vN && r.split.oN) why.push(`Tonight he's ${r.split.home ? 'at home' : 'on the road'}: <b>${fmt(r.split.vAvg)}</b> there this season (${r.split.vN} games) vs <b>${fmt(r.split.oAvg)}</b> ${r.split.home ? 'on the road' : 'at home'} (${r.split.oN}). The projection ${Math.abs(r.split.factor - 1) < 0.005 ? 'barely moves for it' : `is ${r.split.factor > 1 ? 'up' : 'down'} ${fmt(Math.abs(r.split.factor - 1) * 100, 0)}% for it`}.`);
   if(ref !== null) why.push(`Over ${fmt(ref)} in <b>${r.hits} of ${r.lastVals.length}</b>${vs.length ? `; starting ${r.pos}s went over against ${r.def} in <b>${dh} of ${vs.length}</b>` : ''}.`);
   if(r.inj) why.push(`<span class="tn-inj">Injury report: ${frEsc(r.inj)}.</span>`);
   return `<div class="tn-bk${wide ? ' wide' : ''}">
@@ -3652,14 +3676,91 @@ function tnBreakdownHtml(r, wide){
 function tnBoxHtml(r, sel){
   const c = r.line === null ? 'var(--t-nol2)' : tnLeanColor(r);
   const sub = r.line === null ? 'no line' : (r.lean === 'OVER' ? 'o' : r.lean === 'UNDER' ? 'u' : '') + fmt(r.line);
-  return `<button type="button" class="tn-sb${sel ? ' on' : ''}" data-key="${frEsc(r.key)}" data-stat="${r.stat}" style="--c:${c};" title="${TN_STAT_NAME[r.stat]}: projection ${r.proj === null ? '--' : fmt(r.proj)}${r.line !== null ? ', line ' + fmt(r.line) : ''}">
-    <i>${TN_STAT_SHORT[r.stat]}</i><b>${r.proj === null ? '--' : fmt(r.proj)}</b><span>${sub}</span></button>`;
+  // last 5 against the line (or against his projection when there is no line yet)
+  const ref = r.line !== null ? r.line : r.proj;
+  const dots = ref === null ? '' : r.lastVals.map(v => `<em style="background:${v > ref ? 'var(--t-over)' : 'var(--t-under)'};"></em>`).join('');
+  return `<button type="button" class="tn-sb${sel ? ' on' : ''}" data-key="${frEsc(r.key)}" data-stat="${r.stat}" style="--c:${c};" title="${TN_STAT_NAME[r.stat]}: projection ${r.proj === null ? '--' : fmt(r.proj)}${r.line !== null ? ', line ' + fmt(r.line) + (r.hits !== null ? `, over in ${r.hits} of his last ${r.lastVals.length}` : '') : ''}">
+    <i>${TN_STAT_SHORT[r.stat]}</i><b>${r.proj === null ? '--' : fmt(r.proj)}</b><span>${sub}</span><div class="hd">${dots}</div></button>`;
 }
+
+// ---- Extras on a player card: minutes trend and tags (injury, milestone, birthday, streak, back-to-back, first basket) ----
+const TN_TAG_COLOR = {inj: 'var(--t-warn)', ms: 'var(--t-ms)', bday: 'var(--t-bday)', hot: 'var(--t-hot)', cold: 'var(--t-cold)', b2b: 'var(--t-warn)', fb: 'var(--t-over)'};
+const TN_MS_STAT = {'Points': 'Points', 'Rebounds': 'Rebounds', 'Assists': 'Assists', '3PM': '3PM'};
+const TN_MS_UNIT = {'Points': 'pts', 'Rebounds': 'reb', 'Assists': 'ast', '3PM': 'threes'};
+let _tnFb = {src: null, flow: null, val: null};
+function tnFirstBasket(g, team, name){
+  if(!(DATA.flow || []).length) return null;
+  if(_tnFb.src !== DATA.playerGame || _tnFb.flow !== DATA.flow) _tnFb = {src: DATA.playerGame, flow: DATA.flow, val: {}};
+  if(!(g.id in _tnFb.val)){
+    try {
+      const ug = upcomingGames().find(x => String(x.gid) === String(g.id));
+      _tnFb.val[g.id] = ug ? fbGameModel(fbModel(), ug) : null;
+    } catch(e){ _tnFb.val[g.id] = null; }
+  }
+  const m = _tnFb.val[g.id]; if(!m) return null;
+  const away = team === m.away, shares = away ? m.sharesAway : m.sharesHome;
+  const s = (shares || []).find(x => x.Player === name);
+  return s ? (away ? m.pAway : 1 - m.pAway) * s.share : null;
+}
+function tnBirthday(name, g){
+  const info = (DATA.playerInfo || []).find(r => r.Player === name);
+  if(!info || !info['Birth Date']) return null;
+  const gameIso = dayDate(g.week) || String(g.date || '').slice(0, 10);
+  if(!gameIso || info['Birth Date'].slice(5) !== gameIso.slice(5)) return null;
+  return parseInt(gameIso.slice(0, 4), 10) - parseInt(info['Birth Date'].slice(0, 4), 10);
+}
+function tnExtras(p, rows, g){
+  const n = tnWinN();
+  const games = rows[0].last.length ? p.games.slice().sort((a, b) => num(a.Week) - num(b.Week)) : [];
+  const win = games.slice(-Math.min(n, games.length)), l5 = games.slice(-5);
+  const mins = win.length ? win.reduce((s, x) => s + num(x.Minutes), 0) / win.length : 0;
+  const l5m = l5.length ? l5.reduce((s, x) => s + num(x.Minutes), 0) / l5.length : 0;
+  const trend = l5m > mins + 2 ? 'up' : l5m < mins - 2 ? 'down' : '';
+  const tags = [];
+  if(p.inj) tags.push({k: 'inj', icon: '&#9888;', text: /day.to.day/i.test(p.inj) ? 'DTD' : p.inj.split(/[\s(]/)[0], full: 'Injury report: ' + p.inj});
+  // milestone in reach tonight: what he needs is at or below his projection for that stat (career, then with his team)
+  [['milestones', 'career'], ['teamMilestones', 'with ' + p.off]].forEach(([key, where]) => {
+    (DATA[key] || []).filter(m => m.Player === p.name && TN_MS_STAT[m.Stat]).forEach(m => {
+      const r = rows.find(x => x.stat === TN_MS_STAT[m.Stat]); const need = num(m.Remaining);
+      if(r && r.proj !== null && need > 0 && need <= r.proj && !tags.some(t => t.k === 'ms'))
+        tags.push({k: 'ms', icon: '&#127937;', text: `${fmt(need, 0)} to ${num(m.Milestone).toLocaleString()}`, full: `${fmt(need, 0)} ${TN_MS_UNIT[m.Stat]} from ${num(m.Milestone).toLocaleString()} ${where} (projected ${fmt(r.proj)})`});
+    });
+  });
+  const age = tnBirthday(p.name, g);
+  if(age) tags.push({k: 'bday', icon: '&#127874;', text: `Turns ${age}`, full: `Birthday: turns ${age} on game day`});
+  // a big home/away split, in the direction of tonight's venue (3+ games at each, 15%+ apart)
+  let vs = null;
+  rows.forEach(r => { const sp = r.split; if(!sp || sp.vN < 3 || sp.oN < 3 || !sp.seasonAvg) return;
+    const rel = (sp.vAvg - sp.oAvg) / Math.max(sp.seasonAvg, 1); if(Math.abs(rel) >= 0.15 && (!vs || Math.abs(rel) > Math.abs(vs.rel))) vs = {rel, sp, stat: TN_STAT_SHORT[r.stat]}; });
+  if(vs) tags.push({k: vs.rel > 0 ? 'hot' : 'cold', icon: vs.sp.home ? '&#127968;' : '&#9992;', text: `${vs.stat} ${vs.rel > 0 ? '+' : ''}${fmt(vs.sp.vAvg - vs.sp.oAvg)}`,
+    full: `${vs.stat} ${vs.sp.home ? 'at home' : 'on the road'}: ${fmt(vs.sp.vAvg)} (${vs.sp.vN} g) vs ${fmt(vs.sp.oAvg)} ${vs.sp.home ? 'on the road' : 'at home'} (${vs.sp.oN} g)`});
+  // longest current streak against the line, 3+ games
+  let st = null;
+  rows.forEach(r => {
+    if(r.line === null) return;
+    const v = r.lastVals.slice().reverse(); if(!v.length) return;
+    const over = v[0] > r.line; let k = 0;
+    while(k < v.length && (v[k] > r.line) === over) k++;
+    if(k >= 3 && (!st || k > st.k)) st = {k, over, stat: TN_STAT_SHORT[r.stat]};
+  });
+  if(st) tags.push({k: st.over ? 'hot' : 'cold', icon: st.over ? '&#128293;' : '&#10052;', text: `${st.stat} ${st.over ? 'over' : 'under'} &times;${st.k}`, full: `${st.over ? 'Over' : 'Under'} the ${st.stat} line in his last ${st.k}${st.k >= 5 ? '+' : ''} games`});
+  const tr = (DATA.week2 || []).find(r => String(r['Game ID']) === String(g.id) && r.Team === p.off);
+  if(tr && String(tr['Back-to-Back']) === '1') tags.push({k: 'b2b', icon: 'B2B', text: '', full: `${p.off} played last night`});
+  const fb = tnFirstBasket(g, p.off, p.name);
+  if(fb !== null && fb >= 0.12) tags.push({k: 'fb', icon: 'FB', text: `${Math.round(fb * 100)}%`, full: `${Math.round(fb * 100)}% chance to score the game's first basket (First Basket model)`});
+  return {mins, l5m, trend, tags};
+}
+function tnTagHtml(t){ return `<span class="tn-tg" style="--t:${TN_TAG_COLOR[t.k]};" title="${frEsc(t.full.replace(/<[^>]+>/g, ''))}"><b>${t.icon}</b>${t.text ? ` <small>${t.text}</small>` : ''}</span>`; }
+
 function tnPlayerCardHtml(p, rows, x, y){
   const sel = tnState.open === p.key;
+  const ex = p.ex || {mins: 0, trend: '', tags: []};
+  const arrow = ex.trend === 'up' ? '<span class="tn-up">&#9650;</span>' : ex.trend === 'down' ? '<span class="tn-dn">&#9660;</span>' : '';
   return `<div class="tn-pc${sel ? ' sel' : ''}" style="${x !== null ? `left:${x}%;top:${y}%;` : ''}">
-    <div class="h"><span class="tn-cb" style="--m:${rows[0].d ? cvColor(rows[0].d.rank, rows[0].d.of) : 'var(--t-dim)'};">${p.pos}</span><span class="n">${frEsc(p.name)}</span>${p.inj ? `<span class="tn-inj" title="${frEsc(p.inj)}">&#9679;</span>` : ''}</div>
-    <div class="sbs">${rows.map(r => tnBoxHtml(r, sel && tnState.cstat === r.stat)).join('')}</div></div>`;
+    <div class="h"><span class="tn-cb" style="--m:${rows[0].d ? cvColor(rows[0].d.rank, rows[0].d.of) : 'var(--t-dim)'};">${p.pos}</span><span class="n">${frEsc(p.name)}</span>
+      <span class="tn-mn" title="Minutes: ${fmt(ex.mins)} a game${tnState.win === 'season' ? '' : ' (last ' + tnState.win + ')'}, ${fmt(ex.l5m)} over his last 5">${fmt(ex.mins, 0)}<u>min</u>${arrow}</span></div>
+    <div class="sbs">${rows.map(r => tnBoxHtml(r, sel && tnState.cstat === r.stat)).join('')}</div>
+    ${ex.tags.length ? `<div class="tn-tgs">${ex.tags.slice(0, 2).map(tnTagHtml).join('')}</div>` : ''}</div>`;
 }
 function tnDrawerHtml(r){
   if(!r) return `<div class="tn-drawer"><div class="tn-empty" style="padding:30px 0;">Tap a stat on any player.</div></div>`;
@@ -3671,17 +3772,22 @@ function tnDrawerHtml(r){
     <div class="tn-dnm">${frEsc(r.name)}</div><div class="tn-mt">${r.pos} &middot; ${r.off} ${r.g.home === r.off ? 'vs' : '@'} ${r.def}${r.inj ? ` &middot; <b class="tn-inj">${frEsc(r.inj)}</b>` : ''}</div>
     <div class="tn-proj"><span class="k" style="color:${r.line === null ? 'var(--t-text)' : tnLeanColor(r)};">${r.proj === null ? '--' : fmt(r.proj)}</span><span class="lab">projected ${TN_STAT_NAME[r.stat].toLowerCase()}</span></div>
     <div class="tn-kv"><div><b>${fmt(r.avg)}</b><span>he averages${tnState.win === 'season' ? '' : ' (L' + tnState.win + ')'}</span></div><div><b>${al === null ? '--' : fmt(al)}</b><span>${r.def} gives ${r.pos}s${tnState.win === 'season' ? '' : ' (L' + tnState.win + ')'}</span></div></div>
+    ${r.split && r.split.vN && r.split.oN ? `<div class="tn-h">Home / away (season)</div><div class="tn-kv tn-split">
+      <div class="${r.split.home ? 'on' : ''}"><b>${fmt(r.split.home ? r.split.vAvg : r.split.oAvg)}</b><span>at home &middot; ${r.split.home ? r.split.vN : r.split.oN} g${r.split.home ? ' &middot; tonight' : ''}</span></div>
+      <div class="${r.split.home ? '' : 'on'}"><b>${fmt(r.split.home ? r.split.oAvg : r.split.vAvg)}</b><span>on the road &middot; ${r.split.home ? r.split.oN : r.split.vN} g${r.split.home ? '' : ' &middot; tonight'}</span></div></div>` : ''}
     ${r.d ? `<div class="tn-h">Matchup: ${r.def} vs ${r.pos}s</div><div class="tn-meter"><i style="left:${meterPct}%;"></i></div>
       <div class="tn-ml"><span>tough</span><b style="color:${cvColor(r.d.rank, r.d.of)};">#${r.d.rank} of ${r.d.of}</b><span>soft</span></div>` : ''}
+    ${r.tags && r.tags.length ? `<div class="tn-h">Notes</div><div class="tn-notes">${r.tags.map(t => `<div style="--t:${TN_TAG_COLOR[t.k]};"><b>${t.icon}</b> ${t.full}</div>`).join('')}</div>` : ''}
     ${tnBreakdownHtml(r, false)}
   </div>`;
 }
 function tnCourtSvg(){
-  const line = 'stroke="var(--t-line)" stroke-width="2" fill="none"';
-  const end = `<rect x="0" y="170" width="190" height="160" fill="var(--t-paint)" ${line}/><circle cx="190" cy="250" r="60" ${line}/>
-    <path d="M 0 30 L 140 30 A 237.5 237.5 0 0 1 140 470 L 0 470" ${line}/><circle cx="52.5" cy="250" r="8" fill="none" stroke="var(--t-rim)" stroke-width="2.5"/>`;
-  return `<svg viewBox="0 0 940 500" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="938" height="498" rx="18" fill="var(--t-court)" ${line}/>
-    <line x1="470" y1="0" x2="470" y2="500" ${line}/><circle cx="470" cy="250" r="60" ${line}/>${end}<g transform="translate(940,0) scale(-1,1)">${end}</g></svg>`;
+  // A little taller than a real court (940 x 620) so the cards have room; the lines keep their real shape.
+  const H = 620, m = H / 2, line = 'stroke="var(--t-line)" stroke-width="2" fill="none"';
+  const end = `<rect x="0" y="${m - 80}" width="190" height="160" fill="var(--t-paint)" ${line}/><circle cx="190" cy="${m}" r="60" ${line}/>
+    <path d="M 0 ${m - 220} L 140 ${m - 220} A 237.5 237.5 0 0 1 140 ${m + 220} L 0 ${m + 220}" ${line}/><circle cx="52.5" cy="${m}" r="8" fill="none" stroke="var(--t-rim)" stroke-width="2.5"/>`;
+  return `<svg viewBox="0 0 940 ${H}" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="938" height="${H - 2}" rx="18" fill="var(--t-court)" ${line}/>
+    <line x1="470" y1="0" x2="470" y2="${H}" ${line}/><circle cx="470" cy="${m}" r="60" ${line}/>${end}<g transform="translate(940,0) scale(-1,1)">${end}</g></svg>`;
 }
 
 function mountTonight(){
@@ -3722,7 +3828,10 @@ function mountTonight(){
           CV_POS.forEach(pos => { const p = (lineup[pos] || [])[0]; if(!p) return;
             const pp = {Player: p.name, Position: pos, games: p.games, bench: p.bench};
             const rows = TN_STATS.map(st => tnRow(pp, off, def, g, st));
-            players.push({key: rows[0].key, name: p.name, pos, off, def, inj: rows[0].inj, rows}); });
+            const pl = {key: rows[0].key, name: p.name, pos, off, def, inj: rows[0].inj, rows, games: p.games};
+            pl.ex = tnExtras(pl, rows, g);
+            rows.forEach(r => { r.tags = pl.ex.tags; });
+            players.push(pl); });
         });
         let selP = players.find(p => p.key === tnState.open);
         if(!selP){   // start on the biggest edge in the game
@@ -8224,7 +8333,7 @@ async function loadCSV(path){
 }
 
 // Core files (team summary, game log, box scores, DvP, SOS, upcoming slate) show the full error page if missing. These are extras:
-const OPTIONAL_CSV_KEYS = ['milestones', 'teamMilestones', 'injuries', 'epa', 'coaching', 'backtest', 'propOdds', 'propStatus', 'games', 'flow'];
+const OPTIONAL_CSV_KEYS = ['milestones', 'teamMilestones', 'injuries', 'epa', 'coaching', 'backtest', 'propOdds', 'propStatus', 'games', 'flow', 'playerInfo'];
 async function loadCSVLenient(key, path){
   try {
     return await loadCSV(path);
