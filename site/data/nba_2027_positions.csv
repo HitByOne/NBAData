@@ -14,12 +14,16 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4278039,Nickeil Alexander-Walker,ATL,SG,G,Basketball-Reference 2026-27
 4432194,Day'Ron Sharpe,BKN,C,C,Basketball-Reference 2026-27
 3150844,Moritz Wagner,BKN,C,C,Basketball-Reference 2026-27
+5107173,Danny Wolf,BKN,PF,F,Basketball-Reference 2026-27
+4870564,Joshua Jefferson,BKN,PF,F,Basketball-Reference 2026-27
 3064514,Julius Randle,BKN,PF,F,Basketball-Reference 2026-27
 4712896,Noah Clowney,BKN,PF,F,Basketball-Reference 2026-27
 5101761,Mikel Brown Jr.,BKN,PG,G,Basketball-Reference 2026-27
 5174655,Chaney Johnson,BKN,SF,F,Basketball-Reference 2026-27
 4687718,Josh Minott,BKN,SF,F,Basketball-Reference 2026-27
 4278104,Michael Porter Jr.,BKN,SF,F,Basketball-Reference 2026-27
+5242502,Ben Saraf,BKN,SG,G,Basketball-Reference 2026-27
+5037873,Drake Powell,BKN,SG,G,Basketball-Reference 2026-27
 5175643,Egor Demin,BKN,SG,G,estimated from ESPN G
 4702177,Keon Ellis,BKN,SG,G,Basketball-Reference 2026-27
 5279130,Nolan Traore,BKN,SG,G,estimated from ESPN G
@@ -105,6 +109,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4397882,Tolu Smith,DET,PF,F,Basketball-Reference 2026-27
 4432166,Cade Cunningham,DET,PG,G,Basketball-Reference 2026-27
 5107199,Daniss Jenkins,DET,PG,G,Basketball-Reference 2026-27
+5258459,Ebuka Okorie,DET,PG,G,Basketball-Reference 2026-27
 4684742,Ausar Thompson,DET,SF,G,Basketball-Reference 2026-27
 3157465,Duncan Robinson,DET,SF,F,Basketball-Reference 2026-27
 4395702,Isaiah Joe,DET,SG,G,Basketball-Reference 2026-27
@@ -185,6 +190,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5041935,Cameron Boozer,MEM,PF,F,Basketball-Reference 2026-27
 5105550,GG Jackson,MEM,PF,F,Basketball-Reference 2026-27
 2991070,Jerami Grant,MEM,PF,F,Basketball-Reference 2026-27
+4684806,Taylor Hendricks,MEM,PF,F,Basketball-Reference 2026-27
 4431785,Scotty Pippen Jr.,MEM,PG,G,Basketball-Reference 2026-27
 4594326,Kris Murray,MEM,SF,F,Basketball-Reference 2026-27
 4433083,Cam Spencer,MEM,SG,G,Basketball-Reference 2026-27
@@ -230,6 +236,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5061585,Isaiah Evans,MIN,SG,F,Basketball-Reference 2026-27
 4432247,Jaylen Clark,MIN,SG,G,Basketball-Reference 2026-27
 4432847,Terrence Shannon Jr.,MIN,SG,G,Basketball-Reference 2026-27
+4592979,Zyon Pullin,MIN,SG,G,Basketball-Reference 2026-27
 3442,DeAndre Jordan,NO,C,C,Basketball-Reference 2026-27
 4869780,Derik Queen,NO,C,C,Basketball-Reference 2026-27
 5061589,Yves Missi,NO,C,C,Basketball-Reference 2026-27
@@ -250,7 +257,9 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3934672,Jalen Brunson,NY,PG,G,Basketball-Reference 2026-27
 4277869,Jose Alvarado,NY,PG,G,Basketball-Reference 2026-27
 4431823,Miles McBride,NY,PG,G,Basketball-Reference 2026-27
+4433225,Tyler Kolek,NY,PG,G,Basketball-Reference 2026-27
 3147657,Mikal Bridges,NY,SF,G,Basketball-Reference 2026-27
+4683730,Jaden Akins,NY,SG,G,Basketball-Reference 2026-27
 2528426,Jordan Clarkson,NY,SG,G,Basketball-Reference 2026-27
 3062679,Josh Hart,NY,SG,G,Basketball-Reference 2026-27
 3914044,Landry Shamet,NY,SG,G,Basketball-Reference 2026-27
@@ -273,6 +282,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4277847,Wendell Carter Jr.,ORL,C,C,Basketball-Reference 2026-27
 4432573,Paolo Banchero,ORL,PF,F,Basketball-Reference 2026-27
 4593034,Alex Morales,ORL,PG,G,Basketball-Reference 2026-27
+4712849,Anthony Black,ORL,PG,G,Basketball-Reference 2026-27
 4432165,Jalen Suggs,ORL,PG,G,Basketball-Reference 2026-27
 3133635,Jevon Carter,ORL,PG,G,Basketball-Reference 2026-27
 4566434,Franz Wagner,ORL,SF,F,Basketball-Reference 2026-27
@@ -343,6 +353,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5142620,Darius Acuff Jr.,SAC,PG,G,Basketball-Reference 2026-27
 4917149,Alex Karaban,SAC,SF,F,Basketball-Reference 2026-27
 4065732,De'Andre Hunter,SAC,SF,F,Basketball-Reference 2026-27
+4395650,Leaky Black,SAC,SF,F,Basketball-Reference 2026-27
 4279318,Daeqwon Plowden,SAC,SG,G,Basketball-Reference 2026-27
 5106058,Emanuel Sharp,SAC,SG,G,Basketball-Reference 2026-27
 4066262,Malik Monk,SAC,SG,G,Basketball-Reference 2026-27
@@ -372,6 +383,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5105839,Brice Sensabaugh,UTAH,SF,F,Basketball-Reference 2026-27
 3133602,Svi Mykhailiuk,UTAH,SF,G,Basketball-Reference 2026-27
 5041955,Darryn Peterson,UTAH,SG,G,Basketball-Reference 2026-27
+4432811,Josh Green,UTAH,SG,G,Basketball-Reference 2026-27
 4065663,Josh Okogie,UTAH,SG,G,Basketball-Reference 2026-27
 5160992,Alex Sarr,WSH,C,C,Basketball-Reference 2026-27
 4278129,Deandre Ayton,WSH,C,C,Basketball-Reference 2026-27

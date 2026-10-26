@@ -1,1 +1,3 @@
 Model,Day,Date,Player,Slot,Position,Team,Opponent,Stat,Floor,OwnRate,DefRate,Score,Projection,ProjNoMatchup,Lo,Hi,Line,Actual,Hit
+own_only,6,2026-10-25,Tyrese Maxey,PG1,PG,PHI,DET,Points,25,1.0,,1.0,28.8,28.7,23,35,29.0,29.0,1
+own_only,6,2026-10-25,Jaylen Brown,SF1,SF,PHI,DET,Points,18,1.0,,1.0,20.5,22.3,16,25,20.5,16.0,0
