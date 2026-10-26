@@ -2,21 +2,27 @@ name: Daily NBA Dashboard Refresh
 
 on:
   schedule:
+    # cron is UTC regardless of your local timezone.
+    # 11:00 UTC (6am Central): full refresh -- last night's box scores, ratings, backtest, milestones.
     - cron: '0 11 * * *'
+    # 19:00 UTC (2pm Central): quick refresh -- injury report, tonight's lines, player props.
     - cron: '0 19 * * *'
+    # 05:00 UTC (11pm Central in winter, midnight in Oct/Apr): late stats refresh -- tonight's finished games, no odds pull.
+    - cron: '0 5 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'full = everything, quick = injuries + tonight''s slate + props'
+        description: 'full = everything, quick = injuries + tonight''s slate + props, newsletter = quick + send the Power 5 email now'
         type: choice
-        options: [full, quick]
+        options: [full, quick, newsletter]
         default: full
 
 permissions:
-  contents: write
+  contents: write   # needed to commit the refreshed CSVs back to the repo
   pages: write
   id-token: write
 
+# Matches the deploy-only workflow's group, so the two never deploy at the same instant.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -38,34 +44,57 @@ jobs:
 
       - name: Run pipeline
         env:
-          QUICK: ${{ (github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'quick') && '1' || '' }}
+          QUICK: ${{ (github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter') && '1' || '' }}
         run: |
           if [ "$QUICK" = "1" ]; then python3 run_daily.py --quick; else python3 run_daily.py; fi
 
       - name: Fetch player prop prices
+        # Its own step so it always shows in the log. A failure here never stops the refresh.
+        # Skipped on the late-night stats refresh (no OddsPapi requests used then).
+        if: github.event.schedule != '0 5 * * *'
         continue-on-error: true
         env:
+          # Settings -> Secrets and variables -> Actions -> New repository secret: RAPIDAPI_KEY
+          # (the same key the Gridiron Ledger uses works here too).
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
+          # A manual run from the Actions tab always fetches prices.
           ODDS_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         run: |
           python3 17_prop_odds.py
           echo "--- status file ---"
           cat site/data/nba_2027_prop_odds_status.csv || true
 
+      - name: Send the Power 5 newsletter
+        # Afternoon run only (after the odds pull), or a manual run with mode = newsletter.
+        # Sends once a day at most; the manual newsletter run always sends. A failure never stops the refresh.
+        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter'
+        continue-on-error: true
+        env:
+          # Settings -> Secrets and variables -> Actions -> New repository secret (one for each):
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}          # the Gmail address it sends from
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}  # a Gmail app password for that address
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}              # friends' addresses, separated by commas
+          NEWSLETTER_FORCE: ${{ github.event.inputs.mode == 'newsletter' && '1' || '' }}
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          python3 18_newsletter.py
+
       - name: Commit refreshed CSVs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/data
+          git add site/data site/newsletter 2>/dev/null || git add site/data
           git diff --staged --quiet || git commit -m "Daily data refresh"
+          # If you uploaded files while this ran, pull them in first (our fresh data wins on any clash), then push.
           git pull --rebase -X theirs origin main || true
           git push || (sleep 5 && git pull --rebase -X theirs origin main && git push)
 
       - name: Upload site as Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: site   # contains index.html + data/*.csv
 
   deploy:
     needs: refresh
