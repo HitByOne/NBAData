@@ -33,6 +33,7 @@ import json
 import os
 import shutil
 import smtplib
+import zipfile
 import subprocess
 import sys
 from email.message import EmailMessage
@@ -641,6 +642,31 @@ def site_url():
     return ""
 
 
+def make_zip(d, day_dir, files, caps, reddit):
+    """One zip for the phone: a folder per app, pictures in posting order, captions as text files beside them."""
+    top = f"HardwoodLedger_{day_dir.name}"
+    plan = []                                         # (path inside the zip, source file or text)
+    if reddit:
+        plan.append((f"{top}/1_Reddit_PickOfTheDay.txt", reddit))
+    plan += [(f"{top}/2_X/x_image.jpg", day_dir / "x.jpg"), (f"{top}/2_X/post.txt", caps["x"])]
+    if caps.get("x_reply"):
+        plan.append((f"{top}/2_X/reply_with_link.txt", caps["x_reply"]))
+    plan += [(f"{top}/3_Instagram/{i}.jpg", day_dir / f"ig-{i}.jpg") for i in range(1, 5)]
+    plan.append((f"{top}/3_Instagram/caption.txt", caps["ig"]))
+    plan.append((f"{top}/4_TikTok/tiktok_video.mp4", day_dir / "tiktok.mp4"))
+    plan += [(f"{top}/4_TikTok/slide_{i}.jpg", day_dir / f"tt-{i}.jpg") for i in range(1, 6)]
+    plan.append((f"{top}/4_TikTok/caption.txt", caps["tt"]))
+    out = day_dir / f"{top}.zip"
+    with zipfile.ZipFile(out, "w") as z:
+        for name, src in plan:
+            if isinstance(src, Path):
+                if src.exists():                        # pictures and video are already compressed: store them
+                    z.write(src, name, compress_type=zipfile.ZIP_STORED)
+            elif src:
+                z.writestr(name, src + "\n", compress_type=zipfile.ZIP_DEFLATED)
+    return out
+
+
 def email_kit(d, day_dir, files, caps, reddit):
     """Send the day's kit to you only: captions and the Reddit comment in the body, every picture + the video attached."""
     sender = os.environ.get("EMAIL_FROM", "").strip()
@@ -664,14 +690,15 @@ def email_kit(d, day_dir, files, caps, reddit):
     m.set_content(plain)
     m.add_alternative(f'''<!doctype html><html><body style="margin:0;padding:16px;background:#fff;color:#111;font:15px/1.5 Arial,sans-serif">
       <div style="max-width:640px;margin:0 auto"><div style="font:900 20px Arial,sans-serif">HARDWOOD <span style="color:#ea580c">LEDGER</span> · social kit</div>
-      <div style="color:#555">{esc(d["date"])} · {d["games"]} games · pictures and the TikTok video are attached (tap one, then Save).</div>{body}
+      <div style="color:#555">{esc(d["date"])} · {d["games"]} games · everything is in the attached zip, one folder per app.</div>
+      <ol style="padding-left:18px;color:#333;margin:12px 0 0">
+        <li>Tap the zip, then the share button, then <b>Save to Files</b>.</li>
+        <li>In the Files app, tap the zip once: it unzips into a folder.</li>
+        <li>In each app's folder, tap <b>Select</b>, pick the pictures (or the video), Share, <b>Save to Photos</b>. Or attach straight from Files where the app allows it.</li>
+        <li>Captions are in each folder as a .txt file, and below.</li></ol>{body}
       <p style="color:#777;font-size:12px;margin-top:24px">Only you get this. The public page shows the record, not the kit.</p></div></body></html>''', subtype="html")
-    for f in files:
-        path = day_dir / f
-        if not path.exists():
-            continue
-        main_t, sub_t = ("video", "mp4") if f.endswith(".mp4") else ("image", "jpeg")
-        m.add_attachment(path.read_bytes(), maintype=main_t, subtype=sub_t, filename=f)
+    zp = make_zip(d, day_dir, files, caps, reddit)
+    m.add_attachment(zp.read_bytes(), maintype="application", subtype="zip", filename=zp.name)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=120) as srv:
         srv.login(sender, pw)
         srv.send_message(m)
