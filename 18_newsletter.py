@@ -449,7 +449,13 @@ def main():
     if png:
         (OUT / f"{day}.png").write_bytes(png)
     (OUT / f"{day}.html").write_text(build_email(data, f"{day}.png" if png else "", "", site), encoding="utf-8")
-    (OUT / f"{day}.json").write_text(json.dumps(data, indent=1), encoding="utf-8")
+    # the full pick data (incl. the Pick of the Day) for 19_social.py -- kept OFF the public site, never committed
+    kit = ROOT / "social_kit"
+    kit.mkdir(exist_ok=True)
+    (kit / f"{day}.json").write_text(json.dumps(data, indent=1), encoding="utf-8")
+    old = OUT / f"{day}.json"
+    if old.exists():
+        old.unlink()
     write_index()
     print(f"Newsletter: saved site/newsletter/{day}.html")
 
