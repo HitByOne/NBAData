@@ -1,8 +1,10 @@
 """
 Hardwood Ledger -- the daily social kit and the Pick of the Day record.
 
-Runs right after 18_newsletter.py (it reads the picks that script saved in site/newsletter/YYYY-MM-DD.json).
-Everything lands in site/social/YYYY-MM-DD/ and site/social/index.html links to every day:
+Runs right after 18_newsletter.py (it reads the picks that script saved in social_kit/YYYY-MM-DD.json).
+The day's posts are PRIVATE: they're saved to social_kit/YYYY-MM-DD/ (not part of the site, not committed) and
+emailed to you (KIT_TO, or EMAIL_FROM when that isn't set) with every picture and the video attached. The only
+public page is site/social/index.html: the Pick of the Day record (graded picks only, nothing pending).
 
   x.jpg                    1600 x 900   Pick of the Day + the Power 5 court        (X)
   ig-1.jpg ... ig-4.jpg    1080 x 1350  Power 5, Pick of the Day, Top 5 by stat, record   (Instagram carousel)
@@ -13,7 +15,7 @@ Everything lands in site/social/YYYY-MM-DD/ and site/social/index.html links to 
 TikTok's rules keep content that "shows or glamorizes gambling" off the For You feed, so the TikTok version
 leaves out lines, odds, units and payouts and sticks to matchups, projections and results.
 
-PICK OF THE DAY RECORD (site/data/nba_2027_potd_log.csv)
+PICK OF THE DAY RECORD (records/nba_2027_potd_log.csv -- in the repo, not served on the site)
   * The pick is written down the first time this runs on a game day and never changed after that, at the price
     the afternoon odds pull had. Rows are only ever added; nothing is reset.
   * Rules it follows (r/sportsbook POTD): one straight pick, odds between -200 and +200, flat 1 unit.
@@ -30,8 +32,10 @@ import html
 import json
 import os
 import shutil
+import smtplib
 import subprocess
 import sys
+from email.message import EmailMessage
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -39,8 +43,10 @@ ROOT = Path(__file__).resolve().parent
 SITE = ROOT / "site"
 DATA = SITE / "data"
 NEWS = SITE / "newsletter"
-OUT = SITE / "social"
-LOG = DATA / "nba_2027_potd_log.csv"
+OUT = SITE / "social"            # public: the Pick of the Day record only
+KIT = ROOT / "social_kit"        # private: the daily posts (not on the site, not committed; emailed to you)
+LOG = ROOT / "records" / "nba_2027_potd_log.csv"   # in the repo, not on the site (the site shows graded picks only)
+OLD_LOG = DATA / "nba_2027_potd_log.csv"
 UNITS = 1.0
 CT = ZoneInfo("America/Chicago")
 
@@ -95,6 +101,12 @@ def compact(pick):
 
 # ---------------------------------------------------------------- the POTD log
 def read_log():
+    if OLD_LOG.exists():                         # earlier versions kept it under site/data (public): move it
+        LOG.parent.mkdir(parents=True, exist_ok=True)
+        if not LOG.exists():
+            shutil.move(str(OLD_LOG), str(LOG))
+        else:
+            OLD_LOG.unlink()
     if not LOG.exists():
         return []
     with LOG.open(newline="", encoding="utf-8") as f:
@@ -573,14 +585,14 @@ textarea{{width:100%;box-sizing:border-box;background:{BG};color:{TXT};border:1p
 </style></head><body><main>
 <h1>HARDWOOD <span>LEDGER</span> &middot; social kit</h1>
 <div class="dim">{esc(d["date"])} &middot; {d["games"]} games &middot; tap an image to save it (or long-press on a phone).
-The pictures and video stay up until tonight's late refresh; after that they're in that afternoon's GitHub Actions run, under Artifacts, for 7 days.</div>
+</div>
 <h2>Reddit &middot; r/sportsbook Pick of the Day</h2>
 <div class="dim">Paste as a top-level comment in today's Pick of the Day thread. Edit the write-up if you want to add your own read.</div>
 {copy_box("Reddit comment", reddit, "c-reddit") if reddit else "<p class='dim'>No pick today: nothing on the board fit -200 to +200.</p>"}
 <h2>X</h2>{img("x.jpg", "100%")}{copy_box("Post", caps["x"], "c-x")}{copy_box("Reply with the link", caps["x_reply"], "c-xr") if caps["x_reply"] else ""}
 <h2>Instagram &middot; carousel</h2>{ig}{copy_box("Caption", caps["ig"], "c-ig")}
 <h2>TikTok &middot; video + slides</h2><div class="dim">Stats only: no odds or lines, so it stays eligible for the For You feed. Add a sound in TikTok.</div>{vid}{tt}{copy_box("Caption", caps["tt"], "c-tt")}
-<p class="dim" style="margin-top:30px"><a href="../">Every day and the Pick of the Day record</a></p>
+<p class="dim" style="margin-top:30px">Private kit. The public record is at /social/ on the site.</p>
 </main><script>
 document.querySelectorAll('button[data-copy]').forEach(b => b.addEventListener('click', async () => {{
   const t = document.getElementById(b.dataset.copy);
@@ -591,13 +603,11 @@ document.querySelectorAll('button[data-copy]').forEach(b => b.addEventListener('
 
 
 def index_page(log_rows, rec):
-    days = sorted((p.name for p in OUT.iterdir() if p.is_dir() and p.name[:2] == "20"), reverse=True) if OUT.exists() else []
     res_col = {"W": GREEN, "L": RED, "P": DIM, "VOID": DIM}
     rows = "".join(f'''<tr><td>{esc(r["Date"])}</td><td>{esc(r["Player"])}<div class="dim">{esc(r["Team"])} {"vs" if r["Home/Away"] == "Home" else "@"} {esc(r["Opponent"])}</div></td>
       <td>Over {esc(r["Line"])} {esc(STAT_SHORT.get(r["Stat"], r["Stat"]))}</td><td class="n">{esc(r["American"])}</td><td class="n">{esc(r["Units"])}u</td>
       <td class="n">{esc(r.get("Actual") or "")}</td><td><b style="color:{res_col.get(r.get("Result"), DIM)}">{esc(r.get("Result") or "pending")}</b></td>
-      <td class="n">{(f"{float(r['Profit']):+.2f}" if r.get("Profit") else "")}</td></tr>''' for r in reversed(log_rows))
-    links = "".join(f'<a href="{d}/">{d}</a> ' for d in days)
+      <td class="n">{(f"{float(r['Profit']):+.2f}" if r.get("Profit") else "")}</td></tr>''' for r in reversed(log_rows) if r.get("Result"))   # graded only: today's pick stays private until it's settled
     return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hardwood Ledger &middot; Pick of the Day record</title><style>
 body{{margin:0;background:{BG};color:{TXT};font:500 15px/1.5 Inter,-apple-system,Segoe UI,Roboto,sans-serif}}
@@ -616,8 +626,7 @@ th{{font-size:12px;color:{DIM};border-top:0}} .n{{text-align:right}} .dim{{color
 <div><b>{rec["net"]:+.2f}u</b><span class="dim">net units</span></div><div><b>{rec["roi"]:.1f}%</b><span class="dim">ROI</span></div>
 <div><b>{esc(rec["avg"])}</b><span class="dim">average odds</span></div><div><b>{esc(rec["streak"] or "--")}</b><span class="dim">streak</span></div></div>
 <h2>Every pick</h2><div class="wrap"><table><thead><tr><th>Date</th><th>Player</th><th>Pick</th><th class="n">Odds</th><th class="n">Size</th><th class="n">Actual</th><th>Result</th><th class="n">Units</th></tr></thead>
-<tbody>{rows or '<tr><td colspan="8" class="dim">The first pick goes in on the next game day.</td></tr>'}</tbody></table></div>
-<h2>Daily social kits</h2><p>{links or '<span class="dim">None yet.</span>'}</p>
+<tbody>{rows or '<tr><td colspan="8" class="dim">The first graded pick shows here the morning after it plays.</td></tr>'}</tbody></table></div>
 <p class="dim">21+ &middot; For entertainment. Gambling problem? Call 1-800-GAMBLER.</p>
 </main></body></html>'''
 
@@ -632,6 +641,44 @@ def site_url():
     return ""
 
 
+def email_kit(d, day_dir, files, caps, reddit):
+    """Send the day's kit to you only: captions and the Reddit comment in the body, every picture + the video attached."""
+    sender = os.environ.get("EMAIL_FROM", "").strip()
+    pw = os.environ.get("EMAIL_PASSWORD", "").replace(" ", "").strip()
+    to = os.environ.get("KIT_TO", "").strip() or sender
+    if not (sender and pw):
+        print("Social: EMAIL_FROM / EMAIL_PASSWORD not set -- kit saved but not emailed.")
+        return False
+    blocks = [("Reddit · r/sportsbook Pick of the Day (paste as a top-level comment)", reddit),
+              ("X · post", caps["x"]), ("X · reply with the link", caps["x_reply"]),
+              ("Instagram · caption (carousel: ig-1 to ig-4, in order)", caps["ig"]),
+              ("TikTok · caption (video: tiktok.mp4; slides tt-1 to tt-5)", caps["tt"])]
+    blocks = [(t, b) for t, b in blocks if b]
+    plain = "\n\n".join(f"===== {t} =====\n{b}" for t, b in blocks)
+    body = "".join(f'''<h3 style="font:800 13px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c2410c;margin:22px 0 6px">{esc(t)}</h3>
+      <pre style="white-space:pre-wrap;font:14px/1.45 Menlo,Consolas,monospace;background:#f4f4f5;border:1px solid #e4e4e7;border-radius:10px;padding:12px;margin:0">{esc(b)}</pre>''' for t, b in blocks)
+    m = EmailMessage()
+    m["Subject"] = f"Social kit · {d['date']}"
+    m["From"] = f"Hardwood Ledger <{sender}>"
+    m["To"] = to
+    m.set_content(plain)
+    m.add_alternative(f'''<!doctype html><html><body style="margin:0;padding:16px;background:#fff;color:#111;font:15px/1.5 Arial,sans-serif">
+      <div style="max-width:640px;margin:0 auto"><div style="font:900 20px Arial,sans-serif">HARDWOOD <span style="color:#ea580c">LEDGER</span> · social kit</div>
+      <div style="color:#555">{esc(d["date"])} · {d["games"]} games · pictures and the TikTok video are attached (tap one, then Save).</div>{body}
+      <p style="color:#777;font-size:12px;margin-top:24px">Only you get this. The public page shows the record, not the kit.</p></div></body></html>''', subtype="html")
+    for f in files:
+        path = day_dir / f
+        if not path.exists():
+            continue
+        main_t, sub_t = ("video", "mp4") if f.endswith(".mp4") else ("image", "jpeg")
+        m.add_attachment(path.read_bytes(), maintype=main_t, subtype=sub_t, filename=f)
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=120) as srv:
+        srv.login(sender, pw)
+        srv.send_message(m)
+    print("Social: kit emailed to you.")
+    return True
+
+
 def main():
     rows = read_log()
     n = grade(rows)
@@ -644,7 +691,7 @@ def main():
         return
 
     today = today_ct()
-    src = NEWS / f"{today}.json"
+    src = KIT / f"{today}.json"
     if not src.exists():
         print(f"Social: no picks saved for {today} (no games, or the newsletter step didn't run) -- graded only.")
         write_log(rows)
@@ -659,12 +706,16 @@ def main():
     rec = record(rows)                       # record BEFORE today's pick (what the Reddit header shows)
     row, new = lock_pick(rows, d)
     if new:
-        print(f"Social: locked today's Pick of the Day: {row['Player']} Over {row['Line']} {row['Stat']} ({row['American']}).")
+        print("Social: locked today's Pick of the Day (details are in your kit email, not this public log).")
     write_log(rows)
     c = next((x for x in d.get("potd") or [] if row and x["name"] == row["Player"] and x["stat"] == row["Stat"]), None)
 
     site = site_url()
-    day_dir = OUT / today
+    for old in OUT.glob("20??-??-??"):          # older versions put the kit on the public site: take it down
+        shutil.rmtree(old, ignore_errors=True)
+    for old in NEWS.glob("20??-??-??.json"):     # and the raw pick data next to the newsletter archive
+        old.unlink()
+    day_dir = KIT / today
     day_dir.mkdir(parents=True, exist_ok=True)
     pages = [("x.jpg", slide_x(d, row, c, rec), 1600, 900),
              ("ig-1.jpg", ig_1(d), 1080, 1350), ("ig-2.jpg", ig_2(d, row, c, rec), 1080, 1350),
@@ -681,8 +732,14 @@ def main():
     caps = captions(d, row, rec, site)
     reddit = reddit_comment(row, c, rec) if row else ""
     (day_dir / "index.html").write_text(day_page(d, files, caps, reddit, row, rec, site), encoding="utf-8")
+    OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
-    print(f"Social: saved site/social/{today}/ ({len(files)} files)" + (f" -> {site}social/{today}/" if site else ""))
+    print(f"Social: saved social_kit/{today}/ ({len(files)} files, private)")
+    if os.environ.get("SOCIAL_DRY") != "1":
+        try:
+            email_kit(d, day_dir, files, caps, reddit)
+        except Exception as e:
+            print("Social: couldn't email the kit:", repr(e))
 
 
 if __name__ == "__main__":
