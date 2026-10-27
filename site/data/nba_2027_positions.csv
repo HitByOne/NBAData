@@ -30,11 +30,14 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4277951,Luka Garza,BOS,C,C,Basketball-Reference 2026-27
 4351852,Mitchell Robinson,BOS,C,C,Basketball-Reference 2026-27
 4397424,Neemias Queta,BOS,C,C,Basketball-Reference 2026-27
+5142621,Chris Cenac Jr.,BOS,PF,F,Basketball-Reference 2026-27
 4065648,Jayson Tatum,BOS,PF,F,Basketball-Reference 2026-27
 4683689,Jordan Walsh,BOS,PF,G,Basketball-Reference 2026-27
 4251,Paul George,BOS,PF,F,Basketball-Reference 2026-27
 4065804,Sam Hauser,BOS,PF,F,Basketball-Reference 2026-27
+3195,Mike Conley,BOS,PG,G,Basketball-Reference 2026-27
 4066354,Payton Pritchard,BOS,PG,G,Basketball-Reference 2026-27
+4397251,Ron Harper Jr.,BOS,SF,G,Basketball-Reference 2026-27
 4593841,Baylor Scheierman,BOS,SG,G,Basketball-Reference 2026-27
 3078576,Derrick White,BOS,SG,G,Basketball-Reference 2026-27
 5175647,Hugo Gonzalez,BOS,SG,G,Basketball-Reference 2026-27
@@ -62,7 +65,9 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5044385,Leonard Miller,CHI,SF,F,Basketball-Reference 2026-27
 4711294,Matas Buzelis,CHI,SF,F,Basketball-Reference 2026-27
 2990984,Buddy Hield,CHI,SG,G,Basketball-Reference 2026-27
+4848625,Dailyn Swain,CHI,SG,G,Basketball-Reference 2026-27
 4432822,Isaac Okoro,CHI,SG,F,Basketball-Reference 2026-27
+4683750,Jordan Hawkins,CHI,SG,G,Basketball-Reference 2026-27
 2595516,Norman Powell,CHI,SG,G,Basketball-Reference 2026-27
 4066328,Jarrett Allen,CLE,C,C,Basketball-Reference 2026-27
 4432158,Evan Mobley,CLE,PF,C,Basketball-Reference 2026-27
@@ -73,6 +78,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4576087,Peyton Watson,CLE,SF,G,Basketball-Reference 2026-27
 3908809,Donovan Mitchell,CLE,SG,G,Basketball-Reference 2026-27
 4683747,Jaylon Tyson,CLE,SG,G,Basketball-Reference 2026-27
+5041951,Meleek Thomas,CLE,SG,G,Basketball-Reference 2026-27
 4066757,Sam Merrill,CLE,SG,G,Basketball-Reference 2026-27
 4278049,Daniel Gafford,DAL,C,F,Basketball-Reference 2026-27
 4701208,Moussa Cisse,DAL,C,C,estimated from ESPN C
@@ -94,6 +100,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4433607,DaRon Holmes II,DEN,PF,F,Basketball-Reference 2026-27
 4277848,Marvin Bagley III,DEN,PF,F,Basketball-Reference 2026-27
 4698719,Trevon Brazile,DEN,PF,F,Basketball-Reference 2026-27
+4431690,Zeke Nnaji,DEN,PF,F,Basketball-Reference 2026-27
 3936299,Jamal Murray,DEN,PG,G,Basketball-Reference 2026-27
 4433629,Ryan Nembhard,DEN,PG,G,Basketball-Reference 2026-27
 3135046,Tyus Jones,DEN,PG,G,Basketball-Reference 2026-27
@@ -151,6 +158,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 2580365,Larry Nance Jr.,IND,PF,F,Basketball-Reference 2026-27
 4278355,Obi Toppin,IND,PF,F,Basketball-Reference 2026-27
 3149673,Pascal Siakam,IND,PF,F,Basketball-Reference 2026-27
+5105854,Braden Smith,IND,PG,G,Basketball-Reference 2026-27
 4592829,Quenton Jackson,IND,PG,G,Basketball-Reference 2026-27
 4396993,Tyrese Haliburton,IND,PG,G,Basketball-Reference 2026-27
 4396909,Aaron Nesmith,IND,SF,G,Basketball-Reference 2026-27
@@ -216,12 +224,12 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3133628,Myles Turner,MIL,C,C,Basketball-Reference 2026-27
 4997526,Ousmane Dieng,MIL,C,F,Basketball-Reference 2026-27
 3134907,Kyle Kuzma,MIL,PF,F,Basketball-Reference 2026-27
+5214640,Kasparas Jakucionis,MIL,PG,G,estimated from ESPN G
 4591725,Ryan Rollins,MIL,PG,G,Basketball-Reference 2026-27
 4432848,Jaime Jaquez Jr.,MIL,SF,F,Basketball-Reference 2026-27
 5164559,Nate Ament,MIL,SF,F,Basketball-Reference 2026-27
 4397475,AJ Green,MIL,SG,G,Basketball-Reference 2026-27
 5082206,Brayden Burries,MIL,SG,G,Basketball-Reference 2026-27
-5214640,Kasparas Jakucionis,MIL,SG,G,estimated from ESPN G
 4395725,Tyler Herro,MIL,SG,G,Basketball-Reference 2026-27
 3032976,Rudy Gobert,MIN,C,C,Basketball-Reference 2026-27
 4431671,Jaden McDaniels,MIN,PF,F,Basketball-Reference 2026-27
@@ -276,6 +284,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4683692,Cason Wallace,OKC,SG,G,Basketball-Reference 2026-27
 4593803,Jalen Williams,OKC,SG,G,Basketball-Reference 2026-27
 4683778,Jared McCain,OKC,SG,G,Basketball-Reference 2026-27
+5105800,Josh Dix,OKC,SG,G,Basketball-Reference 2026-27
 4397204,Colin Castleton,ORL,C,C,Basketball-Reference 2026-27
 4348700,Goga Bitadze,ORL,C,C,Basketball-Reference 2026-27
 6478,Nikola Vucevic,ORL,C,C,estimated from ESPN C
@@ -376,6 +385,8 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4277961,Jaren Jackson Jr.,UTAH,C,F,Basketball-Reference 2026-27
 4397077,Jaxson Hayes,UTAH,C,C,Basketball-Reference 2026-27
 4684793,Kyle Filipowski,UTAH,C,F,Basketball-Reference 2026-27
+4277919,Mo Bamba,UTAH,C,C,Basketball-Reference 2026-27
+4065673,Tony Bradley,UTAH,C,C,Basketball-Reference 2026-27
 4066336,Lauri Markkanen,UTAH,PF,F,Basketball-Reference 2026-27
 4683766,Isaiah Collier,UTAH,PG,G,Basketball-Reference 2026-27
 4433627,Keyonte George,UTAH,PG,G,Basketball-Reference 2026-27

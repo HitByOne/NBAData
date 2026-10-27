@@ -1,7 +1,6 @@
 Team,Player,Position,Status,Injury,Return,Updated
 ATL,Henri Veesaar,C,Out,Right Knee,2027-07-01,2026-09-21
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-11-20,2026-10-19
-BKN,Mikel Brown Jr.,G,Day-To-Day,Rest,2026-10-27,2026-10-26
 BKN,Tyler Bilodeau,F,Out,Right Shoulder Sprain,2026-10-30,2026-10-25
 BOS,Devin Carter,G,Out,Illness,2026-11-08,2026-10-18
 CHA,Coby White,G,Out,Left Calf Strain,2026-10-31,2026-10-26
@@ -9,28 +8,28 @@ CHA,Grant Williams,F,Out,Right Hamstring,2026-10-31,2026-10-26
 CHA,Kon Knueppel,G,Out,Left Hamstring,2026-10-31,2026-10-26
 CHA,Kylan Boswell,G,Out,Right Knee Surgery,2026-11-02,2026-10-20
 CHI,Nic Claxton,C,Out,Hamstring,2026-11-04,2026-10-26
-CHI,Patrick Williams,F,Out,Right Groin Soreness,2026-10-28,2026-10-26
+CHI,Patrick Williams,F,Day-To-Day,Right Groin Soreness,2026-10-28,2026-10-27
 DAL,Caleb Martin,F,Out,Right Thumb Sprain,2026-11-02,2026-10-26
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-02,2026-10-22
-DAL,Naji Marshall,F,Out,Illness,2026-10-28,2026-10-25
+DAL,Naji Marshall,F,Day-To-Day,Illness,2026-10-28,2026-10-27
 DAL,Santi Aldama,F,Out,Right Knee Surgery,2026-11-02,2026-10-24
 DAL,Sergio de Larrea,F,Day-To-Day,Right Knee Strain,2026-10-28,2026-10-27
 DAL,Tarik Biberovic,F,Out,Right Heel Inflammation,2026-11-02,2026-10-24
-DEN,Alpha Diallo,F,Out,Right Wrist,2026-10-28,2026-10-26
-DEN,Cameron Johnson,F,Out,Right Ankle Sprain,2026-10-28,2026-10-27
+DEN,Alpha Diallo,F,Day-To-Day,Right Wrist,2026-10-28,2026-10-27
+DEN,Cameron Johnson,F,Day-To-Day,Right Ankle Sprain,2026-10-28,2026-10-27
 DEN,Julian Strawther,G,Out,Left Knee Sprain,2026-11-29,2026-10-17
-DEN,Spencer Jones,F,Out,Hamstring Not Specified,2026-10-28,2026-10-25
+DEN,Spencer Jones,F,Out,Hamstring Not Specified,2026-10-28,2026-10-27
 DET,Ausar Thompson,G,Day-To-Day,Right Ankle Sprain,2026-10-27,2026-10-26
 DET,Isaiah Joe,G,Day-To-Day,Hip Bruise,2026-10-27,2026-10-26
 DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-09,2026-10-25
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2026-12-01,2026-10-21
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
-HOU,Marcus Smart,G,Out,Left Forearm Strain,2026-10-28,2026-10-26
+HOU,Marcus Smart,G,Day-To-Day,Left Forearm Strain,2026-10-28,2026-10-27
 HOU,Steven Adams,C,Out,Right Calf Strain,2026-11-02,2026-10-26
-IND,Andrew Nembhard,G,Out,Back Soreness,2026-10-28,2026-10-26
+IND,Andrew Nembhard,G,Day-To-Day,Back Soreness,2026-10-28,2026-10-27
 IND,Ben Sheppard,G,Out,Left Knee,2026-12-01,2026-10-26
-IND,Ivica Zubac,C,Out,Left Ankle Sprain,2026-10-28,2026-10-26
+IND,Ivica Zubac,C,Day-To-Day,Left Ankle Sprain,2026-10-28,2026-10-27
 IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-02-09
 IND,T.J. McConnell,G,Out,Right Hamstring Strain,2026-10-28,2026-10-26
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-08,2026-10-15
@@ -60,7 +59,7 @@ PHI,Joel Embiid,C,Day-To-Day,Right Heel,2026-10-28,2026-10-26
 PHI,Tacko Fall,C,Out,Left Quadriceps Strain,2026-10-28,2026-10-25
 PHI,VJ Edgecombe,G,Day-To-Day,Abdomen Bruise,2026-10-28,2026-10-26
 PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
-PHX,Oso Ighodaro,F,Out,Oblique Strain,2026-10-30,2026-10-26
+PHX,Oso Ighodaro,F,Day-To-Day,Oblique Strain,2026-10-30,2026-10-27
 POR,Branden Carlson,C,Day-To-Day,Concussion Concussion,2026-10-27,2026-10-27
 POR,Chris Youngblood,G,Out,Left Ankle Soreness,2026-10-29,2026-10-27
 POR,Scoot Henderson,G,Day-To-Day,Left Ankle Soreness,2026-10-27,2026-10-27
@@ -75,7 +74,7 @@ TOR,Brandon Ingram,F,Out,Right Achilles Surgery,2026-11-08,2026-09-28
 TOR,Kawhi Leonard,F,Day-To-Day,Left Knee Inflammation,2026-10-28,2026-10-26
 TOR,Nate Bittle,C,Out,Right Foot Fracture,2026-10-28,2026-10-20
 UTAH,Jaren Jackson Jr.,F,Day-To-Day,Right Knee Not Specified,2026-10-28,2026-10-27
-UTAH,Jaxson Hayes,C,Out,Right Shoulder Soreness,2026-10-28,2026-10-27
+UTAH,Jaxson Hayes,C,Day-To-Day,Right Shoulder Soreness,2026-10-28,2026-10-27
 UTAH,Jusuf Nurkic,C,Out,Right Foot Strain,2026-11-04,2026-10-07
 UTAH,Lauri Markkanen,F,Day-To-Day,Right Wrist Not Specified,2026-10-28,2026-10-27
 UTAH,Trey Alexander,G,Out,Left Knee Bruise,2026-10-28,2026-10-24
