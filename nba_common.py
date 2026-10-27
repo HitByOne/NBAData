@@ -1,7 +1,7 @@
 """
 nba_common.py
 
-Shared config + helpers for the NBA Ledger's ESPN pull pipeline (the NBA
+Shared config + helpers for the Hardwood Ledger's ESPN pull pipeline (the NBA
 twin of nfl_common.py). Every script imports from here instead of
 redefining paths, team lists, or the box-score parser.
 
@@ -84,10 +84,25 @@ _session = requests.Session()
 _session.headers.update({"User-Agent": "nba-ledger/1.0 (personal dashboard)"})
 
 
-def get_json(url: str, timeout: int = 30) -> dict:
-    resp = _session.get(url, timeout=timeout)
-    resp.raise_for_status()
-    return resp.json()
+def get_json(url: str, timeout: int = 30, tries: int = 4) -> dict:
+    """GET a JSON page from ESPN. ESPN sometimes answers with an empty page, a hiccup or a rate limit;
+    wait and try again (2s, 4s, 8s) before giving up."""
+    import time
+    last = None
+    for attempt in range(tries):
+        try:
+            resp = _session.get(url, timeout=timeout)
+            if resp.status_code in (429, 500, 502, 503, 504):
+                raise requests.HTTPError(f"HTTP {resp.status_code}", response=resp)
+            resp.raise_for_status()
+            return resp.json()
+        except (requests.ConnectionError, requests.Timeout, requests.HTTPError, ValueError) as e:
+            if isinstance(e, requests.HTTPError) and e.response is not None and e.response.status_code == 404:
+                raise
+            last = e
+            if attempt < tries - 1:
+                time.sleep(2 ** (attempt + 1))
+    raise last
 
 
 def et_date(iso: str) -> str:
