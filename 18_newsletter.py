@@ -49,6 +49,8 @@ MARKER = OUT / "last_sent.txt"
 
 FORCE = os.environ.get("NEWSLETTER_FORCE") == "1"
 DRY = os.environ.get("NEWSLETTER_DRY") == "1"
+# TEST: send only to you (TEST_TO, else KIT_TO, else EMAIL_FROM), never the list; no archive copy, no "sent" marker.
+TEST = os.environ.get("NEWSLETTER_TEST") == "1"
 
 # colors match the Tonight layout's dark theme
 BG, CARD, LINE, TXT, DIM = "#0b0d12", "#141821", "#262c38", "#eef1f6", "#8b93a3"
@@ -394,7 +396,12 @@ def send(msg_html, png, date_label, subject):
     if not (sender and pw):
         print("Newsletter: EMAIL_FROM / EMAIL_PASSWORD aren't set -- built the issue but didn't send.")
         return False
-    to = recipients()
+    if TEST:
+        me = (os.environ.get("TEST_TO") or os.environ.get("KIT_TO") or sender).strip()
+        to = [me]
+        print("Newsletter: TEST -- sending to you only, not the list.")
+    else:
+        to = recipients()
     if not to:
         print("Newsletter: nobody on the list (no active rows) -- built the issue but didn't send.")
         return False
@@ -430,7 +437,7 @@ def write_index():
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     today = dt.datetime.now(ZoneInfo("America/Chicago")).date().isoformat()
-    if not FORCE and MARKER.exists() and MARKER.read_text().strip() == today:
+    if not (FORCE or TEST) and MARKER.exists() and MARKER.read_text().strip() == today:
         print(f"Newsletter: already sent for {today}. Set NEWSLETTER_FORCE=1 to send again.")
         return
 
@@ -439,16 +446,17 @@ def main():
         print("Newsletter: no games / no Power 5 tonight -- nothing to send.")
         return
     day = data.get("iso") or today
-    if not FORCE and day != today:
+    if not (FORCE or TEST) and day != today:
         print(f"Newsletter: the next slate is {day}, not today ({today}) -- skipping.")
         return
 
     site = site_url()
     view_url = f"{site}newsletter/{day}.html" if site else ""
-    # archive copy: image as a file next to it
-    if png:
-        (OUT / f"{day}.png").write_bytes(png)
-    (OUT / f"{day}.html").write_text(build_email(data, f"{day}.png" if png else "", "", site), encoding="utf-8")
+    # archive copy: image as a file next to it (not for test sends)
+    if not TEST:
+        if png:
+            (OUT / f"{day}.png").write_bytes(png)
+        (OUT / f"{day}.html").write_text(build_email(data, f"{day}.png" if png else "", "", site), encoding="utf-8")
     # the full pick data (incl. the Pick of the Day) for 19_social.py -- kept OFF the public site, never committed
     kit = ROOT / "social_kit"
     kit.mkdir(exist_ok=True)
@@ -456,16 +464,17 @@ def main():
     old = OUT / f"{day}.json"
     if old.exists():
         old.unlink()
-    write_index()
-    print(f"Newsletter: saved site/newsletter/{day}.html")
+    if not TEST:
+        write_index()
+        print(f"Newsletter: saved site/newsletter/{day}.html")
 
     top = top_pick(data["legs"])
-    subject = f"Power 5 · {data['date']} · {top['name']} {top['pick']}"
+    subject = ("[TEST] " if TEST else "") + f"Power 5 · {data['date']} · {top['name']} {top['pick']}"
     if DRY:
         print("Newsletter: dry run, not sending. Subject would be:", subject)
         return
     email_html = build_email(data, "cid:COURT" if png else "", view_url, site)
-    if send(email_html, png, data["date"], subject):
+    if send(email_html, png, data["date"], subject) and not TEST:
         MARKER.write_text(today)
 
 
