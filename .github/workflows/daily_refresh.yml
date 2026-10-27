@@ -74,7 +74,9 @@ jobs:
           # Settings -> Secrets and variables -> Actions -> New repository secret (one for each):
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}          # the Gmail address it sends from
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}  # a Gmail app password for that address
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}              # friends' addresses, separated by commas
+          # Who gets it: the newsletter_subscribers table in Supabase (run supabase_newsletter.sql once).
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}  # Supabase secret key -- reads the list
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}              # optional backup list, only used without Supabase
           NEWSLETTER_FORCE: ${{ github.event.inputs.mode == 'newsletter' && '1' || '' }}
         run: |
           pip install playwright
