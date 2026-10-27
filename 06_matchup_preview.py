@@ -34,7 +34,11 @@ for i in range(SCAN_DAYS):
     d = start + timedelta(days=i)
     if d.isoformat() in pulled:
         continue
-    events = fetch_scoreboard(d)
+    try:
+        events = fetch_scoreboard(d)
+    except Exception as e:      # ESPN still failing after retries: skip that day rather than stop the run
+        print(f"  {d}: couldn't read ESPN's scoreboard ({e.__class__.__name__}) -- skipping that day.")
+        continue
     live = [e for e in events if not event_status(e)[1]]
     if not live:
         continue
