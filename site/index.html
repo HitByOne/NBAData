@@ -4164,21 +4164,36 @@ window.hwNewsletter = async function(){
     const list = top.map(x => { const lab = p5Label(x.b), r = x.r;
       return {name: x.c.p.Player, pos: r.pos || x.c.p.Position, off: x.c.off, def: x.c.def, home: x.c.g.home === x.c.off, time: tnTime(x.c.g),
         pick: lab.main.replace(/<[^>]+>/g, ''), sub: lab.sub.replace(/&middot;/g, '·').replace(/<[^>]+>/g, ''),
-        hits: r.hits, n: r.lastVals.length, defRank: r.d ? r.d.rank : null}; });
+        hits: r.hits, n: r.lastVals.length, defRank: r.d ? r.d.rank : null, defVal: r.d ? r.d.val : null, proj: r.proj, avg: r.avg}; });
     return {stat: TN_STAT_NAME[st], short: TN_STAT_SHORT[st], how, list};
   }).filter(x => x.list.length);
+  // Pick of the Day candidates: the strongest single OVER on the board (any player, any stat) priced between
+  // -200 and +200, the r/sportsbook POTD range. Best bet scoring; needs a book line and price.
+  p5State.mode = 'best';
+  const potd = [];
+  cands.forEach(c => TN_STATS.forEach(st => {
+    const r = tnRow({Player: c.p.Player, Position: c.p.Position, games: c.p.games}, c.off, c.def, c.g, st);
+    const b = p5Best([r]); if(!b) return;
+    const bk = propMainFor(c.p.Player, st), dec = bk && bk.bo ? bk.bo.dec : null;
+    if(!dec || dec < 1.5 || dec > 3.0) return;
+    potd.push({score: b.score, name: c.p.Player, pos: r.pos || c.p.Position, off: c.off, def: c.def, home: c.g.home === c.off, tip: c.g.date, time: tnTime(c.g),
+      stat: st, statName: TN_STAT_NAME[st], short: TN_STAT_SHORT[st], line: r.line, dec, american: propAmerican(dec), proj: r.proj, avg: r.avg, l5: r.l5,
+      hits: r.hits, n: r.lastVals.length, lastVals: r.lastVals, defRank: r.d ? r.d.rank : null, defOf: r.d ? r.d.of : null, defVal: r.d ? r.d.val : null,
+      league: r.d ? r.d.league : null, gp: r.gp, win: tnWinLabel(), split: r.split || null});
+  }));
+  potd.sort((a, b) => b.score - a.score);
   p5State.mode = saveMode;
   await p5LoadHistory();
   const nights = p5Record(mode);
   const tot = nights.reduce((a, n) => ({g: a.g + n.graded, h: a.h + n.hits, c: a.c + (n.cashed ? 1 : 0)}), {g: 0, h: 0, c: 0});
   const l7 = nights.slice(0, 7).reduce((a, n) => ({g: a.g + n.graded, h: a.h + n.hits}), {g: 0, h: 0});
   const last = nights[0] ? {date: dayLabel(nights[0].D, {long: true}), hits: nights[0].hits, graded: nights[0].graded, cashed: nights[0].cashed,
-    legs: nights[0].legs.map(l => ({pos: l.pos, name: l.name, pick: mode === 'boost' ? `${TN_STAT_SHORT[l.stat]} over his ${fmt(l.avg)} avg` : l.label.main.replace(/<[^>]+>/g, ''), actual: l.actual, result: l.result}))} : null;
+    legs: nights[0].legs.map(l => ({pos: l.pos, name: l.name, stat: TN_STAT_SHORT[l.stat], pick: mode === 'boost' ? `${TN_STAT_SHORT[l.stat]} over his ${fmt(l.avg)} avg` : l.label.main.replace(/<[^>]+>/g, ''), actual: l.actual, result: l.result}))} : null;
   // draw the court for the screenshot
   showTab('power5');
   return {date: day ? dayLabel(day, {long: true}) : '', iso: day ? dayDate(day) : '', games: games.length, mode, modeName: P5_MODES.find(x => x[0] === mode)[1],
     schedule: games.slice().sort((a, b) => (+new Date(a.date) || 0) - (+new Date(b.date) || 0)).map(g => ({away: g.away, home: g.home, time: tnTime(g)})),
-    legs, swaps, byStat, pay: priced ? propAmerican(legs.reduce((a, l) => a * l.dec, 1)) : null, last,
+    legs, swaps, byStat, potd: potd.slice(0, 5), pay: priced ? propAmerican(legs.reduce((a, l) => a * l.dec, 1)) : null, last,
     record: {nights: nights.length, legs: tot.g, hits: tot.h, cashed: tot.c, l7legs: l7.g, l7hits: l7.h}};
 };
 
