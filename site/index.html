@@ -4151,6 +4151,23 @@ window.hwNewsletter = async function(){
   const swaps = CV_POS.map(p => { const c = (got.pool[p] || [])[1]; if(!c) return null; const lab = p5Label(c.best);
     return {pos: p, name: c.name, off: c.off, def: c.def, home: c.g.home === c.off, pick: lab.main.replace(/<[^>]+>/g, '')}; }).filter(Boolean);
   const priced = mode !== 'boost' && legs.length && legs.every(l => l.dec);
+  // Top 5 for each stat, any position, from tonight's projected starters. Best bet scoring (OVER vs the book line)
+  // when at least five players have a line for that stat; otherwise Matchup boost scoring for that stat.
+  const cands = [];
+  games.forEach(g => [[g.away, g.home], [g.home, g.away]].forEach(([off, def]) => projectedStarters(off).forEach(p => cands.push({p, off, def, g}))));
+  const saveMode = p5State.mode;
+  const byStat = TN_STATS.map(st => {
+    const rows = cands.map(c => ({c, r: tnRow({Player: c.p.Player, Position: c.p.Position, games: c.p.games}, c.off, c.def, c.g, st)}));
+    const rank = m => { p5State.mode = m; return rows.map(x => ({...x, b: p5Best([x.r])})).filter(x => x.b).sort((a, b) => b.b.score - a.b.score).slice(0, 5); };
+    let how = 'best', top = rank('best');
+    if(top.length < 5){ how = 'boost'; top = rank('boost'); }
+    const list = top.map(x => { const lab = p5Label(x.b), r = x.r;
+      return {name: x.c.p.Player, pos: r.pos || x.c.p.Position, off: x.c.off, def: x.c.def, home: x.c.g.home === x.c.off, time: tnTime(x.c.g),
+        pick: lab.main.replace(/<[^>]+>/g, ''), sub: lab.sub.replace(/&middot;/g, '·').replace(/<[^>]+>/g, ''),
+        hits: r.hits, n: r.lastVals.length, defRank: r.d ? r.d.rank : null}; });
+    return {stat: TN_STAT_NAME[st], short: TN_STAT_SHORT[st], how, list};
+  }).filter(x => x.list.length);
+  p5State.mode = saveMode;
   await p5LoadHistory();
   const nights = p5Record(mode);
   const tot = nights.reduce((a, n) => ({g: a.g + n.graded, h: a.h + n.hits, c: a.c + (n.cashed ? 1 : 0)}), {g: 0, h: 0, c: 0});
@@ -4160,7 +4177,8 @@ window.hwNewsletter = async function(){
   // draw the court for the screenshot
   showTab('power5');
   return {date: day ? dayLabel(day, {long: true}) : '', iso: day ? dayDate(day) : '', games: games.length, mode, modeName: P5_MODES.find(x => x[0] === mode)[1],
-    legs, swaps, pay: priced ? propAmerican(legs.reduce((a, l) => a * l.dec, 1)) : null, last,
+    schedule: games.slice().sort((a, b) => (+new Date(a.date) || 0) - (+new Date(b.date) || 0)).map(g => ({away: g.away, home: g.home, time: tnTime(g)})),
+    legs, swaps, byStat, pay: priced ? propAmerican(legs.reduce((a, l) => a * l.dec, 1)) : null, last,
     record: {nights: nights.length, legs: tot.g, hits: tot.h, cashed: tot.c, l7legs: l7.g, l7hits: l7.h}};
 };
 
