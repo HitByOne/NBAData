@@ -10,10 +10,17 @@ season record straight from the page, and emails it to your list through Gmail.
   * Every issue is also saved to the site: site/newsletter/YYYY-MM-DD.html (+ .png), and
     site/newsletter/index.html lists them all. The email's "view in browser" link points there.
 
+Who gets it: the newsletter_subscribers table in Supabase (run supabase_newsletter.sql once). Add, remove or
+pause people in the Supabase dashboard -> Table Editor; only rows with active = true get the email. Everyone is
+BCC'd, so friends don't see each other's addresses.
+
 Settings (GitHub repository secrets, never in files):
-  EMAIL_FROM      the Gmail address it sends from
-  EMAIL_PASSWORD  a Gmail *app password* for that account (not your normal password)
-  EMAIL_TO        who gets it: addresses separated by commas. Everyone is BCC'd, so friends don't see each other.
+  EMAIL_FROM            the Gmail address it sends from
+  EMAIL_PASSWORD        a Gmail *app password* for that account (not your normal password)
+  SUPABASE_SERVICE_KEY  Supabase -> Project Settings -> API Keys -> the *secret* key (sb_secret_... or the
+                        older service_role key). It's the only thing that can read the list.
+  EMAIL_TO              optional backup list (commas) used only when Supabase isn't set up.
+The Supabase project address is read from site/config.js (it's public anyway); SUPABASE_URL overrides it.
 
 Run it yourself with NEWSLETTER_DRY=1 to build the issue without sending.
 """
@@ -21,10 +28,13 @@ import datetime as dt
 import html
 import json
 import os
+import re
 import smtplib
 import socket
 import sys
 import threading
+import urllib.parse
+import urllib.request
 from email.message import EmailMessage
 from email.utils import make_msgid
 from functools import partial
@@ -252,12 +262,45 @@ def build_email(d, img_src, view_url, site):
 </table></td></tr></table></body></html>'''
 
 
+def supabase_url():
+    if os.environ.get("SUPABASE_URL"):
+        return os.environ["SUPABASE_URL"].rstrip("/")
+    cfg = SITE / "config.js"
+    if cfg.exists():
+        m = re.search(r"supabaseUrl\s*:\s*['\"](https://[^'\"]+)['\"]", cfg.read_text(encoding="utf-8"))
+        if m:
+            return m.group(1).rstrip("/")
+    return ""
+
+
+def recipients():
+    """Active subscribers from Supabase; falls back to the EMAIL_TO secret when Supabase isn't set up."""
+    key = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
+    url = supabase_url()
+    if key and url:
+        q = urllib.parse.urlencode({"select": "email", "active": "eq.true"})
+        headers = {"apikey": key, "Accept": "application/json"}
+        if key.startswith("eyJ"):           # the older JWT-style service_role key also goes in Authorization
+            headers["Authorization"] = "Bearer " + key
+        req = urllib.request.Request(f"{url}/rest/v1/newsletter_subscribers?{q}", headers=headers)
+        with urllib.request.urlopen(req, timeout=30) as r:
+            rows = json.loads(r.read().decode("utf-8"))
+        emails = sorted({(x.get("email") or "").strip().lower() for x in rows if "@" in (x.get("email") or "")})
+        print(f"Newsletter: {len(emails)} active subscriber(s) in Supabase.")
+        return emails
+    print("Newsletter: SUPABASE_SERVICE_KEY not set -- using the EMAIL_TO secret instead.")
+    return [a.strip() for a in os.environ.get("EMAIL_TO", "").replace(";", ",").split(",") if a.strip()]
+
+
 def send(msg_html, png, date_label, subject):
     sender = os.environ.get("EMAIL_FROM", "").strip()
     pw = os.environ.get("EMAIL_PASSWORD", "").replace(" ", "").strip()
-    to = [a.strip() for a in os.environ.get("EMAIL_TO", "").replace(";", ",").split(",") if a.strip()]
-    if not (sender and pw and to):
-        print("Newsletter: EMAIL_FROM / EMAIL_PASSWORD / EMAIL_TO aren't all set -- built the issue but didn't send.")
+    if not (sender and pw):
+        print("Newsletter: EMAIL_FROM / EMAIL_PASSWORD aren't set -- built the issue but didn't send.")
+        return False
+    to = recipients()
+    if not to:
+        print("Newsletter: nobody on the list (no active rows) -- built the issue but didn't send.")
         return False
     m = EmailMessage()
     m["Subject"] = subject
