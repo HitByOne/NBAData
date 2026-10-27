@@ -107,11 +107,10 @@ def read_page():
             data = page.evaluate("window.hwNewsletter()")
             png = None
             if data.get("legs"):
-                page.wait_for_timeout(600)
-                page.evaluate("document.querySelectorAll('.p5-card.sel').forEach(e => e.classList.remove('sel'))")
-                el = page.query_selector(".p5-court")
-                if el:
-                    png = el.screenshot()
+                # the court graphic is drawn just for the email (sized to sit beside the Power 5 panel)
+                page.set_content(court_html(data["legs"]), wait_until="load")
+                page.wait_for_timeout(800)
+                png = page.query_selector("#court").screenshot(omit_background=True)
             if errors:
                 print("page errors:", errors[:5])
             browser.close()
@@ -135,6 +134,65 @@ def pct(h, g):
     return f"{round(h / g * 100)}%" if g else "--"
 
 
+SUFFIXES = ("jr", "sr", "ii", "iii", "iv")
+
+
+def short_name(name):
+    """'Michael Porter Jr.' -> 'Porter Jr.', 'Nikola Jokic' -> 'Jokic' (for the small chips)."""
+    parts = name.split()
+    if len(parts) >= 2 and parts[-1].rstrip(".").lower() in SUFFIXES:
+        return " ".join(parts[-2:])
+    return parts[-1] if parts else name
+
+
+def card_name(name):
+    """Full name, or 'M. Porter Jr.' when it's too long for a court card."""
+    if len(name) <= 15:
+        return name
+    parts = name.split()
+    return (parts[0][0] + ". " + " ".join(parts[1:])) if len(parts) > 1 else name
+
+
+def compact(pick):
+    """'OVER 23.5 PTS' -> 'o23.5 PTS' (Matchup boost picks like 'PTS 21.3' stay as they are)."""
+    pick = str(pick or "")
+    return "o" + pick[5:] if pick.startswith("OVER ") else pick
+
+
+COURT_SPOTS = {"PG": (104, 12), "SF": (8, 108), "SG": (200, 108), "PF": (24, 232), "C": (184, 232)}
+
+
+def court_html(legs):
+    """The Power 5 on a half court, 336 x 372, photographed for the email."""
+    cards = []
+    for l in legs:
+        x, y = COURT_SPOTS.get(l["pos"], (0, 0))
+        sub = (f"{l['hits']}/{l['n']} over" if l.get("hits") is not None and l.get("n") else esc(l.get("sub", "")))
+        if l.get("defRank"):
+            sub += f" &middot; {esc(l['def'])} #{l['defRank']}"
+        cards.append(f'''<div class="pc" style="left:{x}px;top:{y}px">
+  <div class="t"><span class="pos">{esc(l['pos'])}</span>{esc(card_name(l['name']))}</div>
+  <div class="mt">{esc(l['off'])} {'vs' if l.get('home') else '@'} {esc(l['def'])} &middot; {esc(l.get('time') or '')}</div>
+  <div class="big">{esc(compact(l['pick']))}</div><div class="mt">{sub}</div></div>''')
+    return f'''<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+body{{margin:0;background:{BG};}}
+#court{{position:relative;width:336px;height:372px;border-radius:16px;background:#0f1119;overflow:hidden;font-family:Inter,Arial,sans-serif;color:{TXT}}}
+.pc{{position:absolute;width:128px;box-sizing:border-box;padding:8px 9px;border-radius:12px;background:#161826;box-shadow:0 6px 18px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.07);display:flex;flex-direction:column;gap:1px}}
+.t{{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden}}
+.pos{{flex:none;width:19px;height:19px;border-radius:10px;box-shadow:inset 0 0 0 1.5px {GREEN};display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700}}
+.mt{{font-size:9.5px;color:rgba(242,244,250,.7);white-space:nowrap;overflow:hidden}}
+.big{{font-family:'Space Grotesk',Inter,sans-serif;font-size:15px;font-weight:700;color:{GREEN}}}
+</style></head><body><div id="court">
+<svg viewBox="0 0 500 470" preserveAspectRatio="none" width="336" height="372" style="position:absolute;left:0;top:0">
+ <g stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none">
+  <rect x="1" y="1" width="498" height="468" rx="18"/><rect x="170" y="280" width="160" height="189" fill="rgba(255,122,47,0.05)"/>
+  <circle cx="250" cy="280" r="60"/><path d="M 30 469 L 30 330 A 237.5 237.5 0 0 1 470 330 L 470 469"/><path d="M 190 1 A 60 60 0 0 0 310 1"/></g>
+ <circle cx="250" cy="417.5" r="8" fill="none" stroke="{ORANGE}" stroke-width="2.5"/></svg>
+{''.join(cards)}</div></body></html>'''
+
+
 def pill(text, color):
     return (f'<span style="display:inline-block;padding:3px 8px;border-radius:6px;font:700 11px {FONT};'
             f'letter-spacing:.04em;color:{color};background:{color}22;border:1px solid {color}55;">{esc(text)}</span>')
@@ -143,14 +201,6 @@ def pill(text, color):
 def pos_chip(p):
     return (f'<span style="display:inline-block;min-width:26px;text-align:center;padding:3px 5px;border-radius:6px;'
             f'font:800 11px {FONT};color:{TXT};background:{LINE};">{esc(p)}</span>')
-
-
-def section(title, body):
-    return f'''<tr><td style="padding:0 24px 18px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{CARD};border:1px solid {LINE};border-radius:14px;">
-    <tr><td style="padding:16px 18px 6px;font:800 12px {FONT};letter-spacing:.12em;text-transform:uppercase;color:{ORANGE};">{title}</td></tr>
-    <tr><td style="padding:0 18px 14px;">{body}</td></tr>
-  </table></td></tr>'''
 
 
 def why_lines(leg, mode):
@@ -180,86 +230,132 @@ def top_pick(legs):
     return max(legs, key=lambda l: l.get("score") or 0)
 
 
+def box(inner, extra=""):
+    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{CARD};border:1px solid {LINE};'
+            f'border-radius:14px;{extra}"><tr><td style="padding:14px 16px;">{inner}</td></tr></table>')
+
+
+def lab(text, color=ORANGE, extra=""):
+    return f'<div style="font:800 11px {FONT};letter-spacing:.1em;text-transform:uppercase;color:{color};margin:0 0 8px;{extra}">{text}</div>'
+
+
+RES_COLOR = {"HIT": GREEN, "MISS": RED, "VOID": DIM}
+
+
 def build_email(d, img_src, view_url, site):
-    mode = d["mode"]
-    legs = d["legs"]
-    # the slip
-    slip_rows = "".join(f'''<tr>
-      <td style="padding:8px 0;border-top:1px solid {LINE};width:36px;">{pos_chip(l['pos'])}</td>
-      <td style="padding:8px 6px;border-top:1px solid {LINE};font:600 14px {FONT};color:{TXT};">{esc(l['name'])}
-        <div style="font:500 12px {FONT};color:{DIM};">{esc(l['off'])} {'vs' if l['home'] else '@'} {esc(l['def'])} &middot; {esc(l['time'])}</div></td>
-      <td align="right" style="padding:8px 0;border-top:1px solid {LINE};font:800 14px {FONT};color:{TXT};white-space:nowrap;">{esc(l['pick'])}
-        <div style="font:500 12px {FONT};color:{DIM};">{esc(l['sub'])}</div></td></tr>''' for l in legs)
-    pay = (f'''<tr><td colspan="3" style="padding:12px 0 2px;border-top:1px solid {LINE};font:600 13px {FONT};color:{DIM};">
-        All five together <span style="float:right;font:800 22px {FONT};color:{GREEN};">{esc(d['pay'])}</span></td></tr>''' if d.get("pay") else
-           f'<tr><td colspan="3" style="padding:12px 0 2px;border-top:1px solid {LINE};font:500 12px {FONT};color:{DIM};">'
-           + ("Matchup boost picks aren't tied to a book line." if mode == "boost" else "Payout shows once every leg has a price.") + "</td></tr>")
-    slip = f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{slip_rows}{pay}</table>'
-
+    """Layout D: schedule, court + Power 5 panel, Top 5 by stat rows, last night | season."""
+    mode, legs = d["mode"], d["legs"]
     top = top_pick(legs)
-    why = "".join(f'<li style="margin:0 0 6px;">{w}</li>' for w in why_lines(top, mode))
-    why_html = (f'<div style="font:800 18px {FONT};color:{TXT};margin:2px 0 8px;">{esc(top["name"])} '
-                f'<span style="color:{PINK};">{esc(top["pick"])}</span></div>'
-                f'<ul style="margin:0;padding:0 0 0 18px;font:500 14px/1.5 {FONT};color:{TXT};">{why}</ul>')
+    num = f"font-family:'Space Grotesk',{FONT};font-weight:700;"
 
-    swaps = "".join(f'''<tr><td style="padding:7px 0;border-top:1px solid {LINE};width:36px;">{pos_chip(s['pos'])}</td>
-      <td style="padding:7px 6px;border-top:1px solid {LINE};font:600 13px {FONT};color:{TXT};">{esc(s['name'])}
-        <span style="color:{DIM};font-weight:500;"> &middot; {esc(s['off'])} {'vs' if s['home'] else '@'} {esc(s['def'])}</span></td>
-      <td align="right" style="padding:7px 0;border-top:1px solid {LINE};font:700 13px {FONT};color:{TXT};white-space:nowrap;">{esc(s['pick'])}</td></tr>''' for s in d.get("swaps", []))
-    swaps_html = (f'<div style="font:500 13px {FONT};color:{DIM};margin:0 0 6px;">Next best at each spot if you want to change one leg.</div>'
-                  f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{swaps}</table>') if swaps else ""
+    # tonight's schedule (wraps on big nights and on phones)
+    sched = "".join(f'''<div class="g" style="display:inline-block;vertical-align:top;width:72px;margin:0 6px 6px 0;padding:7px 8px;background:{CARD};border:1px solid {LINE};border-radius:10px;">
+      <div style="font:700 11.5px {FONT};color:{TXT};white-space:nowrap;">{esc(g['away'])} @ {esc(g['home'])}</div>
+      <div style="font:500 11px {FONT};color:{DIM};">{esc(g['time'] or 'TBD')}</div></div>''' for g in d.get("schedule") or [])
 
+    # the Power 5 panel beside the court
+    pay = (f'<div style="{num}font-size:30px;line-height:1;color:{GREEN};">{esc(d["pay"])}</div>'
+           f'<div style="font:500 11px {FONT};color:{DIM};margin:4px 0 14px;">all five together, best prices</div>') if d.get("pay") else (
+           f'<div style="font:500 12px {FONT};color:{DIM};margin:0 0 14px;">'
+           + ("Matchup boost picks aren't tied to a book line." if mode == "boost" else "Payout shows once every leg has a price.") + "</div>")
+    why = "".join(f'<div style="margin:0 0 5px;">{w}</div>' for w in why_lines(top, mode)[:3])
+    swap_rows = "".join(f'''<tr><td style="padding:3px 0;font:500 11.5px {FONT};color:{TXT};white-space:nowrap;"><b style="color:{DIM};">{esc(s['pos'])}</b> {esc(short_name(s['name']))}</td>
+      <td align="right" style="padding:3px 0 3px 6px;{num}font-size:11.5px;color:{TXT};white-space:nowrap;">{esc(compact(s['pick']))}</td></tr>''' for s in d.get("swaps") or [])
+    panel = (lab("Tonight's Power 5") + pay
+             + lab("Why " + esc(last_name(top["name"])))
+             + f'<div style="font:500 12px/1.45 {FONT};color:{TXT};">{why}</div>'
+             + (lab("Swaps", extra="margin-top:12px;") + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{swap_rows}</table>' if swap_rows else ""))
+    court = (f'<img class="court" src="{img_src}" width="336" height="372" alt="Tonight\'s Power 5 on the court" '
+             f'style="display:block;width:336px;height:372px;border-radius:16px;border:0;">') if img_src else ""
+    top_row = f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      {f'<td class="stack stack-gap" width="336" valign="top" style="width:336px;padding:0 12px 0 0;">{court}</td>' if court else ''}
+      <td class="stack" valign="top" style="background:{CARD};border:1px solid {LINE};border-radius:16px;padding:14px 16px;">{panel}</td>
+    </tr></table>'''
+
+    # Top 5 by stat: one row per stat, five chips side by side, best first
+    stat_rows = []
+    for blk in d.get("byStat") or []:
+        chips = ""
+        for i, x in enumerate(blk["list"][:5]):
+            ring = ORANGE if i == 0 else LINE
+            sub = f"{esc(x['pos'])} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else esc(x["pos"])
+            val = compact(x["pick"]).split(" ")[0]          # 'o13.5' (or the boost projection)
+            chips += f'''<td class="chip" width="20%" valign="top" style="width:20%;padding:7px 8px;background:{CARD};border:1px solid {ring};border-radius:11px;">
+              <div class="cn" style="font:700 12px {FONT};color:{TXT};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{esc(short_name(x['name']))}</div>
+              <div style="{num}font-size:14px;color:{GREEN};">{esc(val)}</div>
+              <div style="font:500 10px {FONT};color:{DIM};white-space:nowrap;">{sub}</div></td>'''
+        chips += "<td></td>" * (5 - len(blk["list"][:5]))
+        note = "" if blk["how"] == "best" else f'<div style="font:500 9px {FONT};color:{DIM};letter-spacing:0;">by matchup</div>'
+        stat_rows.append(f'''<tr><td class="sl" width="54" valign="middle" style="width:54px;padding:0 4px 0 0;font:800 12px {FONT};letter-spacing:.06em;color:{PINK};">{esc(blk['short'])}{note}</td>
+          <td><table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="chips" style="border-collapse:separate;border-spacing:5px 0;table-layout:fixed;"><tr>{chips}</tr></table></td></tr>
+          <tr><td colspan="2" style="height:8px;line-height:8px;font-size:0;">&nbsp;</td></tr>''')
+    stats = (f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;"><tr>
+        <td>{lab("Top 5 by stat", extra="margin:0;")}</td>
+        <td align="right" style="font:500 11px {FONT};color:{DIM};">best first &middot; times over in his last 5</td></tr></table>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;">{"".join(stat_rows)}</table>''') if stat_rows else ""
+
+    # bottom: last night | season
     last = d.get("last")
     last_html = ""
     if last:
-        rc = {"HIT": GREEN, "MISS": RED, "VOID": DIM}
-        rows = "".join(f'''<tr><td style="padding:7px 0;border-top:1px solid {LINE};width:36px;">{pos_chip(l['pos'])}</td>
-          <td style="padding:7px 6px;border-top:1px solid {LINE};font:600 13px {FONT};color:{TXT};">{esc(l['name'])}
-            <div style="font:500 12px {FONT};color:{DIM};">{esc(l['pick'])}</div></td>
-          <td align="right" style="padding:7px 6px;border-top:1px solid {LINE};font:800 14px {FONT};color:{TXT};">{fmt(l['actual']) if l['actual'] is not None else 'DNP'}</td>
-          <td align="right" style="padding:7px 0;border-top:1px solid {LINE};width:52px;">{pill(l['result'], rc.get(l['result'], DIM))}</td></tr>''' for l in last["legs"])
-        head = (f'<div style="font:700 14px {FONT};color:{TXT};margin:0 0 6px;">{esc(last["date"])} &middot; {last["hits"]}/{last["graded"]} hit '
-                + (pill("ALL FIVE CASHED", GREEN) if last["cashed"] else "") + "</div>")
-        last_html = head + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>'
-
+        rows = "".join(f'''<tr>
+          <td style="padding:6px 0;border-top:1px solid {LINE};width:30px;">{pos_chip(l['pos'])}</td>
+          <td style="padding:6px 4px;border-top:1px solid {LINE};font:600 12.5px {FONT};color:{TXT};white-space:nowrap;">{esc(short_name(l['name']))}
+            <span style="font:500 11px {FONT};color:{DIM};">{esc(compact(l['pick']))}</span></td>
+          <td align="right" style="padding:6px 6px;border-top:1px solid {LINE};{num}font-size:13px;color:{TXT};">{fmt(l['actual']) if l['actual'] is not None else 'DNP'}</td>
+          <td align="right" style="padding:6px 0;border-top:1px solid {LINE};width:44px;">{pill(l['result'], RES_COLOR.get(l['result'], DIM))}</td></tr>''' for l in last["legs"])
+        last_html = (lab(f"Last night &middot; {last['hits']} of {last['graded']} hit" + (" &middot; all five cashed" if last["cashed"] else ""))
+                     + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>')
     r = d.get("record") or {}
-    tiles = ""
-    if r.get("nights"):
-        tile = lambda big, small: (f'<td width="33%" align="center" style="padding:10px 4px;background:{BG};border:1px solid {LINE};border-radius:10px;">'
-                                   f'<div style="font:800 24px {FONT};color:{TXT};">{big}</div>'
-                                   f'<div style="font:500 11px {FONT};color:{DIM};">{small}</div></td>')
-        tiles = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="6"><tr>'
-                 + tile(pct(r["hits"], r["legs"]), f"legs hit &middot; {r['hits']} of {r['legs']}")
-                 + tile(f"{r['cashed']}/{r['nights']}", "nights all five hit")
-                 + tile(pct(r["l7hits"], r["l7legs"]), "legs hit, last 7 nights")
-                 + "</tr></table>")
+    line = lambda k, v: (f'<tr><td style="padding:5px 0;font:500 12px {FONT};color:{DIM};">{k}</td>'
+                         f'<td align="right" style="padding:5px 0;{num}font-size:20px;color:{TXT};">{v}</td></tr>')
+    season = (lab("Season")
+              + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">'
+              + (line("Legs hit", pct(r.get("hits", 0), r.get("legs", 0))) + line("All five hit", f"{r.get('cashed', 0)} / {r.get('nights', 0)}")
+                 + line("Last 7 nights", pct(r.get("l7hits", 0), r.get("l7legs", 0))) if r.get("nights") else
+                 f'<tr><td style="font:500 12px {FONT};color:{DIM};">The record starts after the first graded night.</td></tr>')
+              + "</table>"
+              + (f'<a href="{site}?layout=tonight" style="display:block;margin-top:12px;padding:11px 0;text-align:center;border-radius:999px;'
+                 f'background:{ORANGE};color:#07080F;font:800 13px {FONT};text-decoration:none;">Open the app</a>' if site else ""))
+    bottom = f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      {f'<td class="stack stack-gap" width="56%" valign="top" style="width:56%;padding:0 12px 0 0;">{box(last_html)}</td>' if last_html else ''}
+      <td class="stack" valign="top">{box(season)}</td></tr></table>'''
 
-    img = (f'<tr><td style="padding:0 24px 18px;"><img src="{img_src}" width="592" alt="Tonight\'s Power 5 on the court" '
-           f'style="display:block;width:100%;max-width:592px;height:auto;border-radius:14px;border:1px solid {LINE};"></td></tr>') if img_src else ""
-    cta = (f'<tr><td align="center" style="padding:4px 24px 22px;"><a href="{site}?layout=tonight" '
-           f'style="display:inline-block;padding:12px 22px;border-radius:999px;background:{ORANGE};background-image:linear-gradient(90deg,{ORANGE},{PINK});'
-           f'font:800 14px {FONT};color:#fff;text-decoration:none;">Open Hardwood Ledger &rarr;</a></td></tr>') if site else ""
-    view = (f'<a href="{view_url}" style="color:{DIM};">View in browser</a>') if view_url else ""
-
+    view = f'<a href="{view_url}" style="color:{DIM};">View in browser</a>' if view_url else ""
     return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark"><title>Hardwood Ledger &middot; Power 5 &middot; {esc(d['date'])}</title></head>
+<meta name="color-scheme" content="dark"><title>Hardwood Ledger &middot; Power 5 &middot; {esc(d['date'])}</title>
+<style>
+@media (max-width:620px){{
+  .wrap{{padding:18px 14px !important}}
+  .stack{{display:block !important;width:100% !important;box-sizing:border-box}}
+  .stack-gap{{padding:0 0 12px 0 !important}}
+  .court{{width:100% !important;max-width:336px !important;height:auto !important;margin:0 auto}}
+  .chip{{padding:6px 4px !important}}
+  .sl{{width:32px !important;font-size:10px !important}}
+  .g{{width:72px !important}}
+  .cn{{font-size:10px !important;letter-spacing:-.2px}}
+  .chips{{border-spacing:3px 0 !important}}
+  .mh{{font-size:19px !important;white-space:nowrap}}
+}}
+</style></head>
 <body style="margin:0;padding:0;background:{BG};">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{BG};"><tr><td align="center" style="padding:18px 8px;">
-<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;">
-  <tr><td style="padding:0 24px 6px;font:500 11px {FONT};color:{DIM};" align="right">{view}</td></tr>
-  <tr><td style="padding:6px 24px 4px;font:900 30px {FONT};letter-spacing:.02em;color:{TXT};">HARDWOOD <span style="color:{ORANGE};">LEDGER</span></td></tr>
-  <tr><td style="padding:0 24px 18px;font:600 13px {FONT};color:{DIM};">{esc(d['date'])} &middot; {d['games']} game{'s' if d['games'] != 1 else ''} &middot; Power 5 ({esc(d['modeName'])})</td></tr>
-  {img}
-  {section("Tonight's slip", slip)}
-  {section("Why " + esc(last_name(top['name'])), why_html)}
-  {section("Swap options", swaps_html) if swaps_html else ""}
-  {section("Last night", last_html) if last_html else ""}
-  {section("Season record", tiles) if tiles else ""}
-  {cta}
-  <tr><td style="padding:0 24px 24px;font:500 11px/1.5 {FONT};color:{DIM};" align="center">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{BG};"><tr><td align="center">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;"><tr><td class="wrap" style="padding:24px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="mh" style="font:900 24px {FONT};letter-spacing:.01em;color:{TXT};">HARDWOOD <span style="color:{ORANGE};">LEDGER</span></td>
+    <td align="right" style="font:600 12px {FONT};color:{DIM};">{esc(d['date'])} &middot; {d['games']} game{'s' if d['games'] != 1 else ''}<br>{view}</td></tr></table>
+  <div style="height:14px;line-height:14px;font-size:0;">&nbsp;</div>
+  <div style="font-size:0;line-height:0;">{sched}</div>
+  <div style="height:10px;line-height:10px;font-size:0;">&nbsp;</div>
+  {top_row}
+  <div style="height:18px;line-height:18px;font-size:0;">&nbsp;</div>
+  {stats}
+  <div style="height:10px;line-height:10px;font-size:0;">&nbsp;</div>
+  {bottom}
+  <div style="padding:18px 0 0;font:500 10.5px/1.5 {FONT};color:{DIM};text-align:center;">
     For entertainment. Picks come from a model, not a guarantee. 21+. Gambling problem? Call 1-800-GAMBLER.<br>
-    You're getting this because you're on the Hardwood Ledger friends list. Reply "stop" and you'll be taken off.</td></tr>
-</table></td></tr></table></body></html>'''
+    You're on the Hardwood Ledger friends list. Reply "stop" to come off it.</div>
+</td></tr></table></td></tr></table></body></html>'''
 
 
 def supabase_url():
