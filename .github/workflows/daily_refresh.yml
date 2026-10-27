@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'full = everything, quick = injuries + tonight''s slate + props, newsletter = quick + send the Power 5 email now'
+        description: 'full = everything, quick = injuries + slate + props, newsletter = quick + send to the list, test = quick + newsletter and social kit to YOU only (nothing recorded)'
         type: choice
-        options: [full, quick, newsletter]
+        options: [full, quick, newsletter, test]
         default: full
 
 permissions:
@@ -44,7 +44,7 @@ jobs:
 
       - name: Run pipeline
         env:
-          QUICK: ${{ (github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter') && '1' || '' }}
+          QUICK: ${{ (github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test') && '1' || '' }}
         run: |
           if [ "$QUICK" = "1" ]; then python3 run_daily.py --quick; else python3 run_daily.py; fi
 
@@ -68,7 +68,7 @@ jobs:
       - name: Send the Power 5 newsletter
         # Afternoon run only (after the odds pull), or a manual run with mode = newsletter.
         # Sends once a day at most; the manual newsletter run always sends. A failure never stops the refresh.
-        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter'
+        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test'
         continue-on-error: true
         env:
           # Settings -> Secrets and variables -> Actions -> New repository secret (one for each):
@@ -78,6 +78,9 @@ jobs:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}  # Supabase secret key -- reads the list
           EMAIL_TO: ${{ secrets.EMAIL_TO }}              # optional backup list, only used without Supabase
           NEWSLETTER_FORCE: ${{ github.event.inputs.mode == 'newsletter' && '1' || '' }}
+          NEWSLETTER_TEST: ${{ github.event.inputs.mode == 'test' && '1' || '' }}
+          TEST_TO: ${{ secrets.TEST_TO }}                # optional: where test sends go (defaults to KIT_TO, then EMAIL_FROM)
+          KIT_TO: ${{ secrets.KIT_TO }}
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
@@ -86,12 +89,14 @@ jobs:
       - name: Make the social kit (X, Instagram, TikTok, Reddit)
         # Same runs as the newsletter. Locks today's Pick of the Day, grades past ones, makes the day's images,
         # TikTok video, captions and Reddit comment, and EMAILS them to you only (not put on the site).
-        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter'
+        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test'
         continue-on-error: true
         env:
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           KIT_TO: ${{ secrets.KIT_TO }}        # optional: where the kit goes (defaults to EMAIL_FROM)
+          TEST_TO: ${{ secrets.TEST_TO }}
+          SOCIAL_TEST: ${{ github.event.inputs.mode == 'test' && '1' || '' }}
         run: |
           python -c "import playwright" 2>/dev/null || (pip install playwright && python -m playwright install --with-deps chromium)
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
@@ -99,7 +104,7 @@ jobs:
 
       - name: Grade the Pick of the Day
         # Every other run: grade finished picks from the new box scores (no pictures, nothing posted).
-        if: github.event.schedule != '0 19 * * *' && github.event.inputs.mode != 'newsletter'
+        if: github.event.schedule != '0 19 * * *' && github.event.inputs.mode != 'newsletter' && github.event.inputs.mode != 'test'
         continue-on-error: true
         run: python3 19_social.py --grade
 
