@@ -49,6 +49,9 @@ KIT = ROOT / "social_kit"        # private: the daily posts (not on the site, no
 LOG = ROOT / "records" / "nba_2027_potd_log.csv"   # in the repo, not on the site (the site shows graded picks only)
 OLD_LOG = DATA / "nba_2027_potd_log.csv"
 UNITS = 1.0
+# TEST: build and email the kit (to TEST_TO / KIT_TO / EMAIL_FROM) but record nothing: no pick is locked, the log
+# and the public record page are left alone. Today's real pick still gets locked by the afternoon run.
+TEST = os.environ.get("SOCIAL_TEST") == "1"
 CT = ZoneInfo("America/Chicago")
 
 LOG_COLS = ["Date", "Locked At (UTC)", "Player", "Pos", "Team", "Opponent", "Home/Away", "Tip (UTC)", "Stat", "Line",
@@ -671,7 +674,7 @@ def email_kit(d, day_dir, files, caps, reddit):
     """Send the day's kit to you only: captions and the Reddit comment in the body, every picture + the video attached."""
     sender = os.environ.get("EMAIL_FROM", "").strip()
     pw = os.environ.get("EMAIL_PASSWORD", "").replace(" ", "").strip()
-    to = os.environ.get("KIT_TO", "").strip() or sender
+    to = ((os.environ.get("TEST_TO", "") if TEST else "") or os.environ.get("KIT_TO", "")).strip() or sender
     if not (sender and pw):
         print("Social: EMAIL_FROM / EMAIL_PASSWORD not set -- kit saved but not emailed.")
         return False
@@ -684,7 +687,7 @@ def email_kit(d, day_dir, files, caps, reddit):
     body = "".join(f'''<h3 style="font:800 13px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c2410c;margin:22px 0 6px">{esc(t)}</h3>
       <pre style="white-space:pre-wrap;font:14px/1.45 Menlo,Consolas,monospace;background:#f4f4f5;border:1px solid #e4e4e7;border-radius:10px;padding:12px;margin:0">{esc(b)}</pre>''' for t, b in blocks)
     m = EmailMessage()
-    m["Subject"] = f"Social kit · {d['date']}"
+    m["Subject"] = ("[TEST] " if TEST else "") + f"Social kit · {d['date']}"
     m["From"] = f"Hardwood Ledger <{sender}>"
     m["To"] = to
     m.set_content(plain)
@@ -719,6 +722,10 @@ def main():
 
     today = today_ct()
     src = KIT / f"{today}.json"
+    if TEST and not src.exists():
+        found = sorted(KIT.glob("20??-??-??.json"))
+        if found:
+            src, today = found[-1], found[-1].stem
     if not src.exists():
         print(f"Social: no picks saved for {today} (no games, or the newsletter step didn't run) -- graded only.")
         write_log(rows)
@@ -731,14 +738,18 @@ def main():
         return
 
     rec = record(rows)                       # record BEFORE today's pick (what the Reddit header shows)
-    row, new = lock_pick(rows, d)
-    if new:
-        print("Social: locked today's Pick of the Day (details are in your kit email, not this public log).")
-    write_log(rows)
+    if TEST:
+        row, new = lock_pick([dict(r) for r in rows], d)     # a throwaway copy: nothing is written down
+        print("Social: TEST -- today's pick is NOT locked and the record isn't touched.")
+    else:
+        row, new = lock_pick(rows, d)
+        if new:
+            print("Social: locked today's Pick of the Day (details are in your kit email, not this public log).")
+        write_log(rows)
     c = next((x for x in d.get("potd") or [] if row and x["name"] == row["Player"] and x["stat"] == row["Stat"]), None)
 
     site = site_url()
-    for old in OUT.glob("20??-??-??"):          # older versions put the kit on the public site: take it down
+    for old in ([] if TEST else OUT.glob("20??-??-??")):   # older versions put the kit on the public site: take it down
         shutil.rmtree(old, ignore_errors=True)
     for old in NEWS.glob("20??-??-??.json"):     # and the raw pick data next to the newsletter archive
         old.unlink()
@@ -759,8 +770,9 @@ def main():
     caps = captions(d, row, rec, site)
     reddit = reddit_comment(row, c, rec) if row else ""
     (day_dir / "index.html").write_text(day_page(d, files, caps, reddit, row, rec, site), encoding="utf-8")
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
+    if not TEST:
+        OUT.mkdir(parents=True, exist_ok=True)
+        (OUT / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
     print(f"Social: saved social_kit/{today}/ ({len(files)} files, private)")
     if os.environ.get("SOCIAL_DRY") != "1":
         try:
