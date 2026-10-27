@@ -83,11 +83,40 @@ jobs:
           python -m playwright install --with-deps chromium
           python3 18_newsletter.py
 
+      - name: Make the social kit (X, Instagram, TikTok, Reddit)
+        # Same runs as the newsletter. Locks today's Pick of the Day, grades past ones, and saves the day's images,
+        # TikTok video, captions and Reddit comment to site/social/YYYY-MM-DD/. A failure never stops the refresh.
+        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter'
+        continue-on-error: true
+        run: |
+          python -c "import playwright" 2>/dev/null || (pip install playwright && python -m playwright install --with-deps chromium)
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          python3 19_social.py
+
+      - name: Keep the social images and video for 7 days
+        # The pictures and video aren't committed (they'd bloat the repo); they're on the site until the next
+        # refresh, and here under this run's Artifacts for a week.
+        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-kit
+          path: site/social/*/*.*
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Grade the Pick of the Day
+        # Every other run: grade finished picks from the new box scores (no pictures, nothing posted).
+        if: github.event.schedule != '0 19 * * *' && github.event.inputs.mode != 'newsletter'
+        continue-on-error: true
+        run: python3 19_social.py --grade
+
       - name: Commit refreshed CSVs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/data site/newsletter 2>/dev/null || git add site/data
+          git add site/data
+          for d in site/newsletter site/social; do if [ -d "$d" ]; then git add "$d"; fi; done
           git diff --staged --quiet || git commit -m "Daily data refresh"
           # If you uploaded files while this ran, pull them in first (our fresh data wins on any clash), then push.
           git pull --rebase -X theirs origin main || true
