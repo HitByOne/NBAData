@@ -1,5 +1,5 @@
 """
-Hardwood Ledger -- the daily social kit and the Pick of the Day record.
+HitByOne Hardwood Ledger -- the daily social kit and the Pick of the Day record.
 
 Runs right after 18_newsletter.py (it reads the picks that script saved in social_kit/YYYY-MM-DD.json).
 The day's posts are PRIVATE: they're saved to social_kit/YYYY-MM-DD/ (not part of the site, not committed) and
@@ -9,8 +9,8 @@ If the KIT_KEY secret is set, the kit is also put up at /social/<KIT_KEY>/ for y
 in the repo or the logs), with a one-tap zip download. It's replaced every afternoon and is gone after the next
 refresh. Treat it like an unlisted link, not a password-protected one: the email is the fully private copy.
 
-  x.jpg                    1600 x 900   Pick of the Day + the Power 5 court        (X)
-  ig-1.jpg ... ig-4.jpg    1080 x 1350  Power 5, Pick of the Day, Top 5 by stat, record   (Instagram carousel)
+  x.jpg                    1600 x 900   Pick of the Day + the Starting 5 court     (X)
+  ig-1.jpg ... ig-4.jpg    1080 x 1350  Starting 5, Pick of the Day, Top 5 by stat, record (Instagram carousel)
   tt-1.jpg ... tt-5.jpg    1080 x 1920  matchups and projections only, NO odds    (TikTok slides)
   tiktok.mp4               1080 x 1920  the TikTok slides as a ~16 second video
   index.html               the day's page: every image, the video, captions and the Reddit comment, with copy buttons
@@ -66,6 +66,17 @@ ORANGE, PINK, GREEN, RED = "#FF7A2F", "#FF4D8D", "#2EE6A0", "#FF6B6B"
 STAT_SHORT = {"Points": "PTS", "Rebounds": "REB", "Assists": "AST", "3PM": "3PM", "Pts+Reb+Ast": "PRA"}
 NAME_SHORT = {"Points": "PTS", "Rebounds": "REB", "Assists": "AST", "3PM": "3PM", "PRA": "PRA"}   # the page's stat names
 STAT_WORDS = {"Points": "points", "Rebounds": "rebounds", "Assists": "assists", "3PM": "threes", "Pts+Reb+Ast": "points + rebounds + assists"}
+
+
+BRAND, PRODUCT = "HitByOne", "Hardwood Ledger"
+
+
+def mark(size, sub=True, center=False):
+    """The wordmark: HITBY(ONE) big, HARDWOOD LEDGER small underneath."""
+    al = "center" if center else "left"
+    return (f'<div style="text-align:{al};line-height:1"><div class="brand" style="font-size:{size}px;">HITBY<span>ONE</span></div>'
+            + (f'<div style="font-size:{max(10, size * .3):.0f}px;font-weight:800;letter-spacing:.26em;color:rgba(242,244,250,.8);margin-top:{size * .2:.0f}px">HARDWOOD LEDGER</div>' if sub else "")
+            + '</div>')
 
 
 def today_ct():
@@ -259,17 +270,17 @@ def captions(d, row, rec, site):
     legs = d["legs"]
     pick = f"{row['Player']} o{row['Line']} {STAT_SHORT.get(row['Stat'], row['Stat'])} ({row['American']})" if row else ""
     rec_line = f"POTD record: {rec['rec']}, {rec['net']:+.1f}u" if rec["n"] else "POTD record starts today"
-    x = (f"NBA Pick of the Day · {d['date']}\n\n{pick} · 1U\n\n{rec_line}\n\nTonight's Power 5 ↓ #NBA #NBAPicks" if row else
-         f"Tonight's NBA Power 5 · {d['date']} #NBA")
+    x = (f"NBA Pick of the Day · {d['date']}\n\n{pick} · 1U\n\n{rec_line}\n\nTonight's Starting 5 ↓ #NBA #NBAPicks #HitByOne" if row else
+         f"Tonight's NBA Starting 5 · {d['date']} #NBA #HitByOne")
     x_reply = f"Every Pick of the Day, graded since day one: {site}record/" if site else ""
     p5 = "\n".join(f"{l['pos']} {l['name']} {compact(l['pick'])}" for l in legs)
-    ig = (f"Tonight's Power 5 · {d['date']} · {d['games']} games\n\n{p5}\n\n"
+    ig = (f"Tonight's Starting 5 · {d['date']} · {d['games']} games\n\n{p5}\n\n"
           + (f"Pick of the Day: {pick} · 1U\n{rec_line}\n\n" if row else "")
           + "Swipe for the Top 5 by stat and how last night went. Full card at the link in bio.\n\n"
-          + "21+ · For entertainment. Gambling problem? Call 1-800-GAMBLER.\n\n#NBA #NBAPicks #PlayerProps #NBABets #Basketball")
+          + "21+ · For entertainment. Gambling problem? Call 1-800-GAMBLER.\n\n#HitByOne #NBA #NBAPicks #PlayerProps #NBABets #Basketball")
     tt = (f"Tonight's NBA matchups that set up big nights 👀 {d['date']}\n\n"
           + "\n".join(f"{l['pos']} {l['name']} vs {l['def']}" for l in legs)
-          + "\n\nFull breakdown at the link in bio.\n#NBA #NBAStats #Basketball #NBATonight")
+          + "\n\nFull breakdown at the link in bio.\n#HitByOne #NBA #NBAStats #Basketball #NBATonight")
     return {"x": x, "x_reply": x_reply, "ig": ig, "tt": tt}
 
 
@@ -294,7 +305,7 @@ SPOTS = {"PG": (104, 12), "SF": (8, 108), "SG": (200, 108), "PF": (24, 232), "C"
 
 
 def court(legs, scale, stats_only=False):
-    """The Power 5 half court (336 x 372 drawn, scaled up)."""
+    """The Starting 5 half court (336 x 372 drawn, scaled up)."""
     cards = []
     for l in legs:
         x, y = SPOTS.get(l["pos"], (0, 0))
@@ -345,7 +356,7 @@ def bars(vals, line, w=360, h=120):
 
 def head(d, size, sub):
     return (f'<div style="display:flex;justify-content:space-between;align-items:flex-end;">'
-            f'<div class="brand" style="font-size:{size}px;">HARDWOOD <span>LEDGER</span></div>'
+            f'{mark(size)}'
             f'<div class="dim" style="font-size:{size * .42:.0f}px;font-weight:600;text-align:right;">{esc(d["date"])}<br>{sub}</div></div>')
 
 
@@ -359,13 +370,13 @@ def slide_x(d, row, c, rec):
           <div class="num" style="font-size:74px;color:{GREEN};margin:18px 0 0;line-height:1">OVER {esc(row["Line"])} {esc(STAT_SHORT.get(row["Stat"], row["Stat"]))}</div>
           <div class="num" style="font-size:30px;margin:8px 0 24px;">{esc(row["American"])} &middot; 1U</div>
           <div style="font-size:21px;line-height:1.4;color:rgba(242,244,250,.86)">{why}</div>'''
-    pay = f'Power 5 together <b class="num" style="color:{GREEN};font-size:34px">{esc(d["pay"])}</b>' if d.get("pay") else "Tonight's Power 5"
+    pay = f'Starting 5 together <b class="num" style="color:{GREEN};font-size:34px">{esc(d["pay"])}</b>' if d.get("pay") else "Tonight's Starting 5"
     recs = f'POTD {esc(rec["rec"])} &middot; {rec["net"]:+.1f}u' if rec["n"] else ""
     body = f'''<div style="position:absolute;left:56px;top:48px;">{court(d["legs"], 2.15)}</div>
       <div style="position:absolute;left:830px;top:60px;width:720px;">{pc}</div>
       <div style="position:absolute;left:830px;right:56px;bottom:52px;display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:600;">
         <span>{pay}</span><span class="dim">{recs}</span></div>
-      <div class="brand" style="position:absolute;right:56px;top:40px;font-size:24px;opacity:.9">HARDWOOD <span>LEDGER</span></div>'''
+      <div style="position:absolute;right:56px;top:40px;opacity:.92">{mark(26)}</div>'''
     return page(1600, 900, body)
 
 
@@ -377,7 +388,7 @@ def ig_1(d):
     pay = (f'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;font-size:24px;font-weight:600">'
            f'<span class="dim">All five together, best prices</span><span class="num" style="font-size:54px;color:{GREEN}">{esc(d["pay"])}</span></div>') if d.get("pay") else ""
     body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, f"{d['games']} games")}
-      <div class="lab" style="font-size:24px;margin:34px 0 18px;">Tonight's Power 5</div>
+      <div class="lab" style="font-size:24px;margin:34px 0 18px;">Tonight's Starting 5</div>
       <div style="display:flex;justify-content:center">{court(d["legs"], 2.3)}</div>
       <div style="display:flex;gap:10px;margin-top:26px">{slip}</div>{pay}</div>'''
     return page(1080, 1350, body)
@@ -457,12 +468,12 @@ def ig_4(d, rec, log_rows):
         prev_line = (f'<div style="margin-top:18px;font-size:24px;font-weight:600">Last POTD: {esc(x["Player"])} o{esc(x["Line"])} {esc(STAT_SHORT.get(x["Stat"], x["Stat"]))} '
                      f'&rarr; {esc(x["Actual"])} <b style="color:{col}">{esc(x["Result"])}</b></div>')
     body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, "The record")}
-      <div class="lab" style="font-size:24px;margin:40px 0 14px;">Last night's Power 5{f" &middot; {last['hits']} of {last['graded']} hit" if last else ""}</div>
+      <div class="lab" style="font-size:24px;margin:40px 0 14px;">Last night's Starting 5{f" &middot; {last['hits']} of {last['graded']} hit" if last else ""}</div>
       <div class="card" style="padding:6px 30px 10px">{legs or '<div class="dim" style="padding:24px 0;font-size:24px">No graded night yet.</div>'}</div>
       <div class="lab" style="font-size:24px;margin:44px 0 16px;">Pick of the Day record</div>
       <div style="display:flex;gap:14px">{tile(esc(rec["rec"]) if rec["n"] else "0-0", "record")}{tile(f"{rec['net']:+.1f}u" if rec["n"] else "--", "net units")}{tile(f"{rec['roi']:.1f}%" if rec["n"] else "--", "ROI")}</div>
       {prev_line}
-      <div class="lab" style="font-size:24px;margin:44px 0 16px;">Power 5 season</div>
+      <div class="lab" style="font-size:24px;margin:44px 0 16px;">Starting 5 season</div>
       <div style="display:flex;gap:14px">{tile(pct(r.get("hits", 0), r.get("legs", 0)), "legs hit")}{tile(f"{r.get('cashed', 0)}/{r.get('nights', 0)}", "nights all five hit")}{tile(pct(r.get("l7hits", 0), r.get("l7legs", 0)), "last 7 nights")}</div>
       <div class="dim" style="position:absolute;left:0;right:0;bottom:0;text-align:center;font-size:19px">21+ &middot; For entertainment. Gambling problem? Call 1-800-GAMBLER.</div></div>'''
     return page(1080, 1350, body)
@@ -479,7 +490,7 @@ def tt_1(d):
     if more > 0:
         games += f'<div class="dim" style="font-size:30px;font-weight:600;padding:6px 4px">+ {more} more games tonight</div>'
     body = f'''<div style="position:absolute;{TT_SAFE};display:flex;flex-direction:column;">
-      <div class="brand" style="font-size:52px;">HARDWOOD <span>LEDGER</span></div>
+      {mark(52)}
       <div class="dim" style="font-size:34px;font-weight:600;margin-top:10px">{esc(d["date"])}</div>
       <div style="font-size:112px;font-weight:900;line-height:1;margin:90px 0 30px;letter-spacing:-2px">Tonight's<br><span style="color:{ORANGE}">matchups</span></div>
       <div style="font-size:44px;line-height:1.3;color:rgba(242,244,250,.88);margin-bottom:60px">The 5 players these defenses set up for a big night.</div>
@@ -493,7 +504,7 @@ def tt_2(d):
         <span style="font-size:34px;font-weight:700"><span class="dim" style="font-size:28px">{esc(l["pos"])}</span> {esc(short_name(l["name"]))}</span>
         <span class="dim" style="font-size:28px">{esc(l["def"])} #{esc(l.get("defRank") or "--")} vs {esc(l["pos"])}s</span></div>''' for l in legs)
     body = f'''<div style="position:absolute;{TT_SAFE};">
-      <div class="lab" style="font-size:34px;">Tonight's Power 5</div>
+      <div class="lab" style="font-size:34px;">Tonight's Starting 5</div>
       <div style="font-size:38px;line-height:1.3;margin:12px 0 36px;color:rgba(242,244,250,.88)">One per position. The matchup that should feed him most.</div>
       <div style="display:flex;justify-content:center">{court(legs, 2.1, stats_only=True)}</div>
       <div style="margin-top:36px">{lines}</div></div>'''
@@ -527,7 +538,7 @@ def tt_4(d):
 
 def tt_5(d):
     body = f'''<div style="position:absolute;{TT_SAFE};display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-      <div class="brand" style="font-size:92px;line-height:1">HARDWOOD<br><span>LEDGER</span></div>
+      {mark(104, center=True)}
       <div style="font-size:48px;line-height:1.35;margin:70px 0 0;color:rgba(242,244,250,.9)">Every matchup, every position,<br>every night.</div>
       <div style="margin-top:90px;padding:30px 60px;border-radius:999px;background:{ORANGE};color:{BG};font-size:44px;font-weight:900">Full breakdown: link in bio</div></div>'''
     return page(1080, 1920, body)
@@ -596,7 +607,7 @@ button{{font:700 14px Inter,sans-serif;background:{ORANGE};color:{BG};border:0;b
 textarea{{width:100%;box-sizing:border-box;background:{BG};color:{TXT};border:1px solid {LINE};border-radius:10px;padding:10px;font:500 14px/1.45 ui-monospace,Menlo,monospace;resize:vertical}}
 .dim{{color:{DIM}}}
 </style></head><body><main>
-<h1>HARDWOOD <span>LEDGER</span> &middot; social kit</h1>
+<h1>HITBY<span>ONE</span> &middot; social kit</h1>
 <div class="dim">{esc(d["date"])} &middot; {d["games"]} games &middot; tap an image to save it (or long-press on a phone).</div>
 {f'<p style="margin:16px 0 0"><a href="{zip_name}" download style="display:inline-block;background:{ORANGE};color:{BG};font-weight:800;text-decoration:none;padding:14px 22px;border-radius:999px">Download everything (zip)</a></p><div class="dim" style="margin-top:6px">Then in Files: tap the zip to unzip it. One folder per app, captions included.</div>' if zip_name else ""}
 <h2>Reddit &middot; r/sportsbook Pick of the Day</h2>
@@ -622,7 +633,7 @@ def index_page(log_rows, rec):
       <td class="n">{esc(r.get("Actual") or "")}</td><td><b style="color:{res_col.get(r.get("Result"), DIM)}">{esc(r.get("Result") or "pending")}</b></td>
       <td class="n">{(f"{float(r['Profit']):+.2f}" if r.get("Profit") else "")}</td></tr>''' for r in reversed(log_rows) if r.get("Result"))   # graded only: today's pick stays private until it's settled
     return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hardwood Ledger &middot; Pick of the Day record</title><style>
+<title>HitByOne Hardwood Ledger &middot; Pick of the Day record</title><style>
 body{{margin:0;background:{BG};color:{TXT};font:500 15px/1.5 Inter,-apple-system,Segoe UI,Roboto,sans-serif}}
 main{{max-width:900px;margin:0 auto;padding:24px 16px 60px}} h1{{font-size:24px;margin:0}} h1 span{{color:{ORANGE}}}
 h2{{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:{ORANGE};margin:30px 0 10px}} a{{color:{ORANGE};margin-right:10px}}
@@ -632,7 +643,7 @@ h2{{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:{ORANGE};
 table{{border-collapse:collapse;width:100%;min-width:640px}} td,th{{padding:9px 10px;border-top:1px solid {LINE};text-align:left;vertical-align:top}}
 th{{font-size:12px;color:{DIM};border-top:0}} .n{{text-align:right}} .dim{{color:{DIM};font-size:13px}}
 </style></head><body><main>
-<h1>HARDWOOD <span>LEDGER</span></h1>
+<h1>HITBY<span>ONE</span></h1><div class="dim" style="font-weight:800;letter-spacing:.26em;font-size:12px;margin:6px 0 8px">HARDWOOD LEDGER</div>
 <div class="dim">NBA Pick of the Day &middot; every pick since day one, locked before tip at the posted price, flat 1 unit, never reset.</div>
 <h2>Pick of the Day record</h2>
 <div class="tiles"><div><b>{esc(rec["rec"]) if rec["n"] else "0-0"}</b><span class="dim">W-L{"-P" if rec["p"] else ""}</span></div>
@@ -649,9 +660,9 @@ def publish_record(rows):
     RECORD.mkdir(parents=True, exist_ok=True)
     (RECORD / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.html").write_text('<!doctype html><html><head><meta charset="utf-8"><title>Hardwood Ledger record</title>'
+    (OUT / "index.html").write_text('<!doctype html><html><head><meta charset="utf-8"><title>HitByOne Hardwood Ledger record</title>'
                                     '<meta http-equiv="refresh" content="0; url=../record/"><link rel="canonical" href="../record/"></head>'
-                                    '<body><a href="../record/">Hardwood Ledger: Pick of the Day record</a></body></html>', encoding="utf-8")
+                                    '<body><a href="../record/">HitByOne Hardwood Ledger: Pick of the Day record</a></body></html>', encoding="utf-8")
 
 
 def kit_key():
@@ -691,7 +702,7 @@ def site_url():
 
 def make_zip(d, day_dir, files, caps, reddit):
     """One zip for the phone: a folder per app, pictures in posting order, captions as text files beside them."""
-    top = f"HardwoodLedger_{day_dir.name}"
+    top = f"HitByOne_{day_dir.name}"
     plan = []                                         # (path inside the zip, source file or text)
     if reddit:
         plan.append((f"{top}/1_Reddit_PickOfTheDay.txt", reddit))
@@ -732,11 +743,11 @@ def email_kit(d, day_dir, files, caps, reddit):
       <pre style="white-space:pre-wrap;font:14px/1.45 Menlo,Consolas,monospace;background:#f4f4f5;border:1px solid #e4e4e7;border-radius:10px;padding:12px;margin:0">{esc(b)}</pre>''' for t, b in blocks)
     m = EmailMessage()
     m["Subject"] = ("[TEST] " if TEST else "") + f"Social kit · {d['date']}"
-    m["From"] = f"Hardwood Ledger <{sender}>"
+    m["From"] = f"{BRAND} <{sender}>"
     m["To"] = to
     m.set_content(plain)
     m.add_alternative(f'''<!doctype html><html><body style="margin:0;padding:16px;background:#fff;color:#111;font:15px/1.5 Arial,sans-serif">
-      <div style="max-width:640px;margin:0 auto"><div style="font:900 20px Arial,sans-serif">HARDWOOD <span style="color:#ea580c">LEDGER</span> · social kit</div>
+      <div style="max-width:640px;margin:0 auto"><div style="font:900 20px Arial,sans-serif">HITBY<span style="color:#ea580c">ONE</span> · social kit</div>
       <div style="color:#555">{esc(d["date"])} · {d["games"]} games · everything is in the attached zip, one folder per app.</div>
       <ol style="padding-left:18px;color:#333;margin:12px 0 0">
         <li>Tap the zip, then the share button, then <b>Save to Files</b>.</li>
@@ -776,7 +787,7 @@ def main():
         return
     d = json.loads(src.read_text(encoding="utf-8"))
     if not d.get("legs"):
-        print("Social: no Power 5 today -- nothing to post.")
+        print("Social: no Starting 5 today -- nothing to post.")
         return
 
     rec = record(rows)                       # record BEFORE today's pick (what the Reddit header shows)
