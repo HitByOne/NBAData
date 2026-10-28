@@ -1,2 +1,2 @@
 ran_at,outcome,detail,games,rows,calls
-2026-10-27 15:44 UTC,api error,"/fixtures -> HTTP 429 on /fixtures: {""message"":""You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\/\/rapidapi.com\/odds-papi-odds-papi-default\/api\/odds-api1""}",,,8
+2026-10-28 00:51 UTC,api error,"/fixtures -> HTTP 429 on /fixtures: {""message"":""You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\/\/rapidapi.com\/odds-papi-odds-papi-default\/api\/odds-api1""}",,,6
