@@ -1,62 +1,19 @@
 Model,Day,Date,Player,Slot,Position,Team,Opponent,Stat,Floor,OwnRate,DefRate,Score,Projection,ProjNoMatchup,Lo,Hi,Line,Actual,Hit
 own_only,6,2026-10-25,Tyrese Maxey,PG1,PG,PHI,DET,Points,25,1.0,,1.0,28.8,28.7,23,35,29.0,29.0,1
 own_only,6,2026-10-25,Jaylen Brown,SF1,SF,PHI,DET,Points,18,1.0,,1.0,20.5,22.3,16,25,20.5,16.0,0
-best_picks,7,2026-10-26,Shai Gilgeous-Alexander,PG1,PG,OKC,PHX,Assists,3,1.0,1.0,1.0,4.0,4.0,3,5,4.0,3.0,1
-own_only,7,2026-10-26,Shai Gilgeous-Alexander,PG1,PG,OKC,PHX,Points,15,1.0,,1.0,28.0,27.7,22,34,28.0,26.0,1
-own_only,7,2026-10-26,Isaiah Hartenstein,C2,C,OKC,PHX,Rebounds,3,1.0,,1.0,6.8,7.0,4,10,7.0,13.0,1
-own_only,7,2026-10-26,Jalen Johnson,SF1,SF,ATL,HOU,Points,18,1.0,,1.0,25.6,21.7,20,31,25.5,21.0,1
-best_picks,7,2026-10-26,Nickeil Alexander-Walker,SG1,SG,ATL,HOU,Rebounds,3,1.0,1.0,1.0,3.8,4.0,3,5,4.0,2.0,0
-own_only,7,2026-10-26,Nickeil Alexander-Walker,SG1,SG,ATL,HOU,Points,12,1.0,,1.0,19.6,21.0,14,26,19.5,12.0,1
-best_picks,7,2026-10-26,Dyson Daniels,SG2,SG,ATL,HOU,Rebounds,3,1.0,1.0,1.0,6.6,7.0,5,8,6.5,0.0,0
-own_only,7,2026-10-26,Dyson Daniels,SG2,SG,ATL,HOU,Points,10,1.0,,1.0,15.2,16.3,12,18,15.0,4.0,0
-own_only,7,2026-10-26,CJ McCollum,PG1,PG,ATL,HOU,Points,12,1.0,,1.0,15.9,16.3,13,19,16.0,20.0,1
-own_only,7,2026-10-26,Onyeka Okongwu,C1,C,ATL,HOU,Points,8,1.0,,1.0,8.8,8.7,7,11,9.0,11.0,1
-own_only,7,2026-10-26,Trae Young,PG1,PG,WSH,CHA,Points,20,1.0,,1.0,21.9,22.3,18,26,22.0,22.0,1
-own_only,7,2026-10-26,Anthony Davis,PF1,PF,WSH,CHA,Points,8,1.0,,1.0,23.5,20.7,15,32,23.5,29.0,1
-best_picks,7,2026-10-26,Kyshawn George,SG1,SG,WSH,CHA,Reb+Ast,6,1.0,1.0,1.0,9.7,9.3,7,12,9.5,6.0,1
-own_only,7,2026-10-26,Kyshawn George,SG1,SG,WSH,CHA,Points,10,1.0,,1.0,15.0,17.0,11,19,15.0,20.0,1
-best_picks,7,2026-10-26,Alex Sarr,C1,C,WSH,CHA,Pts+Reb+Ast,15,1.0,1.0,1.0,15.7,16.0,13,19,15.5,19.0,1
-own_only,7,2026-10-26,Alex Sarr,C1,C,WSH,CHA,Assists,2,1.0,,1.0,3.4,3.3,2,4,3.5,1.0,0
-own_only,7,2026-10-26,Cameron Boozer,PF1,PF,MEM,UTAH,Rebounds,10,1.0,,1.0,11.0,11.7,9,13,11.0,7.0,0
-own_only,7,2026-10-26,Ty Jerome,SG1,SG,MEM,UTAH,Points,28,1.0,,1.0,37.2,34.7,30,45,37.0,15.0,0
-own_only,7,2026-10-26,Jaylen Wells,SG2,SG,MEM,UTAH,Points,12,1.0,,1.0,16.1,15.0,13,19,16.0,14.0,1
-own_only,7,2026-10-26,Yaxel Lendeborg,SF1,SF,GS,DEN,Points,12,1.0,,1.0,20.9,18.7,16,26,21.0,31.0,1
-own_only,7,2026-10-26,Gui Santos,PF2,PF,GS,DEN,Rebounds,4,1.0,,1.0,4.0,4.3,3,5,4.0,3.0,0
-own_only,7,2026-10-26,Graham Ike,PF3,PF,GS,DEN,Points,8,1.0,,1.0,10.1,10.0,8,12,10.0,3.0,0
-best_picks,7,2026-10-26,Brandon Miller,SF1,SF,CHA,WSH,3PM,1,1.0,1.0,1.0,2.3,2.3,2,3,2.5,5.0,1
-own_only,7,2026-10-26,Brandon Miller,SF1,SF,CHA,WSH,3PM,1,1.0,,1.0,2.3,2.3,2,3,2.5,5.0,1
-best_picks,7,2026-10-26,Naz Reid,C1,C,CHA,WSH,Pts+Reb+Ast,15,1.0,1.0,1.0,29.5,31.7,24,35,29.5,31.0,1
-own_only,7,2026-10-26,Naz Reid,C1,C,CHA,WSH,Points,15,1.0,,1.0,18.9,20.0,15,23,19.0,18.0,1
-own_only,7,2026-10-26,Dennis Schroder,SG1,SG,CHA,WSH,Rebounds,4,1.0,,1.0,4.1,4.7,3,5,4.0,2.0,0
-best_picks,7,2026-10-26,Moussa Diabate,PF1,PF,CHA,WSH,Rebounds,5,1.0,1.0,1.0,8.3,7.0,7,10,8.5,17.0,1
-own_only,7,2026-10-26,Moussa Diabate,PF1,PF,CHA,WSH,Rebounds,5,1.0,,1.0,8.3,7.0,7,10,8.5,17.0,1
+best_picks,7,2026-10-26,Tyler Herro,SG1,SG,MIL,IND,3PM,1,1.0,1.0,1.0,3.5,3.3,2,5,3.5,3.0,1
+own_only,7,2026-10-26,Tyler Herro,SG1,SG,MIL,IND,Points,12,1.0,,1.0,22.3,23.7,15,29,22.5,23.0,1
+best_picks,7,2026-10-26,Jaime Jaquez Jr.,SF1,SF,MIL,IND,Points,10,1.0,1.0,1.0,19.3,20.7,15,23,19.5,8.0,0
+own_only,7,2026-10-26,Jaime Jaquez Jr.,SF1,SF,MIL,IND,Points,18,1.0,,1.0,19.3,20.7,15,23,19.5,8.0,0
+best_picks,7,2026-10-26,Kyle Kuzma,PF1,PF,MIL,IND,Rebounds,6,1.0,0.667,0.833,9.6,9.0,8,12,9.5,7.0,1
+own_only,7,2026-10-26,Kyle Kuzma,PF1,PF,MIL,IND,Rebounds,6,1.0,,1.0,9.6,9.0,8,12,9.5,7.0,1
+own_only,7,2026-10-26,Ryan Rollins,PG1,PG,MIL,IND,Points,8,1.0,,1.0,11.1,11.7,9,13,11.0,19.0,1
+best_picks,7,2026-10-26,Myles Turner,C1,C,MIL,IND,Rebounds,3,1.0,1.0,1.0,4.2,4.3,3,5,4.0,9.0,1
+own_only,7,2026-10-26,Myles Turner,C1,C,MIL,IND,Rebounds,3,1.0,,1.0,4.2,4.3,3,5,4.0,9.0,1
 own_only,7,2026-10-26,Kevin Durant,PF1,PF,HOU,ATL,Points,20,1.0,,1.0,25.7,24.0,21,31,25.5,22.0,1
 own_only,7,2026-10-26,Amen Thompson,SF1,SF,HOU,ATL,Points,15,1.0,,1.0,17.4,17.7,14,21,17.5,15.0,1
 own_only,7,2026-10-26,Jabari Smith Jr.,PF2,PF,HOU,ATL,Rebounds,5,1.0,,1.0,5.3,5.0,4,6,5.5,12.0,1
 own_only,7,2026-10-26,Alperen Sengun,C1,C,HOU,ATL,Points,15,1.0,,1.0,26.7,23.0,21,32,26.5,29.0,1
-own_only,7,2026-10-26,Caleb Wilson,PF1,PF,CHI,BOS,Points,15,1.0,,1.0,21.5,22.3,17,26,21.5,17.0,1
-own_only,7,2026-10-26,Norman Powell,SG1,SG,CHI,BOS,Points,15,1.0,,1.0,17.9,19.3,14,21,18.0,20.0,1
-own_only,7,2026-10-26,Josh Giddey,PG1,PG,CHI,BOS,Assists,6,1.0,,1.0,8.3,8.3,7,10,8.5,4.0,0
-best_picks,7,2026-10-26,Matas Buzelis,SF1,SF,CHI,BOS,Pts+Reb+Ast,15,1.0,0.667,0.833,21.2,22.0,17,26,21.0,14.0,0
-own_only,7,2026-10-26,Matas Buzelis,SF1,SF,CHI,BOS,Rebounds,5,1.0,,1.0,5.2,5.3,4,6,5.0,1.0,0
-own_only,7,2026-10-26,Jalen Smith,C1,C,CHI,BOS,Points,12,1.0,,1.0,16.1,14.3,13,19,16.0,7.0,0
-best_picks,7,2026-10-26,Anthony Edwards,SG1,SG,MIN,CLE,Points,10,1.0,0.667,0.833,27.6,28.7,17,38,27.5,47.0,1
-own_only,7,2026-10-26,Anthony Edwards,SG1,SG,MIN,CLE,Points,15,1.0,,1.0,27.6,28.7,17,38,27.5,47.0,1
-own_only,7,2026-10-26,Rudy Gobert,C1,C,MIN,CLE,Rebounds,9,1.0,,1.0,12.2,12.3,10,15,12.0,20.0,1
-own_only,7,2026-10-26,Jaden McDaniels,PF1,PF,MIN,CLE,Points,12,1.0,,1.0,16.6,15.3,13,20,16.5,14.0,1
-own_only,7,2026-10-26,Jonathan Kuminga,PF2,PF,MIN,CLE,Points,10,1.0,,1.0,13.0,12.0,10,16,13.0,10.0,1
-own_only,7,2026-10-26,LaMelo Ball,PG1,PG,MIN,CLE,Points,12,1.0,,1.0,17.9,16.0,14,22,18.0,11.0,0
-best_picks,7,2026-10-26,Tyrese Haliburton,PG1,PG,IND,MIL,Points,18,1.0,0.667,0.833,21.2,21.7,17,25,21.0,22.0,1
-own_only,7,2026-10-26,Tyrese Haliburton,PG1,PG,IND,MIL,Points,18,1.0,,1.0,21.2,21.7,17,25,21.0,22.0,1
-best_picks,7,2026-10-26,Pascal Siakam,PF1,PF,IND,MIL,3PM,1,1.0,1.0,1.0,2.4,2.3,2,3,2.5,1.0,1
-own_only,7,2026-10-26,Pascal Siakam,PF1,PF,IND,MIL,Points,20,1.0,,1.0,26.8,24.7,21,32,27.0,20.0,1
-best_picks,7,2026-10-26,Kelly Oubre Jr.,SF1,SF,IND,MIL,Assists,2,1.0,0.667,0.833,2.3,2.3,2,3,2.5,1.0,0
-own_only,7,2026-10-26,Kelly Oubre Jr.,SF1,SF,IND,MIL,Assists,2,1.0,,1.0,2.3,2.3,2,3,2.5,1.0,0
-own_only,7,2026-10-26,Lauri Markkanen,PF1,PF,UTAH,MEM,Points,15,1.0,,1.0,18.2,20.7,14,22,18.0,2.0,0
-own_only,7,2026-10-26,Jaren Jackson Jr.,C1,C,UTAH,MEM,Points,15,1.0,,1.0,20.0,19.7,16,24,20.0,6.0,0
-own_only,7,2026-10-26,Keyonte George,PG1,PG,UTAH,MEM,Points,18,1.0,,1.0,23.2,21.7,19,28,23.0,26.0,1
-own_only,7,2026-10-26,Darryn Peterson,SG1,SG,UTAH,MEM,Points,8,1.0,,1.0,12.6,10.7,10,15,12.5,14.0,1
-own_only,7,2026-10-26,Ace Bailey,SF1,SF,UTAH,MEM,Rebounds,5,1.0,,1.0,9.4,8.0,7,12,9.5,10.0,1
 best_picks,7,2026-10-26,P.J. Washington,PF1,PF,DAL,MIA,Points,10,1.0,0.75,0.875,13.4,14.0,10,17,13.5,20.0,1
 own_only,7,2026-10-26,P.J. Washington,PF1,PF,DAL,MIA,Points,10,1.0,,1.0,13.4,14.0,10,17,13.5,20.0,1
 best_picks,7,2026-10-26,Max Christie,SG1,SG,DAL,MIA,Rebounds,3,1.0,1.0,1.0,4.7,4.0,4,6,4.5,5.0,1
@@ -70,17 +27,69 @@ own_only,7,2026-10-26,Bam Adebayo,C1,C,MIA,DAL,Rebounds,6,1.0,,1.0,7.3,7.0,6,9,7
 best_picks,7,2026-10-26,Giannis Antetokounmpo,PF1,PF,MIA,DAL,Points,12,1.0,0.75,0.875,31.0,28.3,23,39,31.0,29.0,1
 own_only,7,2026-10-26,Giannis Antetokounmpo,PF1,PF,MIA,DAL,Points,12,1.0,,1.0,31.0,28.3,23,39,31.0,29.0,1
 own_only,7,2026-10-26,Klay Thompson,SF2,SF,MIA,DAL,3PM,2,1.0,,1.0,2.7,3.0,2,3,2.5,2.0,1
-best_picks,7,2026-10-26,Tyler Herro,SG1,SG,MIL,IND,3PM,1,1.0,1.0,1.0,3.5,3.3,2,5,3.5,3.0,1
-own_only,7,2026-10-26,Tyler Herro,SG1,SG,MIL,IND,Points,12,1.0,,1.0,22.3,23.7,15,29,22.5,23.0,1
-best_picks,7,2026-10-26,Jaime Jaquez Jr.,SF1,SF,MIL,IND,Points,10,1.0,1.0,1.0,19.3,20.7,15,23,19.5,8.0,0
-own_only,7,2026-10-26,Jaime Jaquez Jr.,SF1,SF,MIL,IND,Points,18,1.0,,1.0,19.3,20.7,15,23,19.5,8.0,0
-best_picks,7,2026-10-26,Kyle Kuzma,PF1,PF,MIL,IND,Rebounds,6,1.0,0.667,0.833,9.6,9.0,8,12,9.5,7.0,1
-own_only,7,2026-10-26,Kyle Kuzma,PF1,PF,MIL,IND,Rebounds,6,1.0,,1.0,9.6,9.0,8,12,9.5,7.0,1
-own_only,7,2026-10-26,Ryan Rollins,PG1,PG,MIL,IND,Points,8,1.0,,1.0,11.1,11.7,9,13,11.0,19.0,1
-best_picks,7,2026-10-26,Myles Turner,C1,C,MIL,IND,Rebounds,3,1.0,1.0,1.0,4.2,4.3,3,5,4.0,9.0,1
-own_only,7,2026-10-26,Myles Turner,C1,C,MIL,IND,Rebounds,3,1.0,,1.0,4.2,4.3,3,5,4.0,9.0,1
-best_picks,8,2026-10-27,Jayson Tatum,PF1,PF,BOS,BKN,Points,12,1.0,1.0,1.0,25.6,24.0,18,33,25.5,40.0,1
-own_only,8,2026-10-27,Jayson Tatum,PF1,PF,BOS,BKN,Points,12,1.0,,1.0,25.6,24.0,18,33,25.5,40.0,1
+own_only,7,2026-10-26,Trae Young,PG1,PG,WSH,CHA,Points,20,1.0,,1.0,21.9,22.3,18,26,22.0,22.0,1
+own_only,7,2026-10-26,Anthony Davis,PF1,PF,WSH,CHA,Points,8,1.0,,1.0,23.4,20.7,15,32,23.5,29.0,1
+best_picks,7,2026-10-26,Kyshawn George,SG1,SG,WSH,CHA,Reb+Ast,6,1.0,1.0,1.0,9.7,9.3,7,12,9.5,6.0,1
+own_only,7,2026-10-26,Kyshawn George,SG1,SG,WSH,CHA,Points,10,1.0,,1.0,15.0,17.0,11,19,15.0,20.0,1
+best_picks,7,2026-10-26,Alex Sarr,C1,C,WSH,CHA,Pts+Reb+Ast,15,1.0,1.0,1.0,15.8,16.0,13,19,16.0,19.0,1
+own_only,7,2026-10-26,Alex Sarr,C1,C,WSH,CHA,Assists,2,1.0,,1.0,3.4,3.3,2,4,3.5,1.0,0
+own_only,7,2026-10-26,Caleb Wilson,PF1,PF,CHI,BOS,Points,15,1.0,,1.0,21.4,22.3,17,26,21.5,17.0,1
+own_only,7,2026-10-26,Norman Powell,SG1,SG,CHI,BOS,Points,15,1.0,,1.0,17.9,19.3,14,21,18.0,20.0,1
+own_only,7,2026-10-26,Josh Giddey,PG1,PG,CHI,BOS,Assists,6,1.0,,1.0,8.3,8.3,7,10,8.5,4.0,0
+best_picks,7,2026-10-26,Matas Buzelis,SF1,SF,CHI,BOS,Pts+Reb+Ast,15,1.0,0.667,0.833,21.2,22.0,17,26,21.0,14.0,0
+own_only,7,2026-10-26,Matas Buzelis,SF1,SF,CHI,BOS,Rebounds,5,1.0,,1.0,5.2,5.3,4,6,5.0,1.0,0
+own_only,7,2026-10-26,Jalen Smith,C1,C,CHI,BOS,Points,12,1.0,,1.0,16.1,14.3,13,19,16.0,7.0,0
+best_picks,7,2026-10-26,Shai Gilgeous-Alexander,PG1,PG,OKC,PHX,Assists,3,1.0,1.0,1.0,4.0,4.0,3,5,4.0,3.0,1
+own_only,7,2026-10-26,Shai Gilgeous-Alexander,PG1,PG,OKC,PHX,Points,15,1.0,,1.0,28.0,27.7,22,34,28.0,26.0,1
+own_only,7,2026-10-26,Isaiah Hartenstein,C2,C,OKC,PHX,Rebounds,3,1.0,,1.0,7.1,7.0,4,10,7.0,13.0,1
+own_only,7,2026-10-26,Jalen Johnson,SF1,SF,ATL,HOU,Points,18,1.0,,1.0,25.6,21.7,20,31,25.5,21.0,1
+best_picks,7,2026-10-26,Nickeil Alexander-Walker,SG1,SG,ATL,HOU,Rebounds,3,1.0,1.0,1.0,3.8,4.0,3,5,4.0,2.0,0
+own_only,7,2026-10-26,Nickeil Alexander-Walker,SG1,SG,ATL,HOU,Points,12,1.0,,1.0,19.6,21.0,14,26,19.5,12.0,1
+best_picks,7,2026-10-26,Dyson Daniels,SG2,SG,ATL,HOU,Rebounds,3,1.0,1.0,1.0,6.6,7.0,5,8,6.5,0.0,0
+own_only,7,2026-10-26,Dyson Daniels,SG2,SG,ATL,HOU,Points,10,1.0,,1.0,15.2,16.3,12,18,15.0,4.0,0
+own_only,7,2026-10-26,CJ McCollum,PG1,PG,ATL,HOU,Points,12,1.0,,1.0,15.9,16.3,13,19,16.0,20.0,1
+own_only,7,2026-10-26,Onyeka Okongwu,C1,C,ATL,HOU,Points,8,1.0,,1.0,8.8,8.7,7,11,9.0,11.0,1
+own_only,7,2026-10-26,Lauri Markkanen,PF1,PF,UTAH,MEM,Points,15,1.0,,1.0,18.2,20.7,14,22,18.0,2.0,0
+best_picks,7,2026-10-26,Jaren Jackson Jr.,C1,C,UTAH,MEM,Points,12,1.0,0.667,0.833,19.5,19.7,16,23,19.5,6.0,0
+own_only,7,2026-10-26,Jaren Jackson Jr.,C1,C,UTAH,MEM,Points,15,1.0,,1.0,19.5,19.7,16,23,19.5,6.0,0
+own_only,7,2026-10-26,Keyonte George,PG1,PG,UTAH,MEM,Points,18,1.0,,1.0,23.2,21.7,19,28,23.0,26.0,1
+own_only,7,2026-10-26,Darryn Peterson,SG1,SG,UTAH,MEM,Points,8,1.0,,1.0,12.6,10.7,10,15,12.5,14.0,1
+own_only,7,2026-10-26,Ace Bailey,SF1,SF,UTAH,MEM,Rebounds,5,1.0,,1.0,9.4,8.0,7,12,9.5,10.0,1
+own_only,7,2026-10-26,Cameron Boozer,PF1,PF,MEM,UTAH,Rebounds,10,1.0,,1.0,11.0,11.7,9,13,11.0,7.0,0
+own_only,7,2026-10-26,Ty Jerome,SG1,SG,MEM,UTAH,Points,28,1.0,,1.0,37.2,34.7,30,45,37.0,15.0,0
+own_only,7,2026-10-26,Jaylen Wells,SG2,SG,MEM,UTAH,Points,12,1.0,,1.0,16.1,15.0,13,19,16.0,14.0,1
+best_picks,7,2026-10-26,Anthony Edwards,SG1,SG,MIN,CLE,Points,10,1.0,0.667,0.833,27.6,28.7,17,38,27.5,47.0,1
+own_only,7,2026-10-26,Anthony Edwards,SG1,SG,MIN,CLE,Points,15,1.0,,1.0,27.6,28.7,17,38,27.5,47.0,1
+own_only,7,2026-10-26,Rudy Gobert,C1,C,MIN,CLE,Rebounds,9,1.0,,1.0,12.2,12.3,10,15,12.0,20.0,1
+own_only,7,2026-10-26,Jaden McDaniels,PF1,PF,MIN,CLE,Points,12,1.0,,1.0,16.6,15.3,13,20,16.5,14.0,1
+own_only,7,2026-10-26,Jonathan Kuminga,PF2,PF,MIN,CLE,Points,10,1.0,,1.0,13.0,12.0,10,16,13.0,10.0,1
+own_only,7,2026-10-26,LaMelo Ball,PG1,PG,MIN,CLE,Points,12,1.0,,1.0,17.9,16.0,14,22,18.0,11.0,0
+own_only,7,2026-10-26,Yaxel Lendeborg,SF1,SF,GS,DEN,Points,12,1.0,,1.0,20.9,18.7,16,26,21.0,31.0,1
+own_only,7,2026-10-26,Gui Santos,PF2,PF,GS,DEN,Rebounds,4,1.0,,1.0,4.0,4.3,3,5,4.0,3.0,0
+best_picks,7,2026-10-26,Graham Ike,C1,C,GS,DEN,Points,8,1.0,0.667,0.833,9.4,10.0,8,11,9.5,3.0,0
+own_only,7,2026-10-26,Graham Ike,C1,C,GS,DEN,Points,8,1.0,,1.0,9.4,10.0,8,11,9.5,3.0,0
+best_picks,7,2026-10-26,Brandon Miller,SF1,SF,CHA,WSH,3PM,1,1.0,1.0,1.0,2.3,2.3,2,3,2.5,5.0,1
+own_only,7,2026-10-26,Brandon Miller,SF1,SF,CHA,WSH,3PM,1,1.0,,1.0,2.3,2.3,2,3,2.5,5.0,1
+best_picks,7,2026-10-26,Naz Reid,C1,C,CHA,WSH,Pts+Reb+Ast,15,1.0,1.0,1.0,29.5,31.7,24,35,29.5,31.0,1
+own_only,7,2026-10-26,Naz Reid,C1,C,CHA,WSH,Points,15,1.0,,1.0,18.9,20.0,15,23,19.0,18.0,1
+own_only,7,2026-10-26,Dennis Schroder,SG1,SG,CHA,WSH,Rebounds,4,1.0,,1.0,4.1,4.7,3,5,4.0,2.0,0
+best_picks,7,2026-10-26,Moussa Diabate,PF1,PF,CHA,WSH,Rebounds,5,1.0,1.0,1.0,8.3,7.0,7,10,8.5,17.0,1
+own_only,7,2026-10-26,Moussa Diabate,PF1,PF,CHA,WSH,Rebounds,5,1.0,,1.0,8.3,7.0,7,10,8.5,17.0,1
+best_picks,7,2026-10-26,Tyrese Haliburton,PG1,PG,IND,MIL,Points,18,1.0,0.667,0.833,21.2,21.7,17,25,21.0,22.0,1
+own_only,7,2026-10-26,Tyrese Haliburton,PG1,PG,IND,MIL,Points,18,1.0,,1.0,21.2,21.7,17,25,21.0,22.0,1
+best_picks,7,2026-10-26,Pascal Siakam,PF1,PF,IND,MIL,3PM,1,1.0,1.0,1.0,2.4,2.3,2,3,2.5,1.0,1
+own_only,7,2026-10-26,Pascal Siakam,PF1,PF,IND,MIL,Points,20,1.0,,1.0,26.7,24.7,21,32,26.5,20.0,1
+best_picks,7,2026-10-26,Kelly Oubre Jr.,SF1,SF,IND,MIL,Assists,2,1.0,0.667,0.833,2.3,2.3,2,3,2.5,1.0,0
+own_only,7,2026-10-26,Kelly Oubre Jr.,SF1,SF,IND,MIL,Assists,2,1.0,,1.0,2.3,2.3,2,3,2.5,1.0,0
+best_picks,8,2026-10-27,Zach LaVine,SG1,SG,SAC,SA,3PM,1,1.0,0.667,0.833,2.6,3.0,2,3,2.5,3.0,1
+own_only,8,2026-10-27,Zach LaVine,SG1,SG,SAC,SA,Points,22,1.0,,1.0,25.5,29.0,20,31,25.5,22.0,1
+own_only,8,2026-10-27,Darius Acuff Jr.,PG1,PG,SAC,SA,Points,12,1.0,,1.0,23.9,22.3,17,31,24.0,19.0,1
+best_picks,8,2026-10-27,Domantas Sabonis,C1,C,SAC,SA,Assists,2,1.0,1.0,1.0,7.8,7.0,5,10,8.0,8.0,1
+own_only,8,2026-10-27,Domantas Sabonis,C1,C,SAC,SA,Points,12,1.0,,1.0,19.7,18.7,15,25,19.5,20.0,1
+best_picks,8,2026-10-27,De'Andre Hunter,SF1,SF,SAC,SA,Rebounds,3,1.0,1.0,1.0,5.5,5.3,4,7,5.5,6.0,1
+own_only,8,2026-10-27,De'Andre Hunter,SF1,SF,SAC,SA,Rebounds,3,1.0,,1.0,5.5,5.3,4,7,5.5,6.0,1
+best_picks,8,2026-10-27,Jayson Tatum,PF1,PF,BOS,BKN,Points,12,1.0,1.0,1.0,25.5,24.0,18,33,25.5,40.0,1
+own_only,8,2026-10-27,Jayson Tatum,PF1,PF,BOS,BKN,Points,12,1.0,,1.0,25.5,24.0,18,33,25.5,40.0,1
 best_picks,8,2026-10-27,Paul George,PF2,PF,BOS,BKN,Points,15,1.0,1.0,1.0,24.5,23.0,16,33,24.5,20.0,1
 own_only,8,2026-10-27,Paul George,PF2,PF,BOS,BKN,Points,15,1.0,,1.0,24.5,23.0,16,33,24.5,20.0,1
 best_picks,8,2026-10-27,Derrick White,SG1,SG,BOS,BKN,Assists,3,1.0,0.75,0.875,5.9,6.0,5,7,6.0,7.0,1
@@ -89,25 +98,23 @@ best_picks,8,2026-10-27,Mitchell Robinson,C1,C,BOS,BKN,Rebounds,3,1.0,0.667,0.83
 own_only,8,2026-10-27,Mitchell Robinson,C1,C,BOS,BKN,Rebounds,3,1.0,,1.0,4.4,4.7,3,6,4.5,5.0,1
 best_picks,8,2026-10-27,Jordan Walsh,PF3,PF,BOS,BKN,Rebounds,3,1.0,1.0,1.0,4.3,4.0,3,5,4.5,6.0,1
 own_only,8,2026-10-27,Jordan Walsh,PF3,PF,BOS,BKN,Rebounds,3,1.0,,1.0,4.3,4.0,3,5,4.5,6.0,1
-best_picks,8,2026-10-27,Zach LaVine,SG1,SG,SAC,SA,3PM,1,1.0,0.667,0.833,2.6,3.0,2,3,2.5,3.0,1
-own_only,8,2026-10-27,Zach LaVine,SG1,SG,SAC,SA,Points,22,1.0,,1.0,25.5,29.0,20,31,25.5,22.0,1
-own_only,8,2026-10-27,Darius Acuff Jr.,PG1,PG,SAC,SA,Points,12,1.0,,1.0,23.9,22.3,17,31,24.0,19.0,1
-best_picks,8,2026-10-27,Domantas Sabonis,C1,C,SAC,SA,Assists,2,1.0,1.0,1.0,7.8,7.0,5,10,8.0,8.0,1
-own_only,8,2026-10-27,Domantas Sabonis,C1,C,SAC,SA,Points,12,1.0,,1.0,19.7,18.7,15,25,19.5,20.0,1
-best_picks,8,2026-10-27,De'Andre Hunter,SF1,SF,SAC,SA,Rebounds,3,1.0,1.0,1.0,5.5,5.3,4,7,5.5,6.0,1
-own_only,8,2026-10-27,De'Andre Hunter,SF1,SF,SAC,SA,Rebounds,3,1.0,,1.0,5.5,5.3,4,7,5.5,6.0,1
-own_only,8,2026-10-27,Cade Cunningham,PG1,PG,DET,NY,Points,15,1.0,,1.0,20.4,21.3,16,25,20.5,19.0,1
-best_picks,8,2026-10-27,Duncan Robinson,SF1,SF,DET,NY,Assists,2,1.0,1.0,1.0,2.8,2.3,2,3,3.0,2.0,1
-own_only,8,2026-10-27,Duncan Robinson,SF1,SF,DET,NY,Points,15,1.0,,1.0,21.1,19.7,17,25,21.0,12.0,0
-best_picks,8,2026-10-27,John Collins,PF1,PF,DET,NY,Rebounds,5,1.0,0.667,0.833,7.6,7.7,6,10,7.5,9.0,1
-own_only,8,2026-10-27,John Collins,PF1,PF,DET,NY,Rebounds,5,1.0,,1.0,7.6,7.7,6,10,7.5,9.0,1
 best_picks,8,2026-10-27,Julius Randle,PF1,PF,BKN,BOS,Rebounds,5,1.0,1.0,1.0,7.0,7.0,6,8,7.0,9.0,1
-own_only,8,2026-10-27,Julius Randle,PF1,PF,BKN,BOS,Points,10,1.0,,1.0,21.4,22.0,14,29,21.5,24.0,1
+own_only,8,2026-10-27,Julius Randle,PF1,PF,BKN,BOS,Points,10,1.0,,1.0,21.3,22.0,14,29,21.5,24.0,1
 best_picks,8,2026-10-27,Michael Porter Jr.,SF1,SF,BKN,BOS,Points,10,1.0,0.75,0.875,19.5,21.3,13,26,19.5,27.0,1
 own_only,8,2026-10-27,Michael Porter Jr.,SF1,SF,BKN,BOS,Points,10,1.0,,1.0,19.5,21.3,13,26,19.5,27.0,1
 own_only,8,2026-10-27,Keon Ellis,SG1,SG,BKN,BOS,3PM,1,1.0,,1.0,1.5,1.3,1,2,1.5,0.0,0
 best_picks,8,2026-10-27,Day'Ron Sharpe,C1,C,BKN,BOS,Rebounds,4,1.0,1.0,1.0,6.7,6.7,5,8,6.5,6.0,1
 own_only,8,2026-10-27,Day'Ron Sharpe,C1,C,BKN,BOS,Rebounds,4,1.0,,1.0,6.7,6.7,5,8,6.5,6.0,1
+own_only,8,2026-10-27,Cade Cunningham,PG1,PG,DET,NY,Points,15,1.0,,1.0,20.4,21.3,16,25,20.5,19.0,1
+best_picks,8,2026-10-27,Duncan Robinson,SF1,SF,DET,NY,Assists,2,1.0,1.0,1.0,2.8,2.3,2,3,3.0,2.0,1
+own_only,8,2026-10-27,Duncan Robinson,SF1,SF,DET,NY,Points,15,1.0,,1.0,21.1,19.7,17,25,21.0,12.0,0
+best_picks,8,2026-10-27,John Collins,PF1,PF,DET,NY,Rebounds,5,1.0,0.667,0.833,7.6,7.7,6,10,7.5,9.0,1
+own_only,8,2026-10-27,John Collins,PF1,PF,DET,NY,Rebounds,5,1.0,,1.0,7.6,7.7,6,10,7.5,9.0,1
+own_only,8,2026-10-27,Jalen Brunson,PG1,PG,NY,DET,Points,18,1.0,,1.0,24.5,22.7,20,29,24.5,23.0,1
+own_only,8,2026-10-27,Josh Hart,SG1,SG,NY,DET,Points,10,1.0,,1.0,11.4,12.3,9,14,11.5,6.0,0
+best_picks,8,2026-10-27,OG Anunoby,PF1,PF,NY,DET,Rebounds,3,1.0,1.0,1.0,6.0,6.0,4,8,6.0,7.0,1
+own_only,8,2026-10-27,OG Anunoby,PF1,PF,NY,DET,Points,10,1.0,,1.0,18.3,17.3,14,23,18.5,13.0,1
+own_only,8,2026-10-27,Karl-Anthony Towns,C1,C,NY,DET,Points,18,1.0,,1.0,18.5,21.0,15,22,18.5,27.0,1
 best_picks,8,2026-10-27,Devin Vassell,SG1,SG,SA,SAC,Rebounds,3,1.0,1.0,1.0,4.3,3.7,3,5,4.5,4.0,1
 own_only,8,2026-10-27,Devin Vassell,SG1,SG,SA,SAC,Rebounds,3,1.0,,1.0,4.3,3.7,3,5,4.5,4.0,1
 best_picks,8,2026-10-27,Dylan Harper,SG2,SG,SA,SAC,Points,15,1.0,1.0,1.0,21.7,20.0,17,26,21.5,13.0,0
@@ -126,8 +133,3 @@ best_picks,8,2026-10-27,Ziaire Williams,SF1,SF,LAL,POR,Points,8,1.0,0.667,0.833,
 own_only,8,2026-10-27,Ziaire Williams,SF1,SF,LAL,POR,Points,8,1.0,,1.0,10.4,11.3,8,13,10.5,11.0,1
 best_picks,8,2026-10-27,Matisse Thybulle,SG2,SG,LAL,POR,3PM,1,1.0,0.667,0.833,2.3,2.3,1,3,2.5,1.0,1
 own_only,8,2026-10-27,Matisse Thybulle,SG2,SG,LAL,POR,3PM,1,1.0,,1.0,2.3,2.3,1,3,2.5,1.0,1
-own_only,8,2026-10-27,Jalen Brunson,PG1,PG,NY,DET,Points,18,1.0,,1.0,24.5,22.7,20,29,24.5,23.0,1
-own_only,8,2026-10-27,Josh Hart,SG1,SG,NY,DET,Points,10,1.0,,1.0,11.4,12.3,9,14,11.5,6.0,0
-best_picks,8,2026-10-27,OG Anunoby,PF1,PF,NY,DET,Rebounds,3,1.0,1.0,1.0,6.0,6.0,4,8,6.0,7.0,1
-own_only,8,2026-10-27,OG Anunoby,PF1,PF,NY,DET,Points,10,1.0,,1.0,18.3,17.3,14,23,18.5,13.0,1
-own_only,8,2026-10-27,Karl-Anthony Towns,C1,C,NY,DET,Points,18,1.0,,1.0,18.5,21.0,15,22,18.5,27.0,1
