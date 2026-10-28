@@ -9,10 +9,11 @@ If the KIT_KEY secret is set, the kit is also put up at /social/<KIT_KEY>/ for y
 in the repo or the logs), with a one-tap zip download. It's replaced every afternoon and is gone after the next
 refresh. Treat it like an unlisted link, not a password-protected one: the email is the fully private copy.
 
-  x.jpg                    1600 x 900   Pick of the Day + the Starting 5 court     (X)
-  ig-1.jpg ... ig-4.jpg    1080 x 1350  Starting 5, Pick of the Day, Top 5 by stat, record (Instagram carousel)
-  tt-1.jpg ... tt-5.jpg    1080 x 1920  matchups and projections only, NO odds    (TikTok slides)
-  tiktok.mp4               1080 x 1920  the TikTok slides as a ~16 second video
+  post-1.jpg ... post-4.jpg  1080 x 1350  ONE post for X (4 images) and Instagram (carousel):
+                                         Pick of the Day, Starting 5, Top 5 by stat, last night + record
+  tt-1.jpg ... tt-4.jpg      1080 x 1350  the SAME 4 slides for TikTok with no odds, units or payouts (projections instead)
+  tiktok.mp4                 1080 x 1920  an animated reveal of those slides, ~20 seconds (court draws, cards pop in,
+                                         numbers count up), kept inside TikTok's safe area
   index.html               the day's page: every image, the video, captions and the Reddit comment, with copy buttons
 
 TikTok's rules keep content that "shows or glamorizes gambling" off the For You feed, so the TikTok version
@@ -266,22 +267,25 @@ def reddit_comment(row, c, rec):
     return "\n".join(lines)
 
 
-def captions(d, row, rec, site):
-    legs = d["legs"]
-    pick = f"{row['Player']} o{row['Line']} {STAT_SHORT.get(row['Stat'], row['Stat'])} ({row['American']})" if row else ""
-    rec_line = f"POTD record: {rec['rec']}, {rec['net']:+.1f}u" if rec["n"] else "POTD record starts today"
-    x = (f"NBA Pick of the Day · {d['date']}\n\n{pick} · 1U\n\n{rec_line}\n\nTonight's Starting 5 ↓ #NBA #NBAPicks #HitByOne" if row else
-         f"Tonight's NBA Starting 5 · {d['date']} #NBA #HitByOne")
+def captions(d, row, rec, site, c=None):
+    """One caption for X + Instagram (kept under X's 280 characters), a clean one for TikTok, and the X reply link."""
+    st = STAT_SHORT.get(row["Stat"], row["Stat"]) if row else ""
+    rec_line = f"POTD record: {rec['rec']}, {rec['net']:+.1f}u" if rec["n"] else ""
+    tags = ["#NBA", "#NBAPicks", "#HitByOne", "#PlayerProps"]
+    def build(k):
+        h = " ".join(tags[:k])
+        if row:
+            return (f"NBA Pick of the Day · {d['date']}\n{row['Player']} o{row['Line']} {st} ({row['American']}) · 1U\n\n"
+                    f"Swipe: tonight's Starting 5, Top 5 by stat + the record 👉 link in bio\n"
+                    + (f"{rec_line}\n" if rec_line else "") + f"21+ {h}").strip()
+        return (f"Tonight's NBA Starting 5 · {d['date']} · {d['games']} games\n\n"
+                f"Swipe: Top 5 by stat + last night 👉 link in bio\n21+ {h}").strip()
+    main = next((build(k) for k in (4, 3, 2, 1, 0) if len(build(k)) <= 280), build(0)[:280])
     x_reply = f"Every Pick of the Day, graded since day one: {site}record/" if site else ""
-    p5 = "\n".join(f"{l['pos']} {l['name']} {compact(l['pick'])}" for l in legs)
-    ig = (f"Tonight's Starting 5 · {d['date']} · {d['games']} games\n\n{p5}\n\n"
-          + (f"Pick of the Day: {pick} · 1U\n{rec_line}\n\n" if row else "")
-          + "Swipe for the Top 5 by stat and how last night went. Full card at the link in bio.\n\n"
-          + "21+ · For entertainment. Gambling problem? Call 1-800-GAMBLER.\n\n#HitByOne #NBA #NBAPicks #PlayerProps #NBABets #Basketball")
-    tt = (f"Tonight's NBA matchups that set up big nights 👀 {d['date']}\n\n"
-          + "\n".join(f"{l['pos']} {l['name']} vs {l['def']}" for l in legs)
-          + "\n\nFull breakdown at the link in bio.\n#HitByOne #NBA #NBAStats #Basketball #NBATonight")
-    return {"x": x, "x_reply": x_reply, "ig": ig, "tt": tt}
+    watch = (f"\nPlayer to watch: {row['Player']}, projected {fmt((c or {}).get('proj'))} {st} vs {row['Opponent']}" if row and c else "")
+    tt = (f"Tonight's NBA Starting 5 👀 {d['date']}{watch}\n\n"
+          f"The matchups that should feed them most. Full breakdown: link in bio\n#HitByOne #NBA #NBAStats #Basketball")
+    return {"main": main, "x_reply": x_reply, "tt": tt}
 
 
 # ---------------------------------------------------------------- pictures
@@ -360,58 +364,71 @@ def head(d, size, sub):
             f'<div class="dim" style="font-size:{size * .42:.0f}px;font-weight:600;text-align:right;">{esc(d["date"])}<br>{sub}</div></div>')
 
 
-def slide_x(d, row, c, rec):
-    pc = ""
-    if row:
-        why = "".join(f'<div style="margin:0 0 10px;">{esc(w)}</div>' for w in potd_why(c)[:3]) if c else ""
-        pc = f'''<div class="lab" style="font-size:22px;">NBA Pick of the Day</div>
-          <div style="font-size:50px;font-weight:900;margin:14px 0 4px;line-height:1.05">{esc(row["Player"])}</div>
-          <div class="dim" style="font-size:22px;font-weight:600">{esc(row["Team"])} {"vs" if row["Home/Away"] == "Home" else "@"} {esc(row["Opponent"])} &middot; {esc(tip_ct(row))}</div>
-          <div class="num" style="font-size:74px;color:{GREEN};margin:18px 0 0;line-height:1">OVER {esc(row["Line"])} {esc(STAT_SHORT.get(row["Stat"], row["Stat"]))}</div>
-          <div class="num" style="font-size:30px;margin:8px 0 24px;">{esc(row["American"])} &middot; 1U</div>
-          <div style="font-size:21px;line-height:1.4;color:rgba(242,244,250,.86)">{why}</div>'''
-    pay = f'Starting 5 together <b class="num" style="color:{GREEN};font-size:34px">{esc(d["pay"])}</b>' if d.get("pay") else "Tonight's Starting 5"
-    recs = f'POTD {esc(rec["rec"])} &middot; {rec["net"]:+.1f}u' if rec["n"] else ""
-    body = f'''<div style="position:absolute;left:56px;top:48px;">{court(d["legs"], 2.15)}</div>
-      <div style="position:absolute;left:830px;top:60px;width:720px;">{pc}</div>
-      <div style="position:absolute;left:830px;right:56px;bottom:52px;display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:600;">
-        <span>{pay}</span><span class="dim">{recs}</span></div>
-      <div style="position:absolute;right:56px;top:40px;opacity:.92">{mark(26)}</div>'''
-    return page(1600, 900, body)
+# ---------------------------------------------------------------- one slide set
+# The same 4 slides go to X (4 images) and Instagram (carousel): 1 Pick of the Day, 2 Starting 5, 3 Top 5 by stat,
+# 4 last night + the record. TikTok gets the SAME slides with clean=True: no odds, units, payouts or betting record
+# (TikTok keeps gambling content off the For You feed) -- lines become projections -- plus an animated video of them.
+def potd_why_clean(c):
+    """The Pick of the Day write-up without the betting line (for TikTok)."""
+    sw = STAT_WORDS.get(c["stat"], c["stat"].lower())
+    out = [f"Averaging {fmt(c['avg'])} {sw} over {c.get('win') or 'the season'}; the model projects {fmt(c['proj'])} tonight."]
+    if c.get("defRank") and c.get("defVal") is not None:
+        out.append(f"{c['def']} allow {fmt(c['defVal'])} {sw} a game to {c['pos']}s, #{c['defRank']} most in the league.")
+    sp = c.get("split") or {}
+    if sp.get("vAvg") is not None and sp.get("vN"):
+        out.append(f"{'At home' if sp.get('home') else 'On the road'} he's averaging {fmt(sp['vAvg'])} in {sp['vN']} games.")
+    return out
 
 
-def ig_1(d):
-    slip = "".join(f'''<div class="card" style="flex:1;padding:16px 16px;min-width:0">
-        <div class="dim" style="font-size:18px;font-weight:800">{esc(l["pos"])}</div>
-        <div style="font-size:22px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{esc(short_name(l["name"]))}</div>
-        <div class="num" style="font-size:24px;color:{GREEN}">{esc(compact(l["pick"]))}</div></div>''' for l in d["legs"])
-    pay = (f'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;font-size:24px;font-weight:600">'
-           f'<span class="dim">All five together, best prices</span><span class="num" style="font-size:54px;color:{GREEN}">{esc(d["pay"])}</span></div>') if d.get("pay") else ""
-    body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, f"{d['games']} games")}
-      <div class="lab" style="font-size:24px;margin:34px 0 18px;">Tonight's Starting 5</div>
-      <div style="display:flex;justify-content:center">{court(d["legs"], 2.3)}</div>
-      <div style="display:flex;gap:10px;margin-top:26px">{slip}</div>{pay}</div>'''
+def s_potd(d, row, c, rec, clean=False):
+    """Slide 1: the Pick of the Day (clean: 'Player to watch' with his projection instead of the line)."""
+    if not row:
+        return None
+    vals = (c or {}).get("lastVals") or []
+    st = STAT_SHORT.get(row["Stat"], row["Stat"])
+    if clean:
+        lab, big, sub = "Player to watch", f"{st} {fmt((c or {}).get('proj'))}", f"projected &middot; averaging {fmt((c or {}).get('avg'))}"
+        why = "".join(f'<div style="margin:0 0 14px;">{esc(w)}</div>' for w in (potd_why_clean(c) if c else []))
+        ref, bar_lab = ((c or {}).get("avg"), "his average")
+        foot = f'<span>Full breakdown: link in bio</span><span>{esc(d["date"])}</span>'
+    else:
+        lab, big, sub = "NBA Pick of the Day", f"OVER {esc(row['Line'])} {esc(st)}", f"{esc(row['American'])} &middot; 1 unit"
+        why = "".join(f'<div style="margin:0 0 14px;">{esc(w)}</div>' for w in (potd_why(c) if c else []))
+        ref, bar_lab = (float(row["Line"]), "the line")
+        right = f"{rec['net']:+.2f}u &middot; ROI {rec['roi']:.1f}%" if rec["n"] else "21+"
+        foot = f'<span>POTD record {esc(rec["rec"]) if rec["n"] else "starts today"}</span><span>{right}</span>'
+    body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, esc(lab))}
+      <div class="card" style="margin-top:40px;padding:44px 44px;">
+        <div class="lab" style="font-size:24px;">{esc(lab)}</div>
+        <div style="font-size:64px;font-weight:900;margin:16px 0 6px;line-height:1.05">{esc(row["Player"])} <span style="font-size:30px;color:{ORANGE}">{esc(row["Team"])}</span></div>
+        <div class="dim" style="font-size:26px;font-weight:600">{esc(row["Pos"])} &middot; {esc(row["Team"])} {"vs" if row["Home/Away"] == "Home" else "@"} {esc(row["Opponent"])} &middot; {esc(tip_ct(row))}</div>
+        <div class="num" style="font-size:96px;color:{GREEN};margin:26px 0 0;line-height:1">{big}</div>
+        <div class="num" style="font-size:34px;margin:10px 0 0;">{sub}</div>
+        <div style="margin:36px 0 10px;" class="dim"><b style="font-size:22px;color:{TXT}">Last {len(vals)} games</b> <span style="font-size:20px">vs {bar_lab}</span></div>
+        {bars(vals, ref, 900, 150)}
+        <div style="font-size:25px;line-height:1.45;color:rgba(242,244,250,.88);margin-top:30px">{why}</div>
+      </div>
+      <div class="dim" style="position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;font-size:24px;font-weight:600">{foot}</div></div>'''
     return page(1080, 1350, body)
 
 
-def ig_2(d, row, c, rec):
-    if not row:
-        return None
-    why = "".join(f'<div style="margin:0 0 14px;">{esc(w)}</div>' for w in potd_why(c)) if c else ""
-    vals = (c or {}).get("lastVals") or []
-    body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, "Pick of the Day")}
-      <div class="card" style="margin-top:40px;padding:44px 44px;">
-        <div class="lab" style="font-size:24px;">NBA Pick of the Day</div>
-        <div style="font-size:64px;font-weight:900;margin:16px 0 6px;line-height:1.05">{esc(row["Player"])}</div>
-        <div class="dim" style="font-size:26px;font-weight:600">{esc(row["Pos"])} &middot; {esc(row["Team"])} {"vs" if row["Home/Away"] == "Home" else "@"} {esc(row["Opponent"])} &middot; {esc(tip_ct(row))}</div>
-        <div class="num" style="font-size:96px;color:{GREEN};margin:26px 0 0;line-height:1">OVER {esc(row["Line"])} {esc(STAT_SHORT.get(row["Stat"], row["Stat"]))}</div>
-        <div class="num" style="font-size:38px;margin:10px 0 0;">{esc(row["American"])} &middot; 1 unit</div>
-        <div style="margin:36px 0 10px;" class="dim"><b style="font-size:22px;color:{TXT}">Last {len(vals)} games</b> <span style="font-size:20px">vs the line</span></div>
-        {bars(vals, float(row["Line"]), 900, 150)}
-        <div style="font-size:25px;line-height:1.45;color:rgba(242,244,250,.88);margin-top:30px">{why}</div>
-      </div>
-      <div class="dim" style="position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;font-size:24px;font-weight:600">
-        <span>POTD record {esc(rec["rec"]) if rec["n"] else "starts today"}</span><span>{f"{rec['net']:+.2f}u &middot; ROI {rec['roi']:.1f}%" if rec["n"] else ""}</span></div></div>'''
+def s_s5(d, clean=False):
+    """Slide 2: tonight's Starting 5 on the court, with the slip (clean: projections, no payout)."""
+    def tag(l):
+        return f"{NAME_SHORT.get(l['stat'], l['stat'])} {fmt(l.get('proj'))}" if clean else compact(l["pick"])
+    slip = "".join(f'''<div class="card" style="flex:1;padding:16px 16px;min-width:0">
+        <div class="dim" style="font-size:18px;font-weight:800">{esc(l["pos"])} <span style="color:{ORANGE}">{esc(l["off"])}</span></div>
+        <div style="font-size:22px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{esc(short_name(l["name"]))}</div>
+        <div class="num" style="font-size:24px;color:{GREEN}">{esc(tag(l))}</div></div>''' for l in d["legs"])
+    if clean:
+        tail = (f'<div class="dim" style="margin-top:22px;font-size:24px;font-weight:600">One per position: the matchup that should feed him most. Projected.</div>')
+    else:
+        tail = (f'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;font-size:24px;font-weight:600">'
+                f'<span class="dim">All five together, best prices</span><span class="num" style="font-size:54px;color:{GREEN}">{esc(d["pay"])}</span></div>') if d.get("pay") else ""
+    body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, f"{d['games']} games")}
+      <div class="lab" style="font-size:24px;margin:34px 0 18px;">Tonight's Starting 5</div>
+      <div style="display:flex;justify-content:center">{court(d["legs"], 2.3, stats_only=clean)}</div>
+      <div style="display:flex;gap:10px;margin-top:26px">{slip}</div>{tail}</div>'''
     return page(1080, 1350, body)
 
 
@@ -440,26 +457,42 @@ def stat_rows(d, stats_only, big, tall=1.0):
     return "".join(rows)
 
 
-def ig_3(d):
+def s_top5(d, clean=False):
+    """Slide 3: Top 5 by stat (clean: tonight's projections)."""
+    sub = "Tonight's projections &middot; best matchup first" if clean else "Best first &middot; OVER line &middot; times over in his last 5"
     body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, "Top 5 by stat")}
       <div class="lab" style="font-size:24px;margin:40px 0 8px;">Top 5 by stat</div>
-      <div class="dim" style="font-size:22px;margin-bottom:30px">Best first &middot; OVER line &middot; times over in his last 5</div>
-      {stat_rows(d, False, 28, 1.25)}</div>'''
+      <div class="dim" style="font-size:22px;margin-bottom:30px">{sub}</div>
+      {stat_rows(d, clean, 28, 1.25)}</div>'''
     return page(1080, 1350, body)
 
 
-def ig_4(d, rec, log_rows):
+def s_last(d, rec, log_rows, clean=False):
+    """Slide 4: last night's Starting 5 and the record (clean: what they put up, no units or betting record)."""
     last = d.get("last")
     rc = {"HIT": GREEN, "MISS": RED, "VOID": DIM}
+    r = d.get("record") or {}
+    tile = lambda big, small: (f'<div class="card" style="flex:1;padding:26px 10px;text-align:center"><div class="num" style="font-size:52px">{big}</div>'
+                               f'<div class="dim" style="font-size:20px;margin-top:4px">{small}</div></div>')
+    pct = lambda h, g: f"{round(h / g * 100)}%" if g else "--"
+    if clean:
+        legs = "".join(f'''<div style="display:flex;align-items:center;gap:18px;padding:18px 0;border-top:1.5px solid rgba(255,255,255,.07)">
+            <span class="dim" style="width:44px;font-size:22px;font-weight:800">{esc(l["pos"])}</span>
+            <span style="flex:1;font-size:30px;font-weight:700">{esc(short_name(l["name"]))}</span>
+            <span class="num" style="font-size:40px;color:{GREEN if l["result"] == "HIT" else TXT}">{fmt(l["actual"]) if l["actual"] is not None else "DNP"}</span>
+            <span class="dim" style="width:70px;font-size:22px;font-weight:700">{esc(l.get("stat") or "")}</span></div>''' for l in (last or {}).get("legs", []))
+        body = f'''<div style="position:absolute;inset:56px 56px;">{head(d, 46, "Last night")}
+          <div class="lab" style="font-size:24px;margin:40px 0 14px;">Last night's Starting 5</div>
+          <div class="dim" style="font-size:24px;margin-bottom:18px">{esc(last["date"]) + " &middot; what they put up" if last else ""}</div>
+          <div class="card" style="padding:6px 30px 10px">{legs or '<div class="dim" style="padding:24px 0;font-size:24px">No finished night yet.</div>'}</div>
+          {f'<div style="font-size:40px;font-weight:900;margin-top:40px">{last["hits"]} of {last["graded"]} came through.</div>' if last else ""}
+          <div style="position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center"><div style="padding:24px 50px;border-radius:999px;background:{ORANGE};color:{BG};font-size:34px;font-weight:900">Full breakdown: link in bio</div></div></div>'''
+        return page(1080, 1350, body)
     legs = "".join(f'''<div style="display:flex;align-items:center;gap:18px;padding:16px 0;border-top:1.5px solid rgba(255,255,255,.07)">
         <span class="dim" style="width:44px;font-size:22px;font-weight:800">{esc(l["pos"])}</span>
         <span style="flex:1;font-size:27px;font-weight:700">{esc(short_name(l["name"]))} <span class="dim" style="font-size:21px;font-weight:500">{esc(compact(l["pick"]))}</span></span>
         <span class="num" style="font-size:32px">{fmt(l["actual"]) if l["actual"] is not None else "DNP"}</span>
         <span style="width:96px;text-align:center;font-size:19px;font-weight:800;padding:6px 0;border-radius:10px;color:{rc.get(l["result"], DIM)};box-shadow:inset 0 0 0 2px {rc.get(l["result"], DIM)}">{esc(l["result"])}</span></div>''' for l in (last or {}).get("legs", []))
-    r = d.get("record") or {}
-    tile = lambda big, small: (f'<div class="card" style="flex:1;padding:26px 10px;text-align:center"><div class="num" style="font-size:52px">{big}</div>'
-                               f'<div class="dim" style="font-size:20px;margin-top:4px">{small}</div></div>')
-    pct = lambda h, g: f"{round(h / g * 100)}%" if g else "--"
     prev = [x for x in log_rows if x.get("Result")][-1:] if log_rows else []
     prev_line = ""
     if prev:
@@ -479,69 +512,14 @@ def ig_4(d, rec, log_rows):
     return page(1080, 1350, body)
 
 
-# TikTok: matchups and projections only -- no lines, odds, units or payouts.
-# TikTok's buttons cover the right edge and the caption covers the bottom, so everything stays inside TT_SAFE.
-TT_SAFE = "top:150px;left:64px;right:150px;bottom:380px"
-def tt_1(d):
-    games = "".join(f'<div class="card" style="padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:36px;font-weight:700">'
-                    f'<span>{esc(g["away"])} @ {esc(g["home"])}</span><span class="dim" style="font-size:30px">{esc(g["time"])}</span></div>'
-                    for g in (d.get("schedule") or [])[:6])
-    more = len(d.get("schedule") or []) - 6
-    if more > 0:
-        games += f'<div class="dim" style="font-size:30px;font-weight:600;padding:6px 4px">+ {more} more games tonight</div>'
-    body = f'''<div style="position:absolute;{TT_SAFE};display:flex;flex-direction:column;">
-      {mark(52)}
-      <div class="dim" style="font-size:34px;font-weight:600;margin-top:10px">{esc(d["date"])}</div>
-      <div style="font-size:112px;font-weight:900;line-height:1;margin:90px 0 30px;letter-spacing:-2px">Tonight's<br><span style="color:{ORANGE}">matchups</span></div>
-      <div style="font-size:44px;line-height:1.3;color:rgba(242,244,250,.88);margin-bottom:60px">The 5 players these defenses set up for a big night.</div>
-      <div style="display:flex;flex-direction:column;gap:14px">{games}</div></div>'''
-    return page(1080, 1920, body)
-
-
-def tt_2(d):
-    legs = d["legs"]
-    lines = "".join(f'''<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:2px solid rgba(255,255,255,.07)">
-        <span style="font-size:34px;font-weight:700"><span class="dim" style="font-size:28px">{esc(l["pos"])}</span> {esc(short_name(l["name"]))}</span>
-        <span class="dim" style="font-size:28px">{esc(l["def"])} #{esc(l.get("defRank") or "--")} vs {esc(l["pos"])}s</span></div>''' for l in legs)
-    body = f'''<div style="position:absolute;{TT_SAFE};">
-      <div class="lab" style="font-size:34px;">Tonight's Starting 5</div>
-      <div style="font-size:38px;line-height:1.3;margin:12px 0 36px;color:rgba(242,244,250,.88)">One per position. The matchup that should feed him most.</div>
-      <div style="display:flex;justify-content:center">{court(legs, 2.1, stats_only=True)}</div>
-      <div style="margin-top:36px">{lines}</div></div>'''
-    return page(1080, 1920, body)
-
-
-def tt_3(d):
-    body = f'''<div style="position:absolute;{TT_SAFE};">
-      <div class="lab" style="font-size:34px;">Top 5 by stat</div>
-      <div style="font-size:40px;line-height:1.3;margin:14px 0 60px;color:rgba(242,244,250,.88)">Tonight's projections. Best matchup first.</div>
-      {stat_rows(d, True, 28, 2.5)}</div>'''
-    return page(1080, 1920, body)
-
-
-def tt_4(d):
-    last = d.get("last")
-    if not last:
-        return None
-    rows = "".join(f'''<div class="card" style="display:flex;align-items:center;gap:24px;padding:30px 34px;margin-bottom:18px">
-        <span class="dim" style="width:60px;font-size:30px;font-weight:800">{esc(l["pos"])}</span>
-        <span style="flex:1;font-size:40px;font-weight:700">{esc(short_name(l["name"]))}</span>
-        <span class="num" style="font-size:52px;color:{GREEN if l["result"] == "HIT" else TXT}">{fmt(l["actual"]) if l["actual"] is not None else "DNP"}</span>
-        <span class="dim" style="width:90px;font-size:28px">{esc(l.get("stat") or "")}</span></div>''' for l in last["legs"])
-    body = f'''<div style="position:absolute;{TT_SAFE};">
-      <div class="lab" style="font-size:34px;">Last night</div>
-      <div style="font-size:40px;line-height:1.3;margin:14px 0 60px;color:rgba(242,244,250,.88)">How last night's five actually played. {esc(last["date"])}.</div>
-      {rows}
-      <div style="font-size:44px;font-weight:800;margin-top:50px">{last["hits"]} of {last["graded"]} came through.</div></div>'''
-    return page(1080, 1920, body)
-
-
-def tt_5(d):
-    body = f'''<div style="position:absolute;{TT_SAFE};display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-      {mark(104, center=True)}
-      <div style="font-size:48px;line-height:1.35;margin:70px 0 0;color:rgba(242,244,250,.9)">Every matchup, every position,<br>every night.</div>
-      <div style="margin-top:90px;padding:30px 60px;border-radius:999px;background:{ORANGE};color:{BG};font-size:44px;font-weight:900">Full breakdown: link in bio</div></div>'''
-    return page(1080, 1920, body)
+def slide_set(d, row, c, rec, rows, clean=False):
+    """[(file name, html)] in posting order. No Pick of the Day today -> 3 slides."""
+    pre = "tt" if clean else "post"
+    out = []
+    for html in (s_potd(d, row, c, rec, clean), s_s5(d, clean), s_top5(d, clean), s_last(d, rec, rows, clean)):
+        if html:
+            out.append((f"{pre}-{len(out) + 1}.jpg", html, 1080, 1350))
+    return out
 
 
 def shoot(pages, out_dir):
@@ -562,25 +540,195 @@ def shoot(pages, out_dir):
         b.close()
 
 
-def make_video(slides, out):
-    """Slides -> vertical mp4: 3.2s each, 0.4s crossfades, 30fps, H.264. Silent: add a sound in TikTok."""
+# ---------------------------------------------------------------- the TikTok video: an animated reveal
+# A 1080 x 1920 page with every element on a timeline. render(t) puts each element where it is at second t; the
+# script steps t at 30 fps and photographs each frame, and ffmpeg joins them. Same story as the clean slides:
+#   hook (tonight's games) -> the court draws, the five cards pop in, projections count up -> Top 5 by stat rows slide
+#   in -> player to watch (bars grow) -> last night + "link in bio". Everything stays in TikTok's safe area.
+FPS = 30
+VIDEO_JS = r"""
+const ease = p => 1 - Math.pow(1 - Math.max(0, Math.min(1, p)), 3);
+function render(t){
+  document.querySelectorAll('[data-s]').forEach(s => {
+    const a = +s.dataset.s, b = +s.dataset.e;
+    const o = t < a ? 0 : t > b ? 0 : Math.min(1, (t - a) / .3, (b - t) / .3);
+    s.style.opacity = (s.dataset.last && t >= a) ? Math.min(1, (t - a) / .3) : o;
+  });
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const p = ease((t - +el.dataset.t) / (+el.dataset.d || .5)), k = el.dataset.k || 'up';
+    if(k === 'up')    { el.style.opacity = p; el.style.transform = `translateY(${(1 - p) * 60}px)`; }
+    if(k === 'pop')   { el.style.opacity = p; el.style.transform = `scale(${.6 + .4 * p})`; }
+    if(k === 'right') { el.style.opacity = p; el.style.transform = `translateX(${(1 - p) * 140}px)`; }
+    if(k === 'fade')  { el.style.opacity = p; }
+    if(k === 'draw')  { el.style.strokeDashoffset = 1 - p; }
+    if(k === 'grow')  { el.style.transform = `scaleY(${p})`; }
+  });
+  document.querySelectorAll('[data-c]').forEach(el => {
+    const p = ease((t - +el.dataset.c) / (+el.dataset.d || .9)), v = +el.dataset.v, dec = +el.dataset.dec || 0;
+    el.textContent = (el.dataset.pre || '') + (v * p).toFixed(dec);
+  });
+}
+"""
+
+
+def _num_attr(v, t, d=0.9):
+    """A counter that runs from 0 to v starting at second t."""
+    try:
+        v = float(v)
+    except (TypeError, ValueError):
+        return "", fmt(v)
+    dec = 0 if v == int(v) else 1
+    return f'data-c="{t:.2f}" data-v="{v}" data-dec="{dec}" data-d="{d}"', "0"
+
+
+def video_html(d, row, c):
+    legs = d["legs"]
+    games = (d.get("schedule") or [])[:6]
+    more = len(d.get("schedule") or []) - len(games)
+    T = {}
+    # timeline (seconds)
+    T["hook"] = (0.0, 3.2)
+    T["court"] = (3.2, 9.0)
+    T["top5"] = (9.0, 14.0)
+    has_potd = bool(row and c)
+    T["potd"] = (14.0, 17.6) if has_potd else None
+    end0 = T["potd"][1] if has_potd else 14.0
+    T["end"] = (end0, end0 + 3.2)
+    total = T["end"][1]
+    SAFE = "position:absolute;left:64px;right:150px;top:150px;bottom:380px"
+
+    # 1 hook
+    chips = "".join(f'<div class="card" data-t="{1.0 + i * .12:.2f}" data-k="pop" data-d=".35" style="opacity:0;padding:26px 28px;display:flex;justify-content:space-between;font-size:38px;font-weight:700">'
+                    f'<span>{esc(g["away"])} @ {esc(g["home"])}</span><span class="dim" style="font-size:28px">{esc(g["time"])}</span></div>' for i, g in enumerate(games))
+    if more > 0:
+        chips += f'<div class="dim" data-t="{1.0 + len(games) * .12:.2f}" data-k="fade" style="opacity:0;font-size:28px;font-weight:600;padding:4px">+ {more} more games tonight</div>'
+    hook = f'''<div data-s="{T['hook'][0]}" data-e="{T['hook'][1]}" style="{SAFE};opacity:0">
+      <div data-t="0" data-k="fade">{mark(50)}</div>
+      <div data-t=".15" data-k="up" style="opacity:0;font-size:130px;font-weight:900;line-height:.95;letter-spacing:-3px;margin:70px 0 10px">Tonight's<br><span style="color:{ORANGE}">Starting 5</span></div>
+      <div data-t=".55" data-k="up" class="dim" style="opacity:0;font-size:36px;font-weight:700;margin-bottom:44px">{esc(d["date"])} &middot; {d["games"]} games</div>
+      <div style="display:flex;flex-direction:column;gap:12px">{chips}</div></div>'''
+
+    # 2 court: lines draw, cards pop in one by one, projections count up
+    sc, t0 = 2.55, T["court"][0]
+    cards = []
+    for i, l in enumerate(legs):
+        x, y = SPOTS.get(l["pos"], (0, 0))
+        tt = t0 + 1.0 + i * .45
+        attr, txt = _num_attr(l.get("proj"), tt + .2)
+        cards.append(f'''<div class="pc" data-t="{tt:.2f}" data-k="pop" data-d=".4" style="opacity:0;left:{x}px;top:{y}px">
+          <div class="t"><span class="pos">{esc(l["pos"])}</span>{esc(card_name(l["name"]))}</div>
+          <div class="mt">{esc(l["off"])} {"vs" if l.get("home") else "@"} {esc(l["def"])}</div>
+          <div class="big">{esc(NAME_SHORT.get(l["stat"], l["stat"]))} <span {attr}>{txt}</span></div>
+          <div class="mt">proj{f" &middot; {esc(l['def'])} #{l['defRank']}" if l.get("defRank") else ""}</div></div>''')
+    ln = 'pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1"'
+    court_v = f'''<div data-s="{t0}" data-e="{T['court'][1]}" style="{SAFE};opacity:0">
+      <div data-t="{t0:.2f}" data-k="up" class="lab" style="opacity:0;font-size:34px">Tonight's Starting 5</div>
+      <div data-t="{t0 + .2:.2f}" data-k="up" style="opacity:0;font-size:36px;line-height:1.3;margin:10px 0 34px;color:rgba(242,244,250,.88)">One per position. The matchup that should feed him most.</div>
+      <div style="width:{336 * sc:.0f}px;height:{372 * sc:.0f}px;position:relative;margin:0 auto">
+        <div style="position:absolute;left:0;top:0;width:336px;height:372px;transform:scale({sc});transform-origin:0 0;border-radius:16px;background:#0f1119;overflow:hidden">
+          <svg viewBox="0 0 500 470" preserveAspectRatio="none" width="336" height="372" style="position:absolute;left:0;top:0">
+            <g stroke="rgba(255,255,255,0.16)" stroke-width="2" fill="none">
+              <rect data-t="{t0 + .2:.2f}" data-k="draw" data-d=".9" {ln} x="1" y="1" width="498" height="468" rx="18"/>
+              <rect data-t="{t0 + .4:.2f}" data-k="draw" data-d=".8" {ln} x="170" y="280" width="160" height="189"/>
+              <circle data-t="{t0 + .5:.2f}" data-k="draw" data-d=".7" {ln} cx="250" cy="280" r="60"/>
+              <path data-t="{t0 + .35:.2f}" data-k="draw" data-d=".9" {ln} d="M 30 469 L 30 330 A 237.5 237.5 0 0 1 470 330 L 470 469"/>
+              <path data-t="{t0 + .5:.2f}" data-k="draw" data-d=".6" {ln} d="M 190 1 A 60 60 0 0 0 310 1"/></g>
+            <circle data-t="{t0 + .7:.2f}" data-k="draw" data-d=".5" {ln} cx="250" cy="417.5" r="8" fill="none" stroke="{ORANGE}" stroke-width="2.5"/></svg>
+          {"".join(cards)}</div></div></div>'''
+
+    # 3 Top 5 by stat: rows slide in, values count up
+    t0 = T["top5"][0]
+    rows = []
+    for r_i, blk in enumerate(d.get("byStat") or []):
+        tr = t0 + .5 + r_i * .38
+        chips = ""
+        for i, x in enumerate(blk["list"][:5]):
+            attr, txt = _num_attr(x.get("proj"), tr + .25, .7)
+            ring = f"box-shadow:inset 0 0 0 3px {ORANGE};" if i == 0 else ""
+            chips += (f'<div class="card" style="flex:1 1 0;min-width:0;padding:26px 10px;{ring}">'
+                      f'<div style="font-size:24px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{esc(short_name(x["name"]))}</div>'
+                      f'<div style="font-size:18px;font-weight:800;color:{ORANGE};margin-top:2px">{esc(x["off"])}</div>'
+                      f'<div class="num" style="font-size:42px;color:{GREEN};margin-top:6px" {attr}>{txt}</div>'
+                      f'<div class="dim" style="font-size:19px;white-space:nowrap">{"vs" if x.get("home") else "@"} {esc(x["def"])}</div></div>')
+        rows.append(f'<div data-t="{tr:.2f}" data-k="right" data-d=".45" style="opacity:0;display:flex;gap:9px;align-items:stretch;margin-bottom:34px">'
+                    f'<div style="width:84px;flex:none;display:flex;align-items:center;font-weight:800;font-size:30px;color:{PINK}">{esc(blk["short"])}</div>{chips}</div>')
+    top5 = f'''<div data-s="{t0}" data-e="{T['top5'][1]}" style="{SAFE};opacity:0">
+      <div data-t="{t0:.2f}" data-k="up" class="lab" style="opacity:0;font-size:34px">Top 5 by stat</div>
+      <div data-t="{t0 + .15:.2f}" data-k="up" style="opacity:0;font-size:36px;line-height:1.3;margin:10px 0 44px;color:rgba(242,244,250,.88)">Tonight's projections. Best matchup first.</div>
+      {"".join(rows)}</div>'''
+
+    # 4 player to watch (the Pick of the Day, without the line)
+    potd = ""
+    if has_potd:
+        t0 = T["potd"][0]
+        vals = c.get("lastVals") or []
+        m = max(max(vals or [1]), c.get("avg") or 0, 1) * 1.15
+        bh = 260
+        bar = "".join(f'''<div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:{bh + 50}px">
+            <div class="num" data-t="{t0 + 1.0 + i * .12 + .3:.2f}" data-k="fade" style="opacity:0;font-size:30px;margin-bottom:8px">{fmt(v)}</div>
+            <div data-t="{t0 + 1.0 + i * .12:.2f}" data-k="grow" data-d=".5" style="transform:scaleY(0);transform-origin:bottom;width:100%;height:{max(6, v / m * bh):.0f}px;border-radius:12px;background:{GREEN if v > (c.get('avg') or 0) else '#3a4152'}"></div></div>''' for i, v in enumerate(vals))
+        avg_y = (c.get("avg") or 0) / m * bh
+        attr, txt = _num_attr(c.get("proj"), t0 + .5, 1.0)
+        why = "".join(f'<div style="margin:0 0 12px">{esc(w)}</div>' for w in potd_why_clean(c)[:2])
+        potd = f'''<div data-s="{t0}" data-e="{T['potd'][1]}" style="{SAFE};opacity:0">
+          <div data-t="{t0:.2f}" data-k="up" class="lab" style="opacity:0;font-size:34px">Player to watch</div>
+          <div data-t="{t0 + .1:.2f}" data-k="up" style="opacity:0;font-size:84px;font-weight:900;line-height:1;margin:22px 0 10px">{esc(row["Player"])}</div>
+          <div data-t="{t0 + .2:.2f}" data-k="up" class="dim" style="opacity:0;font-size:32px;font-weight:700">{esc(row["Team"])} {"vs" if row["Home/Away"] == "Home" else "@"} {esc(row["Opponent"])} &middot; {esc(tip_ct(row))}</div>
+          <div data-t="{t0 + .35:.2f}" data-k="pop" style="opacity:0;margin:40px 0 6px" class="num"><span style="font-size:150px;color:{GREEN};line-height:1" {attr}>{txt}</span> <span style="font-size:54px">{esc(STAT_SHORT.get(row["Stat"], row["Stat"]))}</span></div>
+          <div data-t="{t0 + .5:.2f}" data-k="fade" class="dim" style="opacity:0;font-size:32px;font-weight:600">projected &middot; averaging {fmt(c.get("avg"))}</div>
+          <div style="position:relative;display:flex;gap:16px;margin-top:50px;width:860px">{bar}
+            <div data-t="{t0 + 1.7:.2f}" data-k="fade" style="opacity:0;position:absolute;left:0;right:0;bottom:{avg_y:.0f}px;border-top:3px dashed rgba(242,244,250,.6)"></div></div>
+          <div data-t="{t0 + 1.9:.2f}" data-k="fade" class="dim" style="opacity:0;font-size:24px;margin-top:12px">Last {len(vals)} games &middot; dashed line = his average</div>
+          <div data-t="{t0 + 2.1:.2f}" data-k="up" style="opacity:0;font-size:30px;line-height:1.4;color:rgba(242,244,250,.9);margin-top:34px">{why}</div></div>'''
+
+    # 5 last night + link in bio
+    t0 = T["end"][0]
+    last = d.get("last")
+    lrows = ""
+    if last:
+        lrows = "".join(f'''<div data-t="{t0 + .3 + i * .1:.2f}" data-k="right" data-d=".35" style="opacity:0;display:flex;align-items:center;gap:20px;padding:14px 0;border-top:2px solid rgba(255,255,255,.07)">
+            <span class="dim" style="width:56px;font-size:26px;font-weight:800">{esc(l["pos"])}</span><span style="flex:1;font-size:34px;font-weight:700">{esc(short_name(l["name"]))}</span>
+            <span class="num" style="font-size:44px;color:{GREEN if l["result"] == "HIT" else TXT}">{fmt(l["actual"]) if l["actual"] is not None else "DNP"}</span>
+            <span class="dim" style="width:70px;font-size:24px;font-weight:700">{esc(l.get("stat") or "")}</span></div>''' for i, l in enumerate(last["legs"]))
+    end = f'''<div data-s="{t0}" data-e="{T['end'][1]}" data-last="1" style="{SAFE};opacity:0">
+      {f'<div data-t="{t0:.2f}" data-k="up" class="lab" style="opacity:0;font-size:34px">Last night</div><div style="margin:22px 0 0">{lrows}</div>' if last else ""}
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;text-align:center">
+        <div data-t="{t0 + 1.0:.2f}" data-k="pop">{mark(92, center=True)}</div>
+        <div data-t="{t0 + 1.4:.2f}" data-k="pop" style="opacity:0;margin-top:44px;padding:26px 56px;border-radius:999px;background:{ORANGE};color:{BG};font-size:42px;font-weight:900">Full breakdown: link in bio</div></div></div>'''
+
+    html = (f'<!doctype html><html><head><meta charset="utf-8">{FONTS}<style>{BASE_CSS} [data-t]{{will-change:transform,opacity}}</style></head><body>'
+            f'<div id="s" style="width:1080px;height:1920px;">'
+            f'<div class="glow" style="width:900px;height:900px;left:-320px;top:-360px;background:{ORANGE}"></div>'
+            f'<div class="glow" style="width:820px;height:820px;right:-340px;bottom:-300px;background:{PINK}"></div>'
+            f'{hook}{court_v}{top5}{potd}{end}</div><script>{VIDEO_JS}</script></body></html>')
+    return html, total
+
+
+def make_video(d, row, c, out):
+    """Render the animated reveal to an mp4 (30 fps, H.264, silent -- add a sound in TikTok)."""
     ff = shutil.which("ffmpeg")
-    if not ff or not slides:
+    if not ff:
         print("Social: ffmpeg not found -- skipped the TikTok video (the slides are still there).")
         return False
-    dur, fade = 3.2, 0.4
-    cmd = [ff, "-y", "-loglevel", "error"]
-    for s in slides:
-        cmd += ["-loop", "1", "-t", f"{dur}", "-i", str(s)]
-    chain, prev = [], "[0:v]"
-    for i in range(1, len(slides)):
-        off = i * (dur - fade)
-        lab = f"[v{i}]"
-        chain.append(f"{prev}[{i}:v]xfade=transition=fade:duration={fade}:offset={off:.2f}{lab}")
-        prev = lab
-    flt = (";".join(chain) + ";" if chain else "") + f"{prev}scale=1080:1920,format=yuv420p[out]"
-    cmd += ["-filter_complex", flt, "-map", "[out]", "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-movflags", "+faststart", str(out)]
-    subprocess.run(cmd, check=True)
+    import tempfile
+    from playwright.sync_api import sync_playwright
+    html, total = video_html(d, row, c)
+    frames = int(round(total * FPS))
+    with tempfile.TemporaryDirectory() as tmp:
+        with sync_playwright() as pw:
+            b = pw.chromium.launch()
+            p = b.new_page(viewport={"width": 1080, "height": 1920}, device_scale_factor=1)
+            if os.environ.get("HW_CDN_DIR"):
+                p.route("**/fonts.g*/**", lambda r: r.abort())
+            p.set_content(html, wait_until="load")
+            p.wait_for_timeout(900)
+            for f in range(frames):
+                p.evaluate(f"render({f / FPS:.4f})")
+                p.screenshot(path=os.path.join(tmp, f"f{f:05d}.jpg"), type="jpeg", quality=90)
+            b.close()
+        subprocess.run([ff, "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(tmp, "f%05d.jpg"),
+                        "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out)], check=True)
+    print(f"Social: TikTok video {total:.1f}s ({frames} frames).")
     return True
 
 
@@ -592,8 +740,8 @@ def copy_box(label, text, id_):
 
 def day_page(d, files, caps, reddit, row, rec, site, zip_name=""):
     img = lambda f, w: f'<a href="{f}" download><img src="{f}" alt="" style="width:{w}"></a>'
-    ig = "".join(img(f, "48%") for f in files if f.startswith("ig-"))
-    tt = "".join(img(f, "31%") for f in files if f.startswith("tt-"))
+    post = "".join(img(f, "48%") for f in files if f.startswith("post-"))
+    tt = "".join(img(f, "23%") for f in files if f.startswith("tt-"))
     vid = '<video src="tiktok.mp4" controls playsinline style="width:min(100%,360px);border-radius:14px"></video><p><a href="tiktok.mp4" download>Download the video</a></p>' if "tiktok.mp4" in files else ""
     return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Social kit &middot; {esc(d["date"])}</title><style>
@@ -613,9 +761,8 @@ textarea{{width:100%;box-sizing:border-box;background:{BG};color:{TXT};border:1p
 <h2>Reddit &middot; r/sportsbook Pick of the Day</h2>
 <div class="dim">Paste as a top-level comment in today's Pick of the Day thread. Edit the write-up if you want to add your own read.</div>
 {copy_box("Reddit comment", reddit, "c-reddit") if reddit else "<p class='dim'>No pick today: nothing on the board fit -200 to +200.</p>"}
-<h2>X</h2>{img("x.jpg", "100%")}{copy_box("Post", caps["x"], "c-x")}{copy_box("Reply with the link", caps["x_reply"], "c-xr") if caps["x_reply"] else ""}
-<h2>Instagram &middot; carousel</h2>{ig}{copy_box("Caption", caps["ig"], "c-ig")}
-<h2>TikTok &middot; video + slides</h2><div class="dim">Stats only: no odds or lines, so it stays eligible for the For You feed. Add a sound in TikTok.</div>{vid}{tt}{copy_box("Caption", caps["tt"], "c-tt")}
+<h2>X + Instagram &middot; the same post</h2><div class="dim">Same 4 images in this order, same caption. On X, reply to your post with the link.</div>{post}{copy_box("Caption (X + Instagram)", caps["main"], "c-main")}{copy_box("X reply with the link", caps["x_reply"], "c-xr") if caps["x_reply"] else ""}
+<h2>TikTok &middot; video (+ the same slides, no odds)</h2><div class="dim">Same post without odds, units or payouts, so it stays eligible for the For You feed. Add a sound in TikTok.</div>{vid}{tt}{copy_box("TikTok caption", caps["tt"], "c-tt")}
 <p class="dim" style="margin-top:30px">Private kit &middot; don't share this link. The public record (for bios and posts): {f'<a href="{site}record/">{site}record/</a>' if site else "/record/"}</p>
 </main><script>
 document.querySelectorAll('button[data-copy]').forEach(b => b.addEventListener('click', async () => {{
@@ -701,19 +848,20 @@ def site_url():
 
 
 def make_zip(d, day_dir, files, caps, reddit):
-    """One zip for the phone: a folder per app, pictures in posting order, captions as text files beside them."""
+    """One zip for the phone/Mac: Reddit text, the shared X + Instagram post, and the TikTok version."""
     top = f"HitByOne_{day_dir.name}"
     plan = []                                         # (path inside the zip, source file or text)
     if reddit:
         plan.append((f"{top}/1_Reddit_PickOfTheDay.txt", reddit))
-    plan += [(f"{top}/2_X/x_image.jpg", day_dir / "x.jpg"), (f"{top}/2_X/post.txt", caps["x"])]
+    for f in sorted(x for x in files if x.startswith("post-")):
+        plan.append((f"{top}/2_X_and_Instagram/{f.split('-')[1]}", day_dir / f))
+    plan.append((f"{top}/2_X_and_Instagram/caption.txt", caps["main"]))
     if caps.get("x_reply"):
-        plan.append((f"{top}/2_X/reply_with_link.txt", caps["x_reply"]))
-    plan += [(f"{top}/3_Instagram/{i}.jpg", day_dir / f"ig-{i}.jpg") for i in range(1, 5)]
-    plan.append((f"{top}/3_Instagram/caption.txt", caps["ig"]))
-    plan.append((f"{top}/4_TikTok/tiktok_video.mp4", day_dir / "tiktok.mp4"))
-    plan += [(f"{top}/4_TikTok/slide_{i}.jpg", day_dir / f"tt-{i}.jpg") for i in range(1, 6)]
-    plan.append((f"{top}/4_TikTok/caption.txt", caps["tt"]))
+        plan.append((f"{top}/2_X_and_Instagram/x_reply_with_link.txt", caps["x_reply"]))
+    plan.append((f"{top}/3_TikTok/tiktok_video.mp4", day_dir / "tiktok.mp4"))
+    for f in sorted(x for x in files if x.startswith("tt-")):
+        plan.append((f"{top}/3_TikTok/slide_{f.split('-')[1]}", day_dir / f))
+    plan.append((f"{top}/3_TikTok/caption.txt", caps["tt"]))
     out = day_dir / f"{top}.zip"
     with zipfile.ZipFile(out, "w") as z:
         for name, src in plan:
@@ -734,9 +882,8 @@ def email_kit(d, day_dir, files, caps, reddit):
         print("Social: EMAIL_FROM / EMAIL_PASSWORD not set -- kit saved but not emailed.")
         return False
     blocks = [("Reddit · r/sportsbook Pick of the Day (paste as a top-level comment)", reddit),
-              ("X · post", caps["x"]), ("X · reply with the link", caps["x_reply"]),
-              ("Instagram · caption (carousel: ig-1 to ig-4, in order)", caps["ig"]),
-              ("TikTok · caption (video: tiktok.mp4; slides tt-1 to tt-5)", caps["tt"])]
+              ("X + Instagram · one caption (images 1-4, in order)", caps["main"]), ("X · reply with the link", caps["x_reply"]),
+              ("TikTok · caption (tiktok_video.mp4)", caps["tt"])]
     blocks = [(t, b) for t, b in blocks if b]
     plain = "\n\n".join(f"===== {t} =====\n{b}" for t, b in blocks)
     body = "".join(f'''<h3 style="font:800 13px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c2410c;margin:22px 0 6px">{esc(t)}</h3>
@@ -816,19 +963,17 @@ def main():
         old.unlink()
     day_dir = KIT / today
     day_dir.mkdir(parents=True, exist_ok=True)
-    pages = [("x.jpg", slide_x(d, row, c, rec), 1600, 900),
-             ("ig-1.jpg", ig_1(d), 1080, 1350), ("ig-2.jpg", ig_2(d, row, c, rec), 1080, 1350),
-             ("ig-3.jpg", ig_3(d), 1080, 1350), ("ig-4.jpg", ig_4(d, rec, rows), 1080, 1350),
-             ("tt-1.jpg", tt_1(d), 1080, 1920), ("tt-2.jpg", tt_2(d), 1080, 1920), ("tt-3.jpg", tt_3(d), 1080, 1920),
-             ("tt-4.jpg", tt_4(d), 1080, 1920), ("tt-5.jpg", tt_5(d), 1080, 1920)]
+    for old in day_dir.glob("*.*"):            # a re-run starts clean
+        old.unlink()
+    pages = slide_set(d, row, c, rec, rows) + slide_set(d, row, c, rec, rows, clean=True)
     shoot(pages, day_dir)
-    files = [p[0] for p in pages if p[1]]
+    files = [p[0] for p in pages]
     try:
-        if make_video([day_dir / f for f in files if f.startswith("tt-")], day_dir / "tiktok.mp4"):
+        if make_video(d, row, c, day_dir / "tiktok.mp4"):
             files.append("tiktok.mp4")
     except Exception as e:
         print("Social: video failed:", repr(e))
-    caps = captions(d, row, rec, site)
+    caps = captions(d, row, rec, site, c)
     reddit = reddit_comment(row, c, rec) if row else ""
     zp = make_zip(d, day_dir, files, caps, reddit)
     (day_dir / "index.html").write_text(day_page(d, files, caps, reddit, row, rec, site, zp.name), encoding="utf-8")
