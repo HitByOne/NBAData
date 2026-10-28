@@ -1,8 +1,8 @@
 """
-Hardwood Ledger -- the daily Power 5 newsletter.
+HitByOne Hardwood Ledger -- the daily newsletter (Pick of the Day + the Starting 5).
 
 Runs after the afternoon odds pull. It opens the site the same way a visitor would (a headless browser on the
-local site/ folder), takes a picture of tonight's Power 5 court, reads the picks, last night's grades and the
+local site/ folder), takes a picture of tonight's Starting 5 court, reads the picks, last night's grades and the
 season record straight from the page, and emails it to your list through Gmail.
 
   * Only sends on days with games, and only once a day (site/newsletter/last_sent.txt remembers the date).
@@ -55,6 +55,11 @@ TEST = os.environ.get("NEWSLETTER_TEST") == "1"
 # colors match the Tonight layout's dark theme
 BG, CARD, LINE, TXT, DIM = "#0b0d12", "#141821", "#262c38", "#eef1f6", "#8b93a3"
 ORANGE, PINK, GREEN, RED = "#ff7a1a", "#ff3d8b", "#32d583", "#f97066"
+BRAND = "HitByOne"                      # the name people follow (From line, footer)
+PRODUCT = "Hardwood Ledger"              # the NBA app under it
+SOCIALS = [("X", "@HitByOne", "https://x.com/HitByOne"),
+           ("IG", "@hitbyone", "https://www.instagram.com/hitbyone/"),
+           ("TT", "@hitby1ne", "https://www.tiktok.com/@hitby1ne")]
 FONT = "Inter,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
 
 
@@ -227,6 +232,31 @@ def last_name(name):
     return parts[-1] if parts else name
 
 
+STAT_SHORT = {"Points": "PTS", "Rebounds": "REB", "Assists": "AST", "3PM": "3PM", "Pts+Reb+Ast": "PRA"}
+
+
+def potd_for(d):
+    """Today's Pick of the Day for the header box (the same one the social kit and the record use)."""
+    import csv
+    day = d.get("iso")
+    log = ROOT / "records" / "nba_2027_potd_log.csv"
+    cand = {(c["name"], c["stat"]): c for c in d.get("potd") or []}
+    if log.exists():
+        with log.open(newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r.get("Date") == day:
+                    c = cand.get((r["Player"], r["Stat"]), {})
+                    return {"name": r["Player"], "off": r["Team"], "def": r["Opponent"], "home": r["Home/Away"] == "Home",
+                            "time": c.get("time", ""), "line": r["Line"], "short": STAT_SHORT.get(r["Stat"], r["Stat"]),
+                            "american": r["American"], "hits": c.get("hits"), "n": c.get("n")}
+    if d.get("potd"):
+        c = d["potd"][0]
+        return {"name": c["name"], "off": c["off"], "def": c["def"], "home": c["home"], "time": c.get("time", ""),
+                "line": fmt(c["line"]), "short": c.get("short") or STAT_SHORT.get(c["stat"], c["stat"]),
+                "american": c["american"], "hits": c.get("hits"), "n": c.get("n")}
+    return None
+
+
 def top_pick(legs):
     """The leg the model likes most tonight (highest score across the five)."""
     return max(legs, key=lambda l: l.get("score") or 0)
@@ -245,7 +275,7 @@ RES_COLOR = {"HIT": GREEN, "MISS": RED, "VOID": DIM}
 
 
 def build_email(d, img_src, view_url, site):
-    """Layout D: schedule, court + Power 5 panel, Top 5 by stat rows, last night | season."""
+    """Layout D: Pick of the Day, schedule, court + Starting 5 panel, Top 5 by stat rows, last night | season, footer."""
     mode, legs = d["mode"], d["legs"]
     top = top_pick(legs)
     num = f"font-family:'Space Grotesk',{FONT};font-weight:700;"
@@ -255,7 +285,7 @@ def build_email(d, img_src, view_url, site):
       <div style="font:700 11.5px {FONT};color:{TXT};white-space:nowrap;">{esc(g['away'])} @ {esc(g['home'])}</div>
       <div style="font:500 11px {FONT};color:{DIM};">{esc(g['time'] or 'TBD')}</div></div>''' for g in d.get("schedule") or [])
 
-    # the Power 5 panel beside the court
+    # the Starting 5 panel beside the court
     pay = (f'<div style="{num}font-size:30px;line-height:1;color:{GREEN};">{esc(d["pay"])}</div>'
            f'<div style="font:500 11px {FONT};color:{DIM};margin:4px 0 14px;">all five together, best prices</div>') if d.get("pay") else (
            f'<div style="font:500 12px {FONT};color:{DIM};margin:0 0 14px;">'
@@ -263,11 +293,11 @@ def build_email(d, img_src, view_url, site):
     why = "".join(f'<div style="margin:0 0 5px;">{w}</div>' for w in why_lines(top, mode)[:3])
     swap_rows = "".join(f'''<tr><td style="padding:3px 0;font:500 11.5px {FONT};color:{TXT};white-space:nowrap;"><b style="color:{DIM};">{esc(s['pos'])}</b> {esc(short_name(s['name']))}</td>
       <td align="right" style="padding:3px 0 3px 6px;{num}font-size:11.5px;color:{TXT};white-space:nowrap;">{esc(compact(s['pick']))}</td></tr>''' for s in d.get("swaps") or [])
-    panel = (lab("Tonight's Power 5") + pay
+    panel = (lab("Tonight's Starting 5") + pay
              + lab("Why " + esc(last_name(top["name"])))
              + f'<div style="font:500 12px/1.45 {FONT};color:{TXT};">{why}</div>'
              + (lab("Swaps", extra="margin-top:12px;") + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{swap_rows}</table>' if swap_rows else ""))
-    court = (f'<img class="court" src="{img_src}" width="336" height="372" alt="Tonight\'s Power 5 on the court" '
+    court = (f'<img class="court" src="{img_src}" width="336" height="372" alt="Tonight\'s Starting 5 on the court" '
              f'style="display:block;width:336px;height:372px;border-radius:16px;border:0;">') if img_src else ""
     top_row = f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
       {f'<td class="stack stack-gap" width="336" valign="top" style="width:336px;padding:0 12px 0 0;">{court}</td>' if court else ''}
@@ -310,26 +340,50 @@ def build_email(d, img_src, view_url, site):
             <span style="font:500 11px {FONT};color:{DIM};">{esc(compact(l['pick']))}</span></td>
           <td align="right" style="padding:6px 6px;border-top:1px solid {LINE};{num}font-size:13px;color:{TXT};">{fmt(l['actual']) if l['actual'] is not None else 'DNP'}</td>
           <td align="right" style="padding:6px 0;border-top:1px solid {LINE};width:44px;">{pill(l['result'], RES_COLOR.get(l['result'], DIM))}</td></tr>''' for l in last["legs"])
-        last_html = (lab(f"Last night &middot; {last['hits']} of {last['graded']} hit" + (" &middot; all five cashed" if last["cashed"] else ""))
+        last_html = (lab(f"Last night's Starting 5 &middot; {last['hits']} of {last['graded']} hit" + (" &middot; all five cashed" if last["cashed"] else ""))
                      + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>')
     r = d.get("record") or {}
     line = lambda k, v: (f'<tr><td style="padding:5px 0;font:500 12px {FONT};color:{DIM};">{k}</td>'
                          f'<td align="right" style="padding:5px 0;{num}font-size:20px;color:{TXT};">{v}</td></tr>')
-    season = (lab("Season")
+    season = (lab("Starting 5 season")
               + f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">'
               + (line("Legs hit", pct(r.get("hits", 0), r.get("legs", 0))) + line("All five hit", f"{r.get('cashed', 0)} / {r.get('nights', 0)}")
                  + line("Last 7 nights", pct(r.get("l7hits", 0), r.get("l7legs", 0))) if r.get("nights") else
                  f'<tr><td style="font:500 12px {FONT};color:{DIM};">The record starts after the first graded night.</td></tr>')
               + "</table>"
-              + (f'<a href="{site}?layout=tonight" style="display:block;margin-top:12px;padding:11px 0;text-align:center;border-radius:999px;'
-                 f'background:{ORANGE};color:#07080F;font:800 13px {FONT};text-decoration:none;">Open the app</a>' if site else ""))
+              )
     bottom = f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
       {f'<td class="stack stack-gap" width="56%" valign="top" style="width:56%;padding:0 12px 0 0;">{box(last_html)}</td>' if last_html else ''}
       <td class="stack" valign="top">{box(season)}</td></tr></table>'''
 
     view = f'<a href="{view_url}" style="color:{DIM};">View in browser</a>' if view_url else ""
+    pk = potd_for(d)
+    potd_box = ""
+    if pk:
+        form = f" &middot; over in {pk['hits']} of his last {pk['n']}" if pk.get("hits") is not None and pk.get("n") else ""
+        potd_box = f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{CARD};border:1.5px solid rgba(255,122,47,.55);border-radius:16px;"><tr>
+      <td class="stack" valign="middle" style="padding:16px 18px;">
+        <div style="font:800 11px {FONT};letter-spacing:.1em;color:{ORANGE};">PICK OF THE DAY</div>
+        <div style="font:900 21px {FONT};color:{TXT};margin-top:6px;">{esc(pk['name'])} <span style="font:800 12px {FONT};color:{ORANGE};">{esc(pk['off'])}</span></div>
+        <div style="font:500 12px {FONT};color:{DIM};margin-top:2px;">{esc(pk['off'])} {'vs' if pk['home'] else '@'} {esc(pk['def'])}{(' &middot; ' + esc(pk['time'])) if pk.get('time') else ''}{form}</div></td>
+      <td class="stack potd-r" align="right" valign="middle" style="padding:16px 18px;white-space:nowrap;">
+        <div style="{num}font-size:30px;line-height:1;color:{GREEN};">o{esc(pk['line'])} {esc(pk['short'])}</div>
+        <div style="font:700 13px {FONT};color:{TXT};margin-top:5px;">{esc(pk['american'])} &middot; 1U</div></td></tr></table>
+  <div style="height:12px;line-height:12px;font-size:0;">&nbsp;</div>'''
+    soc = "".join(f'''<a href="{u}" style="display:inline-block;margin:0 4px 8px;padding:9px 14px;border-radius:999px;background:{CARD};border:1px solid {LINE};font:700 13px {FONT};color:{TXT};text-decoration:none;white-space:nowrap;"><span style="display:inline-block;padding:2px 5px;border-radius:5px;background:{ORANGE};color:#07080F;font:900 10px {FONT};margin-right:6px;">{b}</span>{h}</a>''' for b, h, u in SOCIALS)
+    app_btn = (f'<a href="{site}?layout=tonight" style="display:inline-block;margin:6px 0 12px;padding:12px 22px;border-radius:999px;background:{ORANGE};color:#07080F;font:800 14px {FONT};text-decoration:none;">Open {PRODUCT}</a>'
+               f'<div style="font:500 11px {FONT};color:{DIM};margin-bottom:10px;">{site.replace("https://", "").rstrip("/")}</div>') if site else ""
+    record_line = f'Every Pick of the Day, graded since day one: <a href="{site}record/" style="color:{ORANGE};">{site.replace("https://", "")}record</a><br>' if site else ""
+    footer = f'''<div style="height:22px;line-height:22px;font-size:0;">&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid {LINE};"><tr><td align="center" style="padding:20px 0 0;">
+    <div style="font:800 14px {FONT};color:{TXT};margin-bottom:10px;">Follow {BRAND}</div>
+    <div>{soc}</div>
+    {app_btn}
+    <div style="font:500 11px/1.6 {FONT};color:{DIM};">{record_line}Reply to this email to hit me up.</div>
+    <div style="font:500 10.5px/1.55 {FONT};color:{DIM};margin-top:12px;">For entertainment. Picks come from a model, not a guarantee. 21+. Gambling problem? Call 1-800-GAMBLER.<br>
+      You're on the {BRAND} {PRODUCT} friends list. Reply "stop" to come off it.</div></td></tr></table>'''
     return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark"><title>Hardwood Ledger &middot; Power 5 &middot; {esc(d['date'])}</title>
+<meta name="color-scheme" content="dark"><title>{BRAND} {PRODUCT} &middot; {esc(d['date'])}</title>
 <style>
 @media (max-width:620px){{
   .wrap{{padding:18px 14px !important}}
@@ -344,26 +398,28 @@ def build_email(d, img_src, view_url, site):
   .cn{{display:block !important}}
   .cs{{font-size:8.5px !important;letter-spacing:-.2px}}
   .chips{{border-spacing:3px 0 !important}}
-  .mh{{font-size:19px !important;white-space:nowrap}}
+  .mh{{font-size:24px !important;white-space:nowrap}}
+  .potd-r{{text-align:left !important;padding-top:0 !important}}
 }}
 </style></head>
 <body style="margin:0;padding:0;background:{BG};">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{BG};"><tr><td align="center">
 <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;"><tr><td class="wrap" style="padding:24px 24px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td class="mh" style="font:900 24px {FONT};letter-spacing:.01em;color:{TXT};">HARDWOOD <span style="color:{ORANGE};">LEDGER</span></td>
+    <td class="mh" style="font:900 28px {FONT};letter-spacing:-.01em;line-height:1;color:{TXT};">HITBY<span style="color:{ORANGE};">ONE</span>
+      <div style="font:800 11px {FONT};letter-spacing:.26em;color:rgba(242,244,250,.82);margin-top:7px;">HARDWOOD LEDGER</div>
+      <div style="font:800 10px {FONT};letter-spacing:.14em;color:{PINK};margin-top:4px;">TONIGHT'S CARD</div></td>
     <td align="right" style="font:600 12px {FONT};color:{DIM};">{esc(d['date'])} &middot; {d['games']} game{'s' if d['games'] != 1 else ''}<br>{view}</td></tr></table>
   <div style="height:14px;line-height:14px;font-size:0;">&nbsp;</div>
   <div style="font-size:0;line-height:0;">{sched}</div>
   <div style="height:10px;line-height:10px;font-size:0;">&nbsp;</div>
+  {potd_box}
   {top_row}
   <div style="height:18px;line-height:18px;font-size:0;">&nbsp;</div>
   {stats}
   <div style="height:10px;line-height:10px;font-size:0;">&nbsp;</div>
   {bottom}
-  <div style="padding:18px 0 0;font:500 10.5px/1.5 {FONT};color:{DIM};text-align:center;">
-    For entertainment. Picks come from a model, not a guarantee. 21+. Gambling problem? Call 1-800-GAMBLER.<br>
-    You're on the Hardwood Ledger friends list. Reply "stop" to come off it.</div>
+  {footer}
 </td></tr></table></td></tr></table></body></html>'''
 
 
@@ -414,14 +470,14 @@ def send(msg_html, png, date_label, subject):
         return False
     m = EmailMessage()
     m["Subject"] = subject
-    m["From"] = f"Hardwood Ledger <{sender}>"
+    m["From"] = f"{BRAND} <{sender}>"
     m["To"] = sender            # everyone else is BCC'd
     m["Bcc"] = ", ".join(to)
-    m.set_content(f"Tonight's Power 5 for {date_label}. Open this email in an app that shows HTML to see the picks.")
+    m.set_content(f"{BRAND} {PRODUCT}: tonight's card for {date_label}. Open this email in an app that shows HTML to see the picks.")
     if png:
         cid = make_msgid(domain="hardwoodledger")
         m.add_alternative(msg_html.replace("cid:COURT", "cid:" + cid[1:-1]), subtype="html")
-        m.get_payload()[1].add_related(png, maintype="image", subtype="png", cid=cid, filename="power5.png")
+        m.get_payload()[1].add_related(png, maintype="image", subtype="png", cid=cid, filename="starting5.png")
     else:
         m.add_alternative(msg_html, subtype="html")
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as s:
@@ -435,9 +491,9 @@ def write_index():
     issues = sorted((p for p in OUT.glob("20??-??-??.html")), reverse=True)
     rows = "".join(f'<li><a href="{p.name}">{p.stem}</a></li>' for p in issues)
     (OUT / "index.html").write_text(f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hardwood Ledger &middot; Newsletter</title></head><body style="margin:0;background:{BG};color:{TXT};font:500 15px {FONT};">
-<div style="max-width:640px;margin:0 auto;padding:28px 20px;"><h1 style="font:900 26px {FONT};margin:0 0 4px;">HARDWOOD <span style="color:{ORANGE};">LEDGER</span></h1>
-<p style="color:{DIM};margin:0 0 18px;">Every Power 5 newsletter.</p><ul style="line-height:2;padding-left:18px;">{rows}</ul>
+<title>{BRAND} {PRODUCT} &middot; Newsletter</title></head><body style="margin:0;background:{BG};color:{TXT};font:500 15px {FONT};">
+<div style="max-width:640px;margin:0 auto;padding:28px 20px;"><h1 style="font:900 26px {FONT};margin:0 0 4px;">HITBY<span style="color:{ORANGE};">ONE</span> <span style="font-size:13px;letter-spacing:.2em;color:{DIM};">HARDWOOD LEDGER</span></h1>
+<p style="color:{DIM};margin:0 0 18px;">Every newsletter.</p><ul style="line-height:2;padding-left:18px;">{rows}</ul>
 <p><a href="../?layout=tonight" style="color:{ORANGE};">Back to the app</a></p></div></body></html>''', encoding="utf-8")
 
 
@@ -450,7 +506,7 @@ def main():
 
     data, png = read_page()
     if not data.get("games") or not data.get("legs"):
-        print("Newsletter: no games / no Power 5 tonight -- nothing to send.")
+        print("Newsletter: no games / no Starting 5 tonight -- nothing to send.")
         return
     day = data.get("iso") or today
     if not (FORCE or TEST) and day != today:
@@ -476,7 +532,9 @@ def main():
         print(f"Newsletter: saved site/newsletter/{day}.html")
 
     top = top_pick(data["legs"])
-    subject = ("[TEST] " if TEST else "") + f"Power 5 · {data['date']} · {top['name']} {top['pick']}"
+    pk = potd_for(data)
+    subject = ("[TEST] " if TEST else "") + (f"Tonight: {pk['name']} o{pk['line']} {pk['short']} ({pk['american']}) + the Starting 5" if pk
+                                             else f"Tonight's Starting 5 · {data['date']} · {data['games']} games")
     if DRY:
         print("Newsletter: dry run, not sending. Subject would be:", subject)
         return
