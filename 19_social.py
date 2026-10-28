@@ -776,6 +776,16 @@ def main():
 
     today = today_ct()
     src = KIT / f"{today}.json"
+    if not src.exists() and (KIT / today).is_dir():          # already made earlier today (restored from the cache)
+        day_dir = KIT / today
+        zips = sorted(day_dir.glob("*.zip"))
+        files = [p.name for p in day_dir.iterdir() if p.suffix in (".jpg", ".mp4")]
+        write_log(rows)
+        publish_record(rows)
+        if zips:
+            publish_kit(day_dir, files, zips[-1].name)
+        print("Social: today's kit was already made -- kept the private kit page up, nothing re-sent.")
+        return
     if TEST and not src.exists():
         found = sorted(KIT.glob("20??-??-??.json"))
         if found:
