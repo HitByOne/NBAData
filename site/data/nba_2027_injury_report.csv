@@ -1,5 +1,4 @@
 Team,Player,Position,Status,Injury,Return,Updated
-ATL,Aaron Wiggins,G,Day-To-Day,Left Knee Bruise,2026-10-28,2026-10-28
 ATL,Henri Veesaar,C,Out,Right Knee,2027-07-01,2026-09-21
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-11-20,2026-10-19
 BKN,Egor Demin,G,Day-To-Day,Right Leg Bruise,2026-10-30,2026-10-28
@@ -33,14 +32,12 @@ GS,Yaxel Lendeborg,F,Day-To-Day,Foot,2026-10-28,2026-10-28
 HOU,Alperen Sengun,C,Out,Back Soreness,2026-10-30,2026-10-27
 HOU,Marcus Smart,G,Out,Left Forearm Strain,2026-10-30,2026-10-28
 HOU,Steven Adams,C,Out,Right Calf Strain,2026-11-02,2026-10-26
-IND,Aaron Nesmith,G,Day-To-Day,Left Hamstring Strain,2026-10-28,2026-10-27
-IND,Andrew Nembhard,G,Day-To-Day,Neck Soreness,2026-10-28,2026-10-27
-IND,Ben Sheppard,G,Out,Left Knee,2026-12-01,2026-10-26
+IND,Aaron Nesmith,G,Day-To-Day,Nesmith (hamstring) is now questionable for Wednesday's game against Philadelphia.,,2026-10-28
+IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
 IND,Ivica Zubac,C,Out,Left Ankle Sprain,2026-10-30,2026-10-27
 IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-02-09
-IND,Obi Toppin,F,Day-To-Day,Left Hand Sprain,2026-10-28,2026-10-27
-IND,T.J. McConnell,G,Out,Right Hamstring Strain,2026-10-30,2026-10-27
-IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-11-09,2026-10-28
+IND,T.J. McConnell,G,Out,Right Hamstring Strain,2026-11-02,2026-10-28
+IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-11-13,2026-10-28
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-08,2026-10-15
 LAC,Jordan Miller,G,Out,Left Shoulder Surgery,2027-03-02,2026-08-26
 LAC,Max Strus,G,Out,Right Foot Plantar Fasciitis,2026-11-08,2026-10-05
@@ -63,7 +60,6 @@ OKC,Jalen Williams,G,Out,Left Leg Fracture,2027-03-02,2026-10-26
 OKC,Nikola Topic,G,Out,Back,2026-11-04,2026-10-27
 OKC,Otega Oweh,G,Out,Right Achilles Surgery,2027-07-01,2026-10-23
 OKC,Thomas Sorber,C,Out,Knee,2026-11-04,2026-10-27
-ORL,Anthony Black,G,Day-To-Day,Personal,2026-10-28,2026-10-28
 ORL,Izaiyah Nelson,F,Out,Left Ankle Surgery,2026-11-18,2026-09-28
 ORL,Jalen Suggs,G,Out,Right Knee,2026-11-10,2026-10-26
 ORL,Jonathan Isaac,F,Out,Left Knee Not Specified,2026-10-30,2026-10-27
