@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hardwood Ledger — 2026-27 NBA</title>
+<title>HitByOne Hardwood Ledger — 2026-27 NBA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -56,6 +56,7 @@
     color:var(--chalk);
   }
   .hero-title span{color:var(--gold);}
+  .hero-brand2{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:3px;color:var(--chalk-dim);margin:6px 0 2px;}
   .hero-sub{
     font-family:var(--mono);
     color:var(--chalk-dim);
@@ -677,6 +678,7 @@
   body.layout-tonight header.hero{background:transparent;border-bottom:none;padding:22px 0 10px;margin-bottom:6px;}
   body.layout-tonight .hero-title{font-family:var(--t-font);font-weight:800;letter-spacing:-.5px;font-size:24px;}
   body.layout-tonight .hero-title span{background:var(--t-accent);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  body.layout-tonight .hero-brand2{font-family:var(--t-font);font-weight:800;font-size:10.5px;letter-spacing:2.5px;color:var(--t-dim);margin:5px 0 0;}
   body.layout-tonight .hero-sub{font-family:var(--t-font);font-size:12px;margin-top:4px;}
   body.layout-tonight .hero-meta{display:none;}
   /* the score ticker, as a floating glass strip */
@@ -1018,7 +1020,8 @@
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <h1 class="hero-title">HARDWOOD <span>LEDGER</span></h1>
+      <h1 class="hero-title">HITBY<span>ONE</span></h1>
+      <div class="hero-brand2">HARDWOOD LEDGER</div>
       <div class="hero-sub" id="hero-sub"></div>
     </div>
     <div class="layout-pick" id="layout-pick"><div class="lp" title="Two ways to use the app: Tonight (one screen: player vs defense vs line) or Classic (all the tools)"><button type="button" data-layout="tonight">Tonight</button><button type="button" data-layout="classic">Classic</button></div><button type="button" class="theme-btn" id="theme-btn" title="Dark / light">&#9790;</button></div>
@@ -1049,7 +1052,7 @@
   </div>
 </div>
 
-<footer>HARDWOOD LEDGER &mdash; built from ESPN box scores by your daily pipeline &middot; not affiliated with the NBA</footer>
+<footer>HITBYONE HARDWOOD LEDGER &mdash; built from ESPN box scores by your daily pipeline &middot; not affiliated with the NBA</footer>
 
 <script>
 let DATA = { teamSummary:[], teamWeek:[], playerGame:[], defVsPos:[], sos:[], week2:[] };
@@ -4258,7 +4261,7 @@ function mountPower5(){
       const decs = legs.map(c => { const b = c.best.r.odds ? propMainFor(c.name, c.best.r.stat) : null; return b && b.bo ? b.bo.dec : null; });
       const allPriced = p5State.mode !== 'boost' && decs.every(d => d);
       const dec = allPriced ? decs.reduce((a, d) => a * d, 1) : null;
-      slip = `<div class="p5-slip"><div class="tn-h">Tonight's Power 5</div>
+      slip = `<div class="p5-slip"><div class="tn-h">Tonight's Starting 5</div>
         ${legs.map(c => `<div class="p5-leg"><span class="tn-cb" style="--m:var(--t-dim);">${c.pos}</span><span class="n">${frEsc(tnShort(c.name))}</span><b>${p5Label(c.best).main}</b></div>`).join('')}
         ${dec ? `<div class="p5-pay"><span>All five at the book's best prices</span><b>${propAmerican(dec)}</b></div>` : `<div class="p5-pay"><span>${p5State.mode === 'boost' ? 'Matchup boost picks are not tied to a line.' : 'Payout shows once every leg has a book price.'}</span></div>`}
         <button type="button" class="p5-reset"${Object.keys(p5State.swaps).length ? '' : ' disabled'}>Reset to the top 5</button></div>`;
@@ -4272,8 +4275,8 @@ function mountPower5(){
     const viewSeg = seg('p5-view', ['tonight', 'record'], p5State.view, k => k === 'tonight' ? 'Tonight' : 'How it\'s doing');
     if(p5State.view === 'record'){
       const ready = _p5hist.idx !== null;
-      m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Power 5 &middot; how it's doing</div>
-          <div class="panel-note">Every finished night replayed the way the Power 5 would have picked it that afternoon: projected starters from the games before that night, his numbers and the defenses' as they stood then, and the book line that was posted that day (saved by each afternoon's odds pull). Each leg is graded on the box score: Best bet and Points only hit when he goes over the line; Matchup boost hits when he beats his own average. A player who doesn't play is VOID and drops out, as at the sportsbook. A night counts as all five when every leg that played hit.</div>
+      m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Starting 5 &middot; how it's doing</div>
+          <div class="panel-note">Every finished night replayed the way the Starting 5 would have picked it that afternoon: projected starters from the games before that night, his numbers and the defenses' as they stood then, and the book line that was posted that day (saved by each afternoon's odds pull). Each leg is graded on the box score: Best bet and Points only hit when he goes over the line; Matchup boost hits when he beats his own average. A player who doesn't play is VOID and drops out, as at the sportsbook. A night counts as all five when every leg that played hit.</div>
           <div class="tn-sub">The same Season / Last 10 / Last 5 and pick type you choose apply to the replay.</div></div>${viewSeg}</div>
         <div class="tn-bar">${seg('p5-mode', P5_MODES.map(x => x[0]), p5State.mode, k => P5_MODES.find(x => x[0] === k)[1])}
           ${seg('tn-win', TN_WINDOWS.map(w => w[0]), tnState.win, k => TN_WINDOWS.find(w => w[0] === k)[1])}</div>
@@ -4284,7 +4287,7 @@ function mountPower5(){
       $$('#p5-main #tn-win button').forEach(b => b.addEventListener('click', () => { tnState.win = b.dataset.v; draw(); }));
       return;
     }
-    m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Power 5</div>
+    m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Starting 5</div>
         <div class="panel-note">One player per position who should have the best night against tonight's matchups. <b>Best bet</b>: each player's strongest OVER across points, rebounds, assists, threes and PRA: how far his projection clears the book line measured in his usual game-to-game swing for that stat (so a 2-point edge on a steady player beats it on a streaky one), with a nudge for how often he cleared it in his last 5. <b>Points only</b>: the same for points. <b>Matchup boost</b>: the stat where his projection beats his own average by the most (again in his usual swing), no line needed. Projections are the same as Tonight's (his average for the window you pick, home/away, and how this defense treats his position). Tap a player for the next three at that position and swap one in; the slip at the right shows the five legs and, when they all have prices, what they would pay together.</div>
         <div class="tn-sub">${days.length ? dayLabel(p5State.day, {long: true}) + ' &middot; ' + games.length + ' game' + (games.length === 1 ? '' : 's') : 'No games on the slate'} &middot; tap a player to swap</div></div>${viewSeg}</div>
       <div class="tn-bar">${seg('p5-mode', P5_MODES.map(x => x[0]), p5State.mode, k => P5_MODES.find(x => x[0] === k)[1])}
@@ -8665,7 +8668,7 @@ const LAYOUT_KEY = 'nba_ledger_layout_v2';
 const NAV_LAYOUTS = {
   classic: [['board', 'Game Board'], ['picksg', 'Picks'], ['specials', 'Specials'], ['matchupsg', 'Matchups'], ['playersg', 'Players'],
             ['teamsg', 'Teams'], ['live', 'Live Games'], ['backtest', 'How the Model Does']],
-  tonight: [['tonight', 'Tonight'], ['power5', 'Power 5'], ['matchupsg', 'Matchups'], ['specials', 'Specials'], ['playersg', 'Players'], ['teamsg', 'Teams'],
+  tonight: [['tonight', 'Tonight'], ['power5', 'Starting 5'], ['matchupsg', 'Matchups'], ['specials', 'Specials'], ['playersg', 'Players'], ['teamsg', 'Teams'],
             ['live', 'Live'], ['backtest', 'Record']],
 };
 // Dark / light (the Tonight layout's look). First visit follows the device setting; after that the choice is remembered.
