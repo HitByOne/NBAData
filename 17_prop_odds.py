@@ -95,8 +95,8 @@ STAT_PATTERNS = [
     (r"quarter|half|\b[1-4](?:st|nd|rd|th)\b|\bq[1-4]\b", ""),   # period markets: not mapped
     (r"team.{0,12}first (?:basket|field goal|fg|scorer)|first (?:basket|field goal|fg|scorer).{0,12}team", "Team First Basket"),
     (r"first (?:basket|field goal|fg|scorer|to score)", "First Basket"),
-    (r"double[\s-]?double", "Double Double"),
-    (r"triple[\s-]?double", "Triple Double"),
+    (r"double\s*-?\s*double", "Double Double"),
+    (r"triple\s*-?\s*double", "Triple Double"),
     (rf"{_P}{_J}{_R}{_J}{_A}|\bpra\b", "Pts+Reb+Ast"),
     (rf"{_P}{_J}{_R}", "Pts+Reb"),
     (rf"{_P}{_J}{_A}", "Pts+Ast"),
@@ -112,9 +112,32 @@ STAT_PATTERNS = [
 ]
 
 
+_COMBOS = {frozenset("PRA"): "Pts+Reb+Ast", frozenset("PR"): "Pts+Reb", frozenset("PA"): "Pts+Ast", frozenset("RA"): "Reb+Ast"}
+
+
 def normalize_stat(market_name):
+    """Market name -> the dashboard's stat name. Combined markets are matched by WHICH stats they name, in any order
+    ("Points + Assists + Rebounds" is PRA; "Assists + Rebounds" is Reb+Ast, not Rebounds)."""
     n = str(market_name or "").lower()
-    for pat, stat in STAT_PATTERNS:
+    n = re.sub(r"\(?incl(?:uding|\.)?\s*overtime\)?", " ", n)
+    for pat, stat in STAT_PATTERNS[:5]:                      # period markets, first basket, double/triple doubles
+        if re.search(pat, n):
+            return stat
+    if re.search(r"\bfirst\b", n):                         # "first point", "first 3 point FG": yes/no races, not stat lines
+        return ""
+    if re.search(r"\bpra\b", n):
+        return "Pts+Reb+Ast"
+    three = re.search(r"three|3[\s-]?(?:pt|point|pointers?)|\b3pm\b|threes made", n)
+    has = set()
+    if re.search(rf"\b{_P}\b", n) and not (three and len(re.findall(rf"\b{_P}\b", n)) == 1):
+        has.add("P")
+    if re.search(rf"\b{_R}\b", n):
+        has.add("R")
+    if re.search(rf"\b{_A}\b", n):
+        has.add("A")
+    if len(has) >= 2:
+        return _COMBOS.get(frozenset(has), "")
+    for pat, stat in STAT_PATTERNS[9:]:                      # steals+blocks, threes, then the single stats
         if re.search(pat, n):
             return stat
     return ""
@@ -426,7 +449,8 @@ def main():
         w.writeheader()
         w.writerows(rows)
     try:
-        update_history(rows, fetched)
+        if os.environ.get("ODDS_NO_HISTORY") != "1":   # the evening closing-line check doesn't touch the afternoon history
+            update_history(rows, fetched)
     except Exception as exc:   # the history is a bonus: never let it break the main file
         print(f"[prop odds] line history not updated: {exc}")
     unknown = sorted({r["market"] for r in rows if not r["stat"]})

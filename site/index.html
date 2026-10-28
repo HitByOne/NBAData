@@ -760,6 +760,10 @@
   .tn-nm{font-size:16px;font-weight:700;letter-spacing:-.2px;line-height:1.15;}
   .tn-mt{font-size:12px;color:var(--t-dim);margin-top:2px;}
   .tn-inj{color:var(--t-accent-1);font-weight:600;}
+  .tn-small{color:var(--t-pass);font-weight:700;font-size:.92em;}
+  .tn-callw{text-align:right;}
+  .tn-why{display:block;margin-top:4px;font-size:11px;font-weight:700;color:var(--t-dim);}
+  .tn-card.open .tn-why{color:var(--t-accent-1);}
   .tn-pair{display:flex;align-items:flex-end;gap:16px;margin-bottom:10px;}
   .tn-pair .big{display:block;font-family:var(--t-num);font-size:26px;font-weight:700;letter-spacing:-.5px;line-height:1;font-variant-numeric:tabular-nums;}
   .tn-main .lab{display:block;font-size:11px;color:var(--t-dim);margin-top:4px;font-weight:500;}
@@ -815,7 +819,7 @@
   .tn-kv b{display:block;font-family:var(--t-num);font-size:20px;} .tn-kv span{font-size:11px;color:var(--t-dim);}
   @container (max-width:760px){
     .tn-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"who call" "cmp cmp" "form form";row-gap:12px;}
-    .tn-who{grid-area:who;} .tn-cmp{grid-area:cmp;} .tn-form{grid-area:form;display:flex;align-items:center;gap:10px;} .tn-form .lab{margin:0;} .tn-call{grid-area:call;}
+    .tn-who{grid-area:who;} .tn-cmp{grid-area:cmp;} .tn-form{grid-area:form;display:flex;align-items:center;gap:10px;} .tn-form .lab{margin:0;} .tn-call{grid-area:call;} .tn-callw{grid-area:call;}
     .tn-bk.wide{grid-template-columns:1fr;}
     .tn-floor{grid-template-columns:1fr;}
     .tn-sort{margin-left:0;}
@@ -824,12 +828,21 @@
     .tn-pl .dot{width:24px;height:24px;font-size:8px;} .tn-pl .pn{font-size:9px;} .tn-pl .pt{font-size:7px;} .tn-cl{font-size:9px;top:6px;}
     .tn-title{font-size:24px !important;}
   }
+  .tn-gl{display:flex;flex-direction:column;gap:4px;}
   @media (max-width:900px){
     .tn-wrap{grid-template-columns:1fr;gap:12px;}
     .tn-side{position:static;flex-direction:row;flex-wrap:wrap;gap:4px;}
     .tn-day{flex-basis:100%;margin:6px 4px 2px;} .tn-g{width:auto;gap:10px;padding:8px 12px;font-size:13px;}
     .tn-opts{flex-direction:row;flex-wrap:wrap;flex-basis:100%;margin-top:6px;padding-top:6px;}
     body.layout-tonight nav.tabs{width:auto;}
+    .tn-dayg{flex-basis:100%;min-width:0;} .tn-gl{flex-direction:row;flex-wrap:wrap;}
+  }
+  @media (max-width:600px){
+    /* phones: each day's games are one swipeable row, so the players show on the first screen */
+    .tn-gl{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;margin:0 -4px;}
+    .tn-gl::-webkit-scrollbar{display:none;}
+    .tn-gl .tn-g{flex:none;}
+    .tn-opts{margin-top:2px;padding-top:2px;}
   }
   /* ---- Tonight: court mode with stat cards ---- */
   body.layout-tonight{--t-nol2:rgba(242,244,250,.28);--t-paint:rgba(255,122,47,.04);--t-warn:#FFC24D;--t-ms:#C79BFF;--t-bday:#FF6FB5;--t-hot:#FF7A2F;--t-cold:#7FB2FF;}
@@ -882,6 +895,27 @@
   .tn-notes{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;font-size:12px;color:var(--t-dim);line-height:1.35;}
   .tn-notes b{color:var(--t);margin-right:3px;}
   @container (max-width:1000px){ .tn-floor{grid-template-columns:minmax(0,1fr);} }
+
+  /* ---- Pick of the Day banner + Record tab ---- */
+  .potd-ban{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:center;margin:0 0 16px;padding:16px 20px;border-radius:18px;
+    background:var(--t-card,#11131E);box-shadow:inset 0 0 0 1.5px rgba(255,122,47,.55),var(--t-shadow,none);}
+  .potd-ban.none{box-shadow:inset 0 0 0 1px var(--t-line,rgba(255,255,255,.08));}
+  .potd-lab{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--t-accent-1,#FF7A2F);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .potd-nm{font-size:22px;font-weight:800;margin-top:4px;line-height:1.15;} .potd-tm{font-size:12px;font-weight:800;color:var(--t-accent-1,#FF7A2F);}
+  .potd-sub{font-size:12px;color:var(--t-dim,#8b93a3);margin-top:2px;}
+  .potd-r{text-align:right;} .potd-big{font-family:var(--t-num,inherit);font-size:30px;font-weight:700;color:var(--t-over,#2EE6A0);line-height:1;white-space:nowrap;}
+  .potd-odds{font-size:13px;font-weight:700;margin-top:4px;}
+  .potd-rec{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--t-dim,#8b93a3);
+    border-top:1px solid var(--t-line,rgba(255,255,255,.08));padding-top:8px;margin-top:4px;}
+  .potd-rec b{color:var(--t-text,inherit);}
+  .potd-go{font:inherit;font-size:12px;font-weight:800;border:0;border-radius:999px;padding:8px 14px;min-height:36px;cursor:pointer;background:var(--t-accent,#FF7A2F);color:#07080F;}
+  .potd-chip{font-size:10px;font-weight:800;letter-spacing:.5px;padding:2px 7px;border-radius:6px;color:var(--c);box-shadow:inset 0 0 0 1.5px var(--c);white-space:nowrap;}
+  .rec-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:6px 0 14px;}
+  .rec-tile{background:var(--t-card2,rgba(255,255,255,.04));border-radius:14px;padding:12px;text-align:center;}
+  .rec-tile b{display:block;font-size:22px;font-family:var(--t-num,inherit);} .rec-tile span{font-size:11px;color:var(--t-dim,var(--chalk-dim));}
+  .rec-t{width:100%;border-collapse:collapse;font-size:13px;} .rec-t th,.rec-t td{padding:8px 8px;border-top:1px solid var(--t-line,rgba(255,255,255,.08));text-align:left;}
+  .rec-t th{font-size:11px;color:var(--t-dim,var(--chalk-dim));border-top:0;} .rec-t .num{text-align:right;} .rec-dim{color:var(--t-dim,var(--chalk-dim));font-size:12px;}
+  @media (max-width:560px){ .potd-ban{grid-template-columns:1fr;} .potd-r{text-align:left;} .potd-nm{font-size:20px;} }
   /* ---- Power 5 ---- */
   .p5-floor{grid-template-columns:minmax(0,760px) minmax(300px,1fr);}
   .p5-list{display:flex;flex-direction:column;gap:8px;} .p5-list .p5-card{position:static;transform:none;width:100%;}
@@ -2327,6 +2361,7 @@ const CSV_FILES = {
   propStatus:  'data/nba_2027_prop_odds_status.csv',
   flow:        'data/nba_2027_game_flow.csv',
   playerInfo:  'data/nba_2027_player_info.csv',
+  potd:        'data/nba_2027_potd.csv',
 };
 
 const TEAM_NAMES = {
@@ -3547,7 +3582,9 @@ const TN_STAT_SHORT = {'Points': 'PTS', 'Rebounds': 'REB', 'Assists': 'AST', '3P
 const TN_WINDOWS = [['season', 'Season'], ['10', 'Last 10'], ['5', 'Last 5']];
 const TN_KEY = 'nba_ledger_tonight';
 const TN_LEAN_MIN = 1;   // the projection must clear the line by this much to make a call
-const TN_SHRINK = 10;    // a defense's number is fully trusted once it has 10 games in the window
+const TN_SHRINK = 15;    // a defense's number is fully trusted once it has 15 games in the window
+const TN_DEF_CLAMP = [0.7, 1.35];   // ...and even then it can't move a projection more than -30% / +35% (tiny samples swing wildly)
+const TN_SMALL = 8;      // under this many games the defense number gets a 'small sample' tag
 const TN_VENUE_K = 5;    // home/away split: weight it gets = games at that venue / (games + 5)
 const TN_SPOTS = {PG: {x: 38.5, y: 50}, SG: {x: 27.5, y: 13}, SF: {x: 27.5, y: 87}, PF: {x: 11.2, y: 36}, C: {x: 11.2, y: 64}};
 function tnLoad(){ try { return JSON.parse(localStorage.getItem(TN_KEY) || '{}') || {}; } catch(e){ return {}; } }
@@ -3621,7 +3658,8 @@ function tnRow(p, off, def, g, stat, ctx){
   const seasonAvg = av(games), vAvg = av(atV), oAvg = av(other);
   const vf = seasonAvg && vAvg !== null ? 1 + (vAvg / seasonAvg - 1) * atV.length / (atV.length + TN_VENUE_K) : 1;
   const split = {home, vAvg, vN: atV.length, oAvg, oN: other.length, seasonAvg, factor: vf};
-  const proj = d && d.league > 0 ? avg * vf * (1 + (d.val / d.league - 1) * Math.min(1, d.games / TN_SHRINK)) : null;
+  const dRatio = d && d.league > 0 ? Math.max(TN_DEF_CLAMP[0], Math.min(TN_DEF_CLAMP[1], d.val / d.league)) : 1;
+  const proj = d && d.league > 0 ? avg * vf * (1 + (dRatio - 1) * Math.min(1, (d.games || 0) / TN_SHRINK)) : null;
   const book = ctx ? ctx.lineFor(p.Player, stat) : propMainFor(p.Player, stat);
   const line = book ? book.line : null;
   const odds = book && book.bo ? propAmerican(book.bo.dec) : '';
@@ -3663,7 +3701,7 @@ function tnScale(rows){
 }
 
 function renderTonight(){
-  return `<div class="tn-wrap" id="tn-wrap"><aside class="tn-side" id="tn-side"></aside><div class="tn-main" id="tn-main"></div></div>`;
+  return `${potdBannerHtml()}<div class="tn-wrap" id="tn-wrap"><aside class="tn-side" id="tn-side"></aside><div class="tn-main" id="tn-main"></div></div>`;
 }
 
 function tnSideHtml(all){
@@ -3671,8 +3709,8 @@ function tnSideHtml(all){
   all.forEach(g => { let d = byDay.find(x => x.week === g.week); if(!d){ d = {week: g.week, games: []}; byDay.push(d); } d.games.push(g); });
   const days = byDay.map(d => {
     const allOn = d.games.every(g => tnState.games.has(g.id));
-    return `<div class="tn-day"><span>${dayLabel(d.week, {long: true})}</span><button type="button" class="tn-all" data-day="${d.week}">${allOn ? 'Clear' : 'All'}</button></div>
-      ${d.games.map(g => `<button type="button" class="tn-g${tnState.games.has(g.id) ? ' on' : ''}" data-gid="${g.id}"><span>${g.away} <i>@</i> ${g.home}</span><small>${tnTime(g)}</small></button>`).join('')}`;
+    return `<div class="tn-dayg"><div class="tn-day"><span>${dayLabel(d.week, {long: true})}</span><button type="button" class="tn-all" data-day="${d.week}">${allOn ? 'Clear' : 'All'}</button></div>
+      <div class="tn-gl">${d.games.map(g => `<button type="button" class="tn-g${tnState.games.has(g.id) ? ' on' : ''}" data-gid="${g.id}"><span>${g.away} <i>@</i> ${g.home}</span><small>${tnTime(g)}</small></button>`).join('')}</div></div>`;
   }).join('');
   const sw = (k, label) => `<button type="button" class="tn-sw${tnState[k] ? ' on' : ''}" data-opt="${k}"><span class="knob"></span>${label}</button>`;
   return `${days || '<div class="tn-empty">No games on the slate yet.</div>'}
@@ -3700,12 +3738,12 @@ function tnRowHtml(r, scale){
     <div class="tn-cmp">
       <div class="tn-pair"><div><span class="big">${fmt(r.avg)}</span><span class="lab">he gets${wl}</span></div>
         <div class="tn-diff" style="color:${dc};">${diff === null ? '' : (diff > 0 ? '+' : '') + fmt(diff)}</div>
-        <div><span class="big">${al === null ? '--' : fmt(al)}</span><span class="lab">${r.def} allows ${r.pos}s${r.d ? ' &middot; #' + r.d.rank : ''}${wl}</span></div></div>
+        <div><span class="big">${al === null ? '--' : fmt(al)}</span><span class="lab">${r.def} allows ${r.pos}s${r.d ? ' &middot; #' + r.d.rank : ''}${wl}${r.d && (r.d.games || 0) < TN_SMALL ? ` &middot; <b class="tn-small" title="Only ${r.d.games || 0} games: the projection leans on the league average until there are ${TN_SHRINK}">small sample</b>` : ''}</span></div></div>
       <div class="tn-track">${al === null ? '' : `<div class="fill" style="left:${x(Math.min(r.avg, al))}%;width:${Math.abs(x(al) - x(r.avg))}%;background:${dc};"></div><div class="d dv" style="left:${x(al)}%;background:${dc};color:${dc};"></div>`}
         <div class="d me" style="left:${x(r.avg)}%;"></div>${r.line !== null ? `<div class="ln" style="left:${x(r.line)}%;"></div>` : ''}</div>
     </div>
     <div class="tn-form"><div class="tn-dots">${dots}</div><div class="lab">${r.hits !== null ? `${r.hits}/${r.lastVals.length} over ${fmt(r.line)}` : `last ${r.lastVals.length}`}</div></div>
-    ${tnCallHtml(r)}
+    <div class="tn-callw">${tnCallHtml(r)}<span class="tn-why">${open ? 'Hide why ⌃' : 'Why ›'}</span></div>
   </div>${open ? `<div class="tn-more">${tnBreakdownHtml(r, true)}</div>` : ''}</div>`;
 }
 
@@ -3853,6 +3891,7 @@ function tnCourtSvg(){
 }
 
 function mountTonight(){
+  potdWire();
   const all = tnSlate();
   if(!tnState.games){ const first = all.length ? all[0].week : null; tnState.games = new Set(all.filter(g => g.week === first).map(g => g.id)); }
   const seg = (id, list, cur, label) => `<div class="tn-seg" id="${id}">${list.map(k => `<button type="button" data-v="${k}" class="${k === cur ? 'on' : ''}">${label(k)}</button>`).join('')}</div>`;
@@ -4175,6 +4214,7 @@ window.hwNewsletter = async function(){
   p5State.mode = 'best';
   const potd = [];
   cands.forEach(c => TN_STATS.forEach(st => {
+    if(tnInjury(c.p.Player)) return;              // anyone on the injury report (Out / Day-To-Day) can't be the Pick of the Day
     const r = tnRow({Player: c.p.Player, Position: c.p.Position, games: c.p.games}, c.off, c.def, c.g, st);
     const b = p5Best([r]); if(!b) return;
     const bk = propMainFor(c.p.Player, st), dec = bk && bk.bo ? bk.bo.dec : null;
@@ -4201,7 +4241,7 @@ window.hwNewsletter = async function(){
 };
 
 function renderPower5(){
-  return `<div class="tn-wrap court-mode p5" id="tn-wrap"><div class="tn-main" id="p5-main"></div></div>`;
+  return `${potdBannerHtml()}<div class="tn-wrap court-mode p5" id="tn-wrap"><div class="tn-main" id="p5-main"></div></div>`;
 }
 
 function p5CardHtml(c, slot, sel, swapped){
@@ -4231,6 +4271,7 @@ function p5SwapHtml(c, cur, i){
 }
 
 function mountPower5(){
+  potdWire();
   const all = tnSlate();
   const days = [...new Set(all.map(g => g.week))];
   if(!p5State.day || !days.includes(p5State.day)) p5State.day = days[0] || null;
@@ -7335,6 +7376,8 @@ function mountFB(){
     const q = $('#fb-search').value.trim().toUpperCase();
     const games = upcomingGames().filter(g => !q || [g.sides.home.Team, g.sides.away.Team].some(t => t.includes(q) || teamName(t).toUpperCase().includes(q)));
     if(!games.length){ $('#fb-games').innerHTML = '<div class="empty">No upcoming games loaded.</div>'; return; }
+    // the Book column only shows when the odds feed actually has first-basket prices (it often doesn't)
+    const fbBook = (DATA.propOdds || []).some(r => r.stat === 'First Basket');
     $('#fb-games').innerHTML = games.map(g => {
       const m = fbGameModel(M, g), week = g.week;
       const tipTxt = (name, r) => name ? `${frEsc(name)} <span style="color:var(--chalk-dim);">${r.w}-${r.n - r.w} on tips</span>` : '<span style="color:var(--chalk-dim);">jumper unknown</span>';
@@ -7343,7 +7386,7 @@ function mountFB(){
         const hist = t.sfN ? `scored first ${t.sf}/${t.sfN}, won tip ${t.tipW}/${t.tipN}` : 'no games yet';
         return `<div class="matchup-side">
           <div class="matchup-side-label"><b>${team}</b> scores first: <b style="color:${pTeam >= 0.5 ? 'var(--mint)' : 'var(--chalk)'};">${pct(pTeam)}</b> <span style="color:var(--chalk-dim);">fair ${fbPrice(pTeam)} &middot; ${hist}</span></div>
-          ${shares.length ? `<div class="table-scroll"><table class="bp-t"><thead><tr><th>Player</th><th title="Times he scored this team's first basket / games for this team">Team 1st</th><th title="Chance he scores this team's first basket">Team 1st basket</th><th title="Chance he scores the game's first basket">Game 1st basket</th><th>Book (game)</th><th></th></tr></thead><tbody>
+          ${shares.length ? `<div class="table-scroll"><table class="bp-t"><thead><tr><th>Player</th><th title="Times he scored this team's first basket / games for this team">Team 1st</th><th title="Chance he scores this team's first basket">Team 1st basket</th><th title="Chance he scores the game's first basket">Game 1st basket</th>${fbBook ? '<th>Book (game)</th>' : ''}<th></th></tr></thead><tbody>
           ${shares.map(p => {
             const pg = pTeam * p.share;
             const pick = {player:p.Player, position:p.Position, team, opponent:opp, week, threshold:1};
@@ -7354,7 +7397,7 @@ function mountFB(){
               <td class="num">${p.tf}/${p.n}${p.gf ? ` <span style="color:var(--chalk-dim);">(${p.gf} game)</span>` : ''}</td>
               <td class="num"><b>${pct(p.share)}</b> <span style="color:var(--chalk-dim);">${fbPrice(p.share)}</span></td>
               <td class="num"><b style="color:var(--gold);">${pct(pg)}</b> <span style="color:var(--chalk-dim);">${fbPrice(pg)}</span></td>
-              <td>${propChipHtml({...pick, stat:'First Basket'})}</td>
+              ${fbBook ? `<td>${propChipHtml({...pick, stat:'First Basket'})}</td>` : ''}
               <td style="white-space:nowrap;">${btn('First Basket', sv1, '+ Game')} ${btn('Team First Basket', sv2, '+ Team')}</td></tr>`;
           }).join('')}</tbody></table></div>` : '<div class="empty" style="padding:8px 0;">No projected starters yet.</div>'}
         </div>`;
@@ -7803,10 +7846,103 @@ function btGroupTable(rows, keyFn, order, label){
   }).join('')}</tbody></table></div>`;
 }
 
-function renderBacktest(){
-  return `
+// ---------- PICK OF THE DAY (in the app) ----------
+// The pick is chosen and locked by the afternoon run (19_social.py) and saved to data/nba_2027_potd.csv: one row a
+// day, at the price it was locked at, never changed after. The app shows today's pick at the top of Tonight and
+// Starting 5, and the full record on the Record tab. The numbers here use the same rules as the public record page.
+const POTD_SHORT = {'Points': 'PTS', 'Rebounds': 'REB', 'Assists': 'AST', '3PM': '3PM', 'Pts+Reb+Ast': 'PRA'};
+function potdRows(){ return (DATA.potd || []).filter(r => r.Date && r.Player); }
+function potdRecord(rows){
+  const g = rows.filter(r => ['W', 'L', 'P'].includes(r.Result));
+  const w = g.filter(r => r.Result === 'W').length, l = g.filter(r => r.Result === 'L').length, p = g.filter(r => r.Result === 'P').length;
+  const net = g.reduce((s, r) => s + (parseFloat(r.Profit) || 0), 0);
+  const risked = g.filter(r => r.Result !== 'P').reduce((s, r) => s + (parseFloat(r.Units) || 1), 0);
+  const avgDec = g.length ? g.reduce((s, r) => s + (parseFloat(r.Decimal) || 0), 0) / g.length : null;
+  const wl = g.filter(r => r.Result !== 'P').map(r => r.Result);
+  let streak = '';
+  if(wl.length){ let k = 1; while(k < wl.length && wl[wl.length - 1 - k] === wl[wl.length - 1]) k++; streak = wl[wl.length - 1] + k; }
+  // closing line: an OVER beat the close when the line went UP after we locked it (or held, at a worse price)
+  const clv = rows.filter(r => r['Close Line'] && r.Line);
+  const beat = clv.filter(r => parseFloat(r['Close Line']) > parseFloat(r.Line) ||
+    (parseFloat(r['Close Line']) === parseFloat(r.Line) && parseFloat(r['Close Decimal'] || 0) && parseFloat(r['Close Decimal']) < parseFloat(r.Decimal))).length;
+  return {w, l, p, n: g.length, rec: `${w}-${l}${p ? '-' + p : ''}`, net, roi: risked ? net / risked * 100 : 0,
+    avg: avgDec ? propAmerican(avgDec) : '--', streak, clvN: clv.length, clvBeat: beat};
+}
+function potdToday(){
+  const days = [...new Set(tnSlate().map(g => g.week))];
+  const iso = days.length ? dayDate(days[0]) : '';
+  return potdRows().find(r => r.Date === iso) || null;
+}
+function potdTip(r){
+  const t = Date.parse(String(r['Tip (UTC)'] || '').replace(/Z?$/, 'Z'));
+  return isNaN(t) ? '' : new Date(t).toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'}).replace(' ', '').toLowerCase();
+}
+function potdResultChip(r){
+  const res = r.Result || '', col = res === 'W' ? 'var(--t-over,#2EE6A0)' : res === 'L' ? 'var(--t-under,#FF6B6B)' : 'var(--t-dim,#8b93a3)';
+  const label = res === 'W' ? 'WIN' : res === 'L' ? 'LOSS' : res === 'P' ? 'PUSH' : res === 'VOID' ? 'VOID' : 'PENDING';
+  return `<span class="potd-chip" style="--c:${col}">${label}${r.Actual && res ? ' &middot; ' + frEsc(r.Actual) : ''}</span>`;
+}
+function potdBannerHtml(){
+  if(!potdRows().length) return '';
+  const r = potdToday(), rec = potdRecord(potdRows());
+  const recLine = rec.n ? `Record <b>${rec.rec}</b> &middot; <b>${rec.net >= 0 ? '+' : ''}${rec.net.toFixed(2)}u</b> &middot; ROI ${rec.roi.toFixed(1)}%${rec.streak ? ' &middot; ' + rec.streak : ''}` : 'The record starts with the first graded pick.';
+  if(!r) return `<div class="potd-ban none"><div><div class="potd-lab">Pick of the Day</div><div class="potd-sub">Not locked yet: it's picked once enough lines are up (around noon Central).</div></div>
+    <div class="potd-rec"><span>${recLine}</span> <button type="button" class="potd-go" data-go="record">Full record &rsaquo;</button></div></div>`;
+  const home = r['Home/Away'] === 'Home';
+  return `<div class="potd-ban">
+    <div class="potd-l"><div class="potd-lab">Pick of the Day ${potdResultChip(r)}</div>
+      <div class="potd-nm">${frEsc(r.Player)} <span class="potd-tm">${frEsc(r.Team)}</span></div>
+      <div class="potd-sub">${frEsc(r.Pos || '')} &middot; ${frEsc(r.Team)} ${home ? 'vs' : '@'} ${frEsc(r.Opponent)}${potdTip(r) ? ' &middot; ' + potdTip(r) : ''}${r.Projection ? ' &middot; proj ' + frEsc(r.Projection) : ''}</div></div>
+    <div class="potd-r"><div class="potd-big">o${frEsc(r.Line)} ${POTD_SHORT[r.Stat] || frEsc(r.Stat)}</div><div class="potd-odds">${frEsc(r.American)} &middot; ${frEsc(r.Units || '1')}U</div></div>
+    <div class="potd-rec"><span>${recLine}</span> <button type="button" class="potd-go" data-go="record">Full record &rsaquo;</button></div></div>`;
+}
+function potdWire(root){
+  (root || document).querySelectorAll('.potd-go').forEach(b => b.addEventListener('click', () => showTab('backtest')));
+}
+// The Record tab leads with the Pick of the Day record and the Starting 5 record; the old Best Picks backtest follows.
+function recordTopHtml(){
+  const rows = potdRows(), rec = potdRecord(rows);
+  const tile = (big, small) => `<div class="rec-tile"><b>${big}</b><span>${small}</span></div>`;
+  const graded = rows.slice().reverse();
+  const tr = graded.map(r => `<tr><td>${frEsc(isoLabel(r.Date))}</td><td>${frEsc(r.Player)} <span class="rec-dim">${frEsc(r.Team)} ${r['Home/Away'] === 'Home' ? 'vs' : '@'} ${frEsc(r.Opponent)}</span></td>
+      <td>o${frEsc(r.Line)} ${POTD_SHORT[r.Stat] || frEsc(r.Stat)}</td><td class="num">${frEsc(r.American)}</td>
+      <td class="num">${r['Close Line'] ? 'o' + frEsc(r['Close Line']) : '<span class="rec-dim">--</span>'}</td>
+      <td class="num">${frEsc(r.Actual || '')}</td><td>${potdResultChip(r)}</td>
+      <td class="num">${r.Profit ? (parseFloat(r.Profit) >= 0 ? '+' : '') + parseFloat(r.Profit).toFixed(2) : ''}</td></tr>`).join('');
+  return `<div class="panel">
+    <div class="panel-title">Pick of the Day</div>
+    <div class="panel-note">One straight pick a day, locked before tip at the price posted then (odds between -200 and +200, flat 1 unit), graded on the box score, never reset. Same record as the public page.</div>
+    <div class="rec-tiles">${tile(rec.n ? rec.rec : '0-0', 'W-L' + (rec.p ? '-P' : ''))}${tile((rec.net >= 0 ? '+' : '') + rec.net.toFixed(2) + 'u', 'net units')}${tile(rec.roi.toFixed(1) + '%', 'ROI')}${tile(rec.avg, 'average odds')}${tile(rec.streak || '--', 'streak')}${tile(rec.clvN ? Math.round(rec.clvBeat / rec.clvN * 100) + '%' : '--', 'beat the closing line' + (rec.clvN ? ` (${rec.clvBeat}/${rec.clvN})` : ''))}</div>
+    ${rows.length ? `<div class="table-scroll"><table class="rec-t" data-no-enhance><thead><tr><th>Day</th><th>Player</th><th>Pick</th><th class="num">Odds</th><th class="num">Close</th><th class="num">Actual</th><th>Result</th><th class="num">Units</th></tr></thead><tbody>${tr}</tbody></table></div>`
+      : '<div class="empty">The first pick goes in on the next game day.</div>'}
+  </div>
   <div class="panel">
-    <div class="panel-title">Backtest</div>
+    <div class="panel-title">Starting 5</div>
+    <div class="panel-note">Every finished night replayed the way the Starting 5 (Best bet) would have picked it that afternoon, graded on the box score.</div>
+    <div id="rec-s5"><div class="empty">Grading past nights...</div></div>
+  </div>`;
+}
+function mountRecordTop(){
+  const el = $('#rec-s5'); if(!el) return;
+  p5LoadHistory().then(() => {
+    const saveMode = p5State.mode; p5State.mode = 'best';
+    const nights = p5Record('best');
+    p5State.mode = saveMode;
+    if(!nights.length){ el.innerHTML = '<div class="empty">No graded night with saved lines yet.</div>'; return; }
+    const tot = nights.reduce((a, n) => ({g: a.g + n.graded, h: a.h + n.hits, c: a.c + (n.cashed ? 1 : 0)}), {g: 0, h: 0, c: 0});
+    const l7 = nights.slice(0, 7).reduce((a, n) => ({g: a.g + n.graded, h: a.h + n.hits}), {g: 0, h: 0});
+    const pc = (h, g) => g ? Math.round(h / g * 100) + '%' : '--';
+    const tile = (big, small) => `<div class="rec-tile"><b>${big}</b><span>${small}</span></div>`;
+    el.innerHTML = `<div class="rec-tiles">${tile(pc(tot.h, tot.g), `legs hit &middot; ${tot.h} of ${tot.g}`)}${tile(`${tot.c}/${nights.length}`, 'nights all five hit')}${tile(pc(l7.h, l7.g), `last ${Math.min(7, nights.length)} nights`)}</div>
+      <button type="button" class="potd-go" id="rec-s5-go" style="margin-top:12px">Every night &rsaquo;</button>`;
+    const go = $('#rec-s5-go'); if(go) go.addEventListener('click', () => { p5State.view = 'record'; showTab('power5'); });
+  });
+}
+
+function renderBacktest(){
+  return `${recordTopHtml()}
+  <div class="panel">
+    <div class="panel-title">Best Picks backtest</div>
     <div class="panel-note">
       Does the Best Picks method actually work? This replays it on every past night as if it were that morning,
       using only the games played before that date, then grades each pick against what the player really did. Nothing here
@@ -7820,6 +7956,8 @@ function renderBacktest(){
 }
 
 function mountBacktest(){
+  mountRecordTop();
+  potdWire();
   const el = $('#bt-body');
   const all = DATA.backtest || [];
   if(!all.length){
@@ -8743,7 +8881,7 @@ async function loadCSV(path){
 }
 
 // Core files (team summary, game log, box scores, DvP, SOS, upcoming slate) show the full error page if missing. These are extras:
-const OPTIONAL_CSV_KEYS = ['milestones', 'teamMilestones', 'injuries', 'epa', 'coaching', 'backtest', 'propOdds', 'propStatus', 'games', 'flow', 'playerInfo'];
+const OPTIONAL_CSV_KEYS = ['milestones', 'teamMilestones', 'injuries', 'epa', 'coaching', 'backtest', 'propOdds', 'propStatus', 'games', 'flow', 'playerInfo', 'potd'];
 async function loadCSVLenient(key, path){
   try {
     return await loadCSV(path);

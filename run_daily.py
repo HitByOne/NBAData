@@ -2,7 +2,7 @@
 """
 run_daily.py
 
-Runs the NBA Ledger data pipeline in dependency order:
+Runs the HitByOne Hardwood Ledger data pipeline in dependency order:
 
   1. Box scores        (first run: whole season; after that: every newly finished date)
   1b. Real positions (PG/SG/SF/PF/C, Basketball-Reference)
@@ -69,6 +69,8 @@ def main(force_date: str | None = None, quick: bool = False):
     run("09_team_efficiency.py", critical=False)
     # Opening tip, first basket, team first basket, points by quarter (one ESPN request per new game).
     run("10_game_flow.py", critical=False)
+    # Birth dates and roster details (30 requests) for the birthday tag on the player cards.
+    run("12_player_info.py", critical=False)
     run("16_backtest.py", critical=False)
     run("07_milestone_watch.py", critical=False)
 

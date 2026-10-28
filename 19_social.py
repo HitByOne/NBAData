@@ -60,7 +60,11 @@ TEST = os.environ.get("SOCIAL_TEST") == "1"
 CT = ZoneInfo("America/Chicago")
 
 LOG_COLS = ["Date", "Locked At (UTC)", "Player", "Pos", "Team", "Opponent", "Home/Away", "Tip (UTC)", "Stat", "Line",
-            "Side", "American", "Decimal", "Units", "Projection", "Result", "Actual", "Profit"]
+            "Side", "American", "Decimal", "Units", "Projection", "Result", "Actual", "Profit",
+            "Close Line", "Close American", "Close Decimal"]      # the main line at the evening check (closing-line value)
+S5_LOG = ROOT / "records" / "nba_2027_starting5_log.csv"     # today's Starting 5 as sent (for the late-scratch alert)
+S5_COLS = ["Date", "Pos", "Player", "Team", "Opponent", "Stat", "Pick", "Projection"]
+PUBLIC_POTD = DATA / "nba_2027_potd.csv"                      # what the app reads (today's pick shows from the moment it locks)
 
 BG, CARD, LINE, TXT, DIM = "#07080F", "#11131E", "#262c38", "#F2F4FA", "rgba(242,244,250,0.66)"
 ORANGE, PINK, GREEN, RED = "#FF7A2F", "#FF4D8D", "#2EE6A0", "#FF6B6B"
@@ -802,8 +806,28 @@ th{{font-size:12px;color:{DIM};border-top:0}} .n{{text-align:right}} .dim{{color
 </main></body></html>'''
 
 
+def save_starting5(d):
+    """Write down today's Starting 5 as it went out (the 6pm late-scratch check reads it). One set per day."""
+    rows = []
+    if S5_LOG.exists():
+        with S5_LOG.open(newline="", encoding="utf-8") as f:
+            rows = [r for r in csv.DictReader(f) if r.get("Date") != d["iso"]]
+    rows += [{"Date": d["iso"], "Pos": l["pos"], "Player": l["name"], "Team": l["off"], "Opponent": l["def"], "Stat": l["stat"],
+              "Pick": compact(l["pick"]), "Projection": fmt(l.get("proj"))} for l in d["legs"]]
+    S5_LOG.parent.mkdir(parents=True, exist_ok=True)
+    with S5_LOG.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=S5_COLS)
+        w.writeheader()
+        w.writerows(rows)
+
+
 def publish_record(rows):
-    """/record/ = the public record; /social/ (the old link) forwards there."""
+    """/record/ = the public record; /social/ (the old link) forwards there; data/nba_2027_potd.csv feeds the app."""
+    with PUBLIC_POTD.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=LOG_COLS)
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: r.get(k, "") for k in LOG_COLS})
     RECORD.mkdir(parents=True, exist_ok=True)
     (RECORD / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
     OUT.mkdir(parents=True, exist_ok=True)
@@ -956,6 +980,7 @@ def main():
         if new:
             print("Social: locked today's Pick of the Day (details are in your kit email, not this public log).")
         write_log(rows)
+        save_starting5(d)
     c = next((x for x in d.get("potd") or [] if row and x["name"] == row["Player"] and x["stat"] == row["Stat"]), None)
 
     site = site_url()

@@ -1,7 +1,7 @@
 """
 nba_common.py
 
-Shared config + helpers for the Hardwood Ledger's ESPN pull pipeline (the NBA
+Shared config + helpers for the HitByOne Hardwood Ledger's ESPN pull pipeline (the NBA
 twin of nfl_common.py). Every script imports from here instead of
 redefining paths, team lists, or the box-score parser.
 
