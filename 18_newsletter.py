@@ -51,6 +51,9 @@ FORCE = os.environ.get("NEWSLETTER_FORCE") == "1"
 DRY = os.environ.get("NEWSLETTER_DRY") == "1"
 # TEST: send only to you (TEST_TO, else KIT_TO, else EMAIL_FROM), never the list; no archive copy, no "sent" marker.
 TEST = os.environ.get("NEWSLETTER_TEST") == "1"
+# EARLY: the noon try. It only goes ahead when the board is ready (a Pick of the Day priced -200..+200 and the Starting 5
+# on book lines); otherwise it waits and the 2pm run sends it.
+EARLY = os.environ.get("NEWSLETTER_EARLY") == "1"
 
 # colors match the Tonight layout's dark theme
 BG, CARD, LINE, TXT, DIM = "#0b0d12", "#141821", "#262c38", "#eef1f6", "#8b93a3"
@@ -509,6 +512,10 @@ def main():
         print("Newsletter: no games / no Starting 5 tonight -- nothing to send.")
         return
     day = data.get("iso") or today
+    if EARLY and not TEST and not (data.get("potd") and data.get("mode") == "best"):
+        why = "no Pick of the Day priced -200 to +200 yet" if not data.get("potd") else "the Starting 5 isn't on book lines yet"
+        print(f"Newsletter: early try -- not ready ({why}). The 2pm run will send it.")
+        return
     if not (FORCE or TEST) and day != today:
         print(f"Newsletter: the next slate is {day}, not today ({today}) -- skipping.")
         return
