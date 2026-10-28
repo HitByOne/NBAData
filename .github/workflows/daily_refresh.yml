@@ -5,8 +5,12 @@ on:
     # cron is UTC regardless of your local timezone.
     # 11:00 UTC (6am Central): full refresh -- last night's box scores, ratings, backtest, milestones.
     - cron: '0 11 * * *'
-    # 19:00 UTC (2pm Central): quick refresh -- injury report, tonight's lines, player props.
-    - cron: '0 19 * * *'
+    # 18:00 UTC (noon Central in winter, 1pm in Oct/Apr): early try -- lines, then the newsletter + social kit IF the
+    # board is ready (a Pick of the Day priced -200..+200 and the Starting 5 on book lines). Otherwise it waits.
+    - cron: '0 18 * * *'
+    # 20:00 UTC (2pm Central in winter, 3pm in Oct/Apr): backup -- sends whatever the noon try held back. If noon
+    # already sent, it does nothing extra (no second odds pull, no second email).
+    - cron: '0 20 * * *'
     # 05:00 UTC (11pm Central in winter, midnight in Oct/Apr): late stats refresh -- tonight's finished games, no odds pull.
     - cron: '0 5 * * *'
   workflow_dispatch:
@@ -42,33 +46,40 @@ jobs:
       - name: Install dependencies
         run: pip install pandas requests
 
+      - name: Has today's newsletter already gone out?
+        id: today
+        run: |
+          d=$(TZ=America/Chicago date +%F)
+          echo "date=$d" >> "$GITHUB_OUTPUT"
+          if [ "$(cat site/newsletter/last_sent.txt 2>/dev/null)" = "$d" ]; then echo "sent=yes" >> "$GITHUB_OUTPUT"; else echo "sent=no" >> "$GITHUB_OUTPUT"; fi
+
       - name: Run pipeline
         env:
-          QUICK: ${{ (github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test') && '1' || '' }}
+          QUICK: ${{ (github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test') && '1' || '' }}
         run: |
           if [ "$QUICK" = "1" ]; then python3 run_daily.py --quick; else python3 run_daily.py; fi
 
       - name: Fetch player prop prices
         # Its own step so it always shows in the log. A failure here never stops the refresh.
-        # Skipped on the late-night stats refresh (no OddsPapi requests used then).
-        if: github.event.schedule != '0 5 * * *'
+        # Skipped on the late-night stats refresh, and on the 2pm backup when noon already sent (saves requests).
+        if: github.event.schedule != '0 5 * * *' && !(github.event.schedule == '0 20 * * *' && steps.today.outputs.sent == 'yes')
         continue-on-error: true
         env:
           # Settings -> Secrets and variables -> Actions -> New repository secret: RAPIDAPI_KEY
           # (the same key the Gridiron Ledger uses works here too).
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
-          # A manual run from the Actions tab always fetches prices.
-          ODDS_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
+          # Manual runs and the two afternoon runs always fetch prices.
+          ODDS_FORCE: ${{ (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *') && '1' || '' }}
         run: |
           python3 17_prop_odds.py
           echo "--- status file ---"
           cat site/data/nba_2027_prop_odds_status.csv || true
 
-      - name: Send the Power 5 newsletter
-        # Afternoon run only (after the odds pull), or a manual run with mode = newsletter.
+      - name: Send the newsletter
+        # Noon try (only if the board is ready) and 2pm backup, or a manual run with mode = newsletter / test.
         # Sends once a day at most; the manual newsletter run always sends. A failure never stops the refresh.
-        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test'
+        if: (github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *') || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test'
         continue-on-error: true
         env:
           # Settings -> Secrets and variables -> Actions -> New repository secret (one for each):
@@ -79,6 +90,7 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}              # optional backup list, only used without Supabase
           NEWSLETTER_FORCE: ${{ github.event.inputs.mode == 'newsletter' && '1' || '' }}
           NEWSLETTER_TEST: ${{ github.event.inputs.mode == 'test' && '1' || '' }}
+          NEWSLETTER_EARLY: ${{ github.event.schedule == '0 18 * * *' && '1' || '' }}
           TEST_TO: ${{ secrets.TEST_TO }}                # optional: where test sends go (defaults to KIT_TO, then EMAIL_FROM)
           KIT_TO: ${{ secrets.KIT_TO }}
         run: |
@@ -86,10 +98,22 @@ jobs:
           python -m playwright install --with-deps chromium
           python3 18_newsletter.py
 
+      - name: Bring back today's social kit if an earlier run made it
+        # The kit isn't committed (it's private), so it rides along between today's runs in GitHub's cache.
+        # Caches can't be downloaded from the public repo page.
+        if: (github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *') || github.event.inputs.mode == 'newsletter'
+        continue-on-error: true
+        uses: actions/cache/restore@v4
+        with:
+          path: social_kit
+          key: social-kit-${{ steps.today.outputs.date }}-${{ github.run_id }}
+          restore-keys: social-kit-${{ steps.today.outputs.date }}-
+
       - name: Make the social kit (X, Instagram, TikTok, Reddit)
         # Same runs as the newsletter. Locks today's Pick of the Day, grades past ones, makes the day's images,
-        # TikTok video, captions and Reddit comment, and EMAILS them to you only (not put on the site).
-        if: github.event.schedule == '0 19 * * *' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test'
+        # TikTok video, captions and Reddit comment, and EMAILS them to you only (not put on the site). When the
+        # noon run already made today's kit, the 2pm run just keeps your private kit page up.
+        if: (github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *') || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test'
         continue-on-error: true
         env:
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
@@ -97,14 +121,23 @@ jobs:
           KIT_TO: ${{ secrets.KIT_TO }}        # optional: where the kit goes (defaults to EMAIL_FROM)
           TEST_TO: ${{ secrets.TEST_TO }}
           SOCIAL_TEST: ${{ github.event.inputs.mode == 'test' && '1' || '' }}
+          KIT_KEY: ${{ secrets.KIT_KEY }}      # optional: your private kit page at /social/<KIT_KEY>/
         run: |
           python -c "import playwright" 2>/dev/null || (pip install playwright && python -m playwright install --with-deps chromium)
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
           python3 19_social.py
 
+      - name: Keep today's social kit for the later run
+        if: ((github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *') || github.event.inputs.mode == 'newsletter') && hashFiles('social_kit/**') != ''
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: social_kit
+          key: social-kit-${{ steps.today.outputs.date }}-${{ github.run_id }}
+
       - name: Grade the Pick of the Day
         # Every other run: grade finished picks from the new box scores (no pictures, nothing posted).
-        if: github.event.schedule != '0 19 * * *' && github.event.inputs.mode != 'newsletter' && github.event.inputs.mode != 'test'
+        if: github.event.schedule != '0 18 * * *' && github.event.schedule != '0 20 * * *' && github.event.inputs.mode != 'newsletter' && github.event.inputs.mode != 'test'
         continue-on-error: true
         run: python3 19_social.py --grade
 
