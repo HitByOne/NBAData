@@ -3,8 +3,11 @@ Hardwood Ledger -- the daily social kit and the Pick of the Day record.
 
 Runs right after 18_newsletter.py (it reads the picks that script saved in social_kit/YYYY-MM-DD.json).
 The day's posts are PRIVATE: they're saved to social_kit/YYYY-MM-DD/ (not part of the site, not committed) and
-emailed to you (KIT_TO, or EMAIL_FROM when that isn't set) with every picture and the video attached. The only
-public page is site/social/index.html: the Pick of the Day record (graded picks only, nothing pending).
+emailed to you (KIT_TO, or EMAIL_FROM when that isn't set) with every picture and the video attached. The public
+page is site/record/ (the Pick of the Day record, graded picks only) -- that's the link for bios and posts.
+If the KIT_KEY secret is set, the kit is also put up at /social/<KIT_KEY>/ for you: a link only you know (it isn't
+in the repo or the logs), with a one-tap zip download. It's replaced every afternoon and is gone after the next
+refresh. Treat it like an unlisted link, not a password-protected one: the email is the fully private copy.
 
   x.jpg                    1600 x 900   Pick of the Day + the Power 5 court        (X)
   ig-1.jpg ... ig-4.jpg    1080 x 1350  Power 5, Pick of the Day, Top 5 by stat, record   (Instagram carousel)
@@ -44,7 +47,8 @@ ROOT = Path(__file__).resolve().parent
 SITE = ROOT / "site"
 DATA = SITE / "data"
 NEWS = SITE / "newsletter"
-OUT = SITE / "social"            # public: the Pick of the Day record only
+OUT = SITE / "social"            # /social/ forwards to /record/; your private kit page lives at /social/<KIT_KEY>/
+RECORD = SITE / "record"         # public: the Pick of the Day record (the link for your bios and posts)
 KIT = ROOT / "social_kit"        # private: the daily posts (not on the site, not committed; emailed to you)
 LOG = ROOT / "records" / "nba_2027_potd_log.csv"   # in the repo, not on the site (the site shows graded picks only)
 OLD_LOG = DATA / "nba_2027_potd_log.csv"
@@ -257,7 +261,7 @@ def captions(d, row, rec, site):
     rec_line = f"POTD record: {rec['rec']}, {rec['net']:+.1f}u" if rec["n"] else "POTD record starts today"
     x = (f"NBA Pick of the Day · {d['date']}\n\n{pick} · 1U\n\n{rec_line}\n\nTonight's Power 5 ↓ #NBA #NBAPicks" if row else
          f"Tonight's NBA Power 5 · {d['date']} #NBA")
-    x_reply = f"Full card, matchups and every pick graded: {site}?layout=tonight" if site else ""
+    x_reply = f"Every Pick of the Day, graded since day one: {site}record/" if site else ""
     p5 = "\n".join(f"{l['pos']} {l['name']} {compact(l['pick'])}" for l in legs)
     ig = (f"Tonight's Power 5 · {d['date']} · {d['games']} games\n\n{p5}\n\n"
           + (f"Pick of the Day: {pick} · 1U\n{rec_line}\n\n" if row else "")
@@ -406,13 +410,15 @@ def stat_rows(d, stats_only, big, tall=1.0):
         chips = ""
         for i, x in enumerate(blk["list"][:5]):
             ring = f"box-shadow:inset 0 0 0 3px {ORANGE};" if i == 0 else ""
+            opp = f"{'vs' if x.get('home') else '@'} {esc(x['def'])}"
             if stats_only:
-                val, sub = f"{fmt(x.get('proj'))}", f"{esc(x['pos'])} &middot; vs {esc(x['def'])}"
+                val, sub = f"{fmt(x.get('proj'))}", f"{opp} &middot; {esc(x['pos'])}"
             else:
                 val = compact(x["pick"]).split(" ")[0]
-                sub = f"{esc(x['pos'])} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else esc(x["pos"])
-            chips += (f'<div class="card" style="flex:1;min-width:0;padding:{big * .55 * tall:.0f}px {big * .42:.0f}px;{ring}">'
-                      f'<div style="font-size:{big}px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{esc(short_name(x["name"]))}</div>'
+                sub = f"{opp} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else opp
+            chips += (f'<div class="card" style="flex:1;min-width:0;padding:{big * .55 * tall:.0f}px {big * .36:.0f}px;{ring}">'
+                      f'<div style="display:flex;flex-wrap:wrap;align-items:baseline;column-gap:{big * .25:.0f}px;min-width:0"><span style="min-width:0;font-size:{big * .85:.0f}px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">{esc(short_name(x["name"]))}</span>'
+                      f'<span style="flex:none;font-size:{big * .6:.0f}px;font-weight:800;color:{ORANGE}">{esc(x["off"])}</span></div>'
                       f'<div class="num" style="font-size:{big * 1.25:.0f}px;color:{GREEN}">{esc(val)}</div>'
                       f'<div class="dim" style="font-size:{big * .78:.0f}px;white-space:nowrap">{sub}</div></div>')
         rows.append(f'<div style="display:flex;gap:{big * .35:.0f}px;align-items:stretch;margin-bottom:{big * .7 * tall:.0f}px">'
@@ -570,13 +576,13 @@ def copy_box(label, text, id_):
             f'<textarea id="{id_}" readonly rows="{min(14, text.count(chr(10)) + 2)}">{esc(text)}</textarea></section>')
 
 
-def day_page(d, files, caps, reddit, row, rec, site):
+def day_page(d, files, caps, reddit, row, rec, site, zip_name=""):
     img = lambda f, w: f'<a href="{f}" download><img src="{f}" alt="" style="width:{w}"></a>'
     ig = "".join(img(f, "48%") for f in files if f.startswith("ig-"))
     tt = "".join(img(f, "31%") for f in files if f.startswith("tt-"))
     vid = '<video src="tiktok.mp4" controls playsinline style="width:min(100%,360px);border-radius:14px"></video><p><a href="tiktok.mp4" download>Download the video</a></p>' if "tiktok.mp4" in files else ""
     return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Social kit &middot; {esc(d["date"])}</title><style>
+<meta name="robots" content="noindex,nofollow"><title>Social kit &middot; {esc(d["date"])}</title><style>
 body{{margin:0;background:{BG};color:{TXT};font:500 15px/1.5 Inter,-apple-system,Segoe UI,Roboto,sans-serif}}
 main{{max-width:900px;margin:0 auto;padding:24px 16px 60px}} h1{{font-size:24px;margin:0}} h1 span{{color:{ORANGE}}}
 h2{{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:{ORANGE};margin:34px 0 10px}}
@@ -588,15 +594,15 @@ textarea{{width:100%;box-sizing:border-box;background:{BG};color:{TXT};border:1p
 .dim{{color:{DIM}}}
 </style></head><body><main>
 <h1>HARDWOOD <span>LEDGER</span> &middot; social kit</h1>
-<div class="dim">{esc(d["date"])} &middot; {d["games"]} games &middot; tap an image to save it (or long-press on a phone).
-</div>
+<div class="dim">{esc(d["date"])} &middot; {d["games"]} games &middot; tap an image to save it (or long-press on a phone).</div>
+{f'<p style="margin:16px 0 0"><a href="{zip_name}" download style="display:inline-block;background:{ORANGE};color:{BG};font-weight:800;text-decoration:none;padding:14px 22px;border-radius:999px">Download everything (zip)</a></p><div class="dim" style="margin-top:6px">Then in Files: tap the zip to unzip it. One folder per app, captions included.</div>' if zip_name else ""}
 <h2>Reddit &middot; r/sportsbook Pick of the Day</h2>
 <div class="dim">Paste as a top-level comment in today's Pick of the Day thread. Edit the write-up if you want to add your own read.</div>
 {copy_box("Reddit comment", reddit, "c-reddit") if reddit else "<p class='dim'>No pick today: nothing on the board fit -200 to +200.</p>"}
 <h2>X</h2>{img("x.jpg", "100%")}{copy_box("Post", caps["x"], "c-x")}{copy_box("Reply with the link", caps["x_reply"], "c-xr") if caps["x_reply"] else ""}
 <h2>Instagram &middot; carousel</h2>{ig}{copy_box("Caption", caps["ig"], "c-ig")}
 <h2>TikTok &middot; video + slides</h2><div class="dim">Stats only: no odds or lines, so it stays eligible for the For You feed. Add a sound in TikTok.</div>{vid}{tt}{copy_box("Caption", caps["tt"], "c-tt")}
-<p class="dim" style="margin-top:30px">Private kit. The public record is at /social/ on the site.</p>
+<p class="dim" style="margin-top:30px">Private kit &middot; don't share this link. The public record (for bios and posts): {f'<a href="{site}record/">{site}record/</a>' if site else "/record/"}</p>
 </main><script>
 document.querySelectorAll('button[data-copy]').forEach(b => b.addEventListener('click', async () => {{
   const t = document.getElementById(b.dataset.copy);
@@ -633,6 +639,41 @@ th{{font-size:12px;color:{DIM};border-top:0}} .n{{text-align:right}} .dim{{color
 <tbody>{rows or '<tr><td colspan="8" class="dim">The first graded pick shows here the morning after it plays.</td></tr>'}</tbody></table></div>
 <p class="dim">21+ &middot; For entertainment. Gambling problem? Call 1-800-GAMBLER.</p>
 </main></body></html>'''
+
+
+def publish_record(rows):
+    """/record/ = the public record; /social/ (the old link) forwards there."""
+    RECORD.mkdir(parents=True, exist_ok=True)
+    (RECORD / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "index.html").write_text('<!doctype html><html><head><meta charset="utf-8"><title>Hardwood Ledger record</title>'
+                                    '<meta http-equiv="refresh" content="0; url=../record/"><link rel="canonical" href="../record/"></head>'
+                                    '<body><a href="../record/">Hardwood Ledger: Pick of the Day record</a></body></html>', encoding="utf-8")
+
+
+def kit_key():
+    k = os.environ.get("KIT_KEY", "").strip()
+    return k if len(k) >= 16 and all(ch.isalnum() or ch in "-_" for ch in k) else ""
+
+
+def publish_kit(day_dir, files, zip_name):
+    """Put today's kit at /social/<KIT_KEY>/ (deployed with the site, never committed)."""
+    key = kit_key()
+    for old in OUT.glob("*"):                        # anything else under /social/ (old kits, an old key) comes down
+        if old.is_dir() and old.name != key:
+            shutil.rmtree(old, ignore_errors=True)
+    if not key:
+        if os.environ.get("KIT_KEY"):
+            print("Social: KIT_KEY must be 16+ letters/numbers (- and _ allowed) -- private kit page skipped.")
+        return False
+    dest = OUT / key
+    shutil.rmtree(dest, ignore_errors=True)
+    dest.mkdir(parents=True)
+    for f in files + [zip_name, "index.html"]:
+        if (day_dir / f).exists():
+            shutil.copy2(day_dir / f, dest / f)
+    print("Social: kit page is up at your private link (/social/<your KIT_KEY>/).")
+    return True
 
 
 def site_url():
@@ -716,8 +757,7 @@ def main():
         print(f"Social: graded {n} Pick of the Day result(s).")
     if "--grade" in sys.argv:
         write_log(rows)
-        OUT.mkdir(parents=True, exist_ok=True)
-        (OUT / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
+        publish_record(rows)
         return
 
     today = today_ct()
@@ -729,8 +769,7 @@ def main():
     if not src.exists():
         print(f"Social: no picks saved for {today} (no games, or the newsletter step didn't run) -- graded only.")
         write_log(rows)
-        OUT.mkdir(parents=True, exist_ok=True)
-        (OUT / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
+        publish_record(rows)
         return
     d = json.loads(src.read_text(encoding="utf-8"))
     if not d.get("legs"):
@@ -749,8 +788,6 @@ def main():
     c = next((x for x in d.get("potd") or [] if row and x["name"] == row["Player"] and x["stat"] == row["Stat"]), None)
 
     site = site_url()
-    for old in ([] if TEST else OUT.glob("20??-??-??")):   # older versions put the kit on the public site: take it down
-        shutil.rmtree(old, ignore_errors=True)
     for old in NEWS.glob("20??-??-??.json"):     # and the raw pick data next to the newsletter archive
         old.unlink()
     day_dir = KIT / today
@@ -769,11 +806,12 @@ def main():
         print("Social: video failed:", repr(e))
     caps = captions(d, row, rec, site)
     reddit = reddit_comment(row, c, rec) if row else ""
-    (day_dir / "index.html").write_text(day_page(d, files, caps, reddit, row, rec, site), encoding="utf-8")
+    zp = make_zip(d, day_dir, files, caps, reddit)
+    (day_dir / "index.html").write_text(day_page(d, files, caps, reddit, row, rec, site, zp.name), encoding="utf-8")
     if not TEST:
-        OUT.mkdir(parents=True, exist_ok=True)
-        (OUT / "index.html").write_text(index_page(rows, record(rows)), encoding="utf-8")
+        publish_record(rows)
     print(f"Social: saved social_kit/{today}/ ({len(files)} files, private)")
+    publish_kit(day_dir, files, zp.name)
     if os.environ.get("SOCIAL_DRY") != "1":
         try:
             email_kit(d, day_dir, files, caps, reddit)
