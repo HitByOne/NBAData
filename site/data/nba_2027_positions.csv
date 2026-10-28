@@ -111,6 +111,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4431767,Christian Braun,DEN,SG,G,Basketball-Reference 2026-27
 4433621,Jalen Duren,DET,C,C,Basketball-Reference 2026-27
 4278562,Paul Reed,DET,C,F,Basketball-Reference 2026-27
+5107818,Isaac Jones,DET,PF,C,Basketball-Reference 2025-26
 3908845,John Collins,DET,PF,F,Basketball-Reference 2026-27
 4683771,Ronald Holland II,DET,PF,F,estimated from ESPN F
 4397882,Tolu Smith,DET,PF,F,Basketball-Reference 2026-27
@@ -119,6 +120,9 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5258459,Ebuka Okorie,DET,PG,G,Basketball-Reference 2026-27
 4684742,Ausar Thompson,DET,SF,G,Basketball-Reference 2026-27
 3157465,Duncan Robinson,DET,SF,F,Basketball-Reference 2026-27
+2990962,Taurean Prince,DET,SF,F,Basketball-Reference 2025-26
+4700852,Chaz Lanier,DET,SG,G,Basketball-Reference 2025-26
+4397449,Elijah Harkless,DET,SG,G,Basketball-Reference 2025-26
 4395702,Isaiah Joe,DET,SG,G,Basketball-Reference 2026-27
 2596112,Javonte Green,DET,SG,G,Basketball-Reference 2026-27
 4066372,Kevin Huerter,DET,SG,G,Basketball-Reference 2026-27
@@ -267,6 +271,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4431823,Miles McBride,NY,PG,G,Basketball-Reference 2026-27
 4433225,Tyler Kolek,NY,PG,G,Basketball-Reference 2026-27
 3147657,Mikal Bridges,NY,SF,G,Basketball-Reference 2026-27
+5289900,Mohamed Diawara,NY,SF,F,Basketball-Reference 2025-26
 4683730,Jaden Akins,NY,SG,G,Basketball-Reference 2026-27
 2528426,Jordan Clarkson,NY,SG,G,Basketball-Reference 2026-27
 3062679,Josh Hart,NY,SG,G,Basketball-Reference 2026-27
@@ -336,10 +341,10 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4279888,Ja Morant,POR,PG,G,Basketball-Reference 2026-27
 3995,Jrue Holiday,POR,PG,G,Basketball-Reference 2026-27
 4683678,Scoot Henderson,POR,PG,G,Basketball-Reference 2026-27
-4578893,Vit Krejci,POR,PG,G,estimated from ESPN G
 4683021,Deni Avdija,POR,SF,F,Basketball-Reference 2026-27
 4703889,Jayson Kent,POR,SF,G,Basketball-Reference 2026-27
 5081727,Sidy Cissoko,POR,SF,G,Basketball-Reference 2026-27
+4578893,Vit Krejci,POR,SG,G,estimated from ESPN G
 3064560,Luke Kornet,SA,C,C,Basketball-Reference 2026-27
 5105809,Tarris Reed Jr.,SA,C,C,Basketball-Reference 2026-27
 5104157,Victor Wembanyama,SA,C,F,Basketball-Reference 2026-27
