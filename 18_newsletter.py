@@ -282,7 +282,8 @@ def build_email(d, img_src, view_url, site):
             ring = ORANGE if i == 0 else LINE
             opp = f"{'vs' if x.get('home') else '@'} {esc(x['def'])}"
             sub = f"{opp} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else opp
-            val = compact(x["pick"]).split(" ")[0]          # 'o13.5' (or the boost projection)
+            # 'o13.5' when it's ranked against the book line; the projection when no line was up yet (matchup boost)
+            val = compact(x["pick"]).split(" ")[0] if blk["how"] == "best" else fmt(x.get("proj"))
             chips += f'''<td class="chip" width="20%" valign="top" style="width:20%;padding:7px 8px;background:{CARD};border:1px solid {ring};border-radius:11px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;"><tr>
                 <td class="cn" style="font:700 11.5px {FONT};color:{TXT};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{esc(short_name(x['name']))}</td>
@@ -290,7 +291,7 @@ def build_email(d, img_src, view_url, site):
               <div style="{num}font-size:14px;color:{GREEN};">{esc(val)}</div>
               <div class="cs" style="font:500 10px {FONT};color:{DIM};white-space:nowrap;">{sub}</div></td>'''
         chips += "<td></td>" * (5 - len(blk["list"][:5]))
-        note = "" if blk["how"] == "best" else f'<div style="font:500 9px {FONT};color:{DIM};letter-spacing:0;">by matchup</div>'
+        note = "" if blk["how"] == "best" else f'<div style="font:500 9px {FONT};color:{DIM};letter-spacing:0;">projected<br>no lines yet</div>'
         stat_rows.append(f'''<tr><td class="sl" width="54" valign="middle" style="width:54px;padding:0 4px 0 0;font:800 12px {FONT};letter-spacing:.06em;color:{PINK};">{esc(blk['short'])}{note}</td>
           <td><table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="chips" style="border-collapse:separate;border-spacing:5px 0;table-layout:fixed;"><tr>{chips}</tr></table></td></tr>
           <tr><td colspan="2" style="height:8px;line-height:8px;font-size:0;">&nbsp;</td></tr>''')
