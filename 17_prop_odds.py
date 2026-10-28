@@ -12,7 +12,8 @@ Rebuilt for OddsPapi v5 (https://docs.oddspapi.io): base https://v5.oddspapi.io/
     afternoon refresh (ODDS_MIN_UTC_HOUR, default 15 = 10am ET), when the day's props are posted, and only for games in the next
     ODDS_DAYS_AHEAD days (default 1). About 4 lookups plus one request per game: roughly 15 a day, 450 a month. If that is too
     much for your plan, set ODDS_RUN_DAYS to fewer days. Set ODDS_FORCE=1 to run any time.
-    It also skips if the CSV was already refreshed in the last 6 hours.
+    It also skips if the last good pull was under ODDS_MIN_HOURS ago (default 1.5) -- read from the status file's own
+    timestamp, because a fresh checkout in GitHub Actions gives every file a brand-new date.
   * It never overwrites a good CSV with an empty result (props post late; a thin pull should not wipe the page).
   * Extra columns the dashboard reads: stat (normalized stat name), ou (over / under / yes / no), fetched.
 
@@ -39,9 +40,14 @@ WANT_BOOKS = [b.strip() for b in os.environ.get("ODDS_BOOKS", "fanduel,draftking
 DAYS_AHEAD = int(os.environ.get("ODDS_DAYS_AHEAD", "1"))
 RUN_DAYS = {int(x) for x in os.environ.get("ODDS_RUN_DAYS", "0,1,2,3,4,5,6").split(",") if x.strip().isdigit()}
 MIN_UTC_HOUR = int(os.environ.get("ODDS_MIN_UTC_HOUR", "15"))
-MIN_HOURS_BETWEEN_RUNS = 6
+MIN_HOURS_BETWEEN_RUNS = float(os.environ.get("ODDS_MIN_HOURS", "1.5"))
 OUT_FILE = PROCESSED_DIR / f"nba_{SEASON}_prop_odds.csv"
 STATUS_FILE = PROCESSED_DIR / f"nba_{SEASON}_prop_odds_status.csv"   # one row: what the last real attempt did and why
+# Every night's main line for the Power 5 stats, kept for the season so past picks can be graded against the line
+# that was actually posted (prop_odds.csv only ever holds the latest pull).
+HISTORY_FILE = PROCESSED_DIR / f"nba_{SEASON}_prop_history.csv"
+HISTORY_STATS = {"Points", "Rebounds", "Assists", "3PM", "Pts+Reb+Ast"}
+HISTORY_FIELDS = ["Date", "Player", "Stat", "Line", "Over", "Under", "Fetched"]
 FIELDS = ["game", "kickoff", "player", "market", "stat", "line", "side", "ou", "decimal_odds", "american_odds",
           "book", "active", "fetched"]
 
@@ -205,6 +211,54 @@ def build_rows(fixture_odds, markets, players, fetched):
     return [r for r in rows if r["player"]]
 
 
+def et_date_of(kickoff):
+    """'2026-11-12T00:30Z' -> '2026-11-11' (the NBA's game date is the US Eastern date)."""
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.strptime(kickoff, "%Y-%m-%dT%H:%MZ").replace(tzinfo=timezone.utc).astimezone(ZoneInfo("America/New_York")).date().isoformat()
+    except Exception:
+        return str(kickoff)[:10]
+
+
+def update_history(rows, fetched):
+    """Main line per player + stat + game date (both sides posted beats one-sided, then the pair priced closest to
+    even -- the same rule the dashboard uses), merged into the season history. A later pull replaces the same night."""
+    groups = {}
+    for r in rows:
+        if r["stat"] not in HISTORY_STATS or r["ou"] not in ("over", "under") or r["line"] in ("", None) or not r["active"]:
+            continue
+        try:
+            line, dec = float(r["line"]), float(r["decimal_odds"])
+        except (TypeError, ValueError):
+            continue
+        if dec <= 1:
+            continue
+        k = (et_date_of(r["kickoff"]), r["player"], r["stat"])
+        g = groups.setdefault(k, {}).setdefault(line, {"over": 0.0, "under": 0.0})
+        g[r["ou"]] = max(g[r["ou"]], dec)
+    new = {}
+    for (d, pl, st), lines in groups.items():
+        def score(item):
+            o, u = item[1]["over"], item[1]["under"]
+            return abs(1 / o - 1 / u) if o and u else 1 + abs((o or u) - 1.91)
+        line, best = min(lines.items(), key=score)
+        new[(d, pl, st)] = {"Date": d, "Player": pl, "Stat": st, "Line": line, "Over": best["over"] or "", "Under": best["under"] or "", "Fetched": fetched}
+    if not new:
+        return 0
+    old = {}
+    if HISTORY_FILE.exists():
+        with open(HISTORY_FILE, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                old[(r["Date"], r["Player"], r["Stat"])] = r
+    old.update(new)
+    with open(HISTORY_FILE, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=HISTORY_FIELDS)
+        w.writeheader()
+        w.writerows(sorted(old.values(), key=lambda r: (r["Date"], r["Player"], r["Stat"])))
+    print(f"[prop odds] line history: {len(new)} main lines saved for {len({k[0] for k in new})} date(s); {len(old)} in the season file")
+    return len(new)
+
+
 def write_status(outcome, detail="", games="", rows="", calls=""):
     """The dashboard's Prop Prices tab shows this, so you can see why there are no prices without opening the Actions log."""
     detail = re.sub(r"\s+", " ", str(detail))[:600]
@@ -225,12 +279,25 @@ def should_run():
         print(f"Not a prop-odds day (today is weekday {date.today().weekday()}, runs on {sorted(RUN_DAYS)}). "
               f"Set ODDS_FORCE=1 to run anyway. Keeping the existing file.")
         return False
-    if OUT_FILE.exists():
-        age_h = (time.time() - OUT_FILE.stat().st_mtime) / 3600
+    last = last_good_pull()
+    if last is not None:
+        age_h = (datetime.now(timezone.utc) - last).total_seconds() / 3600
         if age_h < MIN_HOURS_BETWEEN_RUNS:
             print(f"Prop odds were refreshed {age_h:.1f}h ago; skipping to save requests.")
             return False
     return True
+
+
+def last_good_pull():
+    """When the last successful pull ran (from the status file -- file dates reset on every checkout)."""
+    try:
+        with open(STATUS_FILE, newline="", encoding="utf-8") as f:
+            row = next(csv.DictReader(f))
+        if row.get("outcome") != "ok":
+            return None
+        return datetime.strptime(row["ran_at"], "%Y-%m-%d %H:%M UTC").replace(tzinfo=timezone.utc)
+    except Exception:
+        return None
 
 
 def main():
@@ -358,6 +425,10 @@ def main():
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
         w.writerows(rows)
+    try:
+        update_history(rows, fetched)
+    except Exception as exc:   # the history is a bonus: never let it break the main file
+        print(f"[prop odds] line history not updated: {exc}")
     unknown = sorted({r["market"] for r in rows if not r["stat"]})
     print(f"Saved {len(rows)} prop lines to {OUT_FILE.name} ({calls_used} API calls)")
     write_status("ok", f"{len(rows)} prices from {len({r['book'] for r in rows})} books. {len(unknown)} market types not mapped to a stat." + (" Unmapped: " + "; ".join(map(str, unknown[:8])) if unknown else ""), games=len(games), rows=len(rows), calls=calls_used)
