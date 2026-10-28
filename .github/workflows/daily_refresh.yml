@@ -11,14 +11,18 @@ on:
     # 20:00 UTC (2pm Central in winter, 3pm in Oct/Apr): backup -- sends whatever the noon try held back. If noon
     # already sent, it does nothing extra (no second odds pull, no second email).
     - cron: '0 20 * * *'
+    # 23:00 UTC (5pm Central in winter, 6pm in Oct/Apr): evening check -- fresh injury report, emails YOU if tonight's
+    # Pick of the Day or a Starting 5 player is listed. With the CLV_ENABLED variable set to true it also pulls odds
+    # once more to record the closing line (Settings -> Secrets and variables -> Actions -> Variables).
+    - cron: '0 23 * * *'
     # 05:00 UTC (11pm Central in winter, midnight in Oct/Apr): late stats refresh -- tonight's finished games, no odds pull.
     - cron: '0 5 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'full = everything, quick = injuries + slate + props, newsletter = quick + send to the list, test = quick + newsletter and social kit to YOU only (nothing recorded)'
+        description: 'full = everything, quick = injuries + slate + props, newsletter = quick + send to the list, test = newsletter and social kit to YOU only from the saved lines (no odds pull, nothing recorded), alerts = the evening injury check now'
         type: choice
-        options: [full, quick, newsletter, test]
+        options: [full, quick, newsletter, test, alerts]
         default: full
 
 permissions:
@@ -55,14 +59,16 @@ jobs:
 
       - name: Run pipeline
         env:
-          QUICK: ${{ (github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test') && '1' || '' }}
+          QUICK: ${{ (github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *' || github.event.schedule == '0 23 * * *' || github.event.inputs.mode == 'alerts' || github.event.inputs.mode == 'quick' || github.event.inputs.mode == 'newsletter' || github.event.inputs.mode == 'test') && '1' || '' }}
         run: |
           if [ "$QUICK" = "1" ]; then python3 run_daily.py --quick; else python3 run_daily.py; fi
 
       - name: Fetch player prop prices
         # Its own step so it always shows in the log. A failure here never stops the refresh.
         # Skipped on the late-night stats refresh, and on the 2pm backup when noon already sent (saves requests).
-        if: github.event.schedule != '0 5 * * *' && !(github.event.schedule == '0 20 * * *' && steps.today.outputs.sent == 'yes')
+        # Also skipped on mode = test, so testing never spends your OddsPapi requests (it uses the lines already saved).
+        # The evening check only pulls when CLV_ENABLED is true (one extra pull a day, for the closing line).
+        if: github.event.schedule != '0 5 * * *' && github.event.inputs.mode != 'test' && github.event.inputs.mode != 'alerts' && !(github.event.schedule == '0 20 * * *' && steps.today.outputs.sent == 'yes') && (github.event.schedule != '0 23 * * *' || vars.CLV_ENABLED == 'true')
         continue-on-error: true
         env:
           # Settings -> Secrets and variables -> Actions -> New repository secret: RAPIDAPI_KEY
@@ -70,7 +76,9 @@ jobs:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
           # Manual runs and the two afternoon runs always fetch prices.
-          ODDS_FORCE: ${{ (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *') && '1' || '' }}
+          ODDS_FORCE: ${{ (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 18 * * *' || github.event.schedule == '0 20 * * *' || github.event.schedule == '0 23 * * *') && '1' || '' }}
+          # the evening closing-line pull doesn't overwrite the afternoon's saved lines (those grade the Starting 5)
+          ODDS_NO_HISTORY: ${{ github.event.schedule == '0 23 * * *' && '1' || '' }}
         run: |
           python3 17_prop_odds.py
           echo "--- status file ---"
@@ -135,6 +143,16 @@ jobs:
           path: social_kit
           key: social-kit-${{ steps.today.outputs.date }}-${{ github.run_id }}
 
+      - name: Evening check (late scratches + closing line)
+        if: github.event.schedule == '0 23 * * *' || github.event.inputs.mode == 'alerts'
+        continue-on-error: true
+        env:
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          KIT_TO: ${{ secrets.KIT_TO }}
+          CLV: ${{ github.event.schedule == '0 23 * * *' && vars.CLV_ENABLED == 'true' && '1' || '' }}
+        run: python3 20_alerts.py
+
       - name: Grade the Pick of the Day
         # Every other run: grade finished picks from the new box scores (no pictures, nothing posted).
         if: github.event.schedule != '0 18 * * *' && github.event.schedule != '0 20 * * *' && github.event.inputs.mode != 'newsletter' && github.event.inputs.mode != 'test'
@@ -146,7 +164,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/data
-          for d in site/newsletter site/social records; do if [ -d "$d" ]; then git add "$d"; fi; done
+          for d in site/newsletter site/social site/record records; do if [ -d "$d" ]; then git add "$d"; fi; done
           git diff --staged --quiet || git commit -m "Daily data refresh"
           # If you uploaded files while this ran, pull them in first (our fresh data wins on any clash), then push.
           git pull --rebase -X theirs origin main || true
