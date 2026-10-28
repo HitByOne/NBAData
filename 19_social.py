@@ -414,15 +414,18 @@ def stat_rows(d, stats_only, big, tall=1.0):
             if stats_only:
                 val, sub = f"{fmt(x.get('proj'))}", f"{opp} &middot; {esc(x['pos'])}"
             else:
-                val = compact(x["pick"]).split(" ")[0]
-                sub = f"{opp} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else opp
+                # the OVER line when it was ranked against the book; the projection when no line was up yet
+                val = compact(x["pick"]).split(" ")[0] if blk["how"] == "best" else fmt(x.get("proj"))
+                sub = (f"{opp} &middot; {x['hits']}/{x['n']}" if x.get("hits") is not None else opp) if blk["how"] == "best" else f"{opp} &middot; proj"
             chips += (f'<div class="card" style="flex:1;min-width:0;padding:{big * .55 * tall:.0f}px {big * .36:.0f}px;{ring}">'
                       f'<div style="display:flex;flex-wrap:wrap;align-items:baseline;column-gap:{big * .25:.0f}px;min-width:0"><span style="min-width:0;font-size:{big * .85:.0f}px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">{esc(short_name(x["name"]))}</span>'
                       f'<span style="flex:none;font-size:{big * .6:.0f}px;font-weight:800;color:{ORANGE}">{esc(x["off"])}</span></div>'
                       f'<div class="num" style="font-size:{big * 1.25:.0f}px;color:{GREEN}">{esc(val)}</div>'
                       f'<div class="dim" style="font-size:{big * .78:.0f}px;white-space:nowrap">{sub}</div></div>')
         rows.append(f'<div style="display:flex;gap:{big * .35:.0f}px;align-items:stretch;margin-bottom:{big * .7 * tall:.0f}px">'
-                    f'<div style="width:{big * 3.1:.0f}px;flex:none;display:flex;align-items:center;font-weight:800;font-size:{big * 1.05:.0f}px;letter-spacing:.06em;color:{PINK}">{esc(blk["short"])}</div>{chips}</div>')
+                    f'<div style="width:{big * 3.1:.0f}px;flex:none;display:flex;align-items:center;font-weight:800;font-size:{big * 1.05:.0f}px;letter-spacing:.06em;color:{PINK};flex-direction:column;align-items:flex-start;justify-content:center">{esc(blk["short"])}'
+                    + (f'<span class="dim" style="font-size:{big * .5:.0f}px;font-weight:600;letter-spacing:0">no lines yet</span>' if blk["how"] != "best" and not stats_only else "")
+                    + f'</div>{chips}</div>')
     return "".join(rows)
 
 
