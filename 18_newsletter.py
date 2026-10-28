@@ -280,12 +280,15 @@ def build_email(d, img_src, view_url, site):
         chips = ""
         for i, x in enumerate(blk["list"][:5]):
             ring = ORANGE if i == 0 else LINE
-            sub = f"{esc(x['pos'])} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else esc(x["pos"])
+            opp = f"{'vs' if x.get('home') else '@'} {esc(x['def'])}"
+            sub = f"{opp} &middot; {x['hits']}/{x['n']}" if blk["how"] == "best" and x.get("hits") is not None else opp
             val = compact(x["pick"]).split(" ")[0]          # 'o13.5' (or the boost projection)
             chips += f'''<td class="chip" width="20%" valign="top" style="width:20%;padding:7px 8px;background:{CARD};border:1px solid {ring};border-radius:11px;">
-              <div class="cn" style="font:700 12px {FONT};color:{TXT};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{esc(short_name(x['name']))}</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;"><tr>
+                <td class="cn" style="font:700 11.5px {FONT};color:{TXT};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{esc(short_name(x['name']))}</td>
+                <td class="ct" width="24" align="right" style="width:24px;padding-left:2px;font:800 9px {FONT};color:{ORANGE};white-space:nowrap;">{esc(x['off'])}</td></tr></table>
               <div style="{num}font-size:14px;color:{GREEN};">{esc(val)}</div>
-              <div style="font:500 10px {FONT};color:{DIM};white-space:nowrap;">{sub}</div></td>'''
+              <div class="cs" style="font:500 10px {FONT};color:{DIM};white-space:nowrap;">{sub}</div></td>'''
         chips += "<td></td>" * (5 - len(blk["list"][:5]))
         note = "" if blk["how"] == "best" else f'<div style="font:500 9px {FONT};color:{DIM};letter-spacing:0;">by matchup</div>'
         stat_rows.append(f'''<tr><td class="sl" width="54" valign="middle" style="width:54px;padding:0 4px 0 0;font:800 12px {FONT};letter-spacing:.06em;color:{PINK};">{esc(blk['short'])}{note}</td>
@@ -336,6 +339,9 @@ def build_email(d, img_src, view_url, site):
   .sl{{width:32px !important;font-size:10px !important}}
   .g{{width:72px !important}}
   .cn{{font-size:10px !important;letter-spacing:-.2px}}
+  .ct{{display:block !important;width:auto !important;text-align:left !important;padding-left:0 !important;font-size:8.5px !important}}
+  .cn{{display:block !important}}
+  .cs{{font-size:8.5px !important;letter-spacing:-.2px}}
   .chips{{border-spacing:3px 0 !important}}
   .mh{{font-size:19px !important;white-space:nowrap}}
 }}
