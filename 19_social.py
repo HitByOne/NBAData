@@ -63,7 +63,8 @@ LOG_COLS = ["Date", "Locked At (UTC)", "Player", "Pos", "Team", "Opponent", "Hom
             "Side", "American", "Decimal", "Units", "Projection", "Result", "Actual", "Profit",
             "Close Line", "Close American", "Close Decimal"]      # the main line at the evening check (closing-line value)
 S5_LOG = ROOT / "records" / "nba_2027_starting5_log.csv"     # today's Starting 5 as sent (for the late-scratch alert)
-S5_COLS = ["Date", "Pos", "Player", "Team", "Opponent", "Stat", "Pick", "Projection"]
+S5_COLS = ["Date", "Pos", "Player", "Team", "Opponent", "Stat", "Pick", "Projection", "Line", "Decimal", "Mode"]
+PUBLIC_S5 = DATA / "nba_2027_starting5.csv"                    # what the app grades the Starting 5 record from (as sent)
 PUBLIC_POTD = DATA / "nba_2027_potd.csv"                      # what the app reads (today's pick shows from the moment it locks)
 
 BG, CARD, LINE, TXT, DIM = "#07080F", "#11131E", "#262c38", "#F2F4FA", "rgba(242,244,250,0.66)"
@@ -813,7 +814,9 @@ def save_starting5(d):
         with S5_LOG.open(newline="", encoding="utf-8") as f:
             rows = [r for r in csv.DictReader(f) if r.get("Date") != d["iso"]]
     rows += [{"Date": d["iso"], "Pos": l["pos"], "Player": l["name"], "Team": l["off"], "Opponent": l["def"], "Stat": l["stat"],
-              "Pick": compact(l["pick"]), "Projection": fmt(l.get("proj"))} for l in d["legs"]]
+              "Pick": compact(l["pick"]), "Projection": fmt(l.get("proj")),
+              "Line": fmt(l["line"]) if l.get("line") is not None and d.get("mode") != "boost" else "",
+              "Decimal": f"{l['dec']:.3f}" if l.get("dec") else "", "Mode": d.get("mode", "")} for l in d["legs"]]
     S5_LOG.parent.mkdir(parents=True, exist_ok=True)
     with S5_LOG.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=S5_COLS)
@@ -822,7 +825,10 @@ def save_starting5(d):
 
 
 def publish_record(rows):
-    """/record/ = the public record; /social/ (the old link) forwards there; data/nba_2027_potd.csv feeds the app."""
+    """/record/ = the public record; /social/ (the old link) forwards there; data/nba_2027_potd.csv and
+    data/nba_2027_starting5.csv feed the app (both exactly as locked/sent)."""
+    if S5_LOG.exists():
+        shutil.copyfile(S5_LOG, PUBLIC_S5)
     with PUBLIC_POTD.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=LOG_COLS)
         w.writeheader()
