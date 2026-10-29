@@ -1,7 +1,7 @@
 Team,Player,Position,Status,Injury,Return,Updated
 ATL,Henri Veesaar,C,Out,Right Knee,2027-07-01,2026-09-21
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-11-20,2026-10-19
-BKN,Egor Demin,G,Day-To-Day,Right Leg Bruise,2026-10-30,2026-10-28
+BKN,Egor Demin,G,Out,Right Leg Bruise,2026-11-07,2026-10-29
 BKN,Tyler Bilodeau,F,Out,Right Shoulder Sprain,2026-10-30,2026-10-25
 BOS,Devin Carter,G,Out,Illness,2026-11-08,2026-10-18
 CHA,Coby White,G,Out,Left Calf Strain,2026-11-02,2026-10-26
@@ -11,6 +11,8 @@ CHA,Kylan Boswell,G,Out,Right Knee Surgery,2026-11-02,2026-10-20
 CHI,Nic Claxton,C,Out,Hamstring,2026-11-04,2026-10-26
 CHI,Patrick Williams,F,Out,Right Groin Soreness,2026-10-30,2026-10-28
 CHI,Tobe Awaka,F,Day-To-Day,Ankle,2026-10-30,2026-10-29
+CLE,Jaylon Tyson,G,Day-To-Day,Neck,2026-10-29,2026-10-29
+CLE,Meleek Thomas,G,Day-To-Day,Foot,2026-10-29,2026-10-29
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-02,2026-10-22
 DAL,Naji Marshall,F,Day-To-Day,Illness,2026-10-30,2026-10-29
 DAL,Santi Aldama,F,Out,Right Knee Surgery,2026-10-30,2026-10-28
@@ -75,7 +77,7 @@ SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
 SAC,Dylan Cardwell,C,Out,Left Calf Strain,2026-11-06,2026-10-26
 SAC,Keegan Murray,F,Out,Ankle,2026-11-06,2026-10-26
 SAC,Maxime Raynaud,C,Out,Right Knee Dislocated,2026-11-10,2026-10-26
-TOR,Kawhi Leonard,F,Out,Left Knee Inflammation,2026-11-23,2026-10-27
+TOR,Kawhi Leonard,F,Out,Left Knee Inflammation,2026-11-23,2026-10-29
 TOR,Nate Bittle,C,Out,Right Foot Fracture,2026-11-02,2026-10-27
 UTAH,Jaren Jackson Jr.,F,Out,Right Knee Not Specified,2026-12-14,2026-10-27
 UTAH,Jusuf Nurkic,C,Out,Right Foot Strain,2026-11-04,2026-10-07
