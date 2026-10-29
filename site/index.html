@@ -916,6 +916,9 @@
   .rec-t{width:100%;border-collapse:collapse;font-size:13px;} .rec-t th,.rec-t td{padding:8px 8px;border-top:1px solid var(--t-line,rgba(255,255,255,.08));text-align:left;}
   .rec-t th{font-size:11px;color:var(--t-dim,var(--chalk-dim));border-top:0;} .rec-t .num{text-align:right;} .rec-dim{color:var(--t-dim,var(--chalk-dim));font-size:12px;}
   @media (max-width:560px){ .potd-ban{grid-template-columns:1fr;} .potd-r{text-align:left;} .potd-nm{font-size:20px;} }
+  .p5-sent,.p5-rep,.p5-lock{font-size:10px;font-weight:800;letter-spacing:.4px;padding:1px 6px;border-radius:5px;margin-left:4px;}
+  .p5-sent{color:var(--t-over,#2EE6A0);box-shadow:inset 0 0 0 1px var(--t-over,#2EE6A0);} .p5-rep{color:var(--t-dim,#8b93a3);box-shadow:inset 0 0 0 1px var(--t-line,#333);}
+  .p5-lock{color:var(--t-accent-1,#FF7A2F);box-shadow:inset 0 0 0 1px var(--t-accent-1,#FF7A2F);margin-left:0;}
   /* ---- Power 5 ---- */
   .p5-floor{grid-template-columns:minmax(0,760px) minmax(300px,1fr);}
   .p5-list{display:flex;flex-direction:column;gap:8px;} .p5-list .p5-card{position:static;transform:none;width:100%;}
@@ -2362,6 +2365,7 @@ const CSV_FILES = {
   flow:        'data/nba_2027_game_flow.csv',
   playerInfo:  'data/nba_2027_player_info.csv',
   potd:        'data/nba_2027_potd.csv',
+  s5log:       'data/nba_2027_starting5.csv',
 };
 
 const TEAM_NAMES = {
@@ -4098,8 +4102,34 @@ function p5StartersAsOf(team, D){
     .map(p => ({...p, games: (ix.byPlayer.get(p.Player) || []).filter(r => num(r.Week) < D)}));
 }
 // One past night: the top pick at each position and how each leg did.
+// The Starting 5 exactly as it went out (saved by the afternoon run). Graded as sent; the replay below is only for
+// nights from before the saving started, so a later model change or line move can never rewrite a posted night.
+const S5_STAT_KEY = Object.fromEntries(Object.entries(TN_STAT_NAME).map(([k, v]) => [v, k]));
+function s5LogFor(iso){ return (DATA.s5log || []).filter(r => r.Date === iso && r.Player); }
+function s5LineOf(r){
+  const v = parseFloat(r.Line); if(isFinite(v)) return v;
+  const m = String(r.Pick || '').match(/^o\s*([\d.]+)/i); return m ? parseFloat(m[1]) : null;
+}
+function p5NightFromLog(D, rows){
+  const iso = dayDate(D), ix = p5Index();
+  const legs = rows.map(r => {
+    const st = S5_STAT_KEY[r.Stat] || r.Stat, line = s5LineOf(r);
+    const act = (ix.byPlayer.get(r.Player) || []).find(x => num(x.Week) === D && x.Team === r.Team);
+    const played = act && num(act.Minutes) > 0, v = played ? getStatValue(act, st) : null;
+    const hist = _p5hist.idx && _p5hist.idx.get(iso + '|' + slipNorm(r.Player) + '|' + st);
+    const dec = parseFloat(r.Decimal) || (hist && hist.bo ? hist.bo.dec : null);
+    return {pos: r.Pos, name: r.Player, off: r.Team, def: r.Opponent, stat: st, line, avg: null, proj: parseFloat(r.Projection) || null, target: line,
+      actual: v, result: line === null || !played ? 'VOID' : v > line ? 'HIT' : 'MISS', dec,
+      label: {main: `OVER ${fmt(line)} ${TN_STAT_SHORT[st] || st}`, sub: 'as sent'}, sent: true};
+  }).sort((a, b) => CV_POS.indexOf(a.pos) - CV_POS.indexOf(b.pos));
+  const graded = legs.filter(l => l.result !== 'VOID'), hits = graded.filter(l => l.result === 'HIT').length;
+  const priced = graded.length && graded.every(l => l.dec);
+  return {D, iso, legs, graded: graded.length, hits, cashed: graded.length > 0 && hits === graded.length,
+    pay: priced ? graded.reduce((a, l) => a * l.dec, 1) : null, sent: true};
+}
 function p5Night(D, mode){
   const iso = dayDate(D);
+  if(mode === 'best'){ const logged = s5LogFor(iso); if(logged.length) return p5NightFromLog(D, logged); }
   const lineFor = (player, stat) => (_p5hist.idx && _p5hist.idx.get(iso + '|' + slipNorm(player) + '|' + stat)) || null;
   const games = (DATA.games || []).filter(r => num(r.Week) === D).map(r => ({id: String(r['Game ID']), week: D, away: r.Away, home: r.Home, date: r.Tip || r.Date}));
   if(!games.length) return null;
@@ -4133,11 +4163,11 @@ function p5Night(D, mode){
 }
 let _p5rec = {key: null, nights: null};
 function p5Record(mode){
-  const key = mode + '|' + tnState.win + '|' + (DATA.playerGame || []).length + '|' + (_p5hist.dates || []).length;
+  const key = mode + '|' + tnState.win + '|' + (DATA.playerGame || []).length + '|' + (_p5hist.dates || []).length + '|' + (DATA.s5log || []).length;
   if(_p5rec.key === key) return _p5rec.nights;
   const last = LATEST_RESULTS_WEEK || 0, out = [];
   for(let D = 4; D <= last; D++){            // the first few nights have too little history to pick from
-    if(mode !== 'boost' && !(_p5hist.dates || []).includes(dayDate(D))) continue;
+    if(mode !== 'boost' && !(_p5hist.dates || []).includes(dayDate(D)) && !(mode === 'best' && s5LogFor(dayDate(D)).length)) continue;
     const n = p5Night(D, mode); if(n && n.legs.length) out.push(n);
   }
   _p5rec = {key, nights: out.reverse()};
@@ -4159,7 +4189,7 @@ function p5RecordHtml(){
   const legRow = l => `<div class="p5-gl"><span class="tn-cb" style="--m:var(--t-dim);">${l.pos}</span><div style="flex:1;min-width:0;"><div class="n">${frEsc(l.name)} <span class="p5-mt" style="display:inline;">${l.off} vs ${l.def}</span></div>
       <div class="p5-sub">${mode === 'boost' ? `${TN_STAT_SHORT[l.stat]}: beat his ${fmt(l.avg)} average?` : `${l.label.main.replace(/<[^>]+>/g, '')}`}</div></div>
       <div class="p5-act"><b>${l.actual === null ? '--' : fmt(l.actual)}</b><span>${l.actual === null ? 'did not play' : mode === 'boost' ? 'vs ' + fmt(l.avg) : 'vs ' + fmt(l.line)}</span></div>${chip(l.result)}</div>`;
-  const rows = nights.map(n => `<tr><td>${dayLabel(n.D, {long: true})}</td>
+  const rows = nights.map(n => `<tr><td>${dayLabel(n.D, {long: true})}${n.sent ? ' <span class="p5-sent" title="Graded exactly as it went out">sent</span>' : ' <span class="p5-rep" title="From before the Starting 5 was saved each day: re-picked with the data and lines of that afternoon">replayed</span>'}</td>
       <td>${n.legs.map(l => `<i class="p5-dot ${l.result.toLowerCase()}" title="${frEsc(l.name)} ${l.result}"></i>`).join('')}</td>
       <td class="num"><b>${n.hits}/${n.graded}</b></td><td>${n.cashed ? '<span class="p5-res hit">CASHED</span>' : '<span class="p5-res miss">NO</span>'}</td>
       <td class="num">${n.pay ? (n.cashed ? '<b style="color:var(--t-over);">' : '<span style="opacity:.6;">') + propAmerican(n.pay) + (n.cashed ? '</b>' : '</span>') : '--'}</td></tr>`).join('');
@@ -4281,12 +4311,24 @@ function mountPower5(){
     try { localStorage.setItem('nba_ledger_p5_mode', p5State.mode); } catch(e){}
     const games = all.filter(g => g.week === p5State.day);
     const pool = p5Pool(games);
-    // the lineup: the top player at each position, or the swap you picked
-    const lineup = {};
+    // the lineup: today's locked five when they've gone out (Best bet), else the top player at each position; a swap you
+    // picked wins either way
+    const locked = p5State.mode === 'best' ? s5LogFor(dayDate(p5State.day)) : [];
+    const lineup = {}, base = {};
     CV_POS.forEach(pos => {
       const list = pool[pos]; if(!list.length) return;
+      let top = list[0];
+      const lr = locked.find(r => r.Pos === pos);
+      if(lr){
+        const c = list.find(x => x.name === lr.Player);
+        if(c){
+          const st = S5_STAT_KEY[lr.Stat] || lr.Stat, row = c.rows.find(x => x.stat === st);
+          top = row && c.best.r.stat !== st ? {...c, best: {r: row, score: c.best.score}} : c;
+        }
+      }
+      base[pos] = top;
       const sw = p5State.swaps[pos] && list.find(c => c.key === p5State.swaps[pos]);
-      lineup[pos] = sw || list[0];
+      lineup[pos] = sw || top;
     });
     if(!lineup[p5State.sel]) p5State.sel = CV_POS.find(p => lineup[p]) || 'PG';
     const line = 'stroke="var(--t-line)" stroke-width="2" fill="none"';
@@ -4294,7 +4336,7 @@ function mountPower5(){
       <rect x="170" y="280" width="160" height="189" fill="var(--t-paint)" ${line}/><circle cx="250" cy="280" r="60" ${line}/>
       <path d="M 30 469 L 30 330 A 237.5 237.5 0 0 1 470 330 L 470 469" ${line}/><path d="M 210 417.5 A 40 40 0 0 1 290 417.5" ${line}/>
       <circle cx="250" cy="417.5" r="8" fill="none" stroke="var(--t-rim)" stroke-width="2.5"/><path d="M 190 1 A 60 60 0 0 0 310 1" ${line}/></svg>`;
-    const cards = CV_POS.map(pos => lineup[pos] ? p5CardHtml(lineup[pos], pos, pos === p5State.sel, lineup[pos] !== pool[pos][0]) : '').join('');
+    const cards = CV_POS.map(pos => lineup[pos] ? p5CardHtml(lineup[pos], pos, pos === p5State.sel, lineup[pos] !== base[pos]) : '').join('');
     // the slip: five legs and, when every leg has a book price, what the five together would pay
     const legs = CV_POS.filter(p => lineup[p]).map(p => lineup[p]);
     let slip = '';
@@ -4317,7 +4359,7 @@ function mountPower5(){
     if(p5State.view === 'record'){
       const ready = _p5hist.idx !== null;
       m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Starting 5 &middot; how it's doing</div>
-          <div class="panel-note">Every finished night replayed the way the Starting 5 would have picked it that afternoon: projected starters from the games before that night, his numbers and the defenses' as they stood then, and the book line that was posted that day (saved by each afternoon's odds pull). Each leg is graded on the box score: Best bet and Points only hit when he goes over the line; Matchup boost hits when he beats his own average. A player who doesn't play is VOID and drops out, as at the sportsbook. A night counts as all five when every leg that played hit.</div>
+          <div class="panel-note">Nights marked <b>sent</b> are graded exactly as the Starting 5 went out that afternoon (Best bet), so a later model change or line move never rewrites a posted night. Older nights, from before the five were saved each day, are <b>replayed</b>: re-picked the way the Starting 5 would have picked it that afternoon: projected starters from the games before that night, his numbers and the defenses' as they stood then, and the book line that was posted that day (saved by each afternoon's odds pull). Each leg is graded on the box score: Best bet and Points only hit when he goes over the line; Matchup boost hits when he beats his own average. A player who doesn't play is VOID and drops out, as at the sportsbook. A night counts as all five when every leg that played hit.</div>
           <div class="tn-sub">The same Season / Last 10 / Last 5 and pick type you choose apply to the replay.</div></div>${viewSeg}</div>
         <div class="tn-bar">${seg('p5-mode', P5_MODES.map(x => x[0]), p5State.mode, k => P5_MODES.find(x => x[0] === k)[1])}
           ${seg('tn-win', TN_WINDOWS.map(w => w[0]), tnState.win, k => TN_WINDOWS.find(w => w[0] === k)[1])}</div>
@@ -4330,7 +4372,7 @@ function mountPower5(){
     }
     m.innerHTML = `<div class="tn-top"><div><div class="panel-title tn-title">Starting 5</div>
         <div class="panel-note">One player per position who should have the best night against tonight's matchups. <b>Best bet</b>: each player's strongest OVER across points, rebounds, assists, threes and PRA: how far his projection clears the book line measured in his usual game-to-game swing for that stat (so a 2-point edge on a steady player beats it on a streaky one), with a nudge for how often he cleared it in his last 5. <b>Points only</b>: the same for points. <b>Matchup boost</b>: the stat where his projection beats his own average by the most (again in his usual swing), no line needed. Projections are the same as Tonight's (his average for the window you pick, home/away, and how this defense treats his position). Tap a player for the next three at that position and swap one in; the slip at the right shows the five legs and, when they all have prices, what they would pay together.</div>
-        <div class="tn-sub">${days.length ? dayLabel(p5State.day, {long: true}) + ' &middot; ' + games.length + ' game' + (games.length === 1 ? '' : 's') : 'No games on the slate'} &middot; tap a player to swap</div></div>${viewSeg}</div>
+        <div class="tn-sub">${days.length ? dayLabel(p5State.day, {long: true}) + ' &middot; ' + games.length + ' game' + (games.length === 1 ? '' : 's') : 'No games on the slate'} &middot; ${locked.length ? '<b class="p5-lock">Locked: the five that went out</b> &middot; ' : ''}tap a player to swap</div></div>${viewSeg}</div>
       <div class="tn-bar">${seg('p5-mode', P5_MODES.map(x => x[0]), p5State.mode, k => P5_MODES.find(x => x[0] === k)[1])}
         ${seg('tn-win', TN_WINDOWS.map(w => w[0]), tnState.win, k => TN_WINDOWS.find(w => w[0] === k)[1])}
         ${days.length > 1 ? seg('p5-day', days, p5State.day, d => dayLabel(d)) : ''}</div>
@@ -8881,7 +8923,7 @@ async function loadCSV(path){
 }
 
 // Core files (team summary, game log, box scores, DvP, SOS, upcoming slate) show the full error page if missing. These are extras:
-const OPTIONAL_CSV_KEYS = ['milestones', 'teamMilestones', 'injuries', 'epa', 'coaching', 'backtest', 'propOdds', 'propStatus', 'games', 'flow', 'playerInfo', 'potd'];
+const OPTIONAL_CSV_KEYS = ['milestones', 'teamMilestones', 'injuries', 'epa', 'coaching', 'backtest', 'propOdds', 'propStatus', 'games', 'flow', 'playerInfo', 'potd', 's5log'];
 async function loadCSVLenient(key, path){
   try {
     return await loadCSV(path);
