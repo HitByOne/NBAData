@@ -205,6 +205,8 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5041935,Cameron Boozer,MEM,PF,F,Basketball-Reference 2026-27
 5105550,GG Jackson,MEM,PF,F,Basketball-Reference 2026-27
 2991070,Jerami Grant,MEM,PF,F,Basketball-Reference 2026-27
+5231919,Karim Lopez,MEM,PF,F,estimated from ESPN F
+4595400,Olivier-Maxence Prosper,MEM,PF,F,Basketball-Reference 2026-27
 4684806,Taylor Hendricks,MEM,PF,F,Basketball-Reference 2026-27
 4431785,Scotty Pippen Jr.,MEM,PG,G,Basketball-Reference 2026-27
 4594326,Kris Murray,MEM,SF,F,Basketball-Reference 2026-27
@@ -257,6 +259,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3442,DeAndre Jordan,NO,C,C,Basketball-Reference 2026-27
 4869780,Derik Queen,NO,C,C,Basketball-Reference 2026-27
 5061589,Yves Missi,NO,C,C,Basketball-Reference 2026-27
+4431675,Trendon Watford,NO,PF,F,Basketball-Reference 2026-27
 4395628,Zion Williamson,NO,PF,F,Basketball-Reference 2026-27
 3907497,Dejounte Murray,NO,PG,G,Basketball-Reference 2026-27
 5144091,Jeremiah Fears,NO,PG,G,Basketball-Reference 2026-27
@@ -339,6 +342,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3136193,Devin Booker,PHX,SG,G,Basketball-Reference 2026-27
 4437244,Jalen Green,PHX,SG,G,Basketball-Reference 2026-27
 3913174,Luke Kennard,PHX,SG,G,Basketball-Reference 2026-27
+4592435,Branden Carlson,POR,C,C,Basketball-Reference 2026-27
 5105565,Donovan Clingan,POR,C,C,Basketball-Reference 2026-27
 4066399,Micah Potter,POR,C,C,Basketball-Reference 2026-27
 4066211,Robert Williams III,POR,C,C,Basketball-Reference 2026-27
@@ -351,6 +355,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4683021,Deni Avdija,POR,SF,F,Basketball-Reference 2026-27
 4703889,Jayson Kent,POR,SF,G,Basketball-Reference 2026-27
 5081727,Sidy Cissoko,POR,SF,G,Basketball-Reference 2026-27
+4593043,John Tonje,POR,SG,F,Basketball-Reference 2026-27
 4578893,Vit Krejci,POR,SG,G,estimated from ESPN G
 3064560,Luke Kornet,SA,C,C,Basketball-Reference 2026-27
 5105809,Tarris Reed Jr.,SA,C,C,Basketball-Reference 2026-27

@@ -13,7 +13,7 @@ CHI,Jalen Smith,F,Day-To-Day,Left Finger,2026-10-30,2026-10-29
 CHI,Nic Claxton,C,Out,Hamstring,2026-11-04,2026-10-26
 CHI,Patrick Williams,F,Out,Right Groin Soreness,2026-10-30,2026-10-29
 CHI,Tobe Awaka,F,Day-To-Day,Ankle,2026-10-30,2026-10-29
-CLE,Meleek Thomas,G,Out,Foot,2026-10-31,2026-10-29
+CLE,Meleek Thomas,G,Day-To-Day,Foot,2026-10-31,2026-10-30
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-02,2026-10-22
 DAL,Naji Marshall,F,Day-To-Day,Illness,2026-10-30,2026-10-29
 DAL,Santi Aldama,F,Out,Right Knee Surgery,2026-10-30,2026-10-29
@@ -49,11 +49,12 @@ LAC,Yanic Konan Niederhauser,C,Out,Right Foot Surgery,2026-11-08,2026-10-29
 LAL,Adou Thiero,F,Out,Left Knee Inflammation,2026-11-01,2026-10-30
 LAL,Cameron Carr,G,Out,Right Oblique Strain,2026-11-01,2026-10-30
 LAL,Ziaire Williams,F,Day-To-Day,Foot,2026-10-30,2026-10-30
+MEM,Quinten Post,C,Day-To-Day,Right Ankle Not Specified,2026-10-31,2026-10-30
 MIA,Simone Fontecchio,F,Day-To-Day,Illness,2026-10-30,2026-10-29
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
-NO,Dejounte Murray,G,Out,Personal,2026-10-31,2026-10-29
-NO,Jordan Poole,G,Out,Left Ankle,2026-10-31,2026-10-29
+NO,Dejounte Murray,G,Day-To-Day,Personal,2026-10-31,2026-10-30
+NO,Jordan Poole,G,Day-To-Day,Left Ankle,2026-10-31,2026-10-30
 NO,Yves Missi,C,Out,Left Knee Bruise,2026-11-02,2026-10-24
 NY,Jose Alvarado,G,Out,Left Ankle Sprain,2026-11-04,2026-10-29
 OKC,Alex Caruso,G,Out,Right Ankle,2026-11-04,2026-10-28
@@ -75,7 +76,8 @@ PHI,Tacko Fall,C,Out,Left Quadriceps Strain,2026-11-04,2026-10-27
 PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
 PHX,Oso Ighodaro,F,Day-To-Day,Oblique Strain,2026-10-30,2026-10-30
 POR,Chris Youngblood,G,Out,Left Ankle Soreness,2026-10-31,2026-10-27
-POR,Robert Williams III,C,Out,Left Knee,2026-10-31,2026-10-30
+POR,Ja Morant,G,Day-To-Day,Left Hamstring Not Specified,2026-10-31,2026-10-30
+POR,Robert Williams III,C,Day-To-Day,Left Knee,2026-10-31,2026-10-30
 POR,Shaedon Sharpe,G,Out,Right Knee Surgery,2027-03-02,2026-08-24
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-10-31,2026-10-28
