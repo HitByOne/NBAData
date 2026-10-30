@@ -6,14 +6,15 @@ BKN,Noah Clowney,F,Day-To-Day,Illness,2026-10-30,2026-10-30
 BKN,Tyler Bilodeau,F,Out,Right Shoulder Sprain,2026-11-01,2026-10-25
 BOS,Devin Carter,G,Out,Illness,2026-11-08,2026-10-18
 CHA,Coby White,G,Out,Left Calf Strain,2026-11-02,2026-10-26
-CHA,Dennis Schroder,G,Day-To-Day,Foot,2026-10-30,2026-10-30
+CHA,Dennis Schroder,G,Day-To-Day,Schroder (foot) is probable for Friday against the Wizards.,,2026-10-30
 CHA,Grant Williams,F,Out,Right Hamstring,2026-11-02,2026-10-26
 CHA,Kon Knueppel,G,Out,Left Hamstring,2026-11-02,2026-10-30
 CHA,Kylan Boswell,G,Out,Right Knee Surgery,2026-11-02,2026-10-20
-CHI,Dailyn Swain,G,Day-To-Day,Back Soreness,2026-10-30,2026-10-30
+CHI,Dailyn Swain,G,Day-To-Day,Back Soreness,2026-11-02,2026-10-30
 CHI,Jalen Smith,F,Day-To-Day,Left Finger,2026-10-30,2026-10-29
 CHI,Nic Claxton,C,Out,Hamstring,2026-11-04,2026-10-26
-CHI,Tobe Awaka,F,Day-To-Day,Ankle,2026-10-30,2026-10-29
+CHI,Tobe Awaka,F,Day-To-Day,Awaka (ankle) is questionable for Friday's game in Boston.,,2026-10-29
+CLE,Jaylon Tyson,G,Out,Right Ankle Sprain,2026-11-02,2026-10-30
 CLE,Meleek Thomas,G,Day-To-Day,Foot,2026-10-31,2026-10-30
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-02,2026-10-22
 DAL,Naji Marshall,F,Day-To-Day,Illness,2026-10-30,2026-10-30
@@ -54,9 +55,8 @@ MEM,Quinten Post,C,Day-To-Day,Right Ankle Not Specified,2026-10-31,2026-10-30
 MIA,Simone Fontecchio,F,Day-To-Day,Illness,2026-10-30,2026-10-30
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
-NO,Dejounte Murray,G,Day-To-Day,Personal,2026-10-31,2026-10-30
-NO,Jordan Poole,G,Day-To-Day,Left Ankle,2026-10-31,2026-10-30
-NO,Yves Missi,C,Out,Left Knee Bruise,2026-11-02,2026-10-24
+NO,Jordan Poole,G,Out,Left Ankle Sprain,2026-11-02,2026-10-30
+NO,Yves Missi,C,Out,Left Knee Bruise,2026-11-08,2026-10-30
 NY,Jose Alvarado,G,Out,Left Ankle Sprain,2026-11-04,2026-10-29
 NY,Karl-Anthony Towns,C,Day-To-Day,Left Wrist Sprain,2026-10-30,2026-10-30
 OKC,Alex Caruso,G,Out,Right Ankle,2026-11-04,2026-10-28
@@ -73,7 +73,7 @@ ORL,Paolo Banchero,F,Out,Right Ankle Sprain,2026-11-22,2026-10-24
 PHI,Ariel Hukporti,C,Out,Right Achilles Surgery,2027-10-01,2026-10-06
 PHI,Dominick Barlow,F,Out,Back Fracture,2026-11-04,2026-10-19
 PHI,Jabari Walker,F,Out,Left Knee Soreness,2026-10-31,2026-10-29
-PHI,Jaylen Brown,G,Day-To-Day,Knee,2026-10-30,2026-10-30
+PHI,Jaylen Brown,G,Day-To-Day,Knee,2026-10-31,2026-10-30
 PHI,Tacko Fall,C,Out,Left Quadriceps Strain,2026-11-04,2026-10-27
 PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
 PHX,Oso Ighodaro,F,Day-To-Day,Oblique Strain,2026-10-30,2026-10-30
@@ -82,7 +82,7 @@ POR,Ja Morant,G,Out,Left Hamstring Not Specified,2026-12-01,2026-10-30
 POR,Robert Williams III,C,Day-To-Day,Left Knee,2026-10-31,2026-10-30
 POR,Shaedon Sharpe,G,Out,Right Knee Surgery,2027-03-02,2026-08-24
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
-SA,Tobias Harris,F,Out,Left Calf Strain,2026-10-31,2026-10-28
+SA,Tobias Harris,F,Out,Left Calf Strain,2026-11-06,2026-10-28
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
 SAC,Dylan Cardwell,C,Out,Left Calf Strain,2026-11-06,2026-10-26
 SAC,Keegan Murray,F,Out,Ankle,2026-11-06,2026-10-26
