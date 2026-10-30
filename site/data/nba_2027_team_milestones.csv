@@ -1311,6 +1311,7 @@ Tre Jones,CHI,PG,3PM,54,100,46
 Al Horford,GS,C,Blocks,54,100,46
 Tyrese Proctor,CLE,PG,Games Played,54,100,46
 Zach LaVine,SAC,SG,Steals,54,100,46
+Olivier-Maxence Prosper,MEM,PF,Games Played,54,100,46
 Julian Champagnie,SA,SF,Points,2453,2500,47
 Cade Cunningham,DET,PG,Assists,2203,2250,47
 Draymond Green,GS,PF,Games Played,953,1000,47
@@ -1332,7 +1333,6 @@ Carter Bryant,SA,PF,3PM,53,100,47
 Caleb Martin,DAL,SF,Steals,53,100,47
 Precious Achiuwa,SAC,C,Blocks,53,100,47
 Ty Jerome,MEM,SG,3PM,53,100,47
-Olivier-Maxence Prosper,MEM,PF,Games Played,53,100,47
 Zeke Nnaji,DEN,PF,Rebounds,702,750,48
 Jalen Brunson,NY,PG,3PM,702,750,48
 Tre Jones,CHI,PG,Assists,452,500,48
@@ -1413,9 +1413,9 @@ Stephon Castle,SA,PG,Rebounds,688,750,62
 Jericho Sims,MIL,C,Rebounds,438,500,62
 Yves Missi,NO,C,Assists,188,250,62
 Daniss Jenkins,DET,PG,Rebounds,188,250,62
+Olivier-Maxence Prosper,MEM,PF,Rebounds,188,250,62
 Jalen Suggs,ORL,PG,Rebounds,937,1000,63
 Jabari Smith Jr.,HOU,PF,Assists,437,500,63
-Olivier-Maxence Prosper,MEM,PF,Rebounds,187,250,63
 Keegan Murray,SAC,PF,Rebounds,1436,1500,64
 Naji Marshall,DAL,SF,Rebounds,686,750,64
 Caleb Martin,DAL,SF,Rebounds,186,250,64
@@ -2048,8 +2048,8 @@ Ja'Kobe Walter,TOR,SG,Points,1043,1500,457
 Dyson Daniels,ATL,SG,Points,2038,2500,462
 Anthony Black,ORL,PG,Points,2037,2500,463
 Nolan Traore,BKN,SG,Points,537,1000,463
+Olivier-Maxence Prosper,MEM,PF,Points,534,1000,466
 Obi Toppin,IND,PF,Points,2031,2500,469
-Olivier-Maxence Prosper,MEM,PF,Points,530,1000,470
 Moussa Diabate,CHA,PF,Points,1024,1500,476
 Duncan Robinson,DET,SF,Points,1023,1500,477
 Kobe Sanders,LAC,SG,Points,523,1000,477
