@@ -8,7 +8,7 @@ CHA,Coby White,G,Out,Left Calf Strain,2026-11-02,2026-10-26
 CHA,Grant Williams,F,Out,Right Hamstring,2026-11-02,2026-10-26
 CHA,Kon Knueppel,G,Out,Left Hamstring,2026-11-02,2026-10-30
 CHA,Kylan Boswell,G,Out,Right Knee Surgery,2026-11-02,2026-10-20
-CHI,Dailyn Swain,G,Out,Back Soreness,2026-11-02,2026-10-30
+CHI,Dailyn Swain,G,Day-To-Day,Back Soreness,2026-11-02,2026-10-31
 CHI,Nic Claxton,C,Out,Hamstring,2026-11-04,2026-10-26
 CLE,Jaylon Tyson,G,Out,Right Ankle Sprain,2026-11-02,2026-10-30
 CLE,Meleek Thomas,G,Day-To-Day,Foot,2026-10-31,2026-10-30
@@ -24,13 +24,13 @@ DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-09,2026-10-25
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2026-12-01,2026-10-28
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
-HOU,Alperen Sengun,C,Out,Back Soreness,2026-10-31,2026-10-30
-HOU,Reed Sheppard,G,Out,Back,2026-10-31,2026-10-30
+HOU,Alperen Sengun,C,Day-To-Day,Back Soreness,2026-10-31,2026-10-31
+HOU,Reed Sheppard,G,Day-To-Day,Back,2026-10-31,2026-10-31
 HOU,Steven Adams,C,Out,Right Calf Strain,2026-11-02,2026-10-26
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
 IND,Ivica Zubac,C,Out,Left Ankle Sprain,2026-11-01,2026-10-29
 IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-10-30
-IND,Obi Toppin,F,Out,Back Soreness,2026-11-01,2026-10-30
+IND,Obi Toppin,F,Day-To-Day,Back Soreness,2026-11-01,2026-10-31
 IND,T.J. McConnell,G,Out,Right Hamstring Strain,2026-11-02,2026-10-30
 IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-11-13,2026-10-28
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-08,2026-10-15
@@ -39,7 +39,7 @@ LAC,Jordan Miller,G,Out,Left Shoulder Surgery,2027-03-02,2026-08-26
 LAC,Max Strus,G,Out,Right Foot Plantar Fasciitis,2026-11-08,2026-10-29
 LAC,Yanic Konan Niederhauser,C,Out,Right Foot Surgery,2026-11-08,2026-10-29
 LAL,Adou Thiero,F,Out,Left Knee Inflammation,2026-11-01,2026-10-30
-LAL,Ziaire Williams,F,Out,Left Foot,2026-11-01,2026-10-30
+LAL,Ziaire Williams,F,Day-To-Day,Left Foot,2026-11-01,2026-10-31
 MEM,Quinten Post,C,Day-To-Day,Right Ankle Not Specified,2026-10-31,2026-10-30
 MEM,Scotty Pippen Jr.,G,Day-To-Day,Back Soreness,2026-10-31,2026-10-30
 MEM,Ty Jerome,G,Day-To-Day,Back Soreness,2026-10-31,2026-10-30
@@ -62,7 +62,7 @@ ORL,Paolo Banchero,F,Out,Right Ankle Sprain,2026-11-22,2026-10-24
 PHI,Ariel Hukporti,C,Out,Right Achilles Surgery,2027-10-01,2026-10-06
 PHI,Dominick Barlow,F,Out,Back Fracture,2026-11-04,2026-10-19
 PHI,Jabari Walker,F,Out,Left Knee Soreness,2026-10-31,2026-10-29
-PHI,Jaylen Brown,G,Out,Knee,2026-10-31,2026-10-30
+PHI,Jaylen Brown,G,Day-To-Day,Knee,2026-10-31,2026-10-31
 PHI,Tacko Fall,C,Out,Left Quadriceps Strain,2026-11-04,2026-10-27
 PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
 POR,Chris Youngblood,G,Out,Left Ankle Soreness,2026-10-31,2026-10-30
