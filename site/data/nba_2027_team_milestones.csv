@@ -325,6 +325,7 @@ Stephon Castle,SA,PG,Blocks,42,50,8
 Moussa Cisse,DAL,C,Games Played,42,50,8
 Isaiah Hartenstein,OKC,C,Double Doubles,42,50,8
 Zach Collins,CHI,PF,Games Played,42,50,8
+Terance Mann,BKN,SG,Steals,42,50,8
 Desmond Bane,ORL,SG,Blocks,42,50,8
 LJ Cryer,GS,PG,3PM,42,50,8
 Jake LaRavia,LAL,PF,Blocks,42,50,8
@@ -378,7 +379,6 @@ Andrew Wiggins,MIA,SF,Blocks,91,100,9
 Andrew Wiggins,MIA,SF,Games Played,91,100,9
 Daniel Gafford,DAL,C,Steals,91,100,9
 Corey Kispert,ATL,SF,Games Played,41,50,9
-Terance Mann,BKN,SG,Steals,41,50,9
 VJ Edgecombe,PHI,SG,Blocks,41,50,9
 Jay Huff,IND,C,Steals,41,50,9
 Cameron Johnson,DEN,PF,Steals,41,50,9
@@ -1027,6 +1027,7 @@ Jared McCain,OKC,SG,Steals,16,50,34
 Paul George,BOS,PF,3PM,16,50,34
 Norman Powell,CHI,SG,3PM,16,50,34
 Michael Porter Jr.,BKN,SF,Blocks,16,50,34
+Terance Mann,BKN,SG,Blocks,16,50,34
 Daniss Jenkins,DET,PG,Blocks,16,50,34
 Anfernee Simons,PHI,SG,3PM,16,50,34
 Immanuel Quickley,TOR,PG,Blocks,16,50,34
@@ -1052,7 +1053,6 @@ Dru Smith,MIA,SG,3PM,65,100,35
 Asa Newell,ATL,PF,Blocks,15,50,35
 De'Andre Hunter,SAC,SF,3PM,15,50,35
 Leonard Miller,CHI,SF,Steals,15,50,35
-Terance Mann,BKN,SG,Blocks,15,50,35
 Jalen Slawson,IND,SF,3PM,15,50,35
 Jamal Murray,DEN,PG,3PM,1414,1450,36
 Jamal Murray,DEN,PG,Steals,614,650,36
@@ -1068,6 +1068,7 @@ Jordan McLaughlin,SA,PG,Games Played,64,100,36
 Daeqwon Plowden,SAC,SG,3PM,64,100,36
 Michael Porter Jr.,BKN,SF,Steals,64,100,36
 Nolan Traore,BKN,SG,3PM,64,100,36
+Terance Mann,BKN,SG,Games Played,64,100,36
 Kevin Durant,HOU,PF,Steals,64,100,36
 DeAndre Jordan,NO,C,Games Played,14,50,36
 James Harden,CLE,PG,Blocks,14,50,36
@@ -1099,7 +1100,6 @@ VJ Edgecombe,PHI,SG,Steals,113,150,37
 Jaylen Clark,MIN,SG,Games Played,113,150,37
 Cameron Johnson,DEN,PF,3PM,113,150,37
 Baylor Scheierman,BOS,SG,Steals,63,100,37
-Terance Mann,BKN,SG,Games Played,63,100,37
 Jabari Walker,PHI,SF,Blocks,13,50,37
 Pacome Dadiet,NY,PF,3PM,13,50,37
 Olivier-Maxence Prosper,MEM,PF,Blocks,13,50,37
@@ -1245,6 +1245,7 @@ Cade Cunningham,DET,PG,Assists,2207,2250,43
 Bam Adebayo,MIA,C,Steals,707,750,43
 Keldon Johnson,SA,SF,Games Played,457,500,43
 Bilal Coulibaly,WSH,SF,Assists,457,500,43
+Terance Mann,BKN,SG,Points,457,500,43
 Donovan Mitchell,CLE,SG,Steals,407,450,43
 Kenrich Williams,OKC,PF,Steals,257,300,43
 Deni Avdija,POR,SF,3PM,257,300,43
@@ -1295,7 +1296,6 @@ Cameron Johnson,DEN,PF,Games Played,56,100,44
 Donovan Clingan,POR,C,Rebounds,1455,1500,45
 Jalen Brunson,NY,PG,3PM,705,750,45
 Malik Monk,SAC,SG,3PM,555,600,45
-Terance Mann,BKN,SG,Points,455,500,45
 Josh Hart,NY,SG,Games Played,255,300,45
 RJ Barrett,TOR,SF,3PM,255,300,45
 Jaylon Tyson,CLE,SG,Assists,205,250,45
@@ -1420,11 +1420,11 @@ Jabari Walker,PHI,SF,Rebounds,196,250,54
 Sidy Cissoko,POR,SF,Rebounds,196,250,54
 Khris Middleton,WSH,SF,Rebounds,194,250,56
 Saddiq Bey,NO,SF,Assists,192,250,58
+Terance Mann,BKN,SG,Assists,192,250,58
 Anthony Gill,WSH,PF,Assists,191,250,59
 Daniss Jenkins,DET,PG,Rebounds,191,250,59
 Ronald Holland II,DET,PF,Assists,191,250,59
 Brandin Podziemski,GS,SG,Rebounds,1190,1250,60
-Terance Mann,BKN,SG,Assists,190,250,60
 Trey Murphy III,NO,SF,Points,4939,5000,61
 Jabari Smith Jr.,HOU,PF,Assists,439,500,61
 Stephon Castle,SA,PG,Rebounds,688,750,62

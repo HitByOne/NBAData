@@ -2,7 +2,7 @@ Team,Player,Position,Status,Injury,Return,Updated
 ATL,Henri Veesaar,C,Out,Right Knee,2027-07-01,2026-09-21
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-11-20,2026-10-19
 BKN,Egor Demin,G,Out,Right Leg Bruise,2026-11-07,2026-10-29
-BKN,Tyler Bilodeau,F,Out,Right Shoulder Sprain,2026-11-01,2026-10-25
+BKN,Tyler Bilodeau,F,Out,Right Shoulder Sprain,2026-11-06,2026-10-25
 BOS,Devin Carter,G,Out,Illness,2026-11-08,2026-10-18
 CHA,Coby White,G,Out,Left Calf Strain,2026-11-02,2026-10-26
 CHA,Grant Williams,F,Out,Right Hamstring,2026-11-02,2026-10-26
@@ -63,6 +63,8 @@ PHI,Ariel Hukporti,C,Out,Right Achilles Surgery,2027-10-01,2026-10-06
 PHI,Dominick Barlow,F,Out,Back Fracture,2026-11-04,2026-10-19
 PHI,Jabari Walker,F,Out,Left Knee Soreness,2026-10-31,2026-10-29
 PHI,Jaylen Brown,G,Day-To-Day,Knee,2026-10-31,2026-10-31
+PHI,Joel Embiid,C,Day-To-Day,Rest,2026-10-31,2026-10-31
+PHI,LeBron James,F,Day-To-Day,Rest,2026-10-31,2026-10-31
 PHI,Tacko Fall,C,Out,Left Quadriceps Strain,2026-11-04,2026-10-27
 PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
 POR,Chris Youngblood,G,Out,Left Ankle Soreness,2026-10-31,2026-10-30
