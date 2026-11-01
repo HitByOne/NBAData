@@ -71,12 +71,15 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4683750,Jordan Hawkins,CHI,SG,G,Basketball-Reference 2026-27
 2595516,Norman Powell,CHI,SG,G,Basketball-Reference 2026-27
 4066328,Jarrett Allen,CLE,C,C,Basketball-Reference 2026-27
+3934723,Thomas Bryant,CLE,C,C,Basketball-Reference 2026-27
 4432158,Evan Mobley,CLE,PF,C,Basketball-Reference 2026-27
 2995706,Mario Hezonja,CLE,PF,F,Basketball-Reference 2026-27
 4701233,Craig Porter Jr.,CLE,PG,G,Basketball-Reference 2026-27
 3992,James Harden,CLE,PG,G,Basketball-Reference 2026-27
 5023693,Tyrese Proctor,CLE,PG,G,Basketball-Reference 2026-27
 4576087,Peyton Watson,CLE,SF,G,Basketball-Reference 2026-27
+5177362,Riley Minix,CLE,SF,F,Basketball-Reference 2026-27
+4431734,Tristan Enaruna,CLE,SF,F,Basketball-Reference 2026-27
 3908809,Donovan Mitchell,CLE,SG,G,Basketball-Reference 2026-27
 4683747,Jaylon Tyson,CLE,SG,G,Basketball-Reference 2026-27
 5041951,Meleek Thomas,CLE,SG,G,Basketball-Reference 2026-27
@@ -205,15 +208,18 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4593016,Quinten Post,MEM,C,C,Basketball-Reference 2026-27
 4600663,Zach Edey,MEM,C,C,Basketball-Reference 2026-27
 5041935,Cameron Boozer,MEM,PF,F,Basketball-Reference 2026-27
+5105817,Carson Cooper,MEM,PF,C,Basketball-Reference 2026-27
 5105550,GG Jackson,MEM,PF,F,Basketball-Reference 2026-27
 2991070,Jerami Grant,MEM,PF,F,Basketball-Reference 2026-27
 5231919,Karim Lopez,MEM,PF,F,estimated from ESPN F
 4595400,Olivier-Maxence Prosper,MEM,PF,F,Basketball-Reference 2026-27
 4684806,Taylor Hendricks,MEM,PF,F,Basketball-Reference 2026-27
+4781746,Javon Small,MEM,PG,G,Basketball-Reference 2026-27
 4431785,Scotty Pippen Jr.,MEM,PG,G,Basketball-Reference 2026-27
 4594326,Kris Murray,MEM,SF,F,Basketball-Reference 2026-27
 4433083,Cam Spencer,MEM,SG,G,Basketball-Reference 2026-27
 4903027,Cedric Coward,MEM,SG,F,Basketball-Reference 2026-27
+4683934,Jahmai Mashack,MEM,SG,G,Basketball-Reference 2026-27
 5112087,Jaylen Wells,MEM,SG,F,Basketball-Reference 2026-27
 4065733,Ty Jerome,MEM,SG,G,Basketball-Reference 2026-27
 4066261,Bam Adebayo,MIA,C,C,Basketball-Reference 2026-27
@@ -261,15 +267,17 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3442,DeAndre Jordan,NO,C,C,Basketball-Reference 2026-27
 4869780,Derik Queen,NO,C,C,Basketball-Reference 2026-27
 5061589,Yves Missi,NO,C,C,Basketball-Reference 2026-27
+4997538,Karlo Matkovic,NO,PF,F,estimated from ESPN F
 4431675,Trendon Watford,NO,PF,F,Basketball-Reference 2026-27
 4395628,Zion Williamson,NO,PF,F,Basketball-Reference 2026-27
 3907497,Dejounte Murray,NO,PG,G,Basketball-Reference 2026-27
 5144091,Jeremiah Fears,NO,PG,G,Basketball-Reference 2026-27
 4683634,Bennedict Mathurin,NO,SF,G,Basketball-Reference 2026-27
 4277813,Herbert Jones,NO,SF,F,Basketball-Reference 2026-27
-4997538,Karlo Matkovic,NO,SF,F,estimated from ESPN F
+4683742,Julian Reese,NO,SF,F,Basketball-Reference 2026-27
 4397136,Saddiq Bey,NO,SF,G,Basketball-Reference 2026-27
 4397688,Trey Murphy III,NO,SF,F,Basketball-Reference 2026-27
+5170947,AJ Johnson,NO,SG,G,Basketball-Reference 2026-27
 4576086,Bryce McGowens,NO,SG,G,Basketball-Reference 2026-27
 4277956,Jordan Poole,NO,SG,G,Basketball-Reference 2026-27
 6585,Andre Drummond,NY,C,C,Basketball-Reference 2026-27
@@ -357,6 +365,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4683021,Deni Avdija,POR,SF,F,Basketball-Reference 2026-27
 4703889,Jayson Kent,POR,SF,G,Basketball-Reference 2026-27
 5081727,Sidy Cissoko,POR,SF,G,Basketball-Reference 2026-27
+4706557,Chris Youngblood,POR,SG,G,Basketball-Reference 2026-27
 4593043,John Tonje,POR,SG,F,Basketball-Reference 2026-27
 4578893,Vit Krejci,POR,SG,G,estimated from ESPN G
 3064560,Luke Kornet,SA,C,C,Basketball-Reference 2026-27
