@@ -1,2 +1,2 @@
 ran_at,outcome,detail,games,rows,calls
-2026-11-01 17:00 UTC,ok,6314 prices from 2 books. 5 market types not mapped to a stat. Unmapped: Over Under Player Assists First Quarter; Over Under Player Points First Quarter; Over Under Player Rebounds First Quarter; Player First 3 Point FG; Player First Point,4,6314,13
+2026-11-01 21:44 UTC,api error,"/fixtures -> HTTP 429 on /fixtures: {""message"":""You have exceeded the MONTHLY quota for Requests on your current plan, BASIC. Upgrade your plan at https:\/\/rapidapi.com\/odds-papi-odds-papi-default\/api\/odds-api1""}",,,6
