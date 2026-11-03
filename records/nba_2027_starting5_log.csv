@@ -24,3 +24,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-01,SF,Derrick Jones Jr.,LAC,GS,Points,o10.5 PTS,11.8,10.5,1.820,best
 2026-11-01,PF,Paul George,BOS,ORL,PRA,o26.5 PRA,37.2,26.5,1.855,best
 2026-11-01,C,Wendell Carter Jr.,ORL,BOS,PRA,o21.5 PRA,25.6,21.5,1.830,best
+2026-11-02,PG,LaMelo Ball,MIN,MIL,Assists,AST 7.7,7.7,,,boost
+2026-11-02,SG,Austin Reaves,LAL,MIA,PRA,PRA 35.2,35.2,,,boost
+2026-11-02,SF,Deni Avdija,POR,DEN,Points,PTS 25.7,25.7,,,boost
+2026-11-02,PF,Jabari Smith Jr.,HOU,BOS,PRA,PRA 33.1,33.1,,,boost
+2026-11-02,C,Domantas Sabonis,SAC,DAL,Assists,AST 8.6,8.6,,,boost
