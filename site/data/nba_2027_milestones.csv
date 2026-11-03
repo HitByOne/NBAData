@@ -689,6 +689,7 @@ Julius Randle,BKN,PF,Double Doubles,301,325,24
 Cason Wallace,OKC,SG,3PM,276,300,24
 Jalen Johnson,ATL,SF,3PM,276,300,24
 Larry Nance Jr.,IND,PF,Blocks,276,300,24
+Mario Hezonja,CLE,PF,3PM,276,300,24
 Luka Doncic,LAL,PG,Double Doubles,276,300,24
 Norman Powell,CHI,SG,Blocks,176,200,24
 Bennedict Mathurin,NO,SF,Steals,176,200,24
@@ -780,7 +781,6 @@ Lauri Markkanen,UTAH,PF,3PM,1273,1300,27
 Coby White,CHA,SG,Games Played,473,500,27
 VJ Edgecombe,PHI,SG,Rebounds,473,500,27
 Max Christie,DAL,SG,3PM,373,400,27
-Mario Hezonja,CLE,PF,3PM,273,300,27
 Trendon Watford,NO,PF,Games Played,273,300,27
 Marcus Sasser,DAL,PG,Games Played,173,200,27
 Danny Wolf,BKN,PF,3PM,73,100,27
@@ -1188,6 +1188,7 @@ Andre Drummond,NY,C,3PM,50,100,50
 Draymond Green,GS,PF,Steals,1249,1300,51
 Naz Reid,CHA,C,Blocks,449,500,51
 Jordan McLaughlin,SA,PG,Rebounds,449,500,51
+Mario Hezonja,CLE,PF,Steals,249,300,51
 AJ Green,MIL,SG,Games Played,249,300,51
 Ryan Rollins,MIL,PG,3PM,249,300,51
 Payton Pritchard,BOS,PG,Steals,249,300,51
@@ -1233,7 +1234,6 @@ Bam Adebayo,MIA,C,Games Played,647,700,53
 Jaden McDaniels,MIN,PF,Games Played,447,500,53
 Aaron Wiggins,ATL,SG,Games Played,347,400,53
 Kris Dunn,LAC,PG,3PM,347,400,53
-Mario Hezonja,CLE,PF,Steals,247,300,53
 Duop Reath,PHX,C,3PM,147,200,53
 Olivier-Maxence Prosper,MEM,PF,Games Played,147,200,53
 Brandon Williams,GS,PG,Games Played,147,200,53
@@ -1397,6 +1397,7 @@ Shai Gilgeous-Alexander,OKC,PG,Games Played,537,600,63
 P.J. Washington,DAL,PF,Steals,437,500,63
 Jalen Williams,OKC,SG,Steals,337,400,63
 Tyrese Haliburton,IND,PG,Games Played,337,400,63
+Mario Hezonja,CLE,PF,Games Played,337,400,63
 Naz Reid,CHA,C,Steals,337,400,63
 Jaylin Williams,OKC,PF,Games Played,237,300,63
 Buddy Hield,CHI,SG,Blocks,237,300,63
@@ -1415,7 +1416,6 @@ Draymond Green,GS,PF,Blocks,936,1000,64
 John Collins,DET,PF,Blocks,536,600,64
 Joel Embiid,PHI,C,Steals,436,500,64
 Collin Gillespie,PHX,PG,Rebounds,436,500,64
-Mario Hezonja,CLE,PF,Games Played,336,400,64
 Immanuel Quickley,TOR,PG,Steals,336,400,64
 Ivica Zubac,IND,C,Steals,236,300,64
 Tre Mann,WSH,PG,Games Played,236,300,64
@@ -1539,6 +1539,7 @@ Dillon Brooks,PHX,SF,3PM,1030,1100,70
 Collin Sexton,LAL,SG,3PM,730,800,70
 Dyson Daniels,ATL,SG,Steals,530,600,70
 Quinten Post,MEM,C,Rebounds,430,500,70
+Mario Hezonja,CLE,PF,Assists,430,500,70
 Shai Gilgeous-Alexander,OKC,PG,Blocks,430,500,70
 Cason Wallace,OKC,SG,Games Played,230,300,70
 Taurean Prince,DET,SF,Blocks,230,300,70
@@ -1589,7 +1590,6 @@ Deandre Ayton,WSH,C,3PM,28,100,72
 Cedric Coward,MEM,SG,Blocks,28,100,72
 Bronny James,LAL,SG,Steals,28,100,72
 Karl-Anthony Towns,NY,C,Games Played,727,800,73
-Mario Hezonja,CLE,PF,Assists,427,500,73
 Isaiah Hartenstein,OKC,C,Steals,327,400,73
 Alperen Sengun,HOU,C,Blocks,327,400,73
 Keegan Murray,SAC,PF,Steals,227,300,73
@@ -2658,6 +2658,7 @@ OG Anunoby,NY,PF,Points,7566,8000,434
 Buddy Hield,CHI,SG,Rebounds,3066,3500,434
 Zaccharie Risacher,DAL,SF,Rebounds,566,1000,434
 Ryan Kalkbrenner,CHA,C,Assists,66,500,434
+Mario Hezonja,CLE,PF,Rebounds,1065,1500,435
 Adem Bona,PHI,C,Assists,65,500,435
 Brice Sensabaugh,UTAH,SF,Rebounds,564,1000,436
 Ron Harper Jr.,BOS,SF,Rebounds,64,500,436
@@ -2676,7 +2677,6 @@ Ronald Holland II,DET,PF,Rebounds,558,1000,442
 Malevy Leons,GS,SF,Rebounds,58,500,442
 Tim Hardaway Jr.,MIA,SG,Rebounds,2557,3000,443
 De'Andre Hunter,SAC,SF,Rebounds,1557,2000,443
-Mario Hezonja,CLE,PF,Rebounds,1057,1500,443
 Ryan Kalkbrenner,CHA,C,Points,556,1000,444
 Josh Okogie,UTAH,SG,Assists,556,1000,444
 Yaxel Lendeborg,GS,SF,Rebounds,56,500,444
@@ -2850,6 +2850,7 @@ Desmond Bane,ORL,SG,Points,7352,8000,648
 Justin Champagnie,WSH,SF,Points,1351,2000,649
 Brandon Miller,CHA,SF,Points,3346,4000,654
 Thomas Bryant,CLE,C,Points,3343,4000,657
+Mario Hezonja,CLE,PF,Points,2341,3000,659
 Rudy Gobert,MIN,C,Points,11339,12000,661
 Kevin Huerter,DET,SG,Points,6338,7000,662
 Vit Krejci,POR,SG,Points,1334,2000,666
@@ -2857,7 +2858,6 @@ Ben Saraf,BKN,SG,Points,334,1000,666
 Collin Gillespie,PHX,PG,Points,1332,2000,668
 Jaylin Williams,OKC,PF,Points,1331,2000,669
 Julius Randle,BKN,PF,Points,15330,16000,670
-Mario Hezonja,CLE,PF,Points,2329,3000,671
 Isaac Okoro,CHI,SG,Points,3326,4000,674
 Josh Hart,NY,SG,Points,6325,7000,675
 Jayson Tatum,BOS,PF,Points,14321,15000,679
