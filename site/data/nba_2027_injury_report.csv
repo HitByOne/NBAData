@@ -20,8 +20,10 @@ DAL,Max Christie,G,Out,Right Hip Not Specified,2026-11-06,2026-11-03
 DAL,Santi Aldama,F,Out,Right Knee Surgery,2026-11-04,2026-11-03
 DAL,Sergio de Larrea,F,Out,Right Knee Strain,2026-11-06,2026-10-30
 DAL,Tarik Biberovic,F,Out,Right Heel Inflammation,2026-11-12,2026-11-01
+DEN,Alpha Diallo,F,Day-To-Day,Right Wrist,2026-11-04,2026-11-03
+DEN,Cameron Johnson,F,Day-To-Day,Ankle,2026-11-04,2026-11-03
 DEN,Julian Strawther,G,Out,Left Knee Sprain,2026-11-29,2026-10-17
-DEN,Spencer Jones,F,Out,Hamstring Not Specified,2026-11-04,2026-11-01
+DEN,Spencer Jones,F,Out,Hamstring Not Specified,2026-11-11,2026-11-03
 DET,Isaiah Joe,G,Out,Right Hip Bruise,2026-11-08,2026-11-03
 DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-09,2026-10-25
 GS,Al Horford,C,Day-To-Day,Rest,2026-11-05,2026-11-03
@@ -32,15 +34,11 @@ GS,Kristaps Porzingis,C,Out,Illness,2026-12-01,2026-10-28
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
 HOU,Clint Capela,C,Day-To-Day,Right Ankle Sprain,2026-11-04,2026-11-03
 HOU,Steven Adams,C,Out,Right Calf Strain,2026-11-09,2026-10-26
-IND,Aaron Nesmith,G,Day-To-Day,Rest,2026-11-04,2026-11-03
-IND,Andrew Nembhard,G,Day-To-Day,Neck,2026-11-04,2026-11-03
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
-IND,Ivica Zubac,C,Out,Left Ankle Sprain,2026-11-09,2026-11-02
+IND,Ivica Zubac,C,Out,Left Ankle Sprain,2026-11-04,2026-11-03
 IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-10-30
 IND,Kelly Oubre Jr.,G,Day-To-Day,Left Knee Bruise,2026-11-04,2026-11-03
-IND,Larry Nance Jr.,F,Day-To-Day,Illness,2026-11-04,2026-11-03
-IND,Obi Toppin,F,Out,Coach's Decision Soreness,2026-11-04,2026-11-02
-IND,Pascal Siakam,F,Day-To-Day,Rest,2026-11-04,2026-11-03
+IND,Obi Toppin,F,Out,Back Soreness,2026-11-04,2026-11-03
 IND,T.J. McConnell,G,Out,Right Hamstring Strain,2026-11-09,2026-11-02
 IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-11-13,2026-10-28
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-08,2026-10-15
@@ -51,11 +49,11 @@ LAC,Rui Hachimura,F,Day-To-Day,Left Quadriceps Bruise,2026-11-04,2026-11-03
 LAC,Yanic Konan Niederhauser,C,Out,Right Foot Surgery,2026-11-08,2026-11-02
 LAL,Adou Thiero,F,Out,Left Knee Inflammation,2026-11-06,2026-11-03
 MEM,Quinten Post,C,Day-To-Day,Right Ankle Not Specified,2026-11-04,2026-11-03
-MEM,Scotty Pippen Jr.,G,Day-To-Day,Back Soreness,2026-11-04,2026-11-03
+MEM,Scotty Pippen Jr.,G,Out,Back Soreness,2026-11-06,2026-11-03
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
 MIN,Terrence Shannon Jr.,G,Day-To-Day,Left Hip Bruise,2026-11-04,2026-11-03
-NO,Jordan Poole,G,Out,Left Ankle Sprain,2026-11-04,2026-11-01
+NO,Jordan Poole,G,Out,Left Ankle Sprain,2026-11-04,2026-11-03
 NO,Trey Murphy III,F,Day-To-Day,Knee,2026-11-04,2026-11-03
 NO,Yves Missi,C,Out,Left Knee Bruise,2026-11-08,2026-10-30
 NY,Josh Hart,G,Day-To-Day,Ankle,2026-11-04,2026-11-03
@@ -63,8 +61,8 @@ OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
 OKC,Chet Holmgren,C,Out,Right Knee,2027-01-02,2026-10-31
 OKC,Jalen Williams,G,Out,Left Leg Fracture,2027-03-02,2026-10-28
 OKC,Jaylin Williams,F,Day-To-Day,Back Spasms,2026-11-04,2026-11-03
-OKC,Nikola Topic,G,Out,Back,2026-11-13,2026-10-27
-OKC,Thomas Sorber,C,Out,Knee,2026-11-13,2026-11-02
+OKC,Nikola Topic,G,Out,Back,2026-11-13,2026-11-03
+OKC,Thomas Sorber,C,Out,Knee,2026-11-13,2026-11-03
 ORL,Anthony Black,G,Day-To-Day,Rest,2026-11-05,2026-11-03
 ORL,Izaiyah Nelson,F,Out,Left Ankle Surgery,2026-11-18,2026-09-28
 ORL,Jalen Suggs,G,Out,Right Knee,2026-11-10,2026-10-26
@@ -87,7 +85,8 @@ TOR,Jakob Poeltl,C,Day-To-Day,Left Shoulder Inflammation,2026-11-04,2026-11-03
 TOR,Kawhi Leonard,F,Out,Left Knee Inflammation,2026-11-23,2026-10-29
 TOR,Nate Bittle,C,Out,Right Foot Fracture,2026-11-09,2026-11-02
 UTAH,Jaren Jackson Jr.,F,Out,Right Knee Not Specified,2026-12-14,2026-10-27
-UTAH,Jusuf Nurkic,C,Out,Right Foot Strain,2026-11-04,2026-10-07
+UTAH,Jusuf Nurkic,C,Out,Right Foot Strain,2026-11-13,2026-11-03
+UTAH,Mo Bamba,C,Day-To-Day,Right Ankle,2026-11-04,2026-11-03
 UTAH,Trey Alexander,G,Out,Left Knee Bruise,2026-11-06,2026-10-24
 WSH,Alex Sarr,C,Day-To-Day,Left Knee Soreness,2026-11-04,2026-11-03
 WSH,Anthony Gill,F,Day-To-Day,Back Spasms,2026-11-04,2026-11-03
