@@ -79,6 +79,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3934723,Thomas Bryant,CLE,C,C,Basketball-Reference 2026-27
 4432158,Evan Mobley,CLE,PF,C,Basketball-Reference 2026-27
 2995706,Mario Hezonja,CLE,PF,F,Basketball-Reference 2026-27
+4702134,Norchad Omier,CLE,PF,C,Basketball-Reference 2026-27
 4701233,Craig Porter Jr.,CLE,PG,G,Basketball-Reference 2026-27
 3992,James Harden,CLE,PG,G,Basketball-Reference 2026-27
 5023693,Tyrese Proctor,CLE,PG,G,Basketball-Reference 2026-27
@@ -93,6 +94,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4873153,Morez Johnson Jr.,DAL,C,F,Basketball-Reference 2026-27
 4701208,Moussa Cisse,DAL,C,C,estimated from ESPN C
 4278078,P.J. Washington,DAL,PF,F,Basketball-Reference 2026-27
+4593125,Santi Aldama,DAL,PF,F,Basketball-Reference 2026-27
 5106040,Tobi Lawal,DAL,PF,F,Basketball-Reference 2026-27
 6442,Kyrie Irving,DAL,PG,G,Basketball-Reference 2026-27
 4432107,Marcus Sasser,DAL,PG,G,Basketball-Reference 2026-27
@@ -203,6 +205,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4592691,Jake LaRavia,LAL,PF,F,Basketball-Reference 2026-27
 4278077,Jarred Vanderbilt,LAL,PF,F,Basketball-Reference 2026-27
 3945274,Luka Doncic,LAL,PG,G,estimated from ESPN G
+5060631,Adou Thiero,LAL,SF,F,Basketball-Reference 2026-27
 3907498,Matisse Thybulle,LAL,SF,G,Basketball-Reference 2026-27
 4433137,Ziaire Williams,LAL,SF,F,Basketball-Reference 2026-27
 4066457,Austin Reaves,LAL,SG,G,Basketball-Reference 2026-27
@@ -219,12 +222,12 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5105817,Carson Cooper,MEM,PF,C,Basketball-Reference 2026-27
 5105550,GG Jackson,MEM,PF,F,Basketball-Reference 2026-27
 2991070,Jerami Grant,MEM,PF,F,Basketball-Reference 2026-27
-5231919,Karim Lopez,MEM,PF,F,estimated from ESPN F
 4595400,Olivier-Maxence Prosper,MEM,PF,F,Basketball-Reference 2026-27
 4684806,Taylor Hendricks,MEM,PF,F,Basketball-Reference 2026-27
 4781746,Javon Small,MEM,PG,G,Basketball-Reference 2026-27
 4431785,Scotty Pippen Jr.,MEM,PG,G,Basketball-Reference 2026-27
 4065733,Ty Jerome,MEM,PG,G,Basketball-Reference 2026-27
+5231919,Karim Lopez,MEM,SF,F,estimated from ESPN F
 4594326,Kris Murray,MEM,SF,F,Basketball-Reference 2026-27
 4433083,Cam Spencer,MEM,SG,G,Basketball-Reference 2026-27
 4903027,Cedric Coward,MEM,SG,F,Basketball-Reference 2026-27
@@ -316,6 +319,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 2991350,Alex Caruso,OKC,SG,G,Basketball-Reference 2026-27
 4684208,Brooks Barnhizer,OKC,SG,F,Basketball-Reference 2026-27
 4683692,Cason Wallace,OKC,SG,G,Basketball-Reference 2026-27
+4433159,Dalen Terry,OKC,SG,G,Basketball-Reference 2026-27
 4683778,Jared McCain,OKC,SG,G,Basketball-Reference 2026-27
 5105800,Josh Dix,OKC,SG,G,Basketball-Reference 2026-27
 4432185,Micah Peavy,OKC,SG,G,Basketball-Reference 2026-27
@@ -335,6 +339,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5239561,Jase Richardson,ORL,SG,G,Basketball-Reference 2026-27
 5105637,Adem Bona,PHI,C,C,Basketball-Reference 2026-27
 3059318,Joel Embiid,PHI,C,C,Basketball-Reference 2026-27
+3904625,Tacko Fall,PHI,C,C,Basketball-Reference 2026-27
 3912848,Dean Wade,PHI,PF,F,Basketball-Reference 2026-27
 4432446,Jabari Walker,PHI,PF,F,Basketball-Reference 2026-27
 1966,LeBron James,PHI,PF,F,Basketball-Reference 2026-27
@@ -382,13 +387,13 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5105809,Tarris Reed Jr.,SA,C,C,Basketball-Reference 2026-27
 5104157,Victor Wembanyama,SA,C,F,Basketball-Reference 2026-27
 5061568,Carter Bryant,SA,PF,F,Basketball-Reference 2026-27
-4713010,David Jones Garcia,SA,PF,F,estimated from ESPN F
 6578,Harrison Barnes,SA,PF,F,Basketball-Reference 2026-27
 4395723,Keldon Johnson,SA,PF,F,Basketball-Reference 2026-27
 5105337,Maliq Brown,SA,PF,F,Basketball-Reference 2026-27
 4066259,De'Aaron Fox,SA,PG,G,Basketball-Reference 2026-27
 5107968,Ja'Kobi Gillespie,SA,PG,G,Basketball-Reference 2026-27
 3134916,Jordan McLaughlin,SA,PG,G,Basketball-Reference 2026-27
+4713010,David Jones Garcia,SA,SF,F,estimated from ESPN F
 4592479,Julian Champagnie,SA,SF,F,Basketball-Reference 2026-27
 4395630,Devin Vassell,SA,SG,G,Basketball-Reference 2026-27
 5037871,Dylan Harper,SA,SG,G,Basketball-Reference 2026-27
