@@ -60,6 +60,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3135045,Grayson Allen,CHA,SG,G,Basketball-Reference 2026-27
 4602025,Sion James,CHA,SG,G,Basketball-Reference 2026-27
 4397189,Jalen Smith,CHI,C,F,Basketball-Reference 2026-27
+4278067,Nic Claxton,CHI,C,C,Basketball-Reference 2026-27
 4066650,Zach Collins,CHI,C,F,Basketball-Reference 2026-27
 5095151,Caleb Wilson,CHI,PF,F,Basketball-Reference 2026-27
 5242496,Noa Essengue,CHI,PF,F,Basketball-Reference 2026-27
@@ -126,13 +127,13 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4278562,Paul Reed,DET,C,F,Basketball-Reference 2026-27
 5107818,Isaac Jones,DET,PF,C,Basketball-Reference 2026-27
 3908845,John Collins,DET,PF,F,Basketball-Reference 2026-27
-4683771,Ronald Holland II,DET,PF,F,estimated from ESPN F
 4397882,Tolu Smith,DET,PF,F,Basketball-Reference 2026-27
 4432166,Cade Cunningham,DET,PG,G,Basketball-Reference 2026-27
 5107199,Daniss Jenkins,DET,PG,G,Basketball-Reference 2026-27
 5258459,Ebuka Okorie,DET,PG,G,Basketball-Reference 2026-27
 4684742,Ausar Thompson,DET,SF,G,Basketball-Reference 2026-27
 3157465,Duncan Robinson,DET,SF,F,Basketball-Reference 2026-27
+4683771,Ronald Holland II,DET,SF,F,estimated from ESPN F
 2990962,Taurean Prince,DET,SF,F,Basketball-Reference 2026-27
 4700852,Chaz Lanier,DET,SG,G,Basketball-Reference 2026-27
 4397449,Elijah Harkless,DET,SG,G,Basketball-Reference 2026-27
@@ -264,6 +265,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4277843,Gary Trent Jr.,MIL,SG,G,Basketball-Reference 2026-27
 4395725,Tyler Herro,MIL,SG,G,Basketball-Reference 2026-27
 5279133,Joan Beringer,MIN,C,F,Basketball-Reference 2026-27
+5157587,Rocco Zikarsky,MIN,C,C,Basketball-Reference 2026-27
 3032976,Rudy Gobert,MIN,C,C,Basketball-Reference 2026-27
 4431671,Jaden McDaniels,MIN,PF,F,Basketball-Reference 2026-27
 3136196,Trey Lyles,MIN,PF,F,Basketball-Reference 2026-27
