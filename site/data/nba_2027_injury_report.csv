@@ -22,7 +22,8 @@ DAL,Tarik Biberovic,F,Out,Right Heel Inflammation,2026-11-12,2026-11-01
 DEN,Julian Strawther,G,Out,Left Knee Sprain,2026-11-29,2026-10-17
 DET,Isaiah Joe,G,Out,Right Hip Bruise,2026-11-17,2026-11-09
 DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-24,2026-11-08
-GS,Gary Payton II,G,Out,Left Knee Inflammation,2026-11-11,2026-11-10
+GS,Brandon Williams,G,Day-To-Day,Left Hamstring Not Specified,2026-11-11,2026-11-10
+GS,Gary Payton II,G,Day-To-Day,Left Knee Inflammation,2026-11-11,2026-11-10
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
@@ -48,10 +49,10 @@ MIA,Giannis Antetokounmpo,F,Day-To-Day,Right Wrist Sprain,2026-11-10,2026-11-09
 MIL,Tyler Herro,G,Day-To-Day,Right Knee Bruise,2026-11-10,2026-11-09
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
-NO,Trendon Watford,F,Out,Ankle,2026-11-11,2026-11-09
-NO,Trey Murphy III,F,Out,Knee Tendinitis,2026-11-11,2026-11-09
+NO,Trendon Watford,F,Day-To-Day,Ankle,2026-11-11,2026-11-10
+NO,Trey Murphy III,F,Day-To-Day,Knee Tendinitis,2026-11-11,2026-11-10
 NO,Yves Missi,C,Out,Left Knee Bruise,2026-11-16,2026-11-05
-NO,Zion Williamson,F,Out,Rest,2026-11-11,2026-11-09
+NO,Zion Williamson,F,Day-To-Day,Rest,2026-11-11,2026-11-10
 NY,Josh Hart,G,Day-To-Day,Ankle,2026-11-10,2026-11-09
 OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
 OKC,Chet Holmgren,C,Out,Right Knee,2027-01-02,2026-10-31
@@ -71,7 +72,7 @@ PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
 POR,Ja Morant,G,Out,Left Hamstring Not Specified,2026-12-01,2026-11-08
 POR,Shaedon Sharpe,G,Out,Right Knee Surgery,2027-03-02,2026-08-24
 POR,Vit Krejci,G,Out,Left Ankle,2027-01-02,2026-11-05
-SA,Devin Vassell,G,Out,Left Groin,2026-11-11,2026-11-09
+SA,Devin Vassell,G,Day-To-Day,Left Groin,2026-11-11,2026-11-10
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-11-11,2026-11-09
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21

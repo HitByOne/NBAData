@@ -1,48 +1,43 @@
 Player,Team,Position,Stat,Current Total,Milestone,Remaining
 Malik Monk,SAC,SG,Assists,1249,1250,1
-Sion James,CHA,SG,Points,499,500,1
 Joel Embiid,PHI,C,Games Played,499,500,1
-T.J. McConnell,IND,PG,Games Played,449,450,1
 Tyrese Maxey,PHI,PG,Games Played,399,400,1
-Jabari Smith Jr.,HOU,PF,Games Played,299,300,1
+Jarrett Allen,CLE,C,Games Played,399,400,1
 Goga Bitadze,ORL,C,Blocks,249,250,1
 Ryan Rollins,MIL,PG,3PM,249,250,1
 Immanuel Quickley,TOR,PG,Games Played,149,150,1
-Alperen Sengun,HOU,C,Double Doubles,149,150,1
-Oso Ighodaro,PHX,C,Games Played,149,150,1
 Scoot Henderson,POR,PG,Steals,149,150,1
 Ace Bailey,UTAH,SF,3PM,149,150,1
-Jordan Poole,NO,SG,3PM,99,100,1
+Jamal Shead,TOR,PG,Steals,149,150,1
 Justin Edwards,PHI,SF,Steals,99,100,1
 Donovan Mitchell,CLE,SG,Blocks,99,100,1
-De'Anthony Melton,GS,SG,Steals,99,100,1
-De'Aaron Fox,SA,PG,Games Played,99,100,1
 Dejounte Murray,NO,PG,Steals,99,100,1
 Chet Holmgren,OKC,PF,Double Doubles,59,60,1
 Asa Newell,ATL,PF,Games Played,49,50,1
 Pacome Dadiet,NY,PF,Games Played,49,50,1
 Nikola Jovic,MIA,PF,Blocks,49,50,1
-Jamal Murray,DEN,PG,Double Doubles,49,50,1
 Mohamed Diawara,NY,SF,3PM,49,50,1
 Jamal Cain,ORL,SF,Games Played,49,50,1
 Yang Hansen,POR,C,Games Played,49,50,1
 Brook Lopez,LAC,C,Steals,49,50,1
+Luka Doncic,LAL,PG,Double Doubles,49,50,1
+Jamal Murray,DEN,PG,Double Doubles,49,50,1
 Deni Avdija,POR,SF,Double Doubles,39,40,1
 Moussa Diabate,CHA,PF,Double Doubles,29,30,1
 Neemias Queta,BOS,C,Double Doubles,19,20,1
 Cade Cunningham,DET,PG,Triple Doubles,14,15,1
 Scotty Pippen Jr.,MEM,PG,Double Doubles,9,10,1
 Scottie Barnes,TOR,PF,Triple Doubles,9,10,1
-Cedric Coward,MEM,SG,Double Doubles,9,10,1
 Toumani Camara,POR,PF,Double Doubles,9,10,1
+Cedric Coward,MEM,SG,Double Doubles,9,10,1
+Kevin Durant,HOU,SF,Double Doubles,9,10,1
 Dejounte Murray,NO,PG,Double Doubles,9,10,1
 Amen Thompson,HOU,SF,Triple Doubles,4,5,1
 Victor Wembanyama,SA,C,Triple Doubles,4,5,1
 Devin Vassell,SA,SG,3PM,798,800,2
-Nikola Jokic,DEN,C,Blocks,598,600,2
-Jarrett Allen,CLE,C,Games Played,398,400,2
-Kyrie Irving,DAL,PG,3PM,398,400,2
 Jae'Sean Tate,HOU,SF,Games Played,348,350,2
+Nickeil Alexander-Walker,ATL,SG,3PM,298,300,2
+Onyeka Okongwu,ATL,C,Steals,298,300,2
 Sam Merrill,CLE,SG,Games Played,198,200,2
 Stephon Castle,SA,SG,3PM,198,200,2
 Derrick Jones Jr.,LAC,SF,3PM,148,150,2
@@ -50,77 +45,84 @@ Damian Lillard,POR,PG,Double Doubles,128,130,2
 Zeke Nnaji,DEN,PF,Steals,98,100,2
 Nikola Jovic,MIA,PF,Steals,98,100,2
 Svi Mykhailiuk,UTAH,SF,Games Played,98,100,2
+Craig Porter Jr.,CLE,PG,Steals,98,100,2
 Paolo Banchero,ORL,PF,Double Doubles,68,70,2
 Lauri Markkanen,UTAH,PF,Double Doubles,58,60,2
 Steven Adams,HOU,C,Blocks,48,50,2
-Luka Doncic,LAL,PG,Double Doubles,48,50,2
 Donovan Clingan,POR,C,Double Doubles,48,50,2
 Payton Pritchard,BOS,PG,Blocks,48,50,2
 Ousmane Dieng,MIL,C,3PM,48,50,2
 Zion Williamson,NO,PF,Double Doubles,48,50,2
+Bryce McGowens,NO,SG,Games Played,48,50,2
 Draymond Green,GS,PF,Triple Doubles,33,35,2
 Immanuel Quickley,TOR,PG,Double Doubles,18,20,2
 Zach Edey,MEM,C,Double Doubles,18,20,2
+Cooper Flagg,DAL,SF,Double Doubles,18,20,2
 Alperen Sengun,HOU,C,Triple Doubles,13,15,2
 Jaylon Tyson,CLE,SF,Double Doubles,8,10,2
-Christian Braun,DEN,SG,Double Doubles,8,10,2
-Kevin Durant,HOU,SF,Double Doubles,8,10,2
-Julian Champagnie,SA,SF,Double Doubles,8,10,2
 VJ Edgecombe,PHI,SG,Double Doubles,8,10,2
-Naji Marshall,DAL,SF,Double Doubles,8,10,2
 Kyle Kuzma,MIL,PF,Double Doubles,8,10,2
 Trey Murphy III,NO,SF,Double Doubles,8,10,2
 Giannis Antetokounmpo,MIA,PF,Double Doubles,8,10,2
 Bam Adebayo,MIA,C,Triple Doubles,8,10,2
+Naji Marshall,DAL,SF,Double Doubles,8,10,2
+Christian Braun,DEN,SG,Double Doubles,8,10,2
+Julian Champagnie,SA,SF,Double Doubles,8,10,2
 Jaylin Williams,OKC,C,Triple Doubles,3,5,2
 Nikola Vucevic,ORL,C,Triple Doubles,3,5,2
 Damian Lillard,POR,PG,Triple Doubles,3,5,2
 Austin Reaves,LAL,SG,Triple Doubles,3,5,2
+Kyshawn George,WSH,SG,Points,1497,1500,3
 Cason Wallace,OKC,SG,Assists,497,500,3
-Onyeka Okongwu,ATL,C,Steals,297,300,3
 Daniel Gafford,DAL,C,Blocks,247,250,3
 Nikola Jovic,MIA,PF,3PM,197,200,3
 Matas Buzelis,CHI,SF,Blocks,197,200,3
 Jarrett Allen,CLE,C,Double Doubles,187,190,3
 Jayson Tatum,BOS,SF,Double Doubles,157,160,3
-Jamal Shead,TOR,PG,Steals,147,150,3
 Deni Avdija,POR,SF,Games Played,147,150,3
-Ronald Holland II,DET,SF,Steals,147,150,3
-Craig Porter Jr.,CLE,PG,Steals,97,100,3
+Ronald Holland II,DET,PF,Steals,147,150,3
 Jalen Smith,CHI,C,Blocks,97,100,3
+Sion James,CHA,SG,3PM,97,100,3
 Cade Cunningham,DET,PG,Double Doubles,97,100,3
 Amen Thompson,HOU,SF,Double Doubles,57,60,3
 Khris Middleton,WSH,SF,3PM,47,50,3
 Jalen Brunson,NY,PG,Blocks,47,50,3
 Brooks Barnhizer,OKC,SG,Games Played,47,50,3
-Bryce McGowens,NO,SG,Games Played,47,50,3
 Dylan Cardwell,SAC,C,Games Played,47,50,3
+Cameron Johnson,DEN,PF,Steals,47,50,3
+Brandin Podziemski,GS,SG,Blocks,47,50,3
 Aaron Gordon,DEN,PF,Double Doubles,37,40,3
 Keldon Johnson,SA,PF,Double Doubles,37,40,3
 Josh Hart,NY,SF,Triple Doubles,17,20,3
-Cooper Flagg,DAL,SF,Double Doubles,17,20,3
 Derrick White,BOS,PG,Double Doubles,17,20,3
 Kon Knueppel,CHA,SF,Double Doubles,7,10,3
 Brandon Miller,CHA,SF,Double Doubles,7,10,3
-Cam Spencer,MEM,SG,Double Doubles,7,10,3
 OG Anunoby,NY,PF,Double Doubles,7,10,3
-Kyrie Irving,DAL,PG,Double Doubles,7,10,3
 Ryan Rollins,MIL,PG,Double Doubles,7,10,3
+Cam Spencer,MEM,SG,Double Doubles,7,10,3
+Kyrie Irving,DAL,PG,Double Doubles,7,10,3
 Saddiq Bey,NO,SF,Double Doubles,7,10,3
-RJ Barrett,TOR,SF,Triple Doubles,2,5,3
-T.J. McConnell,IND,PG,Triple Doubles,2,5,3
-Dyson Daniels,ATL,SF,Triple Doubles,2,5,3
 Karl-Anthony Towns,NY,C,Triple Doubles,2,5,3
 Shai Gilgeous-Alexander,OKC,PG,Triple Doubles,2,5,3
 Zion Williamson,NO,PF,Triple Doubles,2,5,3
-Derik Queen,NO,C,Triple Doubles,2,5,3
 Giannis Antetokounmpo,MIA,PF,Triple Doubles,2,5,3
+Dyson Daniels,ATL,SF,Triple Doubles,2,5,3
+RJ Barrett,TOR,SF,Triple Doubles,2,5,3
+T.J. McConnell,IND,PG,Triple Doubles,2,5,3
+Derik Queen,NO,C,Triple Doubles,2,5,3
+Jarace Walker,IND,PF,Rebounds,746,750,4
+Devin Booker,PHX,SG,Games Played,746,750,4
 Anthony Edwards,MIN,SG,Games Played,446,450,4
 Bam Adebayo,MIA,C,Double Doubles,266,270,4
+Cam Spencer,MEM,SG,Rebounds,246,250,4
+P.J. Washington,DAL,PF,3PM,246,250,4
 Max Christie,DAL,SG,3PM,246,250,4
 Nikola Jokic,DEN,C,Triple Doubles,201,205,4
 Bilal Coulibaly,WSH,SF,3PM,196,200,4
 Malik Monk,SAC,SG,Steals,196,200,4
+Ja'Kobe Walter,TOR,SG,3PM,196,200,4
+Dillon Brooks,PHX,SF,3PM,146,150,4
+Ryan Dunn,PHX,SF,3PM,146,150,4
 Brook Lopez,LAC,C,Blocks,96,100,4
 Kobe Sanders,LAC,SG,3PM,96,100,4
 Devin Booker,PHX,SG,Double Doubles,76,80,4
@@ -128,12 +130,12 @@ Jabari Smith Jr.,HOU,PF,Double Doubles,56,60,4
 Domantas Sabonis,SAC,C,Triple Doubles,51,55,4
 Egor Demin,BKN,SG,Steals,46,50,4
 Khris Middleton,WSH,SF,Steals,46,50,4
-Brandin Podziemski,GS,SG,Blocks,46,50,4
 Tristan da Silva,ORL,SF,Blocks,46,50,4
-Kevin Huerter,DET,SG,3PM,46,50,4
-Jake LaRavia,LAL,PF,Blocks,46,50,4
 Hugo Gonzalez,BOS,SG,Steals,46,50,4
 Kris Dunn,LAC,SG,Blocks,46,50,4
+Nickeil Alexander-Walker,ATL,SG,Blocks,46,50,4
+Jake LaRavia,LAL,PF,Blocks,46,50,4
+Kevin Huerter,DET,SG,3PM,46,50,4
 Tyrese Maxey,PHI,PG,Double Doubles,26,30,4
 Austin Reaves,LAL,SG,Double Doubles,26,30,4
 Kyle Filipowski,UTAH,C,Double Doubles,26,30,4
@@ -142,18 +144,16 @@ Derik Queen,NO,C,Double Doubles,16,20,4
 Steven Adams,HOU,C,Double Doubles,6,10,4
 Jalen Suggs,ORL,PG,Double Doubles,6,10,4
 Robert Williams III,POR,C,Double Doubles,6,10,4
-James Harden,CLE,PG,Double Doubles,6,10,4
 Patrick Williams,CHI,PF,Double Doubles,6,10,4
 Tre Jones,CHI,PG,Double Doubles,6,10,4
 Jericho Sims,MIL,C,Double Doubles,6,10,4
 Malik Monk,SAC,SG,Double Doubles,6,10,4
+Walker Kessler,LAL,C,Double Doubles,6,10,4
+James Harden,CLE,PG,Double Doubles,6,10,4
 Jalen Suggs,ORL,PG,Triple Doubles,1,5,4
 Tyrese Haliburton,IND,PG,Triple Doubles,1,5,4
 Scotty Pippen Jr.,MEM,PG,Triple Doubles,1,5,4
-Cameron Boozer,MEM,PF,Triple Doubles,1,5,4
 Jahmai Mashack,MEM,SG,Triple Doubles,1,5,4
-Jamal Murray,DEN,PG,Triple Doubles,1,5,4
-Pascal Siakam,IND,PF,Triple Doubles,1,5,4
 Isaiah Hartenstein,OKC,C,Triple Doubles,1,5,4
 Bilal Coulibaly,WSH,SF,Triple Doubles,1,5,4
 Tyrese Maxey,PHI,PG,Triple Doubles,1,5,4
@@ -162,215 +162,208 @@ Day'Ron Sharpe,BKN,C,Triple Doubles,1,5,4
 Derrick White,BOS,PG,Triple Doubles,1,5,4
 Payton Pritchard,BOS,PG,Triple Doubles,1,5,4
 Jericho Sims,MIL,C,Triple Doubles,1,5,4
+Cameron Boozer,MEM,PF,Triple Doubles,1,5,4
+Pascal Siakam,IND,PF,Triple Doubles,1,5,4
+Jamal Murray,DEN,PG,Triple Doubles,1,5,4
 Dejounte Murray,NO,PG,Triple Doubles,1,5,4
-Jakob Poeltl,TOR,C,Points,2995,3000,5
-Julian Champagnie,SA,SF,Points,2495,2500,5
+Herbert Jones,NO,SF,Points,2995,3000,5
 Draymond Green,GS,PF,3PM,845,850,5
-Jarace Walker,IND,PF,Rebounds,745,750,5
-Devin Booker,PHX,SG,Games Played,745,750,5
 Anthony Edwards,MIN,SG,Steals,595,600,5
+Nikola Jokic,DEN,C,Double Doubles,565,570,5
+Kevin Durant,HOU,SF,Rebounds,495,500,5
+Evan Mobley,CLE,PF,Games Played,345,350,5
 Justin Edwards,PHI,SF,Rebounds,245,250,5
 Desmond Bane,ORL,SG,3PM,195,200,5
+Jarace Walker,IND,PF,Games Played,195,200,5
 Jalen Duren,DET,C,Double Doubles,145,150,5
-Dillon Brooks,PHX,SF,3PM,145,150,5
-Ryan Dunn,PHX,SF,3PM,145,150,5
 Noah Clowney,BKN,PF,Games Played,145,150,5
 Evan Mobley,CLE,PF,Double Doubles,135,140,5
 Andrew Wiggins,MIA,SF,Games Played,95,100,5
+Daniss Jenkins,DET,PG,3PM,95,100,5
 Ben Saraf,BKN,SG,Games Played,45,50,5
-Rasheer Fleming,PHX,PF,3PM,45,50,5
 Scotty Pippen Jr.,MEM,PG,Blocks,45,50,5
 Corey Kispert,ATL,SF,Games Played,45,50,5
-Coby White,CHA,PG,3PM,45,50,5
-Cameron Johnson,DEN,PF,Steals,45,50,5
 Miles McBride,NY,SG,Blocks,45,50,5
 Terance Mann,BKN,SG,Steals,45,50,5
 Moussa Cisse,DAL,C,Blocks,45,50,5
 Moussa Cisse,DAL,C,Games Played,45,50,5
 Hugo Gonzalez,BOS,SG,3PM,45,50,5
+Coby White,CHA,PG,3PM,45,50,5
+Rasheer Fleming,PHX,PF,3PM,45,50,5
 Anthony Edwards,MIN,SG,Double Doubles,35,40,5
+Keegan Murray,SAC,PF,Double Doubles,25,30,5
 Dyson Daniels,ATL,SF,Double Doubles,25,30,5
 Stephon Castle,SA,SG,Double Doubles,25,30,5
-Keegan Murray,SAC,PF,Double Doubles,25,30,5
 Josh Giddey,CHI,PG,Triple Doubles,20,25,5
-Jalen Johnson,ATL,PF,Triple Doubles,15,20,5
 Jalen Smith,CHI,C,Double Doubles,15,20,5
+Jalen Johnson,ATL,PF,Triple Doubles,15,20,5
+Joel Embiid,PHI,C,Triple Doubles,10,15,5
 Luka Doncic,LAL,PG,Triple Doubles,10,15,5
 Stephen Curry,GS,PG,Triple Doubles,10,15,5
-Joel Embiid,PHI,C,Triple Doubles,10,15,5
 Paolo Banchero,ORL,PF,Triple Doubles,5,10,5
 Zach Collins,CHI,C,Double Doubles,5,10,5
 Kenrich Williams,OKC,PF,Double Doubles,5,10,5
-Bub Carrington,WSH,PG,Double Doubles,5,10,5
-Ryan Dunn,PHX,SF,Double Doubles,5,10,5
-Collin Gillespie,PHX,PG,Double Doubles,5,10,5
 Deni Avdija,POR,SF,Triple Doubles,5,10,5
-Stephon Castle,SA,SG,Triple Doubles,5,10,5
 Matas Buzelis,CHI,SF,Double Doubles,5,10,5
-Walker Kessler,LAL,C,Double Doubles,5,10,5
 Jayson Tatum,BOS,SF,Triple Doubles,5,10,5
 Ousmane Dieng,MIL,C,Double Doubles,5,10,5
 Darius Garland,LAC,PG,Double Doubles,5,10,5
+Anthony Davis,WSH,PF,Double Doubles,5,10,5
+Bub Carrington,WSH,PG,Double Doubles,5,10,5
+Jamal Shead,TOR,PG,Double Doubles,5,10,5
+Collin Gillespie,PHX,PG,Double Doubles,5,10,5
+Ryan Dunn,PHX,SF,Double Doubles,5,10,5
+Stephon Castle,SA,SG,Triple Doubles,5,10,5
 Karlo Matkovic,NO,PF,Double Doubles,5,10,5
+Keldon Johnson,SA,PF,Rebounds,2494,2500,6
 Toumani Camara,POR,PF,Rebounds,1244,1250,6
-Dylan Harper,SA,SG,Points,994,1000,6
 Tyrese Maxey,PHI,PG,3PM,944,950,6
 Payton Pritchard,BOS,PG,3PM,894,900,6
 Trey Murphy III,NO,SF,Assists,744,750,6
-Nikola Jokic,DEN,C,Double Doubles,564,570,6
 Bam Adebayo,MIA,C,Blocks,544,550,6
+Evan Mobley,CLE,PF,Blocks,544,550,6
 Rudy Gobert,MIN,C,Blocks,494,500,6
+Jarrett Allen,CLE,C,Blocks,444,450,6
 Jalen Suggs,ORL,PG,Steals,394,400,6
 Nikola Vucevic,ORL,C,Double Doubles,354,360,6
-Evan Mobley,CLE,PF,Games Played,344,350,6
 Derrick White,BOS,PG,Games Played,344,350,6
 Sam Hauser,BOS,PF,Games Played,344,350,6
-Nickeil Alexander-Walker,ATL,SG,3PM,294,300,6
-Cam Spencer,MEM,SG,Rebounds,244,250,6
-P.J. Washington,DAL,PF,3PM,244,250,6
 Max Christie,DAL,SG,Assists,244,250,6
+Aaron Nesmith,IND,SF,Games Played,244,250,6
 Domantas Sabonis,SAC,C,Double Doubles,234,240,6
-Ja'Kobe Walter,TOR,SG,3PM,194,200,6
-Jarace Walker,IND,PF,Games Played,194,200,6
 Jordan Goodwin,PHX,PG,3PM,144,150,6
 Josh Giddey,CHI,PG,Steals,144,150,6
-Sion James,CHA,SG,3PM,94,100,6
-T.J. McConnell,IND,PG,Blocks,94,100,6
 Karl-Anthony Towns,NY,C,Blocks,94,100,6
-Gui Santos,GS,PF,Steals,94,100,6
 Pelle Larsson,MIA,SG,Steals,94,100,6
 Andrew Wiggins,MIA,SF,Blocks,94,100,6
+Paul Reed,DET,C,Blocks,94,100,6
+Alex Sarr,WSH,C,Steals,94,100,6
+Daniel Gafford,DAL,C,Steals,94,100,6
+T.J. McConnell,IND,PG,Blocks,94,100,6
+Gui Santos,GS,PF,Steals,94,100,6
 Jakob Poeltl,TOR,C,Double Doubles,64,70,6
 Steven Adams,HOU,C,Steals,44,50,6
 Zach Collins,CHI,C,Games Played,44,50,6
-Zach Edey,MEM,C,Steals,44,50,6
-Nickeil Alexander-Walker,ATL,SG,Blocks,44,50,6
-Stephon Castle,SA,SG,Blocks,44,50,6
 Jalen Smith,CHI,C,Steals,44,50,6
 Jordan Walsh,BOS,PF,Blocks,44,50,6
-Donovan Mitchell,CLE,SG,Double Doubles,24,30,6
+Zach Edey,MEM,C,Steals,44,50,6
+Javon Small,MEM,PG,Games Played,44,50,6
+Stephon Castle,SA,SG,Blocks,44,50,6
+LJ Cryer,GS,PG,3PM,44,50,6
+Jordan Poole,NO,SG,Games Played,44,50,6
 Goga Bitadze,ORL,C,Double Doubles,24,30,6
-Fred VanVleet,HOU,PG,Double Doubles,24,30,6
+Donovan Mitchell,CLE,SG,Double Doubles,24,30,6
 Daniel Gafford,DAL,C,Double Doubles,24,30,6
+Fred VanVleet,HOU,PG,Double Doubles,24,30,6
 Kawhi Leonard,TOR,SF,Double Doubles,14,20,6
-Brandin Podziemski,GS,SG,Double Doubles,14,20,6
 Michael Porter Jr.,BKN,SF,Double Doubles,14,20,6
 Payton Pritchard,BOS,PG,Double Doubles,14,20,6
+Brandin Podziemski,GS,SG,Double Doubles,14,20,6
 Adem Bona,PHI,C,Double Doubles,4,10,6
-Anthony Davis,WSH,PF,Double Doubles,4,10,6
 Collin Murray-Boyles,TOR,PF,Double Doubles,4,10,6
-Jamal Shead,TOR,PG,Double Doubles,4,10,6
-Kyshawn George,WSH,SG,Double Doubles,4,10,6
-Trae Young,WSH,PG,Double Doubles,4,10,6
 Bilal Coulibaly,WSH,SF,Double Doubles,4,10,6
 Anthony Black,ORL,PG,Double Doubles,4,10,6
-Oso Ighodaro,PHX,C,Double Doubles,4,10,6
 Devin Vassell,SA,SG,Double Doubles,4,10,6
-Paul Reed,DET,C,Double Doubles,4,10,6
-Jarred Vanderbilt,LAL,PF,Double Doubles,4,10,6
 Ayo Dosunmu,MIN,SG,Double Doubles,4,10,6
 Baylor Scheierman,BOS,SF,Double Doubles,4,10,6
 Myles Turner,MIL,C,Double Doubles,4,10,6
+Jarred Vanderbilt,LAL,PF,Double Doubles,4,10,6
+Naz Reid,CHA,C,Double Doubles,4,10,6
+Paul Reed,DET,C,Double Doubles,4,10,6
+Trae Young,WSH,PG,Double Doubles,4,10,6
+Kyshawn George,WSH,SG,Double Doubles,4,10,6
+Oso Ighodaro,PHX,C,Double Doubles,4,10,6
 Jeremiah Fears,NO,PG,Double Doubles,4,10,6
-Evan Mobley,CLE,PF,Blocks,543,550,7
 Cade Cunningham,DET,PG,3PM,543,550,7
-Jarrett Allen,CLE,C,Blocks,443,450,7
 Nikola Vucevic,ORL,C,3PM,393,400,7
 Devin Vassell,SA,SG,Steals,393,400,7
+Onyeka Okongwu,ATL,C,Games Played,393,400,7
 Jalen Brunson,NY,PG,Games Played,293,300,7
+Reed Sheppard,HOU,PG,3PM,293,300,7
+Jarace Walker,IND,PF,3PM,243,250,7
 Christian Braun,DEN,SG,3PM,243,250,7
-Aaron Nesmith,IND,SF,Games Played,243,250,7
+Tari Eason,HOU,PF,3PM,243,250,7
+Obi Toppin,IND,PF,Games Played,193,200,7
 Ryan Rollins,MIL,PG,Games Played,143,150,7
 Trey Murphy III,NO,SF,Blocks,143,150,7
 Karl-Anthony Towns,NY,C,Double Doubles,123,130,7
 Justin Champagnie,WSH,SF,Blocks,93,100,7
 Desmond Bane,ORL,SG,Steals,93,100,7
 Ajay Mitchell,OKC,SG,3PM,93,100,7
-Alex Sarr,WSH,C,Steals,93,100,7
 Wendell Carter Jr.,ORL,C,Double Doubles,93,100,7
-Daniss Jenkins,DET,PG,3PM,93,100,7
-Ronald Holland II,DET,SF,3PM,93,100,7
-Daniel Gafford,DAL,C,Steals,93,100,7
 Neemias Queta,BOS,C,Steals,93,100,7
+Jake LaRavia,LAL,PF,Games Played,93,100,7
+Sion James,CHA,SG,Games Played,93,100,7
+Ronald Holland II,DET,PF,3PM,93,100,7
+Jeremiah Fears,NO,PG,Games Played,93,100,7
 Derik Queen,NO,C,Steals,93,100,7
-Jordan Poole,NO,SG,Games Played,43,50,7
 Desmond Bane,ORL,SG,Blocks,43,50,7
-Javon Small,MEM,PG,Games Played,43,50,7
 Shai Gilgeous-Alexander,OKC,PG,Double Doubles,43,50,7
 VJ Edgecombe,PHI,SG,Blocks,43,50,7
+Jarred Vanderbilt,LAL,PF,Blocks,43,50,7
+Taylor Hendricks,MEM,PF,3PM,43,50,7
 Pascal Siakam,IND,PF,Double Doubles,33,40,7
 Alex Sarr,WSH,C,Double Doubles,23,30,7
+Andrew Nembhard,IND,SG,Double Doubles,23,30,7
 Tari Eason,HOU,PF,Double Doubles,23,30,7
 Justin Champagnie,WSH,SF,Double Doubles,13,20,7
-RJ Barrett,TOR,SF,Double Doubles,13,20,7
 Precious Achiuwa,SAC,C,Double Doubles,13,20,7
+RJ Barrett,TOR,SF,Double Doubles,13,20,7
 Leonard Miller,CHI,SF,Double Doubles,3,10,7
-GG Jackson,MEM,PF,Double Doubles,3,10,7
 Zeke Nnaji,DEN,PF,Double Doubles,3,10,7
-Naz Reid,CHA,C,Double Doubles,3,10,7
-Ryan Kalkbrenner,CHA,C,Double Doubles,3,10,7
-Tidjane Salaun,CHA,PF,Double Doubles,3,10,7
-Cameron Boozer,MEM,PF,Double Doubles,3,10,7
-Obi Toppin,IND,PF,Double Doubles,3,10,7
-Jarace Walker,IND,PF,Double Doubles,3,10,7
-Gui Santos,GS,PF,Double Doubles,3,10,7
 Gary Payton II,GS,SG,Double Doubles,3,10,7
-Miles Bridges,PHX,PF,Double Doubles,3,10,7
-Luke Kornet,SA,C,Double Doubles,3,10,7
 LeBron James,PHI,PF,Double Doubles,3,10,7
-Daniss Jenkins,DET,PG,Double Doubles,3,10,7
 Ace Bailey,UTAH,SF,Double Doubles,3,10,7
 Danny Wolf,BKN,C,Double Doubles,3,10,7
 Kel'el Ware,MIL,C,Double Doubles,3,10,7
 Darius Acuff Jr.,SAC,PG,Double Doubles,3,10,7
 Zach LaVine,SAC,SG,Double Doubles,3,10,7
 Dylan Cardwell,SAC,C,Double Doubles,3,10,7
+Ryan Kalkbrenner,CHA,C,Double Doubles,3,10,7
+Tidjane Salaun,CHA,PF,Double Doubles,3,10,7
+Daniss Jenkins,DET,PG,Double Doubles,3,10,7
+Cameron Boozer,MEM,PF,Double Doubles,3,10,7
+GG Jackson,MEM,PF,Double Doubles,3,10,7
+Obi Toppin,IND,PF,Double Doubles,3,10,7
+Jarace Walker,IND,PF,Double Doubles,3,10,7
+Miles Bridges,PHX,PF,Double Doubles,3,10,7
+Luke Kornet,SA,C,Double Doubles,3,10,7
+Gui Santos,GS,PF,Double Doubles,3,10,7
+Charles Bassey,GS,C,Double Doubles,3,10,7
+Zach Edey,MEM,C,Rebounds,742,750,8
 Will Richard,GS,SG,Points,492,500,8
 Scoot Henderson,POR,PG,Rebounds,492,500,8
 Ryan Rollins,MIL,PG,Rebounds,492,500,8
-Onyeka Okongwu,ATL,C,Games Played,392,400,8
 Jayson Tatum,BOS,SF,Blocks,392,400,8
 Austin Reaves,LAL,SG,Games Played,342,350,8
 Jordan Goodwin,PHX,PG,Assists,242,250,8
-Obi Toppin,IND,PF,Games Played,192,200,8
+Victor Wembanyama,SA,C,Games Played,192,200,8
 Justin Champagnie,WSH,SF,3PM,142,150,8
 Karl-Anthony Towns,NY,C,Steals,142,150,8
-Sion James,CHA,SG,Games Played,92,100,8
+Fred VanVleet,HOU,PG,Games Played,142,150,8
+Reed Sheppard,HOU,PG,Games Played,142,150,8
 Robert Williams III,POR,C,Games Played,92,100,8
-Jalen Johnson,ATL,PF,Double Doubles,92,100,8
 Tre Jones,CHI,PG,Games Played,92,100,8
-Jake LaRavia,LAL,PF,Games Played,92,100,8
 Jaylen Clark,MIN,SG,Steals,92,100,8
 AJ Green,MIL,SG,Steals,92,100,8
-Jeremiah Fears,NO,PG,Games Played,92,100,8
+Jalen Johnson,ATL,PF,Double Doubles,92,100,8
+Javonte Green,DET,SG,Games Played,92,100,8
+Derik Queen,NO,C,Games Played,92,100,8
 Kobe Brown,IND,PF,3PM,42,50,8
-LJ Cryer,GS,PG,3PM,42,50,8
-Taylor Hendricks,MEM,PF,3PM,42,50,8
 Isaiah Hartenstein,OKC,C,Double Doubles,42,50,8
-Jarred Vanderbilt,LAL,PF,Blocks,42,50,8
 Kyle Kuzma,MIL,PF,Blocks,42,50,8
-Andrew Nembhard,IND,SG,Double Doubles,22,30,8
+Khaman Maluach,PHX,C,Blocks,42,50,8
 Franz Wagner,ORL,SF,Double Doubles,12,20,8
 Khris Middleton,WSH,SF,Double Doubles,2,10,8
-Jock Landale,ATL,C,Double Doubles,2,10,8
 Jordan Goodwin,PHX,PG,Double Doubles,2,10,8
 Asa Newell,ATL,PF,Double Doubles,2,10,8
-Taylor Hendricks,MEM,PF,Double Doubles,2,10,8
 Jahmai Mashack,MEM,SG,Double Doubles,2,10,8
-Aaron Nesmith,IND,SF,Double Doubles,2,10,8
-Ivica Zubac,IND,C,Double Doubles,2,10,8
-Nickeil Alexander-Walker,ATL,SG,Double Doubles,2,10,8
 Mikal Bridges,NY,SF,Double Doubles,2,10,8
 Tyler Kolek,NY,PG,Double Doubles,2,10,8
 Ajay Mitchell,OKC,SG,Double Doubles,2,10,8
-Will Riley,WSH,SF,Double Doubles,2,10,8
-Yaxel Lendeborg,GS,SF,Double Doubles,2,10,8
-Charles Bassey,GS,C,Double Doubles,2,10,8
 Tristan da Silva,ORL,SF,Double Doubles,2,10,8
-Reed Sheppard,HOU,PG,Double Doubles,2,10,8
 Jaylen Brown,PHI,SF,Double Doubles,2,10,8
 Jabari Walker,PHI,PF,Double Doubles,2,10,8
-Ronald Holland II,DET,SF,Double Doubles,2,10,8
 Tony Bradley,UTAH,C,Double Doubles,2,10,8
 Noah Clowney,BKN,PF,Double Doubles,2,10,8
 Moussa Cisse,DAL,C,Double Doubles,2,10,8
@@ -380,36 +373,43 @@ Luka Garza,BOS,C,Double Doubles,2,10,8
 Tyler Herro,MIL,SG,Double Doubles,2,10,8
 Brook Lopez,LAC,C,Double Doubles,2,10,8
 Andrew Wiggins,MIA,SF,Double Doubles,2,10,8
+Nickeil Alexander-Walker,ATL,SG,Double Doubles,2,10,8
+Jock Landale,ATL,C,Double Doubles,2,10,8
+John Collins,DET,PF,Double Doubles,2,10,8
+Ronald Holland II,DET,PF,Double Doubles,2,10,8
+Will Riley,WSH,SF,Double Doubles,2,10,8
+Taylor Hendricks,MEM,PF,Double Doubles,2,10,8
+Aaron Nesmith,IND,SF,Double Doubles,2,10,8
+Ivica Zubac,IND,C,Double Doubles,2,10,8
+Reed Sheppard,HOU,PG,Double Doubles,2,10,8
+Yaxel Lendeborg,GS,SF,Double Doubles,2,10,8
+Cam Spencer,MEM,SG,Points,991,1000,9
 Joel Embiid,PHI,C,Blocks,791,800,9
 Sam Hauser,BOS,PF,3PM,741,750,9
 Tyrese Haliburton,IND,PG,3PM,641,650,9
+Paul Reed,DET,C,Rebounds,491,500,9
 Immanuel Quickley,TOR,PG,3PM,391,400,9
 Wendell Carter Jr.,ORL,C,3PM,341,350,9
-Reed Sheppard,HOU,PG,3PM,291,300,9
-Jarace Walker,IND,PF,3PM,241,250,9
-Tari Eason,HOU,PF,3PM,241,250,9
-Victor Wembanyama,SA,C,Games Played,191,200,9
+Pascal Siakam,IND,PF,Games Played,191,200,9
 Draymond Green,GS,PF,Double Doubles,161,170,9
 Yves Missi,NO,C,Games Played,141,150,9
 Gary Trent Jr.,MIL,SG,Games Played,141,150,9
 OG Anunoby,NY,PF,Blocks,141,150,9
 Gary Payton II,GS,SG,3PM,141,150,9
-Fred VanVleet,HOU,PG,Games Played,141,150,9
-Reed Sheppard,HOU,PG,Games Played,141,150,9
+GG Jackson,MEM,PF,Games Played,141,150,9
+Victor Wembanyama,SA,C,Double Doubles,121,130,9
 Scottie Barnes,TOR,PF,Double Doubles,111,120,9
 Steven Adams,HOU,C,Games Played,91,100,9
 Jay Huff,IND,C,Games Played,91,100,9
+Quenton Jackson,IND,PG,Games Played,91,100,9
 Oso Ighodaro,PHX,C,Blocks,91,100,9
-Paul Reed,DET,C,Blocks,91,100,9
-Javonte Green,DET,SG,Games Played,91,100,9
-Derik Queen,NO,C,Games Played,91,100,9
 Onyeka Okongwu,ATL,C,Double Doubles,71,80,9
 Josh Giddey,CHI,PG,Double Doubles,61,70,9
 Jay Huff,IND,C,Steals,41,50,9
-Khaman Maluach,PHX,C,Blocks,41,50,9
-T.J. McConnell,IND,PG,Double Doubles,21,30,9
+Jalen Green,PHX,SG,Games Played,41,50,9
 Isaiah Collier,UTAH,PG,Double Doubles,21,30,9
 Day'Ron Sharpe,BKN,C,Double Doubles,21,30,9
+T.J. McConnell,IND,PG,Double Doubles,21,30,9
 Keyonte George,UTAH,PG,Double Doubles,11,20,9
 Davion Mitchell,MIA,PG,Double Doubles,11,20,9
 Cason Wallace,OKC,SG,Double Doubles,1,10,9
@@ -417,36 +417,17 @@ Jaren Jackson Jr.,UTAH,C,Double Doubles,1,10,9
 Egor Demin,BKN,SG,Double Doubles,1,10,9
 PJ Hall,CHA,C,Double Doubles,1,10,9
 Jose Alvarado,NY,PG,Double Doubles,1,10,9
-Trayce Jackson-Davis,TOR,C,Double Doubles,1,10,9
 Isaiah Jackson,LAC,C,Double Doubles,1,10,9
 Desmond Bane,ORL,SG,Double Doubles,1,10,9
-Graham Ike,GS,C,Double Doubles,1,10,9
 Myron Gardner,MIA,SF,Double Doubles,1,10,9
 Sam Merrill,CLE,SG,Double Doubles,1,10,9
 Justin Edwards,PHI,SF,Double Doubles,1,10,9
-Jaylen Wells,MEM,SG,Double Doubles,1,10,9
-Olivier-Maxence Prosper,MEM,PF,Double Doubles,1,10,9
-Ja'Kobe Walter,TOR,SG,Double Doubles,1,10,9
-Cameron Johnson,DEN,PF,Double Doubles,1,10,9
-Spencer Jones,DEN,SF,Double Doubles,1,10,9
-Braden Smith,IND,PG,Double Doubles,1,10,9
-Quenton Jackson,IND,PG,Double Doubles,1,10,9
 Jay Huff,IND,C,Double Doubles,1,10,9
-CJ McCollum,ATL,PG,Double Doubles,1,10,9
-Tyrese Proctor,CLE,PG,Double Doubles,1,10,9
-Mario Hezonja,CLE,PF,Double Doubles,1,10,9
-Thomas Bryant,CLE,C,Double Doubles,1,10,9
 Andre Drummond,NY,C,Double Doubles,1,10,9
 Aday Mara,OKC,C,Double Doubles,1,10,9
-De'Anthony Melton,GS,SG,Double Doubles,1,10,9
 Jamal Cain,ORL,SF,Double Doubles,1,10,9
-Khaman Maluach,PHX,C,Double Doubles,1,10,9
 Yang Hansen,POR,C,Double Doubles,1,10,9
-Harrison Barnes,SA,PF,Double Doubles,1,10,9
 Caleb Wilson,CHI,PF,Double Doubles,1,10,9
-John Collins,DET,PF,Double Doubles,1,10,9
-Javonte Green,DET,SG,Double Doubles,1,10,9
-Jake LaRavia,LAL,PF,Double Doubles,1,10,9
 Jonathan Kuminga,MIN,SF,Double Doubles,1,10,9
 Terrence Shannon Jr.,MIN,SG,Double Doubles,1,10,9
 Joan Beringer,MIN,C,Double Doubles,1,10,9
@@ -458,167 +439,193 @@ Morez Johnson Jr.,DAL,C,Double Doubles,1,10,9
 Brayden Burries,MIL,SG,Double Doubles,1,10,9
 Jaime Jaquez Jr.,MIL,SF,Double Doubles,1,10,9
 Derrick Jones Jr.,LAC,SF,Double Doubles,1,10,9
-Herbert Jones,NO,SF,Double Doubles,1,10,9
 Pelle Larsson,MIA,SG,Double Doubles,1,10,9
 Bobby Portis,MIA,PF,Double Doubles,1,10,9
+CJ McCollum,ATL,PG,Double Doubles,1,10,9
+Jake LaRavia,LAL,PF,Double Doubles,1,10,9
+Tyrese Proctor,CLE,PG,Double Doubles,1,10,9
+Mario Hezonja,CLE,PF,Double Doubles,1,10,9
+Thomas Bryant,CLE,C,Double Doubles,1,10,9
+Javonte Green,DET,SG,Double Doubles,1,10,9
+Jaylen Wells,MEM,SG,Double Doubles,1,10,9
+Olivier-Maxence Prosper,MEM,PF,Double Doubles,1,10,9
+Ja'Kobe Walter,TOR,SG,Double Doubles,1,10,9
+Trayce Jackson-Davis,TOR,C,Double Doubles,1,10,9
+Braden Smith,IND,PG,Double Doubles,1,10,9
+Quenton Jackson,IND,PG,Double Doubles,1,10,9
+Cameron Johnson,DEN,PF,Double Doubles,1,10,9
+Spencer Jones,DEN,SF,Double Doubles,1,10,9
+Khaman Maluach,PHX,C,Double Doubles,1,10,9
+Harrison Barnes,SA,PF,Double Doubles,1,10,9
+De'Anthony Melton,GS,SG,Double Doubles,1,10,9
+Graham Ike,GS,C,Double Doubles,1,10,9
+Herbert Jones,NO,SF,Double Doubles,1,10,9
+Stephen Curry,GS,PG,3PM,4290,4300,10
+Devin Booker,PHX,SG,Rebounds,2990,3000,10
+Cade Cunningham,DET,PG,Assists,2240,2250,10
 Kyle Kuzma,MIL,PF,Points,1490,1500,10
 Toumani Camara,POR,PF,3PM,440,450,10
 Franz Wagner,ORL,SF,Steals,340,350,10
+Jakob Poeltl,TOR,C,Blocks,340,350,10
 Joel Embiid,PHI,C,Double Doubles,310,320,10
+Christian Braun,DEN,SG,Games Played,290,300,10
 Wendell Carter Jr.,ORL,C,Steals,240,250,10
 Damian Lillard,POR,PG,Blocks,240,250,10
 Jalen Duren,DET,C,Steals,190,200,10
-Pascal Siakam,IND,PF,Games Played,190,200,10
 Stephen Curry,GS,PG,Double Doubles,170,180,10
 Rudy Gobert,MIN,C,Double Doubles,160,170,10
+Alperen Sengun,HOU,C,Double Doubles,150,160,10
 Tyrese Haliburton,IND,PG,Blocks,140,150,10
 Clint Capela,HOU,C,Double Doubles,140,150,10
-GG Jackson,MEM,PF,Games Played,140,150,10
 Zeke Nnaji,DEN,PF,Blocks,140,150,10
 Domantas Sabonis,SAC,C,3PM,140,150,10
 Isaiah Collier,UTAH,PG,Games Played,140,150,10
 Myles Turner,MIL,C,Blocks,140,150,10
 Tyrese Haliburton,IND,PG,Double Doubles,120,130,10
-Victor Wembanyama,SA,C,Double Doubles,120,130,10
 Desmond Bane,ORL,SG,Games Played,90,100,10
-Quenton Jackson,IND,PG,Games Played,90,100,10
+Nickeil Alexander-Walker,ATL,SG,Games Played,90,100,10
 Dyson Daniels,ATL,SF,Blocks,90,100,10
-Harrison Barnes,SA,PF,Steals,90,100,10
 Jake LaRavia,LAL,PF,3PM,90,100,10
+Harrison Barnes,SA,PF,Steals,90,100,10
 Josh Hart,NY,SF,Double Doubles,70,80,10
-Olivier-Maxence Prosper,MEM,PF,Steals,40,50,10
 Jalen Brunson,NY,PG,Double Doubles,40,50,10
 Jared McCain,OKC,SG,Games Played,40,50,10
-Bub Carrington,WSH,PG,Blocks,40,50,10
-Jalen Green,PHX,SG,Steals,40,50,10
-Jalen Green,PHX,SG,Games Played,40,50,10
 Klay Thompson,MIA,SF,3PM,40,50,10
+Bub Carrington,WSH,PG,Blocks,40,50,10
+Olivier-Maxence Prosper,MEM,PF,Steals,40,50,10
+Andrew Nembhard,IND,SG,Blocks,40,50,10
+Jalen Green,PHX,SG,Steals,40,50,10
 Yves Missi,NO,C,Double Doubles,20,30,10
 Jalen Williams,OKC,SF,Double Doubles,10,20,10
 Jaylin Williams,OKC,C,Double Doubles,10,20,10
 Jae'Sean Tate,HOU,SF,Double Doubles,10,20,10
 Scoot Henderson,POR,PG,Double Doubles,10,20,10
 Jrue Holiday,POR,PG,Double Doubles,10,20,10
-De'Aaron Fox,SA,PG,Double Doubles,10,20,10
-Ausar Thompson,DET,SF,Double Doubles,10,20,10
 Jaden McDaniels,MIN,PF,Double Doubles,10,20,10
-Keldon Johnson,SA,PF,Rebounds,2489,2500,11
+Ausar Thompson,DET,SF,Double Doubles,10,20,10
+De'Aaron Fox,SA,PG,Double Doubles,10,20,10
 Draymond Green,GS,PF,Blocks,939,950,11
 Damian Lillard,POR,PG,Steals,739,750,11
 Joel Embiid,PHI,C,Steals,439,450,11
-Christian Braun,DEN,SG,Games Played,289,300,11
 Toumani Camara,POR,PF,Games Played,239,250,11
 Nolan Traore,BKN,SG,Assists,239,250,11
 Mikal Bridges,NY,SF,Steals,189,200,11
-Collin Gillespie,PHX,PG,Steals,139,150,11
+Aaron Nesmith,IND,SF,Steals,189,200,11
 Jordan Walsh,BOS,PF,Games Played,139,150,11
-Nickeil Alexander-Walker,ATL,SG,Games Played,89,100,11
+Collin Gillespie,PHX,PG,Steals,139,150,11
 Sidy Cissoko,POR,SF,Games Played,89,100,11
 Derrick Jones Jr.,LAC,SF,Blocks,89,100,11
-Andrew Nembhard,IND,SG,Blocks,39,50,11
-Max Christie,DAL,SG,Blocks,39,50,11
+Daniss Jenkins,DET,PG,Games Played,89,100,11
+Kevin Durant,HOU,SF,Games Played,89,100,11
 Daeqwon Plowden,SAC,SG,Games Played,39,50,11
-Devin Booker,PHX,SG,Rebounds,2988,3000,12
+Max Christie,DAL,SG,Blocks,39,50,11
+Bryce McGowens,NO,SG,3PM,39,50,11
 Bilal Coulibaly,WSH,SF,Points,1988,2000,12
+Devin Booker,PHX,SG,Steals,638,650,12
 Joel Embiid,PHI,C,3PM,588,600,12
+Julian Champagnie,SA,SF,3PM,538,550,12
 VJ Edgecombe,PHI,SG,Rebounds,488,500,12
 Scottie Barnes,TOR,PF,Blocks,388,400,12
 Shai Gilgeous-Alexander,OKC,PG,Blocks,388,400,12
 Jaden McDaniels,MIN,PF,Blocks,388,400,12
+Anthony Gill,WSH,PF,Games Played,288,300,12
 Dru Smith,MIA,SG,Rebounds,238,250,12
-Aaron Nesmith,IND,SF,Steals,188,200,12
+Dillon Brooks,PHX,SF,Rebounds,238,250,12
 Bilal Coulibaly,WSH,SF,Games Played,188,200,12
-Cade Cunningham,DET,PG,Blocks,188,200,12
 Brice Sensabaugh,UTAH,SF,Games Played,188,200,12
+Cade Cunningham,DET,PG,Blocks,188,200,12
 Adem Bona,PHI,C,Games Played,138,150,12
 Jarace Walker,IND,PF,Steals,138,150,12
-Kevin Durant,HOU,SF,Games Played,88,100,12
 Matas Buzelis,CHI,SF,Steals,88,100,12
-Daniss Jenkins,DET,PG,Games Played,88,100,12
 Ben Saraf,BKN,SG,Steals,38,50,12
 Jahmai Mashack,MEM,SG,Steals,38,50,12
 Tyler Kolek,NY,PG,Steals,38,50,12
 Jamal Cain,ORL,SF,3PM,38,50,12
-Ausar Thompson,DET,SF,3PM,38,50,12
 Ayo Dosunmu,MIN,SG,Steals,38,50,12
-Bryce McGowens,NO,SG,3PM,38,50,12
+Grayson Allen,CHA,SG,3PM,38,50,12
+Ausar Thompson,DET,SF,3PM,38,50,12
+Chaz Lanier,DET,SG,Games Played,38,50,12
+Tre Johnson,WSH,SG,Steals,38,50,12
+Taylor Hendricks,MEM,PF,Steals,38,50,12
 Anthony Edwards,MIN,SG,Points,10987,11000,13
-Devin Booker,PHX,SG,Steals,637,650,13
 Austin Reaves,LAL,SG,3PM,637,650,13
 Nikola Vucevic,ORL,C,Steals,537,550,13
 Jalen Williams,OKC,SF,Steals,337,350,13
-Anthony Gill,WSH,PF,Games Played,287,300,13
+Aaron Gordon,DEN,PF,Games Played,337,350,13
+Herbert Jones,NO,SF,3PM,337,350,13
+Pascal Siakam,IND,PF,3PM,287,300,13
 Jaylin Williams,OKC,C,Games Played,237,250,13
+Onyeka Okongwu,ATL,C,3PM,237,250,13
+Evan Mobley,CLE,PF,3PM,237,250,13
+Kyshawn George,WSH,SG,3PM,237,250,13
 Andrew Wiggins,MIA,SF,3PM,187,200,13
 Jalen Williams,OKC,SF,Blocks,137,150,13
 Jordan Goodwin,PHX,PG,Steals,137,150,13
 Dru Smith,MIA,SG,Steals,137,150,13
 Justin Edwards,PHI,SF,3PM,137,150,13
+Kyrie Irving,DAL,PG,Games Played,137,150,13
 Jericho Sims,MIL,C,Games Played,87,100,13
-Chaz Lanier,DET,SG,Games Played,37,50,13
+Duncan Robinson,DET,SF,Games Played,87,100,13
 Simone Fontecchio,MIA,SF,Steals,37,50,13
-Taylor Hendricks,MEM,PF,Steals,37,50,13
 LaMelo Ball,MIN,PG,3PM,37,50,13
 Ousmane Dieng,MIL,C,Games Played,37,50,13
-Stephen Curry,GS,PG,3PM,4286,4300,14
+Liam McNeeley,CHA,SF,Games Played,37,50,13
+James Harden,CLE,PG,Games Played,37,50,13
+Kevin Huerter,DET,SG,Steals,37,50,13
+Gui Santos,GS,PF,Blocks,37,50,13
 Devin Vassell,SA,SG,Assists,986,1000,14
 Payton Pritchard,BOS,PG,Games Played,436,450,14
 OG Anunoby,NY,PF,3PM,386,400,14
-Jakob Poeltl,TOR,C,Blocks,336,350,14
-Aaron Gordon,DEN,PF,Games Played,336,350,14
 Miles McBride,NY,SG,Games Played,286,300,14
 Zion Williamson,NO,PF,Games Played,286,300,14
+Jaylen Wells,MEM,SG,3PM,286,300,14
+Collin Gillespie,PHX,PG,3PM,286,300,14
 Gary Trent Jr.,MIL,SG,Rebounds,236,250,14
 Zach LaVine,SAC,SG,Assists,236,250,14
 Ben Sheppard,IND,SG,Games Played,186,200,14
 Chet Holmgren,OKC,PF,Games Played,186,200,14
 Jabari Smith Jr.,HOU,PF,Steals,186,200,14
+Julian Champagnie,SA,SF,Steals,186,200,14
 Justin Champagnie,WSH,SF,Steals,136,150,14
 Robert Williams III,POR,C,Blocks,136,150,14
-Kyrie Irving,DAL,PG,Games Played,136,150,14
 Baylor Scheierman,BOS,SF,3PM,136,150,14
-Fred VanVleet,HOU,PG,Blocks,86,100,14
-Duncan Robinson,DET,SF,Games Played,86,100,14
 Bones Hyland,MIN,PG,Games Played,86,100,14
 Noah Clowney,BKN,PF,Blocks,86,100,14
 Darius Garland,LAC,PG,3PM,86,100,14
+Zach Edey,MEM,C,Games Played,86,100,14
+Cooper Flagg,DAL,SF,3PM,86,100,14
+Spencer Jones,DEN,SF,Games Played,86,100,14
+Kevin Durant,HOU,SF,Blocks,86,100,14
+Fred VanVleet,HOU,PG,Blocks,86,100,14
 Leonard Miller,CHI,SF,3PM,36,50,14
-Liam McNeeley,CHA,SF,Games Played,36,50,14
-James Harden,CLE,PG,Games Played,36,50,14
-Tre Johnson,WSH,SG,Steals,36,50,14
-Gui Santos,GS,PF,Blocks,36,50,14
 Scoot Henderson,POR,PG,Blocks,36,50,14
-Kevin Huerter,DET,SG,Steals,36,50,14
 Isaiah Collier,UTAH,PG,Blocks,36,50,14
 Drake Powell,BKN,SG,Steals,36,50,14
 Zion Williamson,NO,PF,3PM,36,50,14
-Herbert Jones,NO,SF,Points,2985,3000,15
-Kyshawn George,WSH,SG,Points,1485,1500,15
-Julian Champagnie,SA,SF,3PM,535,550,15
+Aaron Wiggins,ATL,SG,3PM,36,50,14
+Ryan Kalkbrenner,CHA,C,Steals,36,50,14
+Spencer Jones,DEN,SF,Blocks,36,50,14
+Aaron Gordon,DEN,PF,Assists,985,1000,15
+Nikola Jokic,DEN,C,3PM,935,950,15
+Andrew Nembhard,IND,SG,Rebounds,735,750,15
 Jaylen Clark,MIN,SG,Points,485,500,15
+Naji Marshall,DAL,SF,Assists,485,500,15
+Collin Gillespie,PHX,PG,Assists,485,500,15
 Patrick Williams,CHI,PF,3PM,435,450,15
 Tyrese Maxey,PHI,PG,Steals,435,450,15
-Herbert Jones,NO,SF,3PM,335,350,15
 Anthony Edwards,MIN,SG,Blocks,285,300,15
 Malik Monk,SAC,SG,Games Played,285,300,15
-Onyeka Okongwu,ATL,C,3PM,235,250,15
-Evan Mobley,CLE,PF,3PM,235,250,15
-Kyshawn George,WSH,SG,3PM,235,250,15
 Bam Adebayo,MIA,C,3PM,235,250,15
 Jae'Sean Tate,HOU,SF,3PM,185,200,15
 Landry Shamet,NY,SG,3PM,185,200,15
 Isaiah Collier,UTAH,PG,Steals,135,150,15
 Derrick Jones Jr.,LAC,SF,Games Played,135,150,15
 Pelle Larsson,MIA,SG,Games Played,135,150,15
-Zach Edey,MEM,C,Games Played,85,100,15
-Spencer Jones,DEN,SF,Games Played,85,100,15
-Kevin Durant,HOU,SF,Blocks,85,100,15
 VJ Edgecombe,PHI,SG,Games Played,85,100,15
 Noah Clowney,BKN,PF,Steals,85,100,15
 Sam Hauser,BOS,PF,Blocks,85,100,15
+Al Horford,GS,C,3PM,85,100,15
 Leonard Miller,CHI,SF,Games Played,35,50,15
-Ryan Kalkbrenner,CHA,C,Steals,35,50,15
-Spencer Jones,DEN,SF,Blocks,35,50,15
 Jase Richardson,ORL,SG,3PM,35,50,15
 Jevon Carter,ORL,PG,Games Played,35,50,15
 Ayo Dosunmu,MIN,SG,Games Played,35,50,15
@@ -626,306 +633,298 @@ Joan Beringer,MIN,C,Blocks,35,50,15
 Tony Bradley,UTAH,C,Blocks,35,50,15
 Day'Ron Sharpe,BKN,C,3PM,35,50,15
 Josh Minott,BKN,SF,3PM,35,50,15
-Cam Spencer,MEM,SG,Points,984,1000,16
-Nikola Jokic,DEN,C,3PM,934,950,16
+Kevin Huerter,DET,SG,Games Played,35,50,15
+Jeremiah Fears,NO,PG,Blocks,35,50,15
 Trey Murphy III,NO,SF,3PM,834,850,16
+Cam Spencer,MEM,SG,Assists,484,500,16
+Alperen Sengun,HOU,C,Steals,384,400,16
 Franz Wagner,ORL,SF,Games Played,334,350,16
-Collin Gillespie,PHX,PG,3PM,284,300,16
-Dillon Brooks,PHX,SF,Rebounds,234,250,16
 Noah Clowney,BKN,PF,3PM,234,250,16
-Julian Champagnie,SA,SF,Steals,184,200,16
-Al Horford,GS,C,3PM,84,100,16
+Jakob Poeltl,TOR,C,Steals,234,250,16
+Ja'Kobe Walter,TOR,SG,Games Played,134,150,16
 Will Richard,GS,SG,Steals,84,100,16
 Hugo Gonzalez,BOS,SG,Games Played,84,100,16
 Brook Lopez,LAC,C,Games Played,84,100,16
-Javon Small,MEM,PG,Steals,34,50,16
 Jahmai Mashack,MEM,SG,Games Played,34,50,16
 Jabari Walker,PHI,PF,3PM,34,50,16
-Kevin Huerter,DET,SG,Games Played,34,50,16
 Ron Harper Jr.,BOS,SF,Games Played,34,50,16
-Jeremiah Fears,NO,PG,Blocks,34,50,16
-Cade Cunningham,DET,PG,Assists,2233,2250,17
-Aaron Gordon,DEN,PF,Assists,983,1000,17
-Zach Edey,MEM,C,Rebounds,733,750,17
-Kevin Durant,HOU,SF,Rebounds,483,500,17
-Naji Marshall,DAL,SF,Assists,483,500,17
-Alperen Sengun,HOU,C,Steals,383,400,17
-Stephen Curry,GS,PG,Blocks,283,300,17
+Javon Small,MEM,PG,Steals,34,50,16
+Al Horford,GS,C,Steals,34,50,16
+Gui Santos,GS,PF,Points,983,1000,17
+Brandin Podziemski,GS,SG,3PM,383,400,17
 Toumani Camara,POR,PF,Steals,283,300,17
 Patrick Williams,CHI,PF,Steals,283,300,17
-Jakob Poeltl,TOR,C,Steals,233,250,17
-Ja'Kobe Walter,TOR,SG,Games Played,133,150,17
+Stephen Curry,GS,PG,Blocks,283,300,17
+Jamal Murray,DEN,PG,Blocks,233,250,17
 Josh Giddey,CHI,PG,Games Played,133,150,17
 Bones Hyland,MIN,PG,3PM,133,150,17
 Nique Clifford,SAC,SG,Games Played,83,100,17
-Pascal Siakam,IND,PF,Blocks,83,100,17
 Gary Payton II,GS,SG,Blocks,83,100,17
 Terrence Shannon Jr.,MIN,SG,Games Played,83,100,17
-Cooper Flagg,DAL,SF,3PM,83,100,17
 Precious Achiuwa,SAC,C,Games Played,83,100,17
+Will Riley,WSH,SF,Games Played,83,100,17
+Pascal Siakam,IND,PF,Blocks,83,100,17
+Saddiq Bey,NO,SF,Games Played,83,100,17
+Derik Queen,NO,C,Blocks,83,100,17
 Jaylon Tyson,CLE,SF,Blocks,33,50,17
 Jose Alvarado,NY,PG,3PM,33,50,17
 Kobe Brown,IND,PF,Games Played,33,50,17
 Dru Smith,MIA,SG,Blocks,33,50,17
 Luke Kornet,SA,C,Steals,33,50,17
+Bryce McGowens,NO,SG,Steals,33,50,17
 Anthony Edwards,MIN,SG,3PM,1332,1350,18
 Jrue Holiday,POR,PG,Points,982,1000,18
-Andrew Nembhard,IND,SG,Rebounds,732,750,18
 Franz Wagner,ORL,SF,3PM,482,500,18
-Collin Gillespie,PHX,PG,Assists,482,500,18
 Tyrese Haliburton,IND,PG,Steals,332,350,18
-Jaylen Wells,MEM,SG,3PM,282,300,18
-Pascal Siakam,IND,PF,3PM,282,300,18
+Andrew Nembhard,IND,SG,3PM,332,350,18
+Alperen Sengun,HOU,C,Blocks,332,350,18
 Matas Buzelis,CHI,SF,3PM,282,300,18
 Kris Dunn,LAC,SG,Steals,282,300,18
-Spencer Jones,DEN,SF,Rebounds,232,250,18
+Cade Cunningham,DET,PG,Games Played,282,300,18
 Tristan da Silva,ORL,SF,3PM,232,250,18
+Spencer Jones,DEN,SF,Rebounds,232,250,18
+Tari Eason,HOU,PF,Games Played,232,250,18
+Cam Spencer,MEM,SG,3PM,182,200,18
 Derrick Jones Jr.,LAC,SF,Steals,132,150,18
 Kon Knueppel,CHA,SF,Games Played,82,100,18
-Will Riley,WSH,SF,Games Played,82,100,18
 Ace Bailey,UTAH,SF,Games Played,82,100,18
-Saddiq Bey,NO,SF,Games Played,82,100,18
 Jose Alvarado,NY,PG,Steals,32,50,18
 Jose Alvarado,NY,PG,Games Played,32,50,18
-Grayson Allen,CHA,SG,3PM,32,50,18
-Aaron Wiggins,ATL,SG,3PM,32,50,18
 Jordan Clarkson,NY,SG,Steals,32,50,18
-Al Horford,GS,C,Steals,32,50,18
 Isaac Okoro,CHI,SG,Blocks,32,50,18
 Keyonte George,UTAH,PG,Blocks,32,50,18
 Danny Wolf,BKN,C,Blocks,32,50,18
 Luka Garza,BOS,C,Blocks,32,50,18
-Bryce McGowens,NO,SG,Steals,32,50,18
 Dylan Cardwell,SAC,C,Steals,32,50,18
+CJ McCollum,ATL,PG,Blocks,32,50,18
+Alijah Martin,TOR,SG,Games Played,32,50,18
 Keldon Johnson,SA,PF,3PM,681,700,19
-Paul Reed,DET,C,Rebounds,481,500,19
-Andrew Nembhard,IND,SG,3PM,331,350,19
-Alperen Sengun,HOU,C,Blocks,331,350,19
-Cade Cunningham,DET,PG,Games Played,281,300,19
-Jamal Murray,DEN,PG,Blocks,231,250,19
-Tari Eason,HOU,PF,Games Played,231,250,19
+Karlo Matkovic,NO,PF,Rebounds,481,500,19
 Svi Mykhailiuk,UTAH,SF,Rebounds,231,250,19
-Cam Spencer,MEM,SG,3PM,181,200,19
 Aaron Gordon,DEN,PF,Blocks,181,200,19
 Amen Thompson,HOU,SF,Blocks,181,200,19
 Josh Hart,NY,SF,Blocks,81,100,19
 Donovan Clingan,POR,C,Steals,81,100,19
-Max Christie,DAL,SG,Steals,81,100,19
 Myles Turner,MIL,C,Games Played,81,100,19
 Zach LaVine,SAC,SG,Games Played,81,100,19
+Max Christie,DAL,SG,Steals,81,100,19
+Carter Bryant,SA,PF,Games Played,81,100,19
 Asa Newell,ATL,PF,3PM,31,50,19
 Bronny James,LAL,SG,3PM,31,50,19
-Alijah Martin,TOR,SG,Games Played,31,50,19
-CJ McCollum,ATL,PG,Blocks,31,50,19
 Danny Wolf,BKN,C,Steals,31,50,19
 Paul George,BOS,PF,3PM,31,50,19
 Luka Garza,BOS,C,Steals,31,50,19
 Tyler Herro,MIL,SG,3PM,31,50,19
+Jock Landale,ATL,C,Games Played,31,50,19
+Taylor Hendricks,MEM,PF,Games Played,31,50,19
+Malevy Leons,GS,SF,Games Played,31,50,19
+Stephon Castle,SA,SG,Points,2480,2500,20
 Jalen Brunson,NY,PG,Rebounds,980,1000,20
-Gui Santos,GS,PF,Points,980,1000,20
 Wendell Carter Jr.,ORL,C,Assists,730,750,20
-Cam Spencer,MEM,SG,Assists,480,500,20
 Devin Vassell,SA,SG,Games Played,380,400,20
 Cason Wallace,OKC,SG,Games Played,230,250,20
 Dru Smith,MIA,SG,Assists,230,250,20
+Pascal Siakam,IND,PF,Steals,180,200,20
 Egor Demin,BKN,SG,3PM,130,150,20
 Deni Avdija,POR,SF,Steals,130,150,20
+Jamison Battle,TOR,SF,Games Played,130,150,20
 Jordan Clarkson,NY,SG,Games Played,80,100,20
 Will Richard,GS,SG,3PM,80,100,20
-Carter Bryant,SA,PF,Games Played,80,100,20
-Derik Queen,NO,C,Blocks,80,100,20
-Jock Landale,ATL,C,Games Played,30,50,20
+Ryan Kalkbrenner,CHA,C,Games Played,80,100,20
+Cooper Flagg,DAL,SF,Games Played,80,100,20
+Dylan Harper,SA,SG,Games Played,80,100,20
 Vit Krejci,POR,SG,3PM,30,50,20
-Malevy Leons,GS,SF,Games Played,30,50,20
-Taylor Hendricks,MEM,PF,Games Played,30,50,20
 Jevon Carter,ORL,PG,Steals,30,50,20
-De'Aaron Fox,SA,PG,Blocks,30,50,20
 Ron Harper Jr.,BOS,SF,3PM,30,50,20
 Darius Acuff Jr.,SAC,PG,3PM,30,50,20
 Precious Achiuwa,SAC,C,3PM,30,50,20
+James Harden,CLE,PG,Steals,30,50,20
+Tyrese Proctor,CLE,PG,Steals,30,50,20
+Trae Young,WSH,PG,3PM,30,50,20
+De'Aaron Fox,SA,PG,Blocks,30,50,20
+Jordan McLaughlin,SA,PG,Steals,30,50,20
 Mikal Bridges,NY,SF,3PM,329,350,21
 Kenrich Williams,OKC,PF,3PM,329,350,21
 Keegan Murray,SAC,PF,Steals,229,250,21
+Cameron Johnson,DEN,PF,Rebounds,229,250,21
+Brandin Podziemski,GS,SG,Steals,229,250,21
+Brandin Podziemski,GS,SG,Games Played,229,250,21
 Scotty Pippen Jr.,MEM,PG,3PM,129,150,21
-Jamison Battle,TOR,SF,Games Played,129,150,21
 Naji Marshall,DAL,SF,3PM,129,150,21
-Ryan Kalkbrenner,CHA,C,Games Played,79,100,21
-Will Riley,WSH,SF,3PM,79,100,21
 Will Richard,GS,SG,Games Played,79,100,21
-Dylan Harper,SA,SG,Games Played,79,100,21
 Nolan Traore,BKN,SG,3PM,79,100,21
-Cooper Flagg,DAL,SF,Games Played,79,100,21
 Luka Garza,BOS,C,Games Played,79,100,21
-Jamaree Bouyea,PHX,PG,Steals,29,50,21
-Jamison Battle,TOR,SF,Steals,29,50,21
-James Harden,CLE,PG,Steals,29,50,21
-Tyrese Proctor,CLE,PG,Steals,29,50,21
+Will Riley,WSH,SF,3PM,79,100,21
+Caleb Martin,DAL,SG,Games Played,79,100,21
+Luke Kornet,SA,C,Games Played,79,100,21
 Sidy Cissoko,POR,SF,Blocks,29,50,21
-Jordan McLaughlin,SA,PG,Steals,29,50,21
+Jock Landale,ATL,C,3PM,29,50,21
 Javonte Green,DET,SG,Blocks,29,50,21
+Cedric Coward,MEM,SG,Blocks,29,50,21
+Jamison Battle,TOR,SF,Steals,29,50,21
 Caleb Martin,DAL,SG,3PM,29,50,21
+DaRon Holmes II,DEN,PF,Games Played,29,50,21
+Jamaree Bouyea,PHX,PG,Steals,29,50,21
 Tyrese Maxey,PHI,PG,Points,8478,8500,22
+Stephen Curry,GS,PG,Games Played,1078,1100,22
 Damian Lillard,POR,PG,Games Played,778,800,22
+Luke Kornet,SA,C,Points,478,500,22
 Paolo Banchero,ORL,PF,3PM,378,400,22
-Brandin Podziemski,GS,SG,3PM,378,400,22
 Jalen Duren,DET,C,Games Played,278,300,22
 Tyrese Haliburton,IND,PG,Games Played,228,250,22
-Brandin Podziemski,GS,SG,Steals,228,250,22
-Brandin Podziemski,GS,SG,Games Played,228,250,22
-Pascal Siakam,IND,PF,Steals,178,200,22
-Ja'Kobe Walter,TOR,SG,Steals,128,150,22
 Tre Johnson,WSH,SG,3PM,128,150,22
+Ja'Kobe Walter,TOR,SG,Steals,128,150,22
 Nique Clifford,SAC,SG,3PM,78,100,22
-Luke Kornet,SA,C,Games Played,78,100,22
 Danny Wolf,BKN,C,3PM,78,100,22
-Caleb Martin,DAL,SG,Games Played,78,100,22
-Saddiq Bey,NO,SF,Steals,78,100,22
 Precious Achiuwa,SAC,C,Steals,78,100,22
-Jock Landale,ATL,C,3PM,28,50,22
-DaRon Holmes II,DEN,PF,Games Played,28,50,22
+Saddiq Bey,NO,SF,Steals,78,100,22
+Dejounte Murray,NO,PG,3PM,78,100,22
 Bronny James,LAL,SG,Steals,28,50,22
-Cedric Coward,MEM,SG,Blocks,28,50,22
-Ja'Kobe Walter,TOR,SG,Blocks,28,50,22
 Jalen Slawson,IND,SF,Steals,28,50,22
-Harrison Barnes,SA,PF,Blocks,28,50,22
 Brice Sensabaugh,UTAH,SF,Blocks,28,50,22
 Nolan Traore,BKN,SG,Blocks,28,50,22
 Darius Garland,LAC,PG,Steals,28,50,22
 Darius Garland,LAC,PG,Games Played,28,50,22
+Walker Kessler,LAL,C,Blocks,28,50,22
+Adou Thiero,LAL,SF,Games Played,28,50,22
+Thomas Bryant,CLE,C,Blocks,28,50,22
+Ja'Kobe Walter,TOR,SG,Blocks,28,50,22
+Harrison Barnes,SA,PF,Blocks,28,50,22
+Aaron Gordon,DEN,PF,Rebounds,1977,2000,23
 Donovan Clingan,POR,C,Points,1477,1500,23
-Stephen Curry,GS,PG,Games Played,1077,1100,23
+Jamal Murray,DEN,PG,3PM,1427,1450,23
 Derrick Jones Jr.,LAC,SF,Rebounds,477,500,23
 Trey Murphy III,NO,SF,Steals,327,350,23
 Gary Payton II,GS,SG,Games Played,277,300,23
-Cameron Johnson,DEN,PF,Rebounds,227,250,23
+Evan Mobley,CLE,PF,Steals,277,300,23
 Zach LaVine,SAC,SG,3PM,227,250,23
 Zion Williamson,NO,PF,Blocks,177,200,23
 Jay Huff,IND,C,3PM,127,150,23
+Kyshawn George,WSH,SG,Games Played,127,150,23
 De'Aaron Fox,SA,PG,Steals,127,150,23
-Jalen Green,PHX,SG,3PM,77,100,23
 Deni Avdija,POR,SF,Blocks,77,100,23
 Kobe Sanders,LAC,SG,Games Played,77,100,23
-Jordan Poole,NO,SG,Steals,27,50,23
+Jalen Green,PHX,SG,3PM,77,100,23
+Ryan Dunn,PHX,SF,Blocks,77,100,23
 Zach Collins,CHI,C,3PM,27,50,23
 Justin Edwards,PHI,SF,Blocks,27,50,23
-Jamal Shead,TOR,PG,Blocks,27,50,23
-Thomas Bryant,CLE,C,Blocks,27,50,23
-Trae Young,WSH,PG,3PM,27,50,23
-Jordan McLaughlin,SA,PG,3PM,27,50,23
-Walker Kessler,LAL,C,Blocks,27,50,23
-Adou Thiero,LAL,SF,Games Played,27,50,23
 Chaney Johnson,BKN,SF,Games Played,27,50,23
+Naz Reid,CHA,C,3PM,27,50,23
+Liam McNeeley,CHA,SF,3PM,27,50,23
+Jamal Shead,TOR,PG,Blocks,27,50,23
+Jordan McLaughlin,SA,PG,3PM,27,50,23
+Yaxel Lendeborg,GS,SF,3PM,27,50,23
+Jordan Poole,NO,SG,Steals,27,50,23
 Scottie Barnes,TOR,PF,Rebounds,2726,2750,24
-Stephon Castle,SA,SG,Points,2476,2500,24
+Stephon Castle,SA,SG,Rebounds,726,750,24
+Victor Wembanyama,SA,C,Blocks,676,700,24
 Karl-Anthony Towns,NY,C,Assists,476,500,24
-Luke Kornet,SA,C,Points,476,500,24
 Jalen Williams,OKC,SF,3PM,326,350,24
 Trey Murphy III,NO,SF,Games Played,326,350,24
 Cason Wallace,OKC,SG,3PM,276,300,24
-Jalen Johnson,ATL,PF,3PM,276,300,24
 Austin Reaves,LAL,SG,Steals,276,300,24
+Jalen Johnson,ATL,PF,3PM,276,300,24
 Domantas Sabonis,SAC,C,Steals,226,250,24
-Rudy Gobert,MIN,C,Steals,226,250,24
 Brandon Miller,CHA,SF,Games Played,176,200,24
-Kyrie Irving,DAL,PG,Steals,176,200,24
 Neemias Queta,BOS,C,Blocks,176,200,24
 Neemias Queta,BOS,C,Games Played,176,200,24
-Kyshawn George,WSH,SG,Games Played,126,150,24
-Gui Santos,GS,PF,3PM,126,150,24
+Kyrie Irving,DAL,PG,Steals,176,200,24
 Goga Bitadze,ORL,C,Steals,126,150,24
-Julian Champagnie,SA,SF,Blocks,126,150,24
 Jalen Smith,CHI,C,Games Played,126,150,24
 Brook Lopez,LAC,C,3PM,126,150,24
+Aaron Nesmith,IND,SF,Blocks,126,150,24
+Julian Champagnie,SA,SF,Blocks,126,150,24
+Gui Santos,GS,PF,3PM,126,150,24
 Jordan Clarkson,NY,SG,3PM,76,100,24
 Isaac Okoro,CHI,SG,3PM,76,100,24
-Dejounte Murray,NO,PG,3PM,76,100,24
+GG Jackson,MEM,PF,Blocks,76,100,24
 Vit Krejci,POR,SG,Games Played,26,50,24
 Isaiah Jackson,LAC,C,Blocks,26,50,24
 Myron Gardner,MIA,SF,3PM,26,50,24
 Sam Merrill,CLE,SG,Blocks,26,50,24
 Ajay Mitchell,OKC,SG,Blocks,26,50,24
-De'Anthony Melton,GS,SG,Blocks,26,50,24
-Carter Bryant,SA,PF,Blocks,26,50,24
-Paul Reed,DET,C,3PM,26,50,24
 Jericho Sims,MIL,C,Blocks,26,50,24
+Paul Reed,DET,C,3PM,26,50,24
+Trayce Jackson-Davis,TOR,C,Games Played,26,50,24
+Carter Bryant,SA,PF,Blocks,26,50,24
+De'Anthony Melton,GS,SG,Blocks,26,50,24
+LJ Cryer,GS,PG,Games Played,26,50,24
 Derik Queen,NO,C,3PM,26,50,24
 Shai Gilgeous-Alexander,OKC,PG,Steals,675,700,25
 Jaylin Williams,OKC,C,Assists,475,500,25
 Jordan Goodwin,PHX,PG,Rebounds,475,500,25
-Karlo Matkovic,NO,PF,Rebounds,475,500,25
 Jaden McDaniels,MIN,PF,Steals,425,450,25
-Evan Mobley,CLE,PF,Steals,275,300,25
-Aaron Nesmith,IND,SF,Blocks,125,150,25
-GG Jackson,MEM,PF,Blocks,75,100,25
-Anthony Gill,WSH,PF,Steals,75,100,25
-Ryan Dunn,PHX,SF,Blocks,75,100,25
+Donovan Mitchell,CLE,SG,Games Played,275,300,25
+Rudy Gobert,MIN,C,Steals,225,250,25
+De'Anthony Melton,GS,SG,Rebounds,225,250,25
+Craig Porter Jr.,CLE,PG,Games Played,175,200,25
+Bub Carrington,WSH,PG,Games Played,175,200,25
+Alex Sarr,WSH,C,Games Played,125,150,25
 Josh Giddey,CHI,PG,Blocks,75,100,25
+Anthony Gill,WSH,PF,Steals,75,100,25
 Karlo Matkovic,NO,PF,3PM,75,100,25
 Kawhi Leonard,TOR,SF,Blocks,25,50,25
-Trayce Jackson-Davis,TOR,C,Games Played,25,50,25
 Isaiah Jackson,LAC,C,Games Played,25,50,25
-LJ Cryer,GS,PG,Games Played,25,50,25
-Liam McNeeley,CHA,SF,3PM,25,50,25
 Jase Richardson,ORL,SG,Steals,25,50,25
-Dylan Harper,SA,SG,Blocks,25,50,25
 Davion Mitchell,MIA,PG,Blocks,25,50,25
 Daeqwon Plowden,SAC,SG,Steals,25,50,25
+Matisse Thybulle,LAL,SF,Steals,25,50,25
+Coby White,CHA,PG,Games Played,25,50,25
+Dylan Harper,SA,SG,Blocks,25,50,25
 Michael Porter Jr.,BKN,SF,Points,1474,1500,26
 Keegan Murray,SAC,PF,3PM,574,600,26
+Bub Carrington,WSH,PG,3PM,324,350,26
 Domantas Sabonis,SAC,C,Games Played,274,300,26
-Donovan Mitchell,CLE,SG,Games Played,274,300,26
 Gary Payton II,GS,SG,Steals,274,300,26
+Andrew Nembhard,IND,SG,Games Played,274,300,26
+Quenton Jackson,IND,PG,Assists,224,250,26
 Aaron Gordon,DEN,PF,Steals,224,250,26
-Craig Porter Jr.,CLE,PG,Games Played,174,200,26
-Bub Carrington,WSH,PG,Games Played,174,200,26
 Svi Mykhailiuk,UTAH,SF,3PM,174,200,26
 Simone Fontecchio,MIA,SF,3PM,124,150,26
-Alex Sarr,WSH,C,Games Played,124,150,26
 Kyle Filipowski,UTAH,C,Steals,124,150,26
 Bronny James,LAL,SG,Games Played,74,100,26
 Simone Fontecchio,MIA,SF,Games Played,74,100,26
-Obi Toppin,IND,PF,Blocks,74,100,26
 Tony Bradley,UTAH,C,Games Played,74,100,26
-Jamaree Bouyea,PHX,PG,3PM,24,50,26
-Coby White,CHA,PG,Games Played,24,50,26
+Obi Toppin,IND,PF,Blocks,74,100,26
 Nique Clifford,SAC,SG,Blocks,24,50,26
 Jabari Walker,PHI,PF,Steals,24,50,26
 Anfernee Simons,PHI,SG,3PM,24,50,26
-Duncan Robinson,DET,SF,Blocks,24,50,26
 Terrence Shannon Jr.,MIN,SG,Steals,24,50,26
 Josh Minott,BKN,SF,Steals,24,50,26
 Ousmane Dieng,MIL,C,Steals,24,50,26
 Pelle Larsson,MIA,SG,Blocks,24,50,26
+Duncan Robinson,DET,SF,Blocks,24,50,26
+Ty Jerome,MEM,PG,Games Played,24,50,26
+Rasheer Fleming,PHX,PF,Steals,24,50,26
+Jamaree Bouyea,PHX,PG,3PM,24,50,26
 Toumani Camara,POR,PF,Assists,473,500,27
 Keyonte George,UTAH,PG,3PM,473,500,27
-Bub Carrington,WSH,PG,3PM,323,350,27
+Cade Cunningham,DET,PG,Steals,323,350,27
+Jakob Poeltl,TOR,C,Games Played,323,350,27
 Kon Knueppel,CHA,SF,3PM,273,300,27
-Andrew Nembhard,IND,SG,Games Played,273,300,27
+Duncan Robinson,DET,SF,Rebounds,223,250,27
 OG Anunoby,NY,PF,Games Played,173,200,27
 Mikal Bridges,NY,SF,Games Played,173,200,27
+Ausar Thompson,DET,SF,Blocks,173,200,27
 Domantas Sabonis,SAC,C,Blocks,123,150,27
 Alex Caruso,OKC,SG,3PM,123,150,27
 VJ Edgecombe,PHI,SG,Steals,123,150,27
 Mohamed Diawara,NY,SF,Games Played,73,100,27
-Dylan Harper,SA,SG,3PM,73,100,27
 Cam Christie,LAC,SG,Games Played,73,100,27
-Rasheer Fleming,PHX,PF,Steals,23,50,27
+Dylan Harper,SA,SG,3PM,73,100,27
 Jordan Goodwin,PHX,PG,Blocks,23,50,27
 Tolu Smith,DET,PF,Games Played,23,50,27
-Naz Reid,CHA,C,3PM,23,50,27
-Tidjane Salaun,CHA,PF,Blocks,23,50,27
-Ty Jerome,MEM,PG,Steals,23,50,27
-Ty Jerome,MEM,PG,Games Played,23,50,27
 Jared McCain,OKC,SG,Steals,23,50,27
-Yaxel Lendeborg,GS,SF,3PM,23,50,27
 Josh Minott,BKN,SF,Games Played,23,50,27
 Hugo Gonzalez,BOS,SG,Blocks,23,50,27
-Aaron Gordon,DEN,PF,Rebounds,1972,2000,28
-Jamal Murray,DEN,PG,3PM,1422,1450,28
+Tidjane Salaun,CHA,PF,Blocks,23,50,27
+Ty Jerome,MEM,PG,Steals,23,50,27
+Taylor Hendricks,MEM,PF,Blocks,23,50,27
+Jalen Johnson,ATL,PF,Rebounds,1972,2000,28
+Fred VanVleet,HOU,PG,Assists,972,1000,28
 AJ Green,MIL,SG,3PM,522,550,28
 Kenrich Williams,OKC,PF,Games Played,372,400,28
-Jakob Poeltl,TOR,C,Games Played,322,350,28
-Cade Cunningham,DET,PG,Steals,322,350,28
+Ausar Thompson,DET,SF,Steals,322,350,28
 Paolo Banchero,ORL,PF,Games Played,272,300,28
 Karl-Anthony Towns,NY,C,3PM,272,300,28
 Bilal Coulibaly,WSH,SF,Steals,222,250,28
@@ -933,98 +932,101 @@ Anthony Black,ORL,PG,Steals,222,250,28
 Moussa Cisse,DAL,C,Rebounds,222,250,28
 Brandon Miller,CHA,SF,Steals,172,200,28
 Lauri Markkanen,UTAH,PF,Steals,172,200,28
-Ausar Thompson,DET,SF,Blocks,172,200,28
 Malik Monk,SAC,SG,Blocks,122,150,28
-GG Jackson,MEM,PF,Steals,72,100,28
+Kyshawn George,WSH,SG,Steals,122,150,28
+Cameron Johnson,DEN,PF,3PM,122,150,28
+Collin Gillespie,PHX,PG,Games Played,122,150,28
 Isaac Okoro,CHI,SG,Games Played,72,100,28
 Jordan Walsh,BOS,PF,3PM,72,100,28
 Jordan Walsh,BOS,PF,Steals,72,100,28
 Kyle Kuzma,MIL,PF,Steals,72,100,28
+Daniss Jenkins,DET,PG,Steals,72,100,28
+GG Jackson,MEM,PF,Steals,72,100,28
+Cooper Flagg,DAL,SF,Blocks,72,100,28
+Luke Kornet,SA,C,Blocks,72,100,28
 Ben Sheppard,IND,SG,Blocks,22,50,28
-Rasheer Fleming,PHX,PF,Blocks,22,50,28
-Chaz Lanier,DET,SG,3PM,22,50,28
-Taylor Hendricks,MEM,PF,Blocks,22,50,28
 Collin Murray-Boyles,TOR,PF,3PM,22,50,28
 Jalen Slawson,IND,SF,Games Played,22,50,28
-Collin Gillespie,PHX,PG,Blocks,22,50,28
-Matisse Thybulle,LAL,SF,Steals,22,50,28
 Bones Hyland,MIN,PG,Blocks,22,50,28
 Chaney Johnson,BKN,SF,Steals,22,50,28
 Cam Christie,LAC,SG,Steals,22,50,28
+Meleek Thomas,CLE,SG,3PM,22,50,28
+Chaz Lanier,DET,SG,3PM,22,50,28
+Collin Gillespie,PHX,PG,Blocks,22,50,28
+Rasheer Fleming,PHX,PF,Blocks,22,50,28
 Herbert Jones,NO,SF,Steals,471,500,29
 Jalen Suggs,ORL,PG,Games Played,271,300,29
-De'Anthony Melton,GS,SG,Rebounds,221,250,29
+Amen Thompson,HOU,SF,Games Played,221,250,29
 Day'Ron Sharpe,BKN,C,Blocks,171,200,29
 Chet Holmgren,OKC,PF,Steals,121,150,29
-Kyshawn George,WSH,SG,Steals,121,150,29
-Collin Gillespie,PHX,PG,Games Played,121,150,29
 Davion Mitchell,MIA,PG,Steals,121,150,29
 Jared McCain,OKC,SG,3PM,71,100,29
-Reed Sheppard,HOU,PG,Blocks,71,100,29
-Luke Kornet,SA,C,Blocks,71,100,29
 Jabari Walker,PHI,PF,Games Played,71,100,29
-Cooper Flagg,DAL,SF,Blocks,71,100,29
-DaRon Holmes II,DEN,PF,3PM,21,50,29
+Cedric Coward,MEM,SG,Games Played,71,100,29
+Reed Sheppard,HOU,PG,Blocks,71,100,29
 Isaiah Jackson,LAC,C,Steals,21,50,29
-Cameron Johnson,DEN,PF,Blocks,21,50,29
 Jalen Slawson,IND,SF,Blocks,21,50,29
 Caleb Wilson,CHI,PF,3PM,21,50,29
 Paul George,BOS,PF,Steals,21,50,29
 AJ Green,MIL,SG,Blocks,21,50,29
 Jericho Sims,MIL,C,Steals,21,50,29
-Fred VanVleet,HOU,PG,Assists,970,1000,30
+Luguentz Dort,ATL,PF,3PM,21,50,29
+Cameron Johnson,DEN,PF,Blocks,21,50,29
+DaRon Holmes II,DEN,PF,3PM,21,50,29
+Isaiah Crawford,HOU,SF,Games Played,21,50,29
 Derrick White,BOS,PG,3PM,870,900,30
+Jamal Murray,DEN,PG,Games Played,620,650,30
 Scottie Barnes,TOR,PF,3PM,370,400,30
-Ausar Thompson,DET,SF,Steals,320,350,30
 Clint Capela,HOU,C,Steals,270,300,30
 Paolo Banchero,ORL,PF,Steals,220,250,30
-Quenton Jackson,IND,PG,Assists,220,250,30
 Goga Bitadze,ORL,C,Games Played,220,250,30
-Amen Thompson,HOU,SF,Games Played,220,250,30
-Duncan Robinson,DET,SF,Rebounds,220,250,30
+Luka Doncic,LAL,PG,Steals,170,200,30
+Saddiq Bey,NO,SF,3PM,170,200,30
 Moussa Diabate,CHA,PF,Blocks,120,150,30
-Cameron Johnson,DEN,PF,3PM,120,150,30
 Toumani Camara,POR,PF,Blocks,120,150,30
+Paul Reed,DET,C,Games Played,120,150,30
 Jaylon Tyson,CLE,SF,Steals,70,100,30
-Cedric Coward,MEM,SG,Games Played,70,100,30
 Nique Clifford,SAC,SG,Steals,70,100,30
-Craig Porter Jr.,CLE,PG,Blocks,70,100,30
 Dylan Cardwell,SAC,C,Blocks,70,100,30
-Isaiah Crawford,HOU,SF,Games Played,20,50,30
+Craig Porter Jr.,CLE,PG,Blocks,70,100,30
+Tre Johnson,WSH,SG,Games Played,70,100,30
+Cam Spencer,MEM,SG,Steals,70,100,30
 Leonard Miller,CHI,SF,Blocks,20,50,30
 Myron Gardner,MIA,SF,Steals,20,50,30
-Sion James,CHA,SG,Blocks,20,50,30
-Zach Edey,MEM,C,3PM,20,50,30
-Luguentz Dort,ATL,PF,3PM,20,50,30
 Jaylen Brown,PHI,SF,3PM,20,50,30
 Jonathan Kuminga,MIN,SF,3PM,20,50,30
-Dejounte Murray,NO,PG,Blocks,20,50,30
 De'Andre Hunter,SAC,SF,3PM,20,50,30
-Jamal Murray,DEN,PG,Games Played,619,650,31
+Matisse Thybulle,LAL,SF,3PM,20,50,30
+Sion James,CHA,SG,Blocks,20,50,30
+Zach Edey,MEM,C,3PM,20,50,30
+Tyus Jones,DEN,PG,Games Played,20,50,30
+Dejounte Murray,NO,PG,Blocks,20,50,30
+Nikola Jokic,DEN,C,Games Played,819,850,31
 Brandon Miller,CHA,SF,3PM,519,550,31
 Bones Hyland,MIN,PG,Assists,219,250,31
 Tyrese Maxey,PHI,PG,Blocks,169,200,31
-Saddiq Bey,NO,SF,3PM,169,200,31
+Ronald Holland II,DET,PF,Games Played,169,200,31
 Anthony Black,ORL,PG,Blocks,119,150,31
-Paul Reed,DET,C,Games Played,119,150,31
-Tre Johnson,WSH,SG,Games Played,69,100,31
-Kevin Durant,HOU,SF,Steals,69,100,31
+Nickeil Alexander-Walker,ATL,SG,Steals,119,150,31
+Jake LaRavia,LAL,PF,Steals,119,150,31
+Max Christie,DAL,SG,Games Played,119,150,31
 Isaiah Collier,UTAH,PG,3PM,69,100,31
+Quenton Jackson,IND,PG,3PM,69,100,31
+Kevin Durant,HOU,SF,Steals,69,100,31
 Ben Saraf,BKN,SG,3PM,19,50,31
 Kon Knueppel,CHA,SF,Blocks,19,50,31
 Zach Collins,CHI,C,Steals,19,50,31
 Jahmai Mashack,MEM,SG,3PM,19,50,31
-Tyus Jones,DEN,PG,Games Played,19,50,31
 Aday Mara,OKC,C,Blocks,19,50,31
-Tre Johnson,WSH,SG,Blocks,19,50,31
 LaMelo Ball,MIN,PG,Steals,19,50,31
 Darryn Peterson,UTAH,SG,3PM,19,50,31
-Naji Marshall,DAL,SF,Blocks,19,50,31
 Moussa Cisse,DAL,C,Steals,19,50,31
+Ziaire Williams,LAL,SF,3PM,19,50,31
+Thomas Bryant,CLE,C,Steals,19,50,31
+Tre Johnson,WSH,SG,Blocks,19,50,31
+Naji Marshall,DAL,SF,Blocks,19,50,31
 Jalen Brunson,NY,PG,Assists,1968,2000,32
 Josh Hart,NY,SF,Assists,1218,1250,32
-Nikola Jokic,DEN,C,Games Played,818,850,32
-Stephon Castle,SA,SG,Rebounds,718,750,32
 Jayson Tatum,BOS,SF,Steals,668,700,32
 Miles McBride,NY,SG,Rebounds,468,500,32
 Terrence Shannon Jr.,MIN,SG,Points,468,500,32
@@ -1032,169 +1034,175 @@ Josh Hart,NY,SF,Steals,318,350,32
 Andrew Nembhard,IND,SG,Steals,268,300,32
 Lauri Markkanen,UTAH,PF,Games Played,218,250,32
 Wendell Carter Jr.,ORL,C,Blocks,218,250,32
-Victor Wembanyama,SA,C,Steals,218,250,32
 Jabari Walker,PHI,PF,Rebounds,218,250,32
-Reed Sheppard,HOU,PG,Steals,168,200,32
+Thomas Bryant,CLE,C,Rebounds,218,250,32
+Victor Wembanyama,SA,C,Steals,218,250,32
 VJ Edgecombe,PHI,SG,3PM,168,200,32
-Ronald Holland II,DET,SF,Games Played,168,200,32
+Reed Sheppard,HOU,PG,Steals,168,200,32
+De'Aaron Fox,SA,PG,3PM,168,200,32
+Harrison Barnes,SA,PF,Games Played,168,200,32
 Jaylon Tyson,CLE,SF,Games Played,118,150,32
 Sam Merrill,CLE,SG,Steals,118,150,32
-Jake LaRavia,LAL,PF,Steals,118,150,32
 Jaylen Clark,MIN,SG,Games Played,118,150,32
-Max Christie,DAL,SG,Games Played,118,150,32
 Baylor Scheierman,BOS,SF,Games Played,118,150,32
-Cam Spencer,MEM,SG,Steals,68,100,32
-Jarace Walker,IND,PF,Blocks,68,100,32
-Daniss Jenkins,DET,PG,Steals,68,100,32
+Zach Edey,MEM,C,Blocks,118,150,32
 Michael Porter Jr.,BKN,SF,Steals,68,100,32
 Terance Mann,BKN,SG,Games Played,68,100,32
 Luka Garza,BOS,C,3PM,68,100,32
+Quenton Jackson,IND,PG,Steals,68,100,32
+Jarace Walker,IND,PF,Blocks,68,100,32
+Jordan McLaughlin,SA,PG,Games Played,68,100,32
 Zach Collins,CHI,C,Blocks,18,50,32
+Jock Landale,ATL,C,Blocks,18,50,32
+James Harden,CLE,PG,Blocks,18,50,32
 Cameron Boozer,MEM,PF,3PM,18,50,32
 Jaylen Wells,MEM,SG,Blocks,18,50,32
-James Harden,CLE,PG,Blocks,18,50,32
-Meleek Thomas,CLE,SG,3PM,18,50,32
-Thomas Bryant,CLE,C,Steals,18,50,32
-Matisse Thybulle,LAL,SF,3PM,18,50,32
 Caleb Martin,DAL,SG,Blocks,18,50,32
+Jordan Poole,NO,SG,Blocks,18,50,32
+Onyeka Okongwu,ATL,C,Rebounds,2717,2750,33
 Jalen Brunson,NY,PG,3PM,717,750,33
+Jamal Murray,DEN,PG,Steals,617,650,33
 Brice Sensabaugh,UTAH,SF,3PM,367,400,33
+Alperen Sengun,HOU,C,Games Played,367,400,33
 Derrick White,BOS,PG,Steals,317,350,33
 Anthony Black,ORL,PG,Games Played,217,250,33
 Josh Giddey,CHI,PG,3PM,217,250,33
 Patrick Williams,CHI,PF,Blocks,217,250,33
+Christian Braun,DEN,SG,Steals,217,250,33
 Jalen Suggs,ORL,PG,Blocks,167,200,33
 Scoot Henderson,POR,PG,Games Played,167,200,33
-Harrison Barnes,SA,PF,Games Played,167,200,33
 Jalen Smith,CHI,C,3PM,167,200,33
-Zach Edey,MEM,C,Blocks,117,150,33
-Nickeil Alexander-Walker,ATL,SG,Steals,117,150,33
+Jamal Shead,TOR,PG,Games Played,167,200,33
 Alex Caruso,OKC,SG,Games Played,117,150,33
 Brice Sensabaugh,UTAH,SF,Steals,117,150,33
+CJ McCollum,ATL,PG,3PM,117,150,33
 Corey Kispert,ATL,SF,3PM,67,100,33
-Quenton Jackson,IND,PG,3PM,67,100,33
-Craig Porter Jr.,CLE,PG,3PM,67,100,33
 Sidy Cissoko,POR,SF,3PM,67,100,33
-Jordan McLaughlin,SA,PG,Games Played,67,100,33
 Ace Bailey,UTAH,SF,Steals,67,100,33
+Craig Porter Jr.,CLE,PG,3PM,67,100,33
+Ty Jerome,MEM,PG,3PM,67,100,33
 Egor Demin,BKN,SG,Blocks,17,50,33
-Jordan Poole,NO,SG,Blocks,17,50,33
-Jock Landale,ATL,C,Blocks,17,50,33
 Asa Newell,ATL,PF,Steals,17,50,33
 Norman Powell,CHI,SG,3PM,17,50,33
 Jalen Slawson,IND,SF,3PM,17,50,33
 Mohamed Diawara,NY,SF,Steals,17,50,33
-Miles Bridges,PHX,PF,3PM,17,50,33
-Carter Bryant,SA,PF,Steals,17,50,33
 Caleb Wilson,CHI,PF,Steals,17,50,33
 Tre Jones,CHI,PG,Blocks,17,50,33
-Ziaire Williams,LAL,SF,3PM,17,50,33
 Tony Bradley,UTAH,C,Steals,17,50,33
 Michael Porter Jr.,BKN,SF,Blocks,17,50,33
 Jaime Jaquez Jr.,MIL,SF,3PM,17,50,33
-Victor Wembanyama,SA,C,Blocks,666,700,34
-Jamal Murray,DEN,PG,Steals,616,650,34
+Kevin Huerter,DET,SG,Blocks,17,50,33
+Jerami Grant,MEM,PF,3PM,17,50,33
+Miles Bridges,PHX,PF,3PM,17,50,33
+Carter Bryant,SA,PF,Steals,17,50,33
+Kyrie Irving,DAL,PG,Points,3466,3500,34
+Brandin Podziemski,GS,SG,Rebounds,1216,1250,34
+Ryan Dunn,PHX,SF,Points,966,1000,34
 Onyeka Okongwu,ATL,C,Blocks,416,450,34
-Alperen Sengun,HOU,C,Games Played,366,400,34
-Thomas Bryant,CLE,C,Rebounds,216,250,34
-Jamal Shead,TOR,PG,Games Played,166,200,34
-De'Aaron Fox,SA,PG,3PM,166,200,34
 Matas Buzelis,CHI,SF,Games Played,166,200,34
 Kawhi Leonard,TOR,SF,3PM,116,150,34
 Moussa Diabate,CHA,PF,Steals,116,150,34
 Zeke Nnaji,DEN,PF,3PM,116,150,34
 Collin Murray-Boyles,TOR,PF,Games Played,66,100,34
-Quenton Jackson,IND,PG,Steals,66,100,34
 Kenrich Williams,OKC,PF,Blocks,66,100,34
 Nolan Traore,BKN,SG,Games Played,66,100,34
 Drake Powell,BKN,SG,Games Played,66,100,34
-Kyrie Irving,DAL,PG,Blocks,66,100,34
 Baylor Scheierman,BOS,SF,Steals,66,100,34
 Daeqwon Plowden,SAC,SG,3PM,66,100,34
+Thomas Bryant,CLE,C,Games Played,66,100,34
+Kyrie Irving,DAL,PG,Blocks,66,100,34
+De'Anthony Melton,GS,SG,Games Played,66,100,34
 Asa Newell,ATL,PF,Blocks,16,50,34
 Immanuel Quickley,TOR,PG,Blocks,16,50,34
-Jamaree Bouyea,PHX,PG,Blocks,16,50,34
-Malevy Leons,GS,SF,Steals,16,50,34
 Bennett Stirtz,OKC,PG,3PM,16,50,34
-Kevin Huerter,DET,SG,Blocks,16,50,34
-Daniss Jenkins,DET,PG,Blocks,16,50,34
 Terance Mann,BKN,SG,Blocks,16,50,34
 Chaney Johnson,BKN,SF,3PM,16,50,34
 Keaton Wagler,LAC,SG,3PM,16,50,34
 Zach LaVine,SAC,SG,Blocks,16,50,34
-Jalen Johnson,ATL,PF,Rebounds,1965,2000,35
+Sandro Mamukelashvili,LAL,C,3PM,16,50,34
+Daniss Jenkins,DET,PG,Blocks,16,50,34
+Trae Young,WSH,PG,Steals,16,50,34
+Trae Young,WSH,PG,Games Played,16,50,34
+Luke Kennard,PHX,SG,3PM,16,50,34
+Jamaree Bouyea,PHX,PG,Blocks,16,50,34
+Charles Bassey,GS,C,Blocks,16,50,34
+Malevy Leons,GS,SF,Steals,16,50,34
 Malik Monk,SAC,SG,3PM,565,600,35
 Clint Capela,HOU,C,Games Played,415,450,35
 Deni Avdija,POR,SF,3PM,265,300,35
+Jalen Johnson,ATL,PF,Games Played,265,300,35
+RJ Barrett,TOR,SF,3PM,265,300,35
 Moussa Diabate,CHA,PF,Assists,215,250,35
-Luka Doncic,LAL,PG,Steals,165,200,35
 Alex Caruso,OKC,SG,Steals,165,200,35
 Kris Dunn,LAC,SG,Games Played,165,200,35
+Jamal Shead,TOR,PG,3PM,165,200,35
 Scotty Pippen Jr.,MEM,PG,Games Played,115,150,35
 Jordan Goodwin,PHX,PG,Games Played,115,150,35
+Ryan Kalkbrenner,CHA,C,Blocks,115,150,35
+Cedric Coward,MEM,SG,3PM,115,150,35
 Dru Smith,MIA,SG,3PM,65,100,35
-Thomas Bryant,CLE,C,Games Played,65,100,35
-De'Anthony Melton,GS,SG,Games Played,65,100,35
+Dillon Brooks,PHX,SF,Games Played,65,100,35
 Leonard Miller,CHI,SF,Steals,15,50,35
 Kobe Brown,IND,PF,Steals,15,50,35
-Trae Young,WSH,PG,Games Played,15,50,35
-Charles Bassey,GS,C,Blocks,15,50,35
-Luke Kennard,PHX,SG,3PM,15,50,35
 Kentavious Caldwell-Pope,PHI,SF,3PM,15,50,35
 Jaxson Hayes,UTAH,C,Blocks,15,50,35
 Julius Randle,BKN,PF,3PM,15,50,35
 Rui Hachimura,LAC,PF,3PM,15,50,35
 Cam Christie,LAC,SG,3PM,15,50,35
+Walker Kessler,LAL,C,Steals,15,50,35
+Georges Niang,GS,PF,3PM,15,50,35
 Jayson Tatum,BOS,SF,3PM,1614,1650,36
-Brandin Podziemski,GS,SG,Rebounds,1214,1250,36
+Devin Booker,PHX,SG,3PM,1564,1600,36
+Donovan Mitchell,CLE,SG,3PM,914,950,36
 Bam Adebayo,MIA,C,Steals,714,750,36
 Jaden McDaniels,MIN,PF,3PM,564,600,36
 Tre Jones,CHI,PG,Assists,464,500,36
+Dyson Daniels,ATL,SF,Steals,414,450,36
 Scottie Barnes,TOR,PF,Games Played,364,400,36
-RJ Barrett,TOR,SF,3PM,264,300,36
-Jalen Johnson,ATL,PF,Games Played,264,300,36
 OG Anunoby,NY,PF,Steals,264,300,36
-Christian Braun,DEN,SG,Steals,214,250,36
+Julian Champagnie,SA,SF,Games Played,264,300,36
+CJ McCollum,ATL,PG,Assists,214,250,36
 Will Riley,WSH,SF,Rebounds,214,250,36
 Day'Ron Sharpe,BKN,C,Steals,164,200,36
 Kris Dunn,LAC,SG,3PM,164,200,36
-Jaylen Wells,MEM,SG,Steals,114,150,36
-Cedric Coward,MEM,SG,3PM,114,150,36
-CJ McCollum,ATL,PG,3PM,114,150,36
+Dyson Daniels,ATL,SF,Games Played,164,200,36
 Isaiah Hartenstein,OKC,C,Games Played,114,150,36
 Bub Carrington,WSH,PG,Steals,114,150,36
+Jaylen Wells,MEM,SG,Steals,114,150,36
+Karlo Matkovic,NO,PF,Games Played,114,150,36
+Javon Small,MEM,PG,3PM,64,100,36
 Dillon Brooks,PHX,SF,Steals,64,100,36
-Dillon Brooks,PHX,SF,Games Played,64,100,36
 DeAndre Jordan,NO,C,Games Played,14,50,36
 PJ Hall,CHA,C,Games Played,14,50,36
-Jerami Grant,MEM,PF,3PM,14,50,36
 Jahmai Mashack,MEM,SG,Blocks,14,50,36
-Quenton Jackson,IND,PG,Blocks,14,50,36
 Mikel Brown Jr.,BKN,PG,3PM,14,50,36
-Mario Hezonja,CLE,PF,3PM,14,50,36
-Trae Young,WSH,PG,Steals,14,50,36
-Georges Niang,GS,PF,3PM,14,50,36
 Jamal Cain,ORL,SF,Steals,14,50,36
-Jalen Green,PHX,SG,Blocks,14,50,36
-Walker Kessler,LAL,C,Steals,14,50,36
 Drake Powell,BKN,SG,Blocks,14,50,36
+Royce O'Neale,CHA,SF,3PM,14,50,36
+Mario Hezonja,CLE,PF,3PM,14,50,36
 Zaccharie Risacher,DAL,SF,Steals,14,50,36
-Ryan Dunn,PHX,SF,Points,963,1000,37
-Donovan Mitchell,CLE,SG,3PM,913,950,37
+Quenton Jackson,IND,PG,Blocks,14,50,36
+Marcus Smart,HOU,PG,3PM,14,50,36
+Jalen Green,PHX,SG,Blocks,14,50,36
+David Jones Garcia,SA,PF,Games Played,14,50,36
+Charles Bassey,GS,C,Games Played,14,50,36
+Jabari Smith Jr.,HOU,PF,3PM,563,600,37
 Scottie Barnes,TOR,PF,Steals,463,500,37
+Tidjane Salaun,CHA,PF,Rebounds,463,500,37
+Keldon Johnson,SA,PF,Games Played,463,500,37
+Donovan Mitchell,CLE,SG,Steals,413,450,37
+Victor Wembanyama,SA,C,3PM,413,450,37
 Jarrett Allen,CLE,C,Steals,313,350,37
 Chet Holmgren,OKC,PF,3PM,263,300,37
 Jaylin Williams,OKC,C,3PM,263,300,37
-Obi Toppin,IND,PF,3PM,263,300,37
-Julian Champagnie,SA,SF,Games Played,263,300,37
 Day'Ron Sharpe,BKN,C,Games Played,263,300,37
+Obi Toppin,IND,PF,3PM,263,300,37
 Simone Fontecchio,MIA,SF,Rebounds,213,250,37
 Scotty Pippen Jr.,MEM,PG,Steals,163,200,37
-Dyson Daniels,ATL,SF,Games Played,163,200,37
+Jarred Vanderbilt,LAL,PF,Games Played,163,200,37
 Kawhi Leonard,TOR,SF,Steals,113,150,37
 Brandon Miller,CHA,SF,Blocks,113,150,37
-Karlo Matkovic,NO,PF,Games Played,113,150,37
-Javon Small,MEM,PG,3PM,63,100,37
+Jeremiah Fears,NO,PG,3PM,113,150,37
 Collin Murray-Boyles,TOR,PF,Steals,63,100,37
 Jase Richardson,ORL,SG,Games Played,63,100,37
 Jrue Holiday,POR,PG,Steals,63,100,37
@@ -1202,13 +1210,7 @@ Jaylen Clark,MIN,SG,3PM,63,100,37
 Norman Powell,CHI,SG,Steals,13,50,37
 Pacome Dadiet,NY,PF,3PM,13,50,37
 Vit Krejci,POR,SG,Steals,13,50,37
-Olivier-Maxence Prosper,MEM,PF,Blocks,13,50,37
-Jamison Battle,TOR,SF,Blocks,13,50,37
-David Jones Garcia,SA,SF,Games Played,13,50,37
-Peyton Watson,CLE,SF,Blocks,13,50,37
 Landry Shamet,NY,SG,Blocks,13,50,37
-Charles Bassey,GS,C,Games Played,13,50,37
-Marcus Smart,HOU,PG,3PM,13,50,37
 LeBron James,PHI,PF,Steals,13,50,37
 Jabari Walker,PHI,PF,Blocks,13,50,37
 Dean Wade,PHI,PF,Steals,13,50,37
@@ -1216,34 +1218,34 @@ Jaylen Clark,MIN,SG,Blocks,13,50,37
 Josh Minott,BKN,SF,Blocks,13,50,37
 Bobby Portis,MIA,PF,3PM,13,50,37
 Emanuel Sharp,SAC,SG,3PM,13,50,37
+Ziaire Williams,LAL,SF,Steals,13,50,37
+Peyton Watson,CLE,SF,Blocks,13,50,37
+Olivier-Maxence Prosper,MEM,PF,Blocks,13,50,37
+Jamison Battle,TOR,SF,Blocks,13,50,37
+Walter Clayton Jr.,DAL,PG,3PM,13,50,37
 Damian Lillard,POR,PG,3PM,2412,2450,38
 Ben Sheppard,IND,SG,Rebounds,462,500,38
-Keldon Johnson,SA,PF,Games Played,462,500,38
-Donovan Mitchell,CLE,SG,Steals,412,450,38
+Aaron Nesmith,IND,SF,3PM,462,500,38
 Derrick White,BOS,PG,Blocks,362,400,38
+Jalen Johnson,ATL,PF,Steals,262,300,38
+Duncan Robinson,DET,SF,3PM,262,300,38
 Jarred Vanderbilt,LAL,PF,Assists,212,250,38
-Jarred Vanderbilt,LAL,PF,Games Played,162,200,38
+Naji Marshall,DAL,SF,Steals,162,200,38
 Jaylin Williams,OKC,C,Steals,112,150,38
-Ryan Kalkbrenner,CHA,C,Blocks,112,150,38
 Justin Edwards,PHI,SF,Games Played,112,150,38
 Kyle Kuzma,MIL,PF,Games Played,112,150,38
-Jeremiah Fears,NO,PG,3PM,112,150,38
 Kawhi Leonard,TOR,SF,Games Played,62,100,38
-Ty Jerome,MEM,PG,3PM,62,100,38
 Robert Williams III,POR,C,Steals,62,100,38
-Anthony Gill,WSH,PF,3PM,62,100,38
 Jrue Holiday,POR,PG,Games Played,62,100,38
-Dylan Harper,SA,SG,Steals,62,100,38
 Ace Bailey,UTAH,SF,Blocks,62,100,38
 Danny Wolf,BKN,C,Games Played,62,100,38
 Michael Porter Jr.,BKN,SF,Games Played,62,100,38
 Precious Achiuwa,SAC,C,Blocks,62,100,38
+Anthony Gill,WSH,PF,3PM,62,100,38
+Dylan Harper,SA,SG,Steals,62,100,38
 DeAndre Jordan,NO,C,Blocks,12,50,38
 Khris Middleton,WSH,SF,Blocks,12,50,38
-Royce O'Neale,CHA,SF,3PM,12,50,38
 Tristan Enaruna,CLE,SF,Games Played,12,50,38
-Cam Spencer,MEM,SG,Blocks,12,50,38
-Alijah Martin,TOR,SG,3PM,12,50,38
 Brooks Barnhizer,OKC,SG,Steals,12,50,38
 Will Richard,GS,SG,Blocks,12,50,38
 Jaylen Brown,PHI,SF,Steals,12,50,38
@@ -1251,47 +1253,43 @@ Jonathan Kuminga,MIN,SF,Steals,12,50,38
 Darryn Peterson,UTAH,SG,Steals,12,50,38
 Mo Bamba,UTAH,C,Blocks,12,50,38
 Chaney Johnson,BKN,SF,Blocks,12,50,38
+Aaron Wiggins,ATL,SG,Games Played,12,50,38
+Luguentz Dort,ATL,PF,Games Played,12,50,38
+Walker Kessler,LAL,C,Games Played,12,50,38
+Matisse Thybulle,LAL,SF,Games Played,12,50,38
+Sandro Mamukelashvili,LAL,C,Games Played,12,50,38
+Jarrett Allen,CLE,C,3PM,12,50,38
+Anthony Davis,WSH,PF,Steals,12,50,38
+Cam Spencer,MEM,SG,Blocks,12,50,38
+Alijah Martin,TOR,SG,3PM,12,50,38
+Alijah Martin,TOR,SG,Steals,12,50,38
 Zaccharie Risacher,DAL,SF,Blocks,12,50,38
-Walter Clayton Jr.,DAL,PG,3PM,12,50,38
-Devin Booker,PHX,SG,3PM,1561,1600,39
-Jabari Smith Jr.,HOU,PF,3PM,561,600,39
+Bogdan Bogdanovic,HOU,SG,3PM,12,50,38
 Bilal Coulibaly,WSH,SF,Assists,461,500,39
-Victor Wembanyama,SA,C,3PM,411,450,39
+Luka Doncic,LAL,PG,3PM,411,450,39
+Fred VanVleet,HOU,PG,3PM,411,450,39
 Anthony Black,ORL,PG,3PM,211,250,39
 Sidy Cissoko,POR,SF,Rebounds,211,250,39
 Michael Porter Jr.,BKN,SF,3PM,211,250,39
+Devin Booker,PHX,SG,Blocks,211,250,39
 Nikola Jovic,MIA,PF,Games Played,161,200,39
-Jamal Shead,TOR,PG,3PM,161,200,39
-Alex Sarr,WSH,C,3PM,161,200,39
-Naji Marshall,DAL,SF,Steals,161,200,39
 Ryan Rollins,MIL,PG,Steals,161,200,39
-RJ Barrett,TOR,SF,Steals,111,150,39
+Alex Sarr,WSH,C,3PM,161,200,39
+Jamison Battle,TOR,SF,3PM,161,200,39
+Stephon Castle,SA,SG,Steals,161,200,39
 Franz Wagner,ORL,SF,Blocks,111,150,39
-Spencer Jones,DEN,SF,3PM,61,100,39
+RJ Barrett,TOR,SF,Steals,111,150,39
 Tyler Kolek,NY,PG,3PM,61,100,39
-Anthony Gill,WSH,PF,Blocks,61,100,39
 Kyle Filipowski,UTAH,C,Blocks,61,100,39
+Sion James,CHA,SG,Steals,61,100,39
+Anthony Gill,WSH,PF,Blocks,61,100,39
+Spencer Jones,DEN,SF,3PM,61,100,39
 Chris Manon,LAL,SG,Games Played,11,50,39
-Jock Landale,ATL,C,Steals,11,50,39
-Anthony Davis,WSH,PF,Steals,11,50,39
-Jarrett Allen,CLE,C,3PM,11,50,39
-Alijah Martin,TOR,SG,Steals,11,50,39
-Aaron Wiggins,ATL,SG,Steals,11,50,39
-Aaron Wiggins,ATL,SG,Games Played,11,50,39
-Luguentz Dort,ATL,PF,Games Played,11,50,39
 Jordan Clarkson,NY,SG,Blocks,11,50,39
-Dillon Brooks,PHX,SF,Blocks,11,50,39
-Miles Bridges,PHX,PF,Steals,11,50,39
-Khaman Maluach,PHX,C,Steals,11,50,39
 Yang Hansen,POR,C,Blocks,11,50,39
 Kentavious Caldwell-Pope,PHI,SF,Games Played,11,50,39
 Anfernee Simons,PHI,SG,Games Played,11,50,39
 Quentin Grimes,LAL,SG,Games Played,11,50,39
-Walker Kessler,LAL,C,Games Played,11,50,39
-Matisse Thybulle,LAL,SF,Games Played,11,50,39
-Ziaire Williams,LAL,SF,Steals,11,50,39
-Sandro Mamukelashvili,LAL,C,3PM,11,50,39
-Sandro Mamukelashvili,LAL,C,Games Played,11,50,39
 Ayo Dosunmu,MIN,SG,Blocks,11,50,39
 LaMelo Ball,MIN,PG,Games Played,11,50,39
 Jonathan Kuminga,MIN,SF,Games Played,11,50,39
@@ -1303,21 +1301,40 @@ Ron Harper Jr.,BOS,SF,Steals,11,50,39
 Kobe Sanders,LAC,SG,Blocks,11,50,39
 Giannis Antetokounmpo,MIA,PF,Blocks,11,50,39
 De'Andre Hunter,SAC,SF,Games Played,11,50,39
+Kingston Flemings,ATL,PG,Games Played,11,50,39
+Aaron Wiggins,ATL,SG,Steals,11,50,39
+Luguentz Dort,ATL,PF,Steals,11,50,39
+Jock Landale,ATL,C,Steals,11,50,39
+Collin Sexton,LAL,SG,3PM,11,50,39
+Collin Sexton,LAL,SG,Games Played,11,50,39
+Grayson Allen,CHA,SG,Games Played,11,50,39
+Naz Reid,CHA,C,Games Played,11,50,39
+Royce O'Neale,CHA,SF,Games Played,11,50,39
+Mario Hezonja,CLE,PF,Games Played,11,50,39
+Deandre Ayton,WSH,C,Games Played,11,50,39
+Trayce Jackson-Davis,TOR,C,Steals,11,50,39
+Zaccharie Risacher,DAL,SF,Games Played,11,50,39
+Ivica Zubac,IND,C,Games Played,11,50,39
+Bogdan Bogdanovic,HOU,SG,Games Played,11,50,39
+Dillon Brooks,PHX,SF,Blocks,11,50,39
+Miles Bridges,PHX,PF,Steals,11,50,39
+Khaman Maluach,PHX,C,Steals,11,50,39
+Yaxel Lendeborg,GS,SF,Steals,11,50,39
+Yaxel Lendeborg,GS,SF,Games Played,11,50,39
+Georges Niang,GS,PF,Games Played,11,50,39
+Bennedict Mathurin,NO,SF,Games Played,11,50,39
 Stephen Curry,GS,PG,Steals,1610,1650,40
 Jayson Tatum,BOS,SF,Games Played,610,650,40
 Jalen Suggs,ORL,PG,3PM,460,500,40
-Tidjane Salaun,CHA,PF,Rebounds,460,500,40
-Dyson Daniels,ATL,SF,Steals,410,450,40
+Luke Kornet,SA,C,Rebounds,460,500,40
 Keldon Johnson,SA,PF,Steals,310,350,40
-Jalen Johnson,ATL,PF,Steals,260,300,40
-CJ McCollum,ATL,PG,Assists,210,250,40
 Miles McBride,NY,SG,Steals,210,250,40
-Devin Booker,PHX,SG,Blocks,210,250,40
 Adem Bona,PHI,C,Blocks,160,200,40
 Jay Huff,IND,C,Blocks,160,200,40
 Tristan da Silva,ORL,SF,Games Played,160,200,40
-Stephon Castle,SA,SG,Steals,160,200,40
 Devin Vassell,SA,SG,Blocks,160,200,40
+P.J. Washington,DAL,PF,Steals,160,200,40
+Stephon Castle,SA,SG,Games Played,160,200,40
 Ben Sheppard,IND,SG,Steals,110,150,40
 Jaylin Williams,OKC,C,Blocks,110,150,40
 Mikal Bridges,NY,SF,Blocks,110,150,40
@@ -1325,50 +1342,37 @@ Landry Shamet,NY,SG,Games Played,110,150,40
 Tyler Kolek,NY,PG,Games Played,110,150,40
 Austin Reaves,LAL,SG,Blocks,110,150,40
 Davion Mitchell,MIA,PG,Games Played,110,150,40
+Ryan Dunn,PHX,SF,Steals,110,150,40
 Adem Bona,PHI,C,Steals,60,100,40
+Tyrese Proctor,CLE,PG,Games Played,60,100,40
 Olivier-Maxence Prosper,MEM,PF,3PM,60,100,40
+Cameron Johnson,DEN,PF,Games Played,60,100,40
 Amen Thompson,HOU,SF,3PM,60,100,40
+Carter Bryant,SA,PF,3PM,60,100,40
+Al Horford,GS,C,Blocks,60,100,40
 Jaren Jackson Jr.,UTAH,C,3PM,10,50,40
 Kobe Brown,IND,PF,Blocks,10,50,40
 Simone Fontecchio,MIA,SF,Blocks,10,50,40
-Naz Reid,CHA,C,Games Played,10,50,40
-Grayson Allen,CHA,SG,Games Played,10,50,40
-Royce O'Neale,CHA,SF,Games Played,10,50,40
 Robert Williams III,POR,C,3PM,10,50,40
-Ivica Zubac,IND,C,Games Played,10,50,40
-Larry Nance Jr.,IND,PF,3PM,10,50,40
-Kingston Flemings,ATL,PG,Games Played,10,50,40
-Luguentz Dort,ATL,PF,Steals,10,50,40
-Mario Hezonja,CLE,PF,Games Played,10,50,40
 Aday Mara,OKC,C,Games Played,10,50,40
 Bennett Stirtz,OKC,PG,Games Played,10,50,40
-Will Riley,WSH,SF,Blocks,10,50,40
-Deandre Ayton,WSH,C,Games Played,10,50,40
-Yaxel Lendeborg,GS,SF,Steals,10,50,40
-Yaxel Lendeborg,GS,SF,Games Played,10,50,40
-Georges Niang,GS,PF,Games Played,10,50,40
 Alex Morales,ORL,PG,Games Played,10,50,40
-Bogdan Bogdanovic,HOU,SG,3PM,10,50,40
-Bogdan Bogdanovic,HOU,SG,Games Played,10,50,40
 Yang Hansen,POR,C,3PM,10,50,40
 Noa Essengue,CHI,PF,Games Played,10,50,40
 Jaylen Brown,PHI,SF,Games Played,10,50,40
 Quentin Grimes,LAL,SG,Steals,10,50,40
-Collin Sexton,LAL,SG,Games Played,10,50,40
 Joan Beringer,MIN,C,Steals,10,50,40
 Darryn Peterson,UTAH,SG,Games Played,10,50,40
 Svi Mykhailiuk,UTAH,SF,Blocks,10,50,40
 Julius Randle,BKN,PF,Games Played,10,50,40
 Moritz Wagner,BKN,C,Games Played,10,50,40
 Morez Johnson Jr.,DAL,C,Games Played,10,50,40
-Zaccharie Risacher,DAL,SF,Games Played,10,50,40
 Brayden Burries,MIL,SG,Games Played,10,50,40
 Tyler Herro,MIL,SG,Games Played,10,50,40
 Jaime Jaquez Jr.,MIL,SF,Games Played,10,50,40
 Ousmane Dieng,MIL,C,Blocks,10,50,40
 Kel'el Ware,MIL,C,Games Played,10,50,40
 Kasparas Jakucionis,MIL,PG,Games Played,10,50,40
-Bennedict Mathurin,NO,SF,Games Played,10,50,40
 Giannis Antetokounmpo,MIA,PF,Steals,10,50,40
 Giannis Antetokounmpo,MIA,PF,Games Played,10,50,40
 Klay Thompson,MIA,SF,Games Played,10,50,40
@@ -1377,327 +1381,339 @@ Tim Hardaway Jr.,MIA,SG,Games Played,10,50,40
 Darius Acuff Jr.,SAC,PG,Games Played,10,50,40
 Leaky Black,SAC,SF,3PM,10,50,40
 Emanuel Sharp,SAC,SG,Games Played,10,50,40
+Matisse Thybulle,LAL,SF,Blocks,10,50,40
+Christian Anderson,CHA,PG,Games Played,10,50,40
+John Collins,DET,PF,3PM,10,50,40
+John Collins,DET,PF,Blocks,10,50,40
+John Collins,DET,PF,Games Played,10,50,40
+Will Riley,WSH,SF,Blocks,10,50,40
+Cameron Boozer,MEM,PF,Games Played,10,50,40
+Jerami Grant,MEM,PF,Blocks,10,50,40
+Jerami Grant,MEM,PF,Games Played,10,50,40
+Allen Graves,TOR,PF,Games Played,10,50,40
+Walter Clayton Jr.,DAL,PG,Games Played,10,50,40
+Larry Nance Jr.,IND,PF,3PM,10,50,40
+Larry Nance Jr.,IND,PF,Steals,10,50,40
+Larry Nance Jr.,IND,PF,Games Played,10,50,40
+Malevy Leons,GS,SF,Blocks,10,50,40
+Brandon Williams,GS,PG,Games Played,10,50,40
+Bryce McGowens,NO,SG,Blocks,10,50,40
 Miles McBride,NY,SG,3PM,409,450,41
+Tari Eason,HOU,PF,Steals,309,350,41
 Donovan Clingan,POR,C,Blocks,259,300,41
 Keegan Murray,SAC,PF,Games Played,259,300,41
-Stephon Castle,SA,SG,Games Played,159,200,41
 Myles Turner,MIL,C,3PM,159,200,41
 Jae'Sean Tate,HOU,SF,Blocks,109,150,41
-Ryan Dunn,PHX,SF,Steals,109,150,41
 Javonte Green,DET,SG,Steals,109,150,41
+De'Anthony Melton,GS,SG,3PM,109,150,41
 Jeremiah Fears,NO,PG,Steals,109,150,41
 Yves Missi,NO,C,Steals,59,100,41
-Sion James,CHA,SG,Steals,59,100,41
-Cameron Johnson,DEN,PF,Games Played,59,100,41
-Tyrese Proctor,CLE,PG,Games Played,59,100,41
-Duncan Robinson,DET,SF,Steals,59,100,41
 Nolan Traore,BKN,SG,Steals,59,100,41
-Onyeka Okongwu,ATL,C,Rebounds,2708,2750,42
+Duncan Robinson,DET,SF,Steals,59,100,41
+Nikola Jokic,DEN,C,Steals,1058,1100,42
+Draymond Green,GS,PF,Games Played,958,1000,42
 Clint Capela,HOU,C,Blocks,558,600,42
-Aaron Nesmith,IND,SF,3PM,458,500,42
 Shai Gilgeous-Alexander,OKC,PG,Games Played,458,500,42
 Rudy Gobert,MIN,C,Assists,458,500,42
-Luka Doncic,LAL,PG,3PM,408,450,42
-Fred VanVleet,HOU,PG,3PM,408,450,42
-Duncan Robinson,DET,SF,3PM,258,300,42
+Saddiq Bey,NO,SF,Assists,208,250,42
 Jaylon Tyson,CLE,SF,3PM,158,200,42
 Immanuel Quickley,TOR,PG,Steals,158,200,42
 Jrue Holiday,POR,PG,3PM,158,200,42
-P.J. Washington,DAL,PF,Steals,158,200,42
+Jarred Vanderbilt,LAL,PF,Steals,158,200,42
+Jaylen Wells,MEM,SG,Games Played,158,200,42
+P.J. Washington,DAL,PF,Blocks,158,200,42
 Ajay Mitchell,OKC,SG,Steals,108,150,42
 Donovan Clingan,POR,C,3PM,108,150,42
+Tidjane Salaun,CHA,PF,3PM,108,150,42
+Kyshawn George,WSH,SG,Blocks,108,150,42
 Collin Murray-Boyles,TOR,PF,Blocks,58,100,42
-Carter Bryant,SA,PF,3PM,58,100,42
 Kobe Sanders,LAC,SG,Steals,58,100,42
-Nikola Jokic,DEN,C,Steals,1057,1100,43
-Draymond Green,GS,PF,Games Played,957,1000,43
+Olivier-Maxence Prosper,MEM,PF,Games Played,58,100,42
+Rasheer Fleming,PHX,PF,Games Played,58,100,42
 Lauri Markkanen,UTAH,PF,3PM,657,700,43
 Sam Merrill,CLE,SG,3PM,457,500,43
 Terance Mann,BKN,SG,Points,457,500,43
-Tari Eason,HOU,PF,Steals,307,350,43
+Amen Thompson,HOU,SF,Steals,307,350,43
+Herbert Jones,NO,SF,Games Played,307,350,43
 Jae'Sean Tate,HOU,SF,Steals,257,300,43
 Kenrich Williams,OKC,PF,Steals,257,300,43
 Jabari Smith Jr.,HOU,PF,Blocks,257,300,43
-GG Jackson,MEM,PF,3PM,207,250,43
 Neemias Queta,BOS,C,Assists,207,250,43
 Keegan Murray,SAC,PF,Blocks,207,250,43
-Jaylen Wells,MEM,SG,Games Played,157,200,43
-Jarred Vanderbilt,LAL,PF,Steals,157,200,43
+GG Jackson,MEM,PF,3PM,207,250,43
+RJ Barrett,TOR,SF,Games Played,157,200,43
+Tari Eason,HOU,PF,Blocks,157,200,43
 Lauri Markkanen,UTAH,PF,Blocks,107,150,43
-Obi Toppin,IND,PF,Steals,107,150,43
 Isaiah Hartenstein,OKC,C,Steals,107,150,43
-Kyshawn George,WSH,SG,Blocks,107,150,43
 Pelle Larsson,MIA,SG,3PM,107,150,43
-Rasheer Fleming,PHX,PF,Games Played,57,100,43
+Tidjane Salaun,CHA,PF,Games Played,107,150,43
+James Harden,CLE,PG,3PM,107,150,43
+Paul Reed,DET,C,Steals,107,150,43
+Cam Spencer,MEM,SG,Games Played,107,150,43
+Obi Toppin,IND,PF,Steals,107,150,43
 Kon Knueppel,CHA,SF,Steals,57,100,43
-Olivier-Maxence Prosper,MEM,PF,Games Played,57,100,43
-Spencer Jones,DEN,SF,Steals,57,100,43
-Tyrese Proctor,CLE,PG,3PM,57,100,43
 Landry Shamet,NY,SG,Steals,57,100,43
-Al Horford,GS,C,Blocks,57,100,43
 Sidy Cissoko,POR,SF,Steals,57,100,43
 Ayo Dosunmu,MIN,SG,3PM,57,100,43
+Tyrese Proctor,CLE,PG,3PM,57,100,43
+Spencer Jones,DEN,SF,Steals,57,100,43
+Cedric Coward,MEM,SG,Points,956,1000,44
 Keyonte George,UTAH,PG,Rebounds,706,750,44
-Luke Kornet,SA,C,Rebounds,456,500,44
-Amen Thompson,HOU,SF,Steals,306,350,44
-Herbert Jones,NO,SF,Games Played,306,350,44
+T.J. McConnell,IND,PG,Steals,506,550,44
 Jalen Duren,DET,C,Blocks,256,300,44
 Josh Hart,NY,SF,Games Played,256,300,44
 Keyonte George,UTAH,PG,Games Played,206,250,44
 Terance Mann,BKN,SG,Rebounds,206,250,44
-RJ Barrett,TOR,SF,Games Played,156,200,44
-Jamison Battle,TOR,SF,3PM,156,200,44
+Alex Sarr,WSH,C,Blocks,206,250,44
+Daniel Gafford,DAL,C,Assists,206,250,44
 Karl-Anthony Towns,NY,C,Games Played,156,200,44
-Tari Eason,HOU,PF,Blocks,156,200,44
 Kyle Filipowski,UTAH,C,Games Played,156,200,44
-P.J. Washington,DAL,PF,Blocks,156,200,44
 Gary Trent Jr.,MIL,SG,Steals,106,150,44
-Tidjane Salaun,CHA,PF,Games Played,106,150,44
-Cam Spencer,MEM,SG,Games Played,106,150,44
-Paul Reed,DET,C,Steals,106,150,44
+Cooper Flagg,DAL,SF,Steals,106,150,44
 Egor Demin,BKN,SG,Games Played,56,100,44
-Jarred Vanderbilt,LAL,PF,3PM,56,100,44
 Terance Mann,BKN,SG,3PM,56,100,44
 Myles Turner,MIL,C,Steals,56,100,44
 Zach LaVine,SAC,SG,Steals,56,100,44
+Jarred Vanderbilt,LAL,PF,3PM,56,100,44
+Ausar Thompson,DET,SF,Points,1955,2000,45
 Shai Gilgeous-Alexander,OKC,PG,3PM,705,750,45
 Nikola Vucevic,ORL,C,Blocks,555,600,45
-T.J. McConnell,IND,PG,Steals,505,550,45
+Kyrie Irving,DAL,PG,3PM,405,450,45
 Gary Trent Jr.,MIL,SG,3PM,305,350,45
 Zeke Nnaji,DEN,PF,Games Played,305,350,45
+Harrison Barnes,SA,PF,3PM,305,350,45
 Scoot Henderson,POR,PG,3PM,255,300,45
 Jaylon Tyson,CLE,SF,Assists,205,250,45
-Alex Sarr,WSH,C,Blocks,205,250,45
 Fred VanVleet,HOU,PG,Steals,205,250,45
 Jalen Johnson,ATL,PF,Blocks,155,200,45
-Tidjane Salaun,CHA,PF,3PM,105,150,45
-T.J. McConnell,IND,PG,3PM,105,150,45
-James Harden,CLE,PG,3PM,105,150,45
-De'Anthony Melton,GS,SG,3PM,105,150,45
+Gui Santos,GS,PF,Games Played,155,200,45
 Tre Jones,CHI,PG,Steals,105,150,45
 Javonte Green,DET,SG,3PM,105,150,45
+T.J. McConnell,IND,PG,3PM,105,150,45
 Tre Jones,CHI,PG,3PM,55,100,45
 Terrence Shannon Jr.,MIN,SG,3PM,55,100,45
+Thomas Bryant,CLE,C,3PM,55,100,45
+Cedric Coward,MEM,SG,Steals,55,100,45
+Caleb Martin,DAL,SG,Steals,55,100,45
+Khaman Maluach,PHX,C,Games Played,55,100,45
 Karlo Matkovic,NO,PF,Steals,55,100,45
 Kawhi Leonard,TOR,SF,Rebounds,454,500,46
 Josh Hart,NY,SF,3PM,304,350,46
 Rudy Gobert,MIN,C,Games Played,304,350,46
 Jalen Brunson,NY,PG,Steals,254,300,46
-Saddiq Bey,NO,SF,Assists,204,250,46
+Daniss Jenkins,DET,PG,Rebounds,204,250,46
+Ausar Thompson,DET,SF,Games Played,204,250,46
 Paolo Banchero,ORL,PF,Blocks,154,200,46
-Gui Santos,GS,PF,Games Played,154,200,46
 Davion Mitchell,MIA,PG,3PM,154,200,46
 Dru Smith,MIA,SG,Games Played,104,150,46
 Tristan da Silva,ORL,SF,Steals,104,150,46
+Dyson Daniels,ATL,SF,3PM,104,150,46
 Keldon Johnson,SA,PF,Blocks,104,150,46
+Luka Doncic,LAL,PG,Blocks,54,100,46
 Will Riley,WSH,SF,Steals,54,100,46
-Khaman Maluach,PHX,C,Games Played,54,100,46
-Caleb Martin,DAL,SG,Steals,54,100,46
-Cedric Coward,MEM,SG,Points,953,1000,47
+RJ Barrett,TOR,SF,Blocks,54,100,46
+Al Horford,GS,C,Games Played,54,100,46
+Tari Eason,HOU,PF,Rebounds,1453,1500,47
+Draymond Green,GS,PF,Steals,1253,1300,47
 Cason Wallace,OKC,SG,Steals,353,400,47
-Harrison Barnes,SA,PF,3PM,303,350,47
 Yves Missi,NO,C,Blocks,203,250,47
-Ausar Thompson,DET,SF,Games Played,203,250,47
-Daniel Gafford,DAL,C,Assists,203,250,47
+Herbert Jones,NO,SF,Blocks,203,250,47
 Moussa Diabate,CHA,PF,Games Played,153,200,47
 Bilal Coulibaly,WSH,SF,Blocks,153,200,47
 Donovan Clingan,POR,C,Games Played,153,200,47
 Kyle Filipowski,UTAH,C,3PM,153,200,47
-Dyson Daniels,ATL,SF,3PM,103,150,47
+P.J. Washington,DAL,PF,Games Played,153,200,47
+Ryan Dunn,PHX,SF,Games Played,153,200,47
 Ajay Mitchell,OKC,SG,Games Played,103,150,47
-Cooper Flagg,DAL,SF,Steals,103,150,47
 Khris Middleton,WSH,SF,Games Played,53,100,47
-Cedric Coward,MEM,SG,Steals,53,100,47
-RJ Barrett,TOR,SF,Blocks,53,100,47
-Thomas Bryant,CLE,C,3PM,53,100,47
-Al Horford,GS,C,Games Played,53,100,47
-Draymond Green,GS,PF,Steals,1252,1300,48
+CJ McCollum,ATL,PG,Games Played,53,100,47
+Dejounte Murray,NO,PG,Games Played,53,100,47
+Andrew Nembhard,IND,SG,Assists,1452,1500,48
 Zeke Nnaji,DEN,PF,Rebounds,702,750,48
 Jaylon Tyson,CLE,SF,Rebounds,452,500,48
 AJ Green,MIL,SG,Games Played,252,300,48
 Ben Sheppard,IND,SG,3PM,202,250,48
 Kawhi Leonard,TOR,SF,Assists,202,250,48
-Herbert Jones,NO,SF,Blocks,202,250,48
-Ryan Dunn,PHX,SF,Games Played,152,200,48
-P.J. Washington,DAL,PF,Games Played,152,200,48
+Quenton Jackson,IND,PG,Rebounds,202,250,48
+Daniel Gafford,DAL,C,Games Played,152,200,48
+Luka Doncic,LAL,PG,Games Played,102,150,48
 Christian Braun,DEN,SG,Blocks,102,150,48
-Luka Doncic,LAL,PG,Blocks,52,100,48
-CJ McCollum,ATL,PG,Steals,52,100,48
-CJ McCollum,ATL,PG,Games Played,52,100,48
 Jevon Carter,ORL,PG,3PM,52,100,48
-Ronald Holland II,DET,SF,Blocks,52,100,48
 Bones Hyland,MIN,PG,Steals,52,100,48
 Svi Mykhailiuk,UTAH,SF,Steals,52,100,48
 Ryan Rollins,MIL,PG,Blocks,52,100,48
-Dejounte Murray,NO,PG,Games Played,52,100,48
+CJ McCollum,ATL,PG,Steals,52,100,48
+Ronald Holland II,DET,PF,Blocks,52,100,48
+Devin Booker,PHX,SG,Assists,3951,4000,49
 Karl-Anthony Towns,NY,C,Points,3451,3500,49
 Devin Vassell,SA,SG,Rebounds,1451,1500,49
 Andrew Wiggins,MIA,SF,Points,1451,1500,49
+Jabari Smith Jr.,HOU,PF,Assists,451,500,49
 Chet Holmgren,OKC,PF,Blocks,401,450,49
 Wendell Carter Jr.,ORL,C,Games Played,351,400,49
 Jalen Williams,OKC,SF,Games Played,251,300,49
 Payton Pritchard,BOS,PG,Steals,251,300,49
-Daniel Gafford,DAL,C,Games Played,151,200,49
+Kevin Durant,HOU,SF,3PM,201,250,49
 Sam Hauser,BOS,PF,Steals,151,200,49
 Kyle Kuzma,MIL,PF,3PM,151,200,49
-Luka Doncic,LAL,PG,Games Played,101,150,49
+Naji Marshall,DAL,SF,Games Played,151,200,49
+Alperen Sengun,HOU,C,3PM,151,200,49
 Isaiah Hartenstein,OKC,C,Blocks,101,150,49
-Oso Ighodaro,PHX,C,Steals,101,150,49
 Andrew Wiggins,MIA,SF,Steals,101,150,49
+Oso Ighodaro,PHX,C,Steals,101,150,49
 Joan Beringer,MIN,C,Games Played,51,100,49
 Drake Powell,BKN,SG,3PM,51,100,49
+Tidjane Salaun,CHA,PF,Steals,51,100,49
+Jamaree Bouyea,PHX,PG,Games Played,51,100,49
+Naji Marshall,DAL,SF,Rebounds,700,750,50
 Bam Adebayo,MIA,C,Games Played,650,700,50
 Nikola Vucevic,ORL,C,Games Played,600,650,50
+Nikola Jokic,DEN,C,Blocks,600,650,50
 Sam Merrill,CLE,SG,Rebounds,450,500,50
 Jaden McDaniels,MIN,PF,Games Played,450,500,50
-Aaron Gordon,DEN,PF,3PM,350,400,50
+T.J. McConnell,IND,PG,Games Played,450,500,50
 Patrick Williams,CHI,PF,Games Played,350,400,50
+Aaron Gordon,DEN,PF,3PM,350,400,50
 Zion Williamson,NO,PF,Steals,300,350,50
-Kevin Durant,HOU,SF,3PM,200,250,50
+Jabari Smith Jr.,HOU,PF,Games Played,300,350,50
+Caleb Martin,DAL,SG,Rebounds,200,250,50
 Justin Champagnie,WSH,SF,Games Played,150,200,50
-Alperen Sengun,HOU,C,3PM,150,200,50
 Keyonte George,UTAH,PG,Steals,150,200,50
-Naji Marshall,DAL,SF,Games Played,150,200,50
+Oso Ighodaro,PHX,C,Games Played,150,200,50
 Cason Wallace,OKC,SG,Blocks,100,150,50
+De'Aaron Fox,SA,PG,Games Played,100,150,50
+De'Anthony Melton,GS,SG,Steals,100,150,50
 Karlo Matkovic,NO,PF,Blocks,100,150,50
-Jamaree Bouyea,PHX,PG,Games Played,50,100,50
+Jordan Poole,NO,SG,3PM,100,150,50
 Myron Gardner,MIA,SF,Games Played,50,100,50
-Tidjane Salaun,CHA,PF,Steals,50,100,50
 Alex Caruso,OKC,SG,Blocks,50,100,50
 Isaac Okoro,CHI,SG,Steals,50,100,50
 Tyrese Haliburton,IND,PG,Points,4449,4500,51
-Tari Eason,HOU,PF,Rebounds,1448,1500,52
+Ausar Thompson,DET,SF,Rebounds,1199,1250,51
 Davion Mitchell,MIA,PG,Assists,698,750,52
-Jabari Smith Jr.,HOU,PF,Assists,448,500,52
 Sidy Cissoko,POR,SF,Points,448,500,52
-Daniss Jenkins,DET,PG,Rebounds,198,250,52
-Devin Booker,PHX,SG,Assists,3947,4000,53
-Ausar Thompson,DET,SF,Points,1947,2000,53
-Quenton Jackson,IND,PG,Rebounds,197,250,53
-Caleb Martin,DAL,SG,Rebounds,197,250,53
+Donovan Mitchell,CLE,SG,Assists,1446,1500,54
 Terance Mann,BKN,SG,Assists,196,250,54
 Nikola Vucevic,ORL,C,Points,10445,10500,55
-Naji Marshall,DAL,SF,Rebounds,695,750,55
-Ausar Thompson,DET,SF,Rebounds,1194,1250,56
+Pascal Siakam,IND,PF,Assists,694,750,56
 Michael Porter Jr.,BKN,SF,Rebounds,444,500,56
 Khris Middleton,WSH,SF,Rebounds,194,250,56
+Ronald Holland II,DET,PF,Assists,194,250,56
+Cedric Coward,MEM,SG,Assists,194,250,56
 Olivier-Maxence Prosper,MEM,PF,Rebounds,194,250,56
 Jericho Sims,MIL,C,Rebounds,443,500,57
-Donovan Mitchell,CLE,SG,Assists,1442,1500,58
-Ronald Holland II,DET,SF,Assists,192,250,58
 Jaylen Clark,MIN,SG,Rebounds,192,250,58
+Sion James,CHA,SG,Assists,192,250,58
 Damian Lillard,POR,PG,Assists,5191,5250,59
+Saddiq Bey,NO,SF,Points,1441,1500,59
 Anthony Gill,WSH,PF,Assists,191,250,59
-Andrew Nembhard,IND,SG,Assists,1440,1500,60
+Cedric Coward,MEM,SG,Rebounds,440,500,60
 Saddiq Bey,NO,SF,Rebounds,440,500,60
-Cedric Coward,MEM,SG,Assists,190,250,60
 Will Richard,GS,SG,Rebounds,190,250,60
+Khaman Maluach,PHX,C,Rebounds,190,250,60
+Kyrie Irving,DAL,PG,Assists,689,750,61
 Leonard Miller,CHI,SF,Rebounds,189,250,61
 Ja'Kobe Walter,TOR,SG,Assists,189,250,61
 Franz Wagner,ORL,SF,Points,6438,6500,62
+Aaron Nesmith,IND,SF,Rebounds,938,1000,62
 Yves Missi,NO,C,Assists,188,250,62
-Sion James,CHA,SG,Assists,188,250,62
+Tre Johnson,WSH,SG,Rebounds,188,250,62
 Keegan Murray,SAC,PF,Rebounds,1437,1500,63
 Jalen Suggs,ORL,PG,Rebounds,937,1000,63
+Kyshawn George,WSH,SG,Assists,437,500,63
 Nique Clifford,SAC,SG,Assists,187,250,63
-Aaron Nesmith,IND,SF,Rebounds,936,1000,64
-Pascal Siakam,IND,PF,Assists,686,750,64
-Tre Johnson,WSH,SG,Rebounds,186,250,64
+Ryan Kalkbrenner,CHA,C,Rebounds,436,500,64
 Keegan Murray,SAC,PF,Points,3435,3500,65
-Kyrie Irving,DAL,PG,Assists,685,750,65
-Kyshawn George,WSH,SG,Assists,435,500,65
 Myles Turner,MIL,C,Rebounds,435,500,65
-Khaman Maluach,PHX,C,Rebounds,185,250,65
 Isaac Okoro,CHI,SG,Rebounds,185,250,65
-Cedric Coward,MEM,SG,Rebounds,434,500,66
+Carter Bryant,SA,PF,Rebounds,185,250,65
+Jabari Smith Jr.,HOU,PF,Rebounds,2184,2250,66
 Jared McCain,OKC,SG,Points,434,500,66
 Egor Demin,BKN,SG,Assists,184,250,66
-Carter Bryant,SA,PF,Rebounds,184,250,66
 Darius Garland,LAC,PG,Assists,184,250,66
-Saddiq Bey,NO,SF,Points,1432,1500,68
+Aaron Gordon,DEN,PF,Points,4933,5000,67
 Kon Knueppel,CHA,SF,Rebounds,432,500,68
 Andrew Wiggins,MIA,SF,Rebounds,432,500,68
-Kyrie Irving,DAL,PG,Points,3431,3500,69
+Duncan Robinson,DET,SF,Assists,182,250,68
 Karl-Anthony Towns,NY,C,Rebounds,1931,2000,69
 Tristan da Silva,ORL,SF,Points,1431,1500,69
 Goga Bitadze,ORL,C,Rebounds,1181,1250,69
-Aaron Gordon,DEN,PF,Points,4930,5000,70
-Duncan Robinson,DET,SF,Assists,180,250,70
+Keldon Johnson,SA,PF,Assists,931,1000,69
 Nikola Vucevic,ORL,C,Assists,1679,1750,71
 Kenrich Williams,OKC,PF,Rebounds,1429,1500,71
+CJ McCollum,ATL,PG,Points,929,1000,71
 Kobe Sanders,LAC,SG,Rebounds,179,250,71
-Keldon Johnson,SA,PF,Assists,928,1000,72
-Jabari Smith Jr.,HOU,PF,Rebounds,2177,2250,73
-GG Jackson,MEM,PF,Assists,177,250,73
+Keldon Johnson,SA,PF,Points,6928,7000,72
+Jarrett Allen,CLE,C,Rebounds,3928,4000,72
+RJ Barrett,TOR,SF,Rebounds,928,1000,72
 Svi Mykhailiuk,UTAH,SF,Assists,177,250,73
-RJ Barrett,TOR,SF,Rebounds,925,1000,75
-Keldon Johnson,SA,PF,Points,6924,7000,76
+James Harden,CLE,PG,Rebounds,177,250,73
+GG Jackson,MEM,PF,Assists,177,250,73
+Oso Ighodaro,PHX,C,Rebounds,676,750,74
+Alperen Sengun,HOU,C,Assists,1675,1750,75
+Collin Gillespie,PHX,PG,Rebounds,425,500,75
 Tyrese Maxey,PHI,PG,Assists,1924,2000,76
+Victor Wembanyama,SA,C,Assists,674,750,76
 Egor Demin,BKN,SG,Rebounds,174,250,76
-James Harden,CLE,PG,Rebounds,174,250,76
 OG Anunoby,NY,PF,Points,2923,3000,77
-Collin Gillespie,PHX,PG,Rebounds,423,500,77
 Noah Clowney,BKN,PF,Assists,173,250,77
-Oso Ighodaro,PHX,C,Rebounds,672,750,78
-Jarrett Allen,CLE,C,Rebounds,3921,4000,79
-Victor Wembanyama,SA,C,Assists,671,750,79
-Ryan Kalkbrenner,CHA,C,Rebounds,421,500,79
+Thomas Bryant,CLE,C,Points,422,500,78
+Javon Small,MEM,PG,Points,422,500,78
 Josh Hart,NY,SF,Points,2920,3000,80
+RJ Barrett,TOR,SF,Assists,670,750,80
 Ryan Dunn,PHX,SF,Assists,170,250,80
+T.J. McConnell,IND,PG,Points,3919,4000,81
 Isaiah Collier,UTAH,PG,Rebounds,419,500,81
 Michael Porter Jr.,BKN,SF,Assists,169,250,81
-RJ Barrett,TOR,SF,Assists,668,750,82
 Isaiah Hartenstein,OKC,C,Assists,418,500,82
 Justin Champagnie,WSH,SF,Assists,168,250,82
-T.J. McConnell,IND,PG,Points,3917,4000,83
-Alperen Sengun,HOU,C,Assists,1667,1750,83
+Alperen Sengun,HOU,C,Rebounds,3167,3250,83
+Reed Sheppard,HOU,PG,Points,1417,1500,83
 Myles Turner,MIL,C,Points,917,1000,83
+Al Horford,GS,C,Points,417,500,83
 Gary Trent Jr.,MIL,SG,Assists,167,250,83
 Steven Adams,HOU,C,Points,416,500,84
 Landry Shamet,NY,SG,Rebounds,166,250,84
+De'Anthony Melton,GS,SG,Assists,166,250,84
 Day'Ron Sharpe,BKN,C,Assists,415,500,85
-Javon Small,MEM,PG,Points,413,500,87
-De'Anthony Melton,GS,SG,Assists,163,250,87
+Jake LaRavia,LAL,PF,Assists,165,250,85
+Max Christie,DAL,SG,Rebounds,414,500,86
+Javon Small,MEM,PG,Assists,163,250,87
+Nikola Jokic,DEN,C,Assists,6162,6250,88
 Noah Clowney,BKN,PF,Points,1412,1500,88
 Cason Wallace,OKC,SG,Rebounds,662,750,88
-Al Horford,GS,C,Points,412,500,88
-Max Christie,DAL,SG,Rebounds,412,500,88
 CJ McCollum,ATL,PG,Rebounds,162,250,88
-Jake LaRavia,LAL,PF,Assists,162,250,88
-Thomas Bryant,CLE,C,Points,411,500,89
+Amen Thompson,HOU,SF,Rebounds,1661,1750,89
+Craig Porter Jr.,CLE,PG,Rebounds,411,500,89
 Khris Middleton,WSH,SF,Assists,161,250,89
 Baylor Scheierman,BOS,SF,Assists,161,250,89
 Isaiah Collier,UTAH,PG,Assists,910,1000,90
 Drake Powell,BKN,SG,Points,410,500,90
+Kevin Durant,HOU,SF,Assists,410,500,90
 Joan Beringer,MIN,C,Rebounds,160,250,90
-Reed Sheppard,HOU,PG,Points,1409,1500,91
 Immanuel Quickley,TOR,PG,Assists,909,1000,91
+Onyeka Okongwu,ATL,C,Assists,659,750,91
 Kyrie Irving,DAL,PG,Rebounds,659,750,91
-Craig Porter Jr.,CLE,PG,Rebounds,409,500,91
 Jalen Suggs,ORL,PG,Points,3408,3500,92
-CJ McCollum,ATL,PG,Points,908,1000,92
 Lauri Markkanen,UTAH,PF,Assists,408,500,92
-Javon Small,MEM,PG,Assists,158,250,92
-Alperen Sengun,HOU,C,Rebounds,3156,3250,94
-Onyeka Okongwu,ATL,C,Assists,656,750,94
+Craig Porter Jr.,CLE,PG,Assists,406,500,94
 Jalen Williams,OKC,SF,Rebounds,1155,1250,95
 Moussa Diabate,CHA,PF,Rebounds,1155,1250,95
 Isaiah Hartenstein,OKC,C,Rebounds,1155,1250,95
 Ayo Dosunmu,MIN,SG,Rebounds,155,250,95
-Jaden McDaniels,MIN,PF,Rebounds,1904,2000,96
 Derrick White,BOS,PG,Rebounds,1404,1500,96
 Corey Kispert,ATL,SF,Points,404,500,96
 Nikola Vucevic,ORL,C,Rebounds,6403,6500,97
-Nikola Jokic,DEN,C,Assists,6153,6250,97
-Amen Thompson,HOU,SF,Rebounds,1652,1750,98
-Craig Porter Jr.,CLE,PG,Assists,402,500,98
-Kevin Durant,HOU,SF,Assists,402,500,98
+Jaden McDaniels,MIN,PF,Rebounds,1903,2000,97
 Ace Bailey,UTAH,SF,Assists,150,250,100
 Justin Edwards,PHI,SF,Assists,149,250,101
+Will Riley,WSH,SF,Assists,149,250,101
 Jayson Tatum,BOS,SF,Assists,2398,2500,102
-Will Riley,WSH,SF,Assists,148,250,102
+Derik Queen,NO,C,Rebounds,648,750,102
+Jarrett Allen,CLE,C,Points,5897,6000,103
 Anthony Black,ORL,PG,Rebounds,647,750,103
 Jordan Walsh,BOS,PF,Rebounds,397,500,103
+Jakob Poeltl,TOR,C,Rebounds,2146,2250,104
 Trey Murphy III,NO,SF,Rebounds,1396,1500,104
 Zion Williamson,NO,PF,Assists,1146,1250,104
 Kenrich Williams,OKC,PF,Assists,646,750,104
@@ -1705,110 +1721,108 @@ Kobe Brown,IND,PF,Rebounds,146,250,104
 Jalen Smith,CHI,C,Assists,146,250,104
 Ben Saraf,BKN,SG,Assists,145,250,105
 Ousmane Dieng,MIL,C,Rebounds,145,250,105
-Derik Queen,NO,C,Rebounds,644,750,106
-Paul Reed,DET,C,Assists,143,250,107
+Paul Reed,DET,C,Assists,145,250,105
+Jamal Murray,DEN,PG,Rebounds,2394,2500,106
+Tari Eason,HOU,PF,Points,2394,2500,106
+Christian Braun,DEN,SG,Rebounds,1144,1250,106
+Jalen Green,PHX,SG,Rebounds,144,250,106
 Scottie Barnes,TOR,PF,Points,6392,6500,108
-Jamal Murray,DEN,PG,Rebounds,2392,2500,108
+Draymond Green,GS,PF,Assists,5392,5500,108
+Aaron Nesmith,IND,SF,Points,2892,3000,108
 Franz Wagner,ORL,SF,Rebounds,1642,1750,108
+Dejounte Murray,NO,PG,Points,892,1000,108
 Bones Hyland,MIN,PG,Rebounds,142,250,108
 Derrick Jones Jr.,LAC,SF,Assists,142,250,108
+Cameron Johnson,DEN,PF,Assists,142,250,108
+Stephon Castle,SA,SG,Assists,891,1000,109
 Spencer Jones,DEN,SF,Points,391,500,109
-Cameron Johnson,DEN,PF,Assists,141,250,109
+De'Aaron Fox,SA,PG,Rebounds,391,500,109
 Lauri Markkanen,UTAH,PF,Rebounds,1640,1750,110
-Jakob Poeltl,TOR,C,Rebounds,2139,2250,111
-Christian Braun,DEN,SG,Rebounds,1139,1250,111
+Herbert Jones,NO,SF,Rebounds,1139,1250,111
 Jordan Clarkson,NY,SG,Rebounds,139,250,111
-Jalen Green,PHX,SG,Rebounds,139,250,111
 Domantas Sabonis,SAC,C,Assists,1888,2000,112
 Bub Carrington,WSH,PG,Rebounds,638,750,112
 Sidy Cissoko,POR,SF,Assists,138,250,112
+Nickeil Alexander-Walker,ATL,SG,Points,1887,2000,113
+Ja'Kobe Walter,TOR,SG,Rebounds,387,500,113
 Tyler Kolek,NY,PG,Rebounds,137,250,113
-Draymond Green,GS,PF,Assists,5386,5500,114
-Luke Kornet,SA,C,Assists,136,250,114
+Luke Kornet,SA,C,Assists,137,250,113
 Danny Wolf,BKN,C,Assists,136,250,114
-Jarrett Allen,CLE,C,Points,5885,6000,115
-Stephon Castle,SA,SG,Assists,884,1000,116
+Cooper Flagg,DAL,SF,Assists,385,500,115
+Javon Small,MEM,PG,Rebounds,135,250,115
 Clint Capela,HOU,C,Assists,384,500,116
+Jock Landale,ATL,C,Rebounds,134,250,116
 Scottie Barnes,TOR,PF,Assists,1883,2000,117
-Herbert Jones,NO,SF,Rebounds,1133,1250,117
-Javon Small,MEM,PG,Rebounds,133,250,117
-Tari Eason,HOU,PF,Points,2382,2500,118
+Al Horford,GS,C,Assists,133,250,117
+Jordan Poole,NO,SG,Assists,133,250,117
 Chet Holmgren,OKC,PF,Assists,382,500,118
-De'Aaron Fox,SA,PG,Rebounds,382,500,118
-Ja'Kobe Walter,TOR,SG,Rebounds,381,500,119
-Jordan Poole,NO,SG,Assists,131,250,119
+Amen Thompson,HOU,SF,Assists,881,1000,119
 Myles Turner,MIL,C,Assists,131,250,119
-Dejounte Murray,NO,PG,Points,880,1000,120
 Mikal Bridges,NY,SF,Assists,630,750,120
 Jay Huff,IND,C,Assists,130,250,120
+Walker Kessler,LAL,C,Rebounds,130,250,120
 Tre Johnson,WSH,SG,Assists,130,250,120
-Cooper Flagg,DAL,SF,Assists,379,500,121
-Jock Landale,ATL,C,Rebounds,129,250,121
+Taylor Hendricks,MEM,PF,Rebounds,130,250,120
 Zeke Nnaji,DEN,PF,Assists,129,250,121
 Ayo Dosunmu,MIN,SG,Assists,129,250,121
 Kobe Sanders,LAC,SG,Assists,129,250,121
-Amen Thompson,HOU,SF,Assists,878,1000,122
+Ty Jerome,MEM,PG,Assists,129,250,121
+Victor Wembanyama,SA,C,Rebounds,2128,2250,122
 Isaiah Jackson,LAC,C,Rebounds,128,250,122
 Giannis Antetokounmpo,MIA,PF,Rebounds,128,250,122
+Rasheer Fleming,PHX,PF,Rebounds,128,250,122
 Keegan Murray,SAC,PF,Assists,377,500,123
-Rasheer Fleming,PHX,PF,Rebounds,127,250,123
-Ty Jerome,MEM,PG,Assists,127,250,123
-Taylor Hendricks,MEM,PF,Rebounds,127,250,123
-Al Horford,GS,C,Assists,127,250,123
+Trae Young,WSH,PG,Assists,127,250,123
 Jayson Tatum,BOS,SF,Points,14376,14500,124
 Clint Capela,HOU,C,Points,4376,4500,124
+De'Aaron Fox,SA,PG,Assists,626,750,124
 Josh Hart,NY,SF,Rebounds,2125,2250,125
 Myron Gardner,MIA,SF,Rebounds,125,250,125
-Aaron Nesmith,IND,SF,Points,2874,3000,126
 Wendell Carter Jr.,ORL,C,Rebounds,2874,3000,126
 Derrick Jones Jr.,LAC,SF,Points,1374,1500,126
 Leonard Miller,CHI,SF,Points,374,500,126
 Reed Sheppard,HOU,PG,Assists,374,500,126
 Terrence Shannon Jr.,MIN,SG,Rebounds,124,250,126
+Jalen Green,PHX,SG,Assists,124,250,126
 Jaylin Williams,OKC,C,Rebounds,1123,1250,127
 Baylor Scheierman,BOS,SF,Rebounds,372,500,128
+T.J. McConnell,IND,PG,Assists,2371,2500,129
 Jae'Sean Tate,HOU,SF,Assists,621,750,129
-De'Aaron Fox,SA,PG,Assists,620,750,130
 Tyler Kolek,NY,PG,Points,370,500,130
 Jericho Sims,MIL,C,Points,370,500,130
-Trae Young,WSH,PG,Assists,120,250,130
-Jalen Green,PHX,SG,Assists,120,250,130
-Walker Kessler,LAL,C,Rebounds,120,250,130
 Clint Capela,HOU,C,Rebounds,3619,3750,131
 Robert Williams III,POR,C,Rebounds,619,750,131
 Desmond Bane,ORL,SG,Rebounds,369,500,131
-Dillon Brooks,PHX,SF,Assists,119,250,131
 Nolan Traore,BKN,SG,Rebounds,119,250,131
-T.J. McConnell,IND,PG,Assists,2368,2500,132
+Dillon Brooks,PHX,SF,Assists,119,250,131
 Derrick White,BOS,PG,Assists,1618,1750,132
 Collin Murray-Boyles,TOR,PF,Assists,118,250,132
 Joel Embiid,PHI,C,Rebounds,5367,5500,133
-Victor Wembanyama,SA,C,Rebounds,2117,2250,133
-Nickeil Alexander-Walker,ATL,SG,Points,1867,2000,133
 Gary Payton II,GS,SG,Rebounds,867,1000,133
 Ace Bailey,UTAH,SF,Rebounds,367,500,133
 Pelle Larsson,MIA,SG,Rebounds,367,500,133
 OG Anunoby,NY,PF,Assists,366,500,134
+Julian Champagnie,SA,SF,Assists,366,500,134
 Landry Shamet,NY,SG,Assists,116,250,134
 Jericho Sims,MIL,C,Assists,116,250,134
+Caleb Martin,DAL,SG,Assists,116,250,134
 Isaiah Collier,UTAH,PG,Points,1365,1500,135
 Jalen Williams,OKC,SF,Assists,1115,1250,135
 Daeqwon Plowden,SAC,SG,Points,365,500,135
+Jake LaRavia,LAL,PF,Rebounds,365,500,135
 Steven Adams,HOU,C,Assists,115,250,135
 Drake Powell,BKN,SG,Rebounds,115,250,135
 Brandon Miller,CHA,SF,Points,3364,3500,136
 Tyrese Haliburton,IND,PG,Rebounds,864,1000,136
-Julian Champagnie,SA,SF,Assists,364,500,136
 Ousmane Dieng,MIL,C,Assists,114,250,136
 Jalen Duren,DET,C,Rebounds,2863,3000,137
 Sam Merrill,CLE,SG,Assists,363,500,137
 Jose Alvarado,NY,PG,Assists,113,250,137
 Precious Achiuwa,SAC,C,Assists,113,250,137
+Alex Sarr,WSH,C,Rebounds,862,1000,138
+Aaron Nesmith,IND,SF,Assists,362,500,138
 Jarace Walker,IND,PF,Assists,362,500,138
-Jake LaRavia,LAL,PF,Rebounds,362,500,138
 OG Anunoby,NY,PF,Rebounds,861,1000,139
-Caleb Martin,DAL,SG,Assists,111,250,139
-Aaron Nesmith,IND,SF,Assists,360,500,140
 Isaac Okoro,CHI,SG,Assists,110,250,140
 Gary Trent Jr.,MIL,SG,Points,1359,1500,141
 Max Christie,DAL,SG,Points,1359,1500,141
@@ -1817,498 +1831,515 @@ Scotty Pippen Jr.,MEM,PG,Rebounds,359,500,141
 Asa Newell,ATL,PF,Rebounds,109,250,141
 Jay Huff,IND,C,Rebounds,358,500,142
 Jrue Holiday,POR,PG,Assists,358,500,142
+Karlo Matkovic,NO,PF,Assists,108,250,142
 Desmond Bane,ORL,SG,Assists,356,500,144
+Coby White,CHA,PG,Points,356,500,144
 Jamal Cain,ORL,SF,Rebounds,106,250,144
 Brook Lopez,LAC,C,Assists,106,250,144
-Karlo Matkovic,NO,PF,Assists,106,250,144
 Keyonte George,UTAH,PG,Assists,1105,1250,145
 Steven Adams,HOU,C,Rebounds,605,750,145
+Bryce McGowens,NO,SG,Points,355,500,145
 Daeqwon Plowden,SAC,SG,Rebounds,105,250,145
-Alex Sarr,WSH,C,Rebounds,854,1000,146
+Devin Booker,PHX,SG,Points,18354,18500,146
 Mohamed Diawara,NY,SF,Rebounds,104,250,146
 Chaney Johnson,BKN,SF,Rebounds,104,250,146
 Ousmane Dieng,MIL,C,Points,353,500,147
+Dejounte Murray,NO,PG,Assists,353,500,147
 Will Richard,GS,SG,Assists,103,250,147
 Day'Ron Sharpe,BKN,C,Points,1852,2000,148
 Sam Hauser,BOS,PF,Assists,352,500,148
-Dejounte Murray,NO,PG,Assists,352,500,148
 Tidjane Salaun,CHA,PF,Assists,102,250,148
+Jalen Johnson,ATL,PF,Assists,1101,1250,149
+Julian Champagnie,SA,SF,Rebounds,1101,1250,149
+Dyson Daniels,ATL,SF,Assists,851,1000,149
 Simone Fontecchio,MIA,SF,Assists,101,250,149
 Mikal Bridges,NY,SF,Rebounds,600,750,150
+Jeremiah Fears,NO,PG,Rebounds,350,500,150
 Dylan Cardwell,SAC,C,Rebounds,349,500,151
 Jordan Clarkson,NY,SG,Assists,99,250,151
-Julian Champagnie,SA,SF,Rebounds,1098,1250,152
+P.J. Washington,DAL,PF,Rebounds,1098,1250,152
 Anthony Black,ORL,PG,Assists,598,750,152
 Domantas Sabonis,SAC,C,Rebounds,3597,3750,153
-Jalen Johnson,ATL,PF,Assists,1097,1250,153
 Jay Huff,IND,C,Points,847,1000,153
-Jeremiah Fears,NO,PG,Rebounds,347,500,153
-Bryce McGowens,NO,SG,Points,347,500,153
 Drake Powell,BKN,SG,Assists,97,250,153
+Tyrese Proctor,CLE,PG,Assists,97,250,153
+Cameron Boozer,MEM,PF,Rebounds,97,250,153
 Jordan Goodwin,PHX,PG,Points,846,1000,154
+Ryan Dunn,PHX,SF,Rebounds,596,750,154
 Zach Collins,CHI,C,Points,346,500,154
-Coby White,CHA,PG,Points,346,500,154
 Alex Caruso,OKC,SG,Rebounds,346,500,154
 Jared McCain,OKC,SG,Rebounds,96,250,154
+Kevin Huerter,DET,SG,Rebounds,96,250,154
+Jamal Murray,DEN,PG,Assists,3095,3250,155
 Joel Embiid,PHI,C,Assists,1845,2000,155
 Landry Shamet,NY,SG,Points,845,1000,155
 Patrick Williams,CHI,PF,Rebounds,1344,1500,156
 Austin Reaves,LAL,SG,Rebounds,1344,1500,156
-Ryan Dunn,PHX,SF,Rebounds,594,750,156
 VJ Edgecombe,PHI,SG,Assists,344,500,156
 Robert Williams III,POR,C,Assists,94,250,156
-Kevin Huerter,DET,SG,Rebounds,94,250,156
-Jamal Murray,DEN,PG,Assists,3093,3250,157
-Dyson Daniels,ATL,SF,Assists,843,1000,157
+Naz Reid,CHA,C,Rebounds,94,250,156
 Ben Saraf,BKN,SG,Rebounds,93,250,157
-Tyrese Proctor,CLE,PG,Assists,93,250,157
+Cade Cunningham,DET,PG,Points,6342,6500,158
 Corey Kispert,ATL,SF,Rebounds,92,250,158
 Cam Christie,LAC,SG,Rebounds,92,250,158
+Tyrese Proctor,CLE,PG,Rebounds,92,250,158
+Bryce McGowens,NO,SG,Rebounds,92,250,158
 Kyle Filipowski,UTAH,C,Assists,341,500,159
-Tyrese Proctor,CLE,PG,Rebounds,91,250,159
 Terrence Shannon Jr.,MIN,SG,Assists,91,250,159
 Bam Adebayo,MIA,C,Rebounds,5840,6000,160
 Anthony Edwards,MIN,SG,Assists,1840,2000,160
 Precious Achiuwa,SAC,C,Points,840,1000,160
 Nikola Jovic,MIA,PF,Assists,340,500,160
-Cameron Boozer,MEM,PF,Rebounds,90,250,160
-Bryce McGowens,NO,SG,Rebounds,90,250,160
 Shai Gilgeous-Alexander,OKC,PG,Assists,2589,2750,161
-P.J. Washington,DAL,PF,Rebounds,1089,1250,161
 DeAndre Jordan,NO,C,Rebounds,89,250,161
 Anthony Edwards,MIN,SG,Rebounds,2338,2500,162
+Pascal Siakam,IND,PF,Rebounds,1338,1500,162
+Jeremiah Fears,NO,PG,Points,1338,1500,162
 Pelle Larsson,MIA,SG,Assists,338,500,162
+Jamaree Bouyea,PHX,PG,Assists,88,250,162
+Jordan Poole,NO,SG,Rebounds,88,250,162
 Adem Bona,PHI,C,Rebounds,587,750,163
+Anthony Davis,WSH,PF,Rebounds,87,250,163
+Charles Bassey,GS,C,Rebounds,87,250,163
 Justin Edwards,PHI,SF,Points,836,1000,164
 Svi Mykhailiuk,UTAH,SF,Points,836,1000,164
 Brooks Barnhizer,OKC,SG,Rebounds,86,250,164
 Yang Hansen,POR,C,Rebounds,86,250,164
+Zach Edey,MEM,C,Assists,86,250,164
 Neemias Queta,BOS,C,Points,1335,1500,165
-Jordan Poole,NO,SG,Rebounds,85,250,165
-Jamaree Bouyea,PHX,PG,Assists,85,250,165
-Zach Edey,MEM,C,Assists,85,250,165
+Brandin Podziemski,GS,SG,Assists,835,1000,165
 Jalen Slawson,IND,SF,Rebounds,85,250,165
+Kevin Huerter,DET,SG,Assists,85,250,165
+Zach Edey,MEM,C,Points,834,1000,166
 Ben Saraf,BKN,SG,Points,334,500,166
 Jordan Walsh,BOS,PF,Assists,84,250,166
 Wendell Carter Jr.,ORL,C,Points,4333,4500,167
+Jeremiah Fears,NO,PG,Assists,333,500,167
+Liam McNeeley,CHA,SF,Rebounds,83,250,167
 Jamaree Bouyea,PHX,PG,Rebounds,83,250,167
-Liam McNeeley,CHA,SF,Rebounds,82,250,168
+Oso Ighodaro,PHX,C,Points,832,1000,168
+Tyrese Proctor,CLE,PG,Points,332,500,168
 Jase Richardson,ORL,SG,Rebounds,82,250,168
 Jase Richardson,ORL,SG,Assists,82,250,168
-Kevin Huerter,DET,SG,Assists,82,250,168
+Jamison Battle,TOR,SF,Assists,82,250,168
+Ivica Zubac,IND,C,Rebounds,82,250,168
 Devin Vassell,SA,SG,Points,5331,5500,169
 AJ Green,MIL,SG,Points,1831,2000,169
 Jaylin Williams,OKC,C,Points,1331,1500,169
 VJ Edgecombe,PHI,SG,Points,1331,1500,169
-Brandin Podziemski,GS,SG,Assists,831,1000,169
 Gary Payton II,GS,SG,Assists,331,500,169
-Naz Reid,CHA,C,Rebounds,81,250,169
 Jahmai Mashack,MEM,SG,Rebounds,81,250,169
 Bilal Coulibaly,WSH,SF,Rebounds,830,1000,170
+Jamal Shead,TOR,PG,Assists,830,1000,170
 Noah Clowney,BKN,PF,Rebounds,580,750,170
 Collin Murray-Boyles,TOR,PF,Rebounds,330,500,170
 Reed Sheppard,HOU,PG,Rebounds,330,500,170
-Jamison Battle,TOR,SF,Assists,80,250,170
-Pascal Siakam,IND,PF,Rebounds,1329,1500,171
 Payton Pritchard,BOS,PG,Assists,1329,1500,171
-Ivica Zubac,IND,C,Rebounds,79,250,171
+Carter Bryant,SA,PF,Points,329,500,171
 Luka Garza,BOS,C,Assists,79,250,171
+Coby White,CHA,PG,Assists,79,250,171
+Yaxel Lendeborg,GS,SF,Rebounds,79,250,171
+Harrison Barnes,SA,PF,Points,1828,2000,172
+Kyshawn George,WSH,SG,Rebounds,578,750,172
+Daniss Jenkins,DET,PG,Assists,328,500,172
 Zach Collins,CHI,C,Assists,78,250,172
-Jeremiah Fears,NO,PG,Points,1327,1500,173
-Caleb Martin,DAL,SG,Points,327,500,173
+Evan Mobley,CLE,PF,Rebounds,3077,3250,173
 Hugo Gonzalez,BOS,SG,Points,327,500,173
 AJ Green,MIL,SG,Assists,327,500,173
-Charles Bassey,GS,C,Rebounds,77,250,173
-Zach Edey,MEM,C,Points,826,1000,174
-Tyrese Proctor,CLE,PG,Points,326,500,174
+Caleb Martin,DAL,SG,Points,327,500,173
 Derik Queen,NO,C,Assists,326,500,174
 Jevon Carter,ORL,PG,Assists,76,250,174
 Jaylen Clark,MIN,SG,Assists,76,250,174
-Cade Cunningham,DET,PG,Points,6325,6500,175
-Evan Mobley,CLE,PF,Rebounds,3075,3250,175
-Oso Ighodaro,PHX,C,Points,825,1000,175
-Kyshawn George,WSH,SG,Rebounds,575,750,175
+Luka Doncic,LAL,PG,Points,3325,3500,175
 Goga Bitadze,ORL,C,Assists,325,500,175
-Jeremiah Fears,NO,PG,Assists,325,500,175
+Ty Jerome,MEM,PG,Rebounds,75,250,175
+Nikola Jokic,DEN,C,Rebounds,9074,9250,176
 Rudy Gobert,MIN,C,Rebounds,3574,3750,176
+De'Aaron Fox,SA,PG,Points,1824,2000,176
 Nikola Jovic,MIA,PF,Rebounds,574,750,176
-Anthony Davis,WSH,PF,Rebounds,74,250,176
+Obi Toppin,IND,PF,Assists,324,500,176
 Darius Acuff Jr.,SAC,PG,Assists,74,250,176
 Josh Giddey,CHI,PG,Assists,1073,1250,177
 Jalen Duren,DET,C,Assists,573,750,177
 Bronny James,LAL,SG,Assists,73,250,177
-Devin Booker,PHX,SG,Points,18322,18500,178
+Jordan McLaughlin,SA,PG,Assists,73,250,177
 Jahmai Mashack,MEM,SG,Assists,72,250,178
-Yaxel Lendeborg,GS,SF,Rebounds,72,250,178
 Shai Gilgeous-Alexander,OKC,PG,Points,12821,13000,179
 Zion Williamson,NO,PF,Rebounds,1821,2000,179
+Tre Johnson,WSH,SG,Points,821,1000,179
 Brice Sensabaugh,UTAH,SF,Rebounds,571,750,179
-Carter Bryant,SA,PF,Points,321,500,179
 Brook Lopez,LAC,C,Rebounds,321,500,179
-Jordan McLaughlin,SA,PG,Assists,71,250,179
-Obi Toppin,IND,PF,Assists,320,500,180
-Daniss Jenkins,DET,PG,Assists,320,500,180
-Coby White,CHA,PG,Assists,70,250,180
+Sion James,CHA,SG,Rebounds,321,500,179
+Ryan Kalkbrenner,CHA,C,Assists,71,250,179
+Luka Doncic,LAL,PG,Assists,820,1000,180
 Andre Drummond,NY,C,Rebounds,70,250,180
-Jamal Shead,TOR,PG,Assists,819,1000,181
-Tre Johnson,WSH,SG,Points,819,1000,181
+Coby White,CHA,PG,Rebounds,70,250,180
+Miles Bridges,PHX,PF,Rebounds,70,250,180
+Brice Sensabaugh,UTAH,SF,Assists,319,500,181
 Luka Garza,BOS,C,Rebounds,319,500,181
-Ty Jerome,MEM,PG,Rebounds,69,250,181
 Kel'el Ware,MIL,C,Rebounds,69,250,181
 Justin Champagnie,WSH,SF,Rebounds,818,1000,182
-Brice Sensabaugh,UTAH,SF,Assists,318,500,182
 PJ Hall,CHA,C,Rebounds,68,250,182
 Tolu Smith,DET,PF,Rebounds,68,250,182
-Ryan Kalkbrenner,CHA,C,Assists,68,250,182
-Coby White,CHA,PG,Rebounds,68,250,182
 Dylan Cardwell,SAC,C,Assists,68,250,182
-Harrison Barnes,SA,PF,Points,1817,2000,183
-Sion James,CHA,SG,Rebounds,317,500,183
+Jalen Johnson,ATL,PF,Points,3817,4000,183
+Ronald Holland II,DET,PF,Rebounds,567,750,183
+Nickeil Alexander-Walker,ATL,SG,Assists,317,500,183
 Jaylen Brown,PHI,SF,Rebounds,67,250,183
 Julius Randle,BKN,PF,Rebounds,67,250,183
+Christian Braun,DEN,SG,Points,2816,3000,184
 Adem Bona,PHI,C,Assists,66,250,184
 Jevon Carter,ORL,PG,Rebounds,66,250,184
 LaMelo Ball,MIN,PG,Assists,66,250,184
 Brandon Miller,CHA,SF,Rebounds,815,1000,185
-Miles Bridges,PHX,PF,Rebounds,65,250,185
+Mario Hezonja,CLE,PF,Rebounds,65,250,185
 Bryce McGowens,NO,SG,Assists,65,250,185
 Ryan Rollins,MIL,PG,Assists,564,750,186
 Tony Bradley,UTAH,C,Points,314,500,186
+Dylan Harper,SA,SG,Assists,314,500,186
+Dejounte Murray,NO,PG,Rebounds,314,500,186
 Corey Kispert,ATL,SF,Assists,64,250,186
 LeBron James,PHI,PF,Rebounds,64,250,186
 Day'Ron Sharpe,BKN,C,Rebounds,1563,1750,187
-Nickeil Alexander-Walker,ATL,SG,Assists,313,500,187
 Jabari Walker,PHI,PF,Points,313,500,187
 Bobby Portis,MIA,PF,Rebounds,63,250,187
-Christian Braun,DEN,SG,Points,2812,3000,188
 Goga Bitadze,ORL,C,Points,1312,1500,188
 Sam Hauser,BOS,PF,Rebounds,1062,1250,188
+Jarred Vanderbilt,LAL,PF,Rebounds,812,1000,188
 Tristan da Silva,ORL,SF,Rebounds,562,750,188
-Ronald Holland II,DET,SF,Rebounds,562,750,188
 Jose Alvarado,NY,PG,Rebounds,62,250,188
 Vit Krejci,POR,SG,Rebounds,62,250,188
-Mario Hezonja,CLE,PF,Rebounds,62,250,188
 Javonte Green,DET,SG,Assists,62,250,188
-Dejounte Murray,NO,PG,Rebounds,311,500,189
+John Collins,DET,PF,Rebounds,61,250,189
 Shai Gilgeous-Alexander,OKC,PG,Rebounds,2310,2500,190
-Luka Doncic,LAL,PG,Assists,810,1000,190
-Jarred Vanderbilt,LAL,PF,Rebounds,810,1000,190
 Kris Dunn,LAC,SG,Rebounds,560,750,190
-Dylan Harper,SA,SG,Assists,310,500,190
 Mohamed Diawara,NY,SF,Assists,60,250,190
 LeBron James,PHI,PF,Assists,60,250,190
-De'Aaron Fox,SA,PG,Points,1809,2000,191
+Jonathan Kuminga,MIN,SF,Rebounds,60,250,190
 Precious Achiuwa,SAC,C,Rebounds,559,750,191
 Alex Sarr,WSH,C,Assists,309,500,191
 Kobe Brown,IND,PF,Assists,59,250,191
 Aday Mara,OKC,C,Rebounds,59,250,191
-Jonathan Kuminga,MIN,SF,Rebounds,59,250,191
-Nikola Jokic,DEN,C,Rebounds,9058,9250,192
 Bam Adebayo,MIA,C,Assists,2308,2500,192
 Cason Wallace,OKC,SG,Points,1808,2000,192
 Josh Giddey,CHI,PG,Rebounds,1058,1250,192
+Evan Mobley,CLE,PF,Assists,1058,1250,192
 Jaime Jaquez Jr.,MIL,SF,Rebounds,58,250,192
+Malevy Leons,GS,SF,Rebounds,58,250,192
 Paolo Banchero,ORL,PF,Assists,1307,1500,193
 Danny Wolf,BKN,C,Rebounds,307,500,193
+Nickeil Alexander-Walker,ATL,SG,Rebounds,307,500,193
 Caleb Wilson,CHI,PF,Rebounds,57,250,193
 Jaxson Hayes,UTAH,C,Rebounds,57,250,193
 Darius Garland,LAC,PG,Rebounds,57,250,193
+Trayce Jackson-Davis,TOR,C,Rebounds,57,250,193
+Spencer Jones,DEN,SF,Assists,57,250,193
 Neemias Queta,BOS,C,Rebounds,1056,1250,194
 Kyle Kuzma,MIL,PF,Rebounds,556,750,194
-Spencer Jones,DEN,SF,Assists,56,250,194
+Anthony Gill,WSH,PF,Rebounds,556,750,194
 Mo Bamba,UTAH,C,Rebounds,56,250,194
-Evan Mobley,CLE,PF,Assists,1055,1250,195
-Malevy Leons,GS,SF,Rebounds,55,250,195
+Deandre Ayton,WSH,C,Rebounds,56,250,194
+Daniss Jenkins,DET,PG,Points,805,1000,195
 Brayden Burries,MIL,SG,Rebounds,55,250,195
+Jock Landale,ATL,C,Assists,55,250,195
+Sandro Mamukelashvili,LAL,C,Rebounds,55,250,195
+Cameron Boozer,MEM,PF,Assists,55,250,195
 Gary Payton II,GS,SG,Points,1804,2000,196
 Jae'Sean Tate,HOU,SF,Rebounds,1304,1500,196
-Anthony Gill,WSH,PF,Rebounds,554,750,196
-Jock Landale,ATL,C,Assists,54,250,196
+Dyson Daniels,ATL,SF,Rebounds,1054,1250,196
 Olivier-Maxence Prosper,MEM,PF,Assists,54,250,196
-Nickeil Alexander-Walker,ATL,SG,Rebounds,303,500,197
+Zaccharie Risacher,DAL,SF,Rebounds,54,250,196
+Stephen Curry,GS,PG,Points,26803,27000,197
 Ajay Mitchell,OKC,SG,Assists,303,500,197
+Tari Eason,HOU,PF,Assists,303,500,197
 Josh Minott,BKN,SF,Rebounds,53,250,197
 Giannis Antetokounmpo,MIA,PF,Assists,53,250,197
-Jalen Johnson,ATL,PF,Points,3802,4000,198
-Zaccharie Risacher,DAL,SF,Rebounds,52,250,198
+Paul Reed,DET,C,Points,802,1000,198
+GG Jackson,MEM,PF,Rebounds,552,750,198
+Kevin Huerter,DET,SG,Points,302,500,198
+Carter Bryant,SA,PF,Assists,52,250,198
 Jaden McDaniels,MIN,PF,Assists,801,1000,199
-GG Jackson,MEM,PF,Rebounds,551,750,199
-Tari Eason,HOU,PF,Assists,301,500,199
-Trayce Jackson-Davis,TOR,C,Rebounds,51,250,199
-Carter Bryant,SA,PF,Assists,51,250,199
-John Collins,DET,PF,Rebounds,51,250,199
 Morez Johnson Jr.,DAL,C,Rebounds,51,250,199
 Mitchell Robinson,BOS,C,Rebounds,51,250,199
+Trevon Brazile,DEN,PF,Rebounds,51,250,199
 Julius Randle,BKN,PF,Assists,50,250,200
 Ron Harper Jr.,BOS,SF,Rebounds,50,250,200
+Trae Young,WSH,PG,Rebounds,50,250,200
+Luka Doncic,LAL,PG,Rebounds,799,1000,201
 Tony Bradley,UTAH,C,Rebounds,299,500,201
-Dyson Daniels,ATL,SF,Rebounds,1048,1250,202
-Paul Reed,DET,C,Points,798,1000,202
+Jaylen Wells,MEM,SG,Points,1798,2000,202
 Tyrese Haliburton,IND,PG,Assists,2297,2500,203
 Chet Holmgren,OKC,PF,Rebounds,1547,1750,203
 Payton Pritchard,BOS,PG,Rebounds,1297,1500,203
 Kris Dunn,LAC,SG,Assists,545,750,205
 Ajay Mitchell,OKC,SG,Rebounds,295,500,205
 Scoot Henderson,POR,PG,Assists,794,1000,206
-Luka Doncic,LAL,PG,Points,3293,3500,207
+Taylor Hendricks,MEM,PF,Points,294,500,206
+Dylan Harper,SA,SG,Rebounds,293,500,207
 Jase Richardson,ORL,SG,Points,292,500,208
 Zion Williamson,NO,PF,Points,6791,7000,209
-Luka Doncic,LAL,PG,Rebounds,791,1000,209
-Kevin Huerter,DET,SG,Points,290,500,210
+Donovan Mitchell,CLE,SG,Points,7289,7500,211
 Nikola Jovic,MIA,PF,Points,1289,1500,211
 Nique Clifford,SAC,SG,Rebounds,289,500,211
 Malik Monk,SAC,SG,Rebounds,788,1000,212
-Dylan Harper,SA,SG,Rebounds,288,500,212
 Desmond Bane,ORL,SG,Points,1787,2000,213
+Christian Braun,DEN,SG,Assists,536,750,214
 Tre Jones,CHI,PG,Rebounds,286,500,214
 Davion Mitchell,MIA,PG,Rebounds,286,500,214
-Taylor Hendricks,MEM,PF,Points,285,500,215
-P.J. Washington,DAL,PF,Assists,285,500,215
-Jaylen Wells,MEM,SG,Points,1784,2000,216
+P.J. Washington,DAL,PF,Assists,286,500,214
+Evan Mobley,CLE,PF,Points,5785,6000,215
+Cooper Flagg,DAL,SF,Rebounds,535,750,215
 Deni Avdija,POR,SF,Rebounds,1034,1250,216
-Harrison Barnes,SA,PF,Assists,284,500,216
+Jarred Vanderbilt,LAL,PF,Points,784,1000,216
+Obi Toppin,IND,PF,Rebounds,784,1000,216
 Kyle Kuzma,MIL,PF,Assists,284,500,216
+Harrison Barnes,SA,PF,Assists,284,500,216
 Tyrese Maxey,PHI,PG,Rebounds,1283,1500,217
-Daniss Jenkins,DET,PG,Points,783,1000,217
-Christian Braun,DEN,SG,Assists,533,750,217
+Stephen Curry,GS,PG,Assists,6782,7000,218
 Damian Lillard,POR,PG,Rebounds,3282,3500,218
-Obi Toppin,IND,PF,Rebounds,782,1000,218
 Jalen Smith,CHI,C,Rebounds,782,1000,218
+Harrison Barnes,SA,PF,Rebounds,531,750,219
 Kobe Brown,IND,PF,Points,281,500,219
-Stephen Curry,GS,PG,Assists,6780,7000,220
-Will Riley,WSH,SF,Points,780,1000,220
 Deni Avdija,POR,SF,Assists,780,1000,220
-Jarred Vanderbilt,LAL,PF,Points,780,1000,220
+Will Riley,WSH,SF,Points,780,1000,220
 Jamal Cain,ORL,SF,Points,280,500,220
+Trae Young,WSH,PG,Points,280,500,220
+Jamal Shead,TOR,PG,Rebounds,280,500,220
 T.J. McConnell,IND,PG,Rebounds,1279,1500,221
 Alex Caruso,OKC,SG,Points,779,1000,221
-Harrison Barnes,SA,PF,Rebounds,529,750,221
-Stephen Curry,GS,PG,Points,26778,27000,222
-Donovan Mitchell,CLE,SG,Points,7278,7500,222
+Oso Ighodaro,PHX,C,Assists,279,500,221
+Cade Cunningham,DET,PG,Rebounds,1528,1750,222
+Daniel Gafford,DAL,C,Rebounds,1028,1250,222
 Miles McBride,NY,SG,Assists,528,750,222
 Austin Reaves,LAL,SG,Assists,1527,1750,223
 Jalen Suggs,ORL,PG,Assists,1027,1250,223
-Jamal Shead,TOR,PG,Rebounds,277,500,223
-Oso Ighodaro,PHX,C,Assists,277,500,223
+Fred VanVleet,HOU,PG,Rebounds,527,750,223
 Jrue Holiday,POR,PG,Rebounds,277,500,223
-Evan Mobley,CLE,PF,Points,5776,6000,224
-Daniel Gafford,DAL,C,Rebounds,1026,1250,224
-Fred VanVleet,HOU,PG,Rebounds,526,750,224
+Craig Porter Jr.,CLE,PG,Points,776,1000,224
 Tyler Kolek,NY,PG,Assists,276,500,224
-Cade Cunningham,DET,PG,Rebounds,1525,1750,225
-Cooper Flagg,DAL,SF,Rebounds,525,750,225
 Giannis Antetokounmpo,MIA,PF,Points,275,500,225
+Jamaree Bouyea,PHX,PG,Points,275,500,225
+De'Anthony Melton,GS,SG,Points,774,1000,226
 Kon Knueppel,CHA,SF,Assists,274,500,226
 Rudy Gobert,MIN,C,Points,3773,4000,227
-Jamaree Bouyea,PHX,PG,Points,271,500,229
+Dillon Brooks,PHX,SF,Points,1272,1500,228
+Ausar Thompson,DET,SF,Assists,522,750,228
+Jarrett Allen,CLE,C,Assists,770,1000,230
 Alex Caruso,OKC,SG,Assists,270,500,230
-Jarrett Allen,CLE,C,Assists,769,1000,231
-Ausar Thompson,DET,SF,Assists,518,750,232
-Craig Porter Jr.,CLE,PG,Points,767,1000,233
+Bub Carrington,WSH,PG,Assists,769,1000,231
+Jaylen Wells,MEM,SG,Rebounds,519,750,231
+Gui Santos,GS,PF,Rebounds,519,750,231
+Karlo Matkovic,NO,PF,Points,767,1000,233
 Hugo Gonzalez,BOS,SG,Rebounds,267,500,233
+Collin Gillespie,PHX,PG,Points,1266,1500,234
 Matas Buzelis,CHI,SF,Rebounds,766,1000,234
-Dillon Brooks,PHX,SF,Points,1265,1500,235
-Bub Carrington,WSH,PG,Assists,765,1000,235
-Jaylen Wells,MEM,SG,Rebounds,515,750,235
 AJ Green,MIL,SG,Rebounds,515,750,235
+Gui Santos,GS,PF,Assists,265,500,235
 Patrick Williams,CHI,PF,Assists,514,750,236
 Paolo Banchero,ORL,PF,Rebounds,2013,2250,237
-Karlo Matkovic,NO,PF,Points,763,1000,237
+Jakob Poeltl,TOR,C,Assists,513,750,237
 Jalen Duren,DET,C,Points,3762,4000,238
 Brook Lopez,LAC,C,Points,762,1000,238
 Brandon Miller,CHA,SF,Assists,512,750,238
-Gui Santos,GS,PF,Rebounds,512,750,238
-Jakob Poeltl,TOR,C,Assists,511,750,239
-Jamison Battle,TOR,SF,Rebounds,261,500,239
-Gui Santos,GS,PF,Assists,261,500,239
-Collin Gillespie,PHX,PG,Points,1260,1500,240
-Trae Young,WSH,PG,Points,260,500,240
+James Harden,CLE,PG,Assists,262,500,238
+Jamison Battle,TOR,SF,Rebounds,262,500,238
+Jamal Murray,DEN,PG,Points,11760,12000,240
+Draymond Green,GS,PF,Points,8260,8500,240
+Stephen Curry,GS,PG,Rebounds,5010,5250,240
+Donovan Mitchell,CLE,SG,Rebounds,1260,1500,240
 Donovan Clingan,POR,C,Rebounds,1509,1750,241
 Justin Champagnie,WSH,SF,Points,1259,1500,241
 Franz Wagner,ORL,SF,Assists,1259,1500,241
 Darius Acuff Jr.,SAC,PG,Points,259,500,241
-Draymond Green,GS,PF,Points,8258,8500,242
-Donovan Mitchell,CLE,SG,Rebounds,1258,1500,242
-De'Anthony Melton,GS,SG,Points,758,1000,242
-Jaylen Wells,MEM,SG,Assists,258,500,242
+Jaylen Wells,MEM,SG,Assists,259,500,241
+Herbert Jones,NO,SF,Assists,758,1000,242
+Jock Landale,ATL,C,Points,258,500,242
 Jayson Tatum,BOS,SF,Rebounds,4507,4750,243
-Herbert Jones,NO,SF,Assists,757,1000,243
+Kevin Durant,HOU,SF,Points,2257,2500,243
 Zach Collins,CHI,C,Rebounds,257,500,243
-James Harden,CLE,PG,Assists,257,500,243
+Draymond Green,GS,PF,Rebounds,6506,6750,244
 Mohamed Diawara,NY,SF,Points,256,500,244
-Stephen Curry,GS,PG,Rebounds,5005,5250,245
 Matas Buzelis,CHI,SF,Assists,255,500,245
 Dylan Cardwell,SAC,C,Points,255,500,245
+Al Horford,GS,C,Rebounds,255,500,245
 Andrew Wiggins,MIA,SF,Assists,254,500,246
 Zach LaVine,SAC,SG,Rebounds,254,500,246
-Draymond Green,GS,PF,Rebounds,6503,6750,247
+Javonte Green,DET,SG,Rebounds,254,500,246
 Scotty Pippen Jr.,MEM,PG,Assists,503,750,247
-Jock Landale,ATL,C,Points,253,500,247
-Al Horford,GS,C,Rebounds,253,500,247
-Javonte Green,DET,SG,Rebounds,253,500,247
 Kyle Filipowski,UTAH,C,Rebounds,1002,1250,248
 Ben Sheppard,IND,SG,Assists,252,500,248
 Tristan da Silva,ORL,SF,Assists,252,500,248
 Sam Merrill,CLE,SG,Points,1751,2000,249
+Alex Sarr,WSH,C,Points,1751,2000,249
 Yves Missi,NO,C,Rebounds,1001,1250,249
 Donovan Clingan,POR,C,Assists,251,500,249
 Zeke Nnaji,DEN,PF,Points,1250,1500,250
-Alex Sarr,WSH,C,Points,1747,2000,253
+Onyeka Okongwu,ATL,C,Points,4247,4500,253
+Bub Carrington,WSH,PG,Points,1746,2000,254
 Asa Newell,ATL,PF,Points,245,500,255
-Bub Carrington,WSH,PG,Points,1742,2000,258
+Alperen Sengun,HOU,C,Points,6241,6500,259
+Jake LaRavia,LAL,PF,Points,741,1000,259
+Rasheer Fleming,PHX,PF,Points,241,500,259
 Ryan Rollins,MIL,PG,Points,1740,2000,260
-Rasheer Fleming,PHX,PF,Points,239,500,261
-Jake LaRavia,LAL,PF,Points,737,1000,263
 Jevon Carter,ORL,PG,Points,235,500,265
-Kevin Durant,HOU,SF,Points,2234,2500,266
-Onyeka Okongwu,ATL,C,Points,4231,4500,269
+Yaxel Lendeborg,GS,SF,Points,235,500,265
+Fred VanVleet,HOU,PG,Points,2233,2500,267
+Cooper Flagg,DAL,SF,Points,1732,2000,268
+Anthony Davis,WSH,PF,Points,231,500,269
+RJ Barrett,TOR,SF,Points,3230,3500,270
 Jaylen Brown,PHI,SF,Points,223,500,277
-Jamal Murray,DEN,PG,Points,11722,12000,278
-Alperen Sengun,HOU,C,Points,6221,6500,279
-Fred VanVleet,HOU,PG,Points,2221,2500,279
+Quenton Jackson,IND,PG,Points,722,1000,278
+Cameron Johnson,DEN,PF,Points,722,1000,278
 Joan Beringer,MIN,C,Points,218,500,282
+Nikola Jokic,DEN,C,Points,18217,18500,283
 Tre Jones,CHI,PG,Points,1214,1500,286
-Cameron Johnson,DEN,PF,Points,714,1000,286
+Ronald Holland II,DET,PF,Points,1214,1500,286
 Tyler Herro,MIL,SG,Points,214,500,286
-Ronald Holland II,DET,SF,Points,1213,1500,287
-Quenton Jackson,IND,PG,Points,712,1000,288
-Yaxel Lendeborg,GS,SF,Points,212,500,288
-RJ Barrett,TOR,SF,Points,3211,3500,289
+Brandin Podziemski,GS,SG,Points,2713,3000,287
+Khaman Maluach,PHX,C,Points,209,500,291
 Scoot Henderson,POR,PG,Points,2208,2500,292
 Joel Embiid,PHI,C,Points,13705,14000,295
 Bones Hyland,MIN,PG,Points,703,1000,297
 Josh Minott,BKN,SF,Points,203,500,297
 Brice Sensabaugh,UTAH,SF,Points,2202,2500,298
+James Harden,CLE,PG,Points,702,1000,298
+Jamison Battle,TOR,SF,Points,702,1000,298
 LaMelo Ball,MIN,PG,Points,201,500,299
 Adem Bona,PHI,C,Points,700,1000,300
 Julius Randle,BKN,PF,Points,200,500,300
 Jalen Brunson,NY,PG,Points,7698,8000,302
-Khaman Maluach,PHX,C,Points,198,500,302
 Ajay Mitchell,OKC,SG,Points,1197,1500,303
 Scotty Pippen Jr.,MEM,PG,Points,1196,1500,304
 Jose Alvarado,NY,PG,Points,196,500,304
 Isaiah Jackson,LAC,C,Points,196,500,304
 Jahmai Mashack,MEM,SG,Points,194,500,306
-Nikola Jokic,DEN,C,Points,18192,18500,308
-James Harden,CLE,PG,Points,691,1000,309
+Naz Reid,CHA,C,Points,191,500,309
 Sam Hauser,BOS,PF,Points,2690,3000,310
-Cooper Flagg,DAL,SF,Points,1689,2000,311
-Brandin Podziemski,GS,SG,Points,2688,3000,312
 Bronny James,LAL,SG,Points,188,500,312
-Anthony Davis,WSH,PF,Points,187,500,313
 Chaney Johnson,BKN,SF,Points,187,500,313
 Mikal Bridges,NY,SF,Points,2684,3000,316
-Jamison Battle,TOR,SF,Points,684,1000,316
 Paul George,BOS,PF,Points,184,500,316
 Moussa Cisse,DAL,C,Points,182,500,318
 Cam Christie,LAC,SG,Points,181,500,319
 Zach LaVine,SAC,SG,Points,1679,2000,321
+Aaron Wiggins,ATL,SG,Points,179,500,321
+Walker Kessler,LAL,C,Points,179,500,321
+LJ Cryer,GS,PG,Points,176,500,324
 Jordan Clarkson,NY,SG,Points,674,1000,326
 Caleb Wilson,CHI,PF,Points,174,500,326
+Jalen Green,PHX,SG,Points,673,1000,327
 Jalen Smith,CHI,C,Points,1170,1500,330
-Jalen Green,PHX,SG,Points,667,1000,333
+Amen Thompson,HOU,SF,Points,3169,3500,331
+Grayson Allen,CHA,SG,Points,168,500,332
 Myron Gardner,MIA,SF,Points,167,500,333
-LJ Cryer,GS,PG,Points,166,500,334
-Naz Reid,CHA,C,Points,166,500,334
-Aaron Wiggins,ATL,SG,Points,164,500,336
 Domantas Sabonis,SAC,C,Points,5162,5500,338
 Pelle Larsson,MIA,SG,Points,1162,1500,338
-Amen Thompson,HOU,SF,Points,3161,3500,339
+Cameron Boozer,MEM,PF,Points,162,500,338
 Nique Clifford,SAC,SG,Points,658,1000,342
-Walker Kessler,LAL,C,Points,158,500,342
+Pascal Siakam,IND,PF,Points,4157,4500,343
+GG Jackson,MEM,PF,Points,1655,2000,345
+Daniel Gafford,DAL,C,Points,1655,2000,345
 Vit Krejci,POR,SG,Points,155,500,345
+Liam McNeeley,CHA,SF,Points,155,500,345
+Jabari Smith Jr.,HOU,PF,Points,4154,4500,346
 Norman Powell,CHI,SG,Points,154,500,346
-GG Jackson,MEM,PF,Points,1653,2000,347
 Patrick Williams,CHI,PF,Points,3152,3500,348
 Kris Dunn,LAC,SG,Points,1152,1500,348
+Jamal Shead,TOR,PG,Points,1152,1500,348
 Jaime Jaquez Jr.,MIL,SF,Points,152,500,348
 Darryn Peterson,UTAH,SG,Points,148,500,352
-Daniel Gafford,DAL,C,Points,1647,2000,353
-Liam McNeeley,CHA,SF,Points,147,500,353
 Klay Thompson,MIA,SF,Points,147,500,353
-Grayson Allen,CHA,SG,Points,141,500,359
-Jabari Smith Jr.,HOU,PF,Points,4140,4500,360
-Cameron Boozer,MEM,PF,Points,140,500,360
+Tidjane Salaun,CHA,PF,Points,644,1000,356
+Jordan McLaughlin,SA,PG,Points,143,500,357
+Miles Bridges,PHX,PF,Points,142,500,358
 LeBron James,PHI,PF,Points,140,500,360
-Jordan McLaughlin,SA,PG,Points,139,500,361
 Isaiah Hartenstein,OKC,C,Points,1138,1500,362
 Isaac Okoro,CHI,SG,Points,636,1000,364
 Kawhi Leonard,TOR,SF,Points,1635,2000,365
-Miles Bridges,PHX,PF,Points,135,500,365
 Jonathan Kuminga,MIN,SF,Points,135,500,365
 De'Andre Hunter,SAC,SF,Points,133,500,367
-Jamal Shead,TOR,PG,Points,1132,1500,368
 Jaren Jackson Jr.,UTAH,C,Points,132,500,368
+Naji Marshall,DAL,SF,Points,2131,2500,369
+Javonte Green,DET,SG,Points,631,1000,369
 Ron Harper Jr.,BOS,SF,Points,131,500,369
-Tidjane Salaun,CHA,PF,Points,630,1000,370
+P.J. Washington,DAL,PF,Points,2129,2500,371
 Jalen Slawson,IND,SF,Points,129,500,371
 Lauri Markkanen,UTAH,PF,Points,5128,5500,372
-Pascal Siakam,IND,PF,Points,4128,4500,372
 Nolan Traore,BKN,SG,Points,628,1000,372
 Toumani Camara,POR,PF,Points,2627,3000,373
 Luka Garza,BOS,C,Points,627,1000,373
 Payton Pritchard,BOS,PG,Points,4626,5000,374
-Naji Marshall,DAL,SF,Points,2125,2500,375
 Davion Mitchell,MIA,PG,Points,1125,1500,375
-Javonte Green,DET,SG,Points,624,1000,376
+Duncan Robinson,DET,SF,Points,1125,1500,375
 Yang Hansen,POR,C,Points,123,500,377
+Charles Bassey,GS,C,Points,122,500,378
+Sandro Mamukelashvili,LAL,C,Points,118,500,382
 Malik Monk,SAC,SG,Points,4117,4500,383
-P.J. Washington,DAL,PF,Points,2116,2500,384
+AJ Dybantsa,WSH,SF,Points,117,500,383
+Collin Sexton,LAL,SG,Points,113,500,387
 Ace Bailey,UTAH,SF,Points,1112,1500,388
+Luguentz Dort,ATL,PF,Points,112,500,388
+Ivica Zubac,IND,C,Points,112,500,388
 Keaton Wagler,LAC,SG,Points,111,500,389
-Charles Bassey,GS,C,Points,110,500,390
-Luguentz Dort,ATL,PF,Points,108,500,392
+Andrew Nembhard,IND,SG,Points,3108,3500,392
+John Collins,DET,PF,Points,107,500,393
 Robert Williams III,POR,C,Points,606,1000,394
 Anthony Black,ORL,PG,Points,2105,2500,395
 Brayden Burries,MIL,SG,Points,105,500,395
 Moritz Wagner,BKN,C,Points,104,500,396
-Duncan Robinson,DET,SF,Points,1103,1500,397
+Meleek Thomas,CLE,SG,Points,104,500,396
+Jerami Grant,MEM,PF,Points,104,500,396
+Brandon Williams,GS,PG,Points,104,500,396
+Peyton Watson,CLE,SF,Points,103,500,397
+Alijah Martin,TOR,SG,Points,103,500,397
 Rui Hachimura,LAC,PF,Points,102,500,398
-Alijah Martin,TOR,SG,Points,101,500,399
+Ziaire Williams,LAL,SF,Points,101,500,399
+Ja'Kobe Walter,TOR,SG,Points,1100,1500,400
 Simone Fontecchio,MIA,SF,Points,600,1000,400
-Brandon Williams,GS,PG,Points,100,500,400
 Baylor Scheierman,BOS,SF,Points,599,1000,401
-Andrew Nembhard,IND,SG,Points,3096,3500,404
 Anthony Gill,WSH,PF,Points,1095,1500,405
-Ja'Kobe Walter,TOR,SG,Points,1088,1500,412
+Dyson Daniels,ATL,SF,Points,2092,2500,408
 Kyle Filipowski,UTAH,C,Points,1587,2000,413
 Keyonte George,UTAH,PG,Points,3585,4000,415
+Derik Queen,NO,C,Points,1085,1500,415
 Kobe Sanders,LAC,SG,Points,584,1000,416
-Dyson Daniels,ATL,SF,Points,2082,2500,418
 Paolo Banchero,ORL,PF,Points,6080,6500,420
 Collin Murray-Boyles,TOR,PF,Points,580,1000,420
 Jae'Sean Tate,HOU,SF,Points,2578,3000,422
 Jaylon Tyson,CLE,SF,Points,1078,1500,422
 Bam Adebayo,MIA,C,Points,10576,11000,424
-Derik Queen,NO,C,Points,1069,1500,431
+Ryan Kalkbrenner,CHA,C,Points,574,1000,426
+Victor Wembanyama,SA,C,Points,4569,5000,431
 Darius Garland,LAC,PG,Points,569,1000,431
 Egor Demin,BKN,SG,Points,567,1000,433
-Ryan Kalkbrenner,CHA,C,Points,566,1000,434
 Matas Buzelis,CHI,SF,Points,2062,2500,438
+Obi Toppin,IND,PF,Points,2062,2500,438
 Yves Missi,NO,C,Points,1061,1500,439
 Immanuel Quickley,TOR,PG,Points,2559,3000,441
 Moussa Diabate,CHA,PF,Points,1058,1500,442
 Danny Wolf,BKN,C,Points,557,1000,443
 Jaden McDaniels,MIN,PF,Points,5055,5500,445
+Jordan Poole,NO,SG,Points,555,1000,445
 Derrick White,BOS,PG,Points,5054,5500,446
 Chet Holmgren,OKC,PF,Points,3053,3500,447
-Obi Toppin,IND,PF,Points,2052,2500,448
 Damian Lillard,POR,PG,Points,19551,20000,449
-Jordan Poole,NO,SG,Points,548,1000,452
 Dru Smith,MIA,SG,Points,547,1000,453
+Jarace Walker,IND,PF,Points,1546,2000,454
 Ben Sheppard,IND,SG,Points,1046,1500,454
 Ayo Dosunmu,MIN,SG,Points,544,1000,456
 Olivier-Maxence Prosper,MEM,PF,Points,542,1000,458
-Jarace Walker,IND,PF,Points,1539,2000,461
 Miles McBride,NY,SG,Points,2035,2500,465
+Ty Jerome,MEM,PG,Points,535,1000,465
 Josh Giddey,CHI,PG,Points,2034,2500,466
-Victor Wembanyama,SA,C,Points,4529,5000,471
 Deni Avdija,POR,SF,Points,3018,3500,482
 Austin Reaves,LAL,SG,Points,5517,6000,483
+Jakob Poeltl,TOR,C,Points,3013,3500,487
 Khris Middleton,WSH,SF,Points,513,1000,487
+Dylan Harper,SA,SG,Points,1011,1500,489
+Sion James,CHA,SG,Points,510,1000,490
 Trey Murphy III,NO,SF,Points,5008,5500,492
-Ty Jerome,MEM,PG,Points,508,1000,492
 Kenrich Williams,OKC,PF,Points,2506,3000,494
+Julian Champagnie,SA,SF,Points,2506,3000,494
 Jalen Williams,OKC,SF,Points,4505,5000,495
 Kon Knueppel,CHA,SF,Points,1501,2000,499
 Jordan Walsh,BOS,PF,Points,501,1000,499
