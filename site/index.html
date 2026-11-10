@@ -4879,13 +4879,14 @@ function renderStreaks(){
   return `
   <div class="panel">
     <div class="panel-title">Active Streaks</div>
-    <div class="panel-note">Consecutive games (most recent, uninterrupted) a player or team has hit a mark. Only 2+ game streaks are shown, with the season hit count next to it. Gold rows are double-doubles, or a defense allowing 120+. TEAM shows streaks from real final scores. The last column shows who each player plays next (today, until tonight's games are done); <b>Playing today</b> keeps only those players, with OUT / Day-To-Day flagged.</div>
+    <div class="panel-note">Consecutive games (most recent, uninterrupted) a player or team has hit a mark. Only 2+ game streaks are shown, with the season hit count next to it. Gold rows are double-doubles, or a defense allowing 120+. TEAM shows streaks from real final scores. The last column shows each player's game on the day you pick (Today, Tomorrow, ...); <b>Playing</b> keeps only players with a game that day, with OUT / Day-To-Day flagged.</div>
     <div class="controls">
       <input type="text" id="streak-search" placeholder="Search player...">
       <select id="streak-type"><option value="">All streak types</option></select>
       <div class="pill-group" id="streak-play-pills">
-        <span class="pill active" data-play="">Everyone</span><span class="pill" data-play="1" id="streak-play-today">Playing today</span>
+        <span class="pill active" data-play="">Everyone</span><span class="pill" data-play="1" id="streak-play-today">Playing</span>
       </div>
+      <div class="pill-group" id="streak-day-pills"></div>
       <div class="pill-group" id="streak-pos-pills">
         <span class="pill active" data-pos="">ALL</span><span class="pill" data-pos="PG">PG</span><span class="pill" data-pos="SG">SG</span><span class="pill" data-pos="SF">SF</span><span class="pill" data-pos="PF">PF</span><span class="pill" data-pos="C">C</span><span class="pill" data-pos="TEAM">TEAM</span>
       </div>
@@ -4936,10 +4937,12 @@ function computeDefenseStreaks(posKey, stat, scope, threshold){
   });
 }
 // Who plays on the next game day (today, until tonight's games are done): team -> opponent, home/away, tip time.
-function nextSlateMap(){
+function slateDays(){ return [...new Set(tnSlate().map(g => num(g.week)))].sort((a, b) => a - b); }
+function nextSlateMap(pick){
   const all = tnSlate();
   if(!all.length) return {map: {}, label: '', week: null};
-  const week = Math.min(...all.map(g => num(g.week))), map = {};      // the slate's day numbers can arrive as text
+  const days = slateDays();
+  const week = pick && days.includes(num(pick)) ? num(pick) : days[0], map = {};   // the slate's day numbers can arrive as text
   all.filter(g => num(g.week) === week).forEach(g => {
     map[g.away] = {opp: g.home, home: false, time: tnTime(g)};
     map[g.home] = {opp: g.away, home: true, time: tnTime(g)};
@@ -4963,11 +4966,12 @@ function mountDefStreaks(){
   const container = $('#defstreak-table');
   if(!container) return;
   let minStreak = 1;
-  const dsSlate = nextSlateMap();
+  let dsSlate = nextSlateMap();
+  window._dsSetDay = week => { dsSlate = nextSlateMap(week); apply(); };
   const cols = [
     {key:'_sort', label:'Streak', numeric:true, render:(v,row)=>{ const v2 = row.Streak; return `<span class="heat" style="${v2>=2 ? 'background:rgba(227,169,59,0.22);border:1px solid rgba(227,169,59,0.6);' : (v2===1 ? 'background:rgba(51,214,166,0.18);border:1px solid rgba(51,214,166,0.5);' : '')}">${v2} game${v2===1?'':'s'}</span>`; }},
     {key:'Defense', label:'Defense', render:teamChip},
-    {key:'_next', label: dsSlate.label || 'Next game', render:(v,row)=>nextGameChip(row.Defense, dsSlate, '')},
+    {key:'_next', label: 'Next game', render:(v,row)=>nextGameChip(row.Defense, dsSlate, '')},
     {key:'Rate', label:'Season', numeric:true, render:(v,row)=>`${row.Hits}/${row.Games}`},
     {key:'list', label:'Last 10 games (oldest to newest)', render:(v)=>v.slice(-10).map(x=>
       `<span class="heat" style="margin-right:4px;${x.hit ? 'background:rgba(51,214,166,0.18);border:1px solid rgba(51,214,166,0.5);' : 'background:rgba(255,92,108,0.14);border:1px solid rgba(255,92,108,0.45);'}">${dayLabel(x.week)}: ${x.val}</span>`).join('')},
@@ -4977,6 +4981,7 @@ function mountDefStreaks(){
     const shown = rows.filter(r=>r.Streak >= minStreak || minStreak === 1);
     if(!shown.length){ container.innerHTML = '<div class="empty">No defense has an active streak that long for this setting. Try a lower number.</div>'; return; }
     shown.forEach(r=>{ r._sort = r.Streak*100 + r.Rate*10; r._next = dsSlate.map[r.Defense] ? 1 : 0; });
+    cols[2].label = dsSlate.label || 'Next game';
     buildTable(container, cols, shown, {defaultSort:'_sort', defaultDir:'desc'});
   }
   $('#ds-stat').addEventListener('change', ()=>{ $('#ds-thresh').value = DS_DEFAULTS[$('#ds-stat').value] ?? 1; apply(); });
@@ -4991,7 +4996,7 @@ function mountDefStreaks(){
 function mountStreaks(){
   mountDefStreaks();
   const allStreaks = computeStreaks();
-  const slate = nextSlateMap();
+  let slate = nextSlateMap();
   const container = $('#streaks-table');
   const typeSelect = $('#streak-type');
   typeSelect.innerHTML = '<option value="">All streak types</option>' + [...new Set(allStreaks.map(r=>r.StreakType))].sort().map(t=>`<option value="${t}">${t}</option>`).join('');
@@ -5003,10 +5008,24 @@ function mountStreaks(){
     {key:'Position', label:'Pos'},
     {key:'StreakType', label:'Streak Type'},
     {key:'Season', label:'Season'},
-    {key:'_next', label: slate.label ? slate.label : 'Next game', render:(v, row)=>nextGameChip(row.Team, slate, row.Position === 'TEAM' ? '' : row.Player)},
+    {key:'_next', label: 'Next game', render:(v, row)=>nextGameChip(row.Team, slate, row.Position === 'TEAM' ? '' : row.Player)},
   ];
-  allStreaks.forEach(r => { const m = slate.map[r.Team]; r._next = m ? 1 : 0; });
-  const todayPill = $('#streak-play-today'); if(todayPill) todayPill.textContent = slate.label ? `Playing ${slate.label.toLowerCase() === 'today' || slate.label.toLowerCase() === 'tomorrow' ? slate.label.toLowerCase() : slate.label}` : 'Playing next';
+  // which day: Today / Tomorrow / any later day on the schedule
+  const nextCol = cols[cols.length - 1];
+  function setDay(week){
+    slate = nextSlateMap(week);
+    nextCol.label = slate.label || 'Next game';
+    allStreaks.forEach(r => { r._next = slate.map[r.Team] ? 1 : 0; });
+    const tp = $('#streak-play-today');
+    if(tp) tp.textContent = slate.label ? `Playing ${/^(today|tomorrow)$/i.test(slate.label) ? slate.label.toLowerCase() : slate.label}` : 'Playing';
+    $$('#streak-day-pills .pill').forEach(x => x.classList.toggle('active', num(x.dataset.week) === slate.week));
+  }
+  const dayBox = $('#streak-day-pills');
+  if(dayBox){
+    dayBox.innerHTML = slateDays().slice(0, 4).map(w => `<span class="pill" data-week="${w}">${nextSlateMap(w).label}</span>`).join('');
+    $$('#streak-day-pills .pill').forEach(x => x.addEventListener('click', () => { setDay(x.dataset.week); apply(); if(window._dsSetDay) window._dsSetDay(x.dataset.week); }));
+  }
+  setDay(slate.week);
   let pos = '', playing = '';
   function apply(){
     const q = $('#streak-search').value.trim().toLowerCase();
