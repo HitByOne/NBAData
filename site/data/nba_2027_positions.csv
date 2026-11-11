@@ -299,7 +299,6 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4432808,James Wiseman,NY,C,C,Basketball-Reference 2026-27
 3136195,Karl-Anthony Towns,NY,C,C,Basketball-Reference 2026-27
 3934719,OG Anunoby,NY,PF,F,Basketball-Reference 2026-27
-5211983,Pacome Dadiet,NY,PF,F,estimated from ESPN F
 3934672,Jalen Brunson,NY,PG,G,Basketball-Reference 2026-27
 4277869,Jose Alvarado,NY,PG,G,Basketball-Reference 2026-27
 4433225,Tyler Kolek,NY,PG,G,Basketball-Reference 2026-27
@@ -307,6 +306,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3062679,Josh Hart,NY,SF,G,Basketball-Reference 2026-27
 3147657,Mikal Bridges,NY,SF,G,Basketball-Reference 2026-27
 5289900,Mohamed Diawara,NY,SF,F,Basketball-Reference 2026-27
+5211983,Pacome Dadiet,NY,SF,F,estimated from ESPN F
 4683730,Jaden Akins,NY,SG,G,Basketball-Reference 2026-27
 2528426,Jordan Clarkson,NY,SG,G,Basketball-Reference 2026-27
 3914044,Landry Shamet,NY,SG,G,Basketball-Reference 2026-27
@@ -327,6 +327,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4683778,Jared McCain,OKC,SG,G,Basketball-Reference 2026-27
 5105800,Josh Dix,OKC,SG,G,Basketball-Reference 2026-27
 4432185,Micah Peavy,OKC,SG,G,Basketball-Reference 2026-27
+4702384,Nique Clifford,OKC,SG,G,Basketball-Reference 2026-27
 4397204,Colin Castleton,ORL,C,C,Basketball-Reference 2026-27
 4348700,Goga Bitadze,ORL,C,C,Basketball-Reference 2026-27
 6478,Nikola Vucevic,ORL,C,C,estimated from ESPN C
@@ -414,7 +415,6 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4279318,Daeqwon Plowden,SAC,SG,G,Basketball-Reference 2026-27
 5106058,Emanuel Sharp,SAC,SG,G,Basketball-Reference 2026-27
 4066262,Malik Monk,SAC,SG,G,Basketball-Reference 2026-27
-4702384,Nique Clifford,SAC,SG,G,Basketball-Reference 2026-27
 3064440,Zach LaVine,SAC,SG,G,Basketball-Reference 2026-27
 3134908,Jakob Poeltl,TOR,C,C,Basketball-Reference 2026-27
 4431684,Trayce Jackson-Davis,TOR,C,F,Basketball-Reference 2026-27
