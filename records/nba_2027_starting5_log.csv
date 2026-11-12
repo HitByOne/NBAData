@@ -64,3 +64,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-10,SF,Derrick Jones Jr.,LAC,PHX,PRA,PRA 20.3,20.3,,,boost
 2026-11-10,PF,LeBron James,PHI,BOS,Points,PTS 17.6,17.6,,,boost
 2026-11-10,C,Karl-Anthony Towns,NY,MIL,Rebounds,REB 15.9,15.9,,,boost
+2026-11-11,PG,Shai Gilgeous-Alexander,OKC,POR,Points,PTS 34.9,34.9,,,boost
+2026-11-11,SG,Desmond Bane,ORL,UTAH,Rebounds,REB 5.2,5.2,,,boost
+2026-11-11,SF,Aaron Nesmith,IND,WSH,PRA,PRA 19.9,19.9,,,boost
+2026-11-11,PF,Anthony Davis,WSH,IND,3PM,3PM 1.6,1.6,,,boost
+2026-11-11,C,Danny Wolf,BKN,NO,PRA,PRA 19.9,19.9,,,boost
