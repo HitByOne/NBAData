@@ -69,3 +69,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-11,SF,Aaron Nesmith,IND,WSH,PRA,PRA 19.9,19.9,,,boost
 2026-11-11,PF,Anthony Davis,WSH,IND,3PM,3PM 1.6,1.6,,,boost
 2026-11-11,C,Danny Wolf,BKN,NO,PRA,PRA 19.9,19.9,,,boost
+2026-11-12,PG,Kyrie Irving,DAL,MIN,Rebounds,REB 4.1,4.1,,,boost
+2026-11-12,SG,VJ Edgecombe,PHI,TOR,PRA,PRA 23.8,23.8,,,boost
+2026-11-12,SF,Ausar Thompson,DET,WSH,Points,PTS 10.8,10.8,,,boost
+2026-11-12,PF,John Collins,DET,WSH,Rebounds,REB 8.7,8.7,,,boost
+2026-11-12,C,Naz Reid,CHA,PHX,PRA,PRA 33.7,33.7,,,boost
