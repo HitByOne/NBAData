@@ -2,7 +2,6 @@ Team,Player,Position,Status,Injury,Return,Updated
 ATL,Asa Newell,F,Out,Left Toe,2026-11-20,2026-11-12
 ATL,Henri Veesaar,C,Out,Right Knee,2027-07-01,2026-09-21
 ATL,Keshon Gilbert,G,Out,Left Knee Inflammation,2026-11-20,2026-11-12
-ATL,Kingston Flemings,G,Day-To-Day,Back,2026-11-13,2026-11-12
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-12-12,2026-11-13
 BKN,Mikel Brown Jr.,G,Day-To-Day,Illness Not Specified,2026-11-14,2026-11-13
 BKN,Nolan Traore,G,Day-To-Day,Right Calf Soreness,2026-11-14,2026-11-13
@@ -11,10 +10,10 @@ CHA,Brandon Miller,F,Day-To-Day,Right Groin Soreness,2026-11-15,2026-11-13
 CHA,Dennis Schroder,G,Out,Left Hamstring Strain,2026-11-25,2026-11-08
 CHA,Kon Knueppel,G,Out,Left Hamstring Strain,2026-12-12,2026-11-08
 CHI,Caleb Wilson,F,Out,Right Hand,2026-12-13,2026-11-12
-CHI,Dailyn Swain,G,Day-To-Day,Right Back,2026-11-13,2026-11-12
-CHI,Norman Powell,G,Day-To-Day,Right Shoulder Inflammation,2026-11-13,2026-11-12
+CHI,Dailyn Swain,G,Out,Right Back,2026-11-14,2026-11-14
 CHI,Tobe Awaka,F,Out,Back,2026-11-14,2026-11-12
 CLE,Evan Mobley,C,Out,Toe,2026-11-14,2026-11-12
+CLE,Nae'Qwan Tomlin,F,Out,Back,2026-11-16,2026-10-20
 CLE,Sam Merrill,G,Out,Right Elbow,2026-11-16,2026-11-10
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-18,2026-11-11
 DAL,Max Christie,G,Day-To-Day,Ankle,2026-11-14,2026-11-13
@@ -49,11 +48,10 @@ MEM,Quinten Post,C,Out,Concussion,2026-11-14,2026-11-12
 MEM,Richie Saunders,G,Out,Right Knee Surgery,2026-12-01,2026-11-07
 MEM,Scotty Pippen Jr.,G,Out,Back Soreness,2026-11-21,2026-11-10
 MEM,Zach Edey,C,Out,Left Ankle,2026-11-14,2026-11-12
-MIA,Klay Thompson,G,Day-To-Day,Left Ankle Soreness,2026-11-13,2026-11-13
+MIA,Klay Thompson,G,Out,Left Ankle Soreness,2026-11-14,2026-11-13
 MIA,Pelle Larsson,G,Out,Illness,2026-11-14,2026-11-13
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
-NO,Bennedict Mathurin,G,Day-To-Day,Right Thumb Sprain,2026-11-13,2026-11-13
 NO,Bryce McGowens,G,Out,Left Elbow Infection,2026-11-14,2026-11-13
 NO,Dejounte Murray,G,Out,Ankle,2026-11-20,2026-11-13
 NO,Trendon Watford,F,Out,Right Ankle Sprain,2026-11-14,2026-11-12
