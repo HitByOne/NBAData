@@ -226,12 +226,12 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 5105817,Carson Cooper,MEM,PF,C,Basketball-Reference 2026-27
 5105550,GG Jackson,MEM,PF,F,Basketball-Reference 2026-27
 2991070,Jerami Grant,MEM,PF,F,Basketball-Reference 2026-27
+5231919,Karim Lopez,MEM,PF,F,estimated from ESPN F
 4595400,Olivier-Maxence Prosper,MEM,PF,F,Basketball-Reference 2026-27
 4684806,Taylor Hendricks,MEM,PF,F,Basketball-Reference 2026-27
 4781746,Javon Small,MEM,PG,G,Basketball-Reference 2026-27
 4431785,Scotty Pippen Jr.,MEM,PG,G,Basketball-Reference 2026-27
 4065733,Ty Jerome,MEM,PG,G,Basketball-Reference 2026-27
-5231919,Karim Lopez,MEM,SF,F,estimated from ESPN F
 4594326,Kris Murray,MEM,SF,F,Basketball-Reference 2026-27
 4433083,Cam Spencer,MEM,SG,G,Basketball-Reference 2026-27
 4903027,Cedric Coward,MEM,SG,F,Basketball-Reference 2026-27
@@ -241,16 +241,18 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4278076,Nick Richards,MIA,C,C,Basketball-Reference 2026-27
 3064482,Bobby Portis,MIA,PF,F,Basketball-Reference 2026-27
 3032977,Giannis Antetokounmpo,MIA,PF,F,Basketball-Reference 2026-27
-4997528,Nikola Jovic,MIA,PF,F,estimated from ESPN F
 4278053,Davion Mitchell,MIA,PG,G,Basketball-Reference 2026-27
 3059319,Andrew Wiggins,MIA,SF,F,Basketball-Reference 2026-27
+4431786,Keshad Johnson,MIA,SF,F,Basketball-Reference 2025-26
 6475,Klay Thompson,MIA,SF,G,Basketball-Reference 2026-27
 4431772,Myron Gardner,MIA,SF,F,Basketball-Reference 2026-27
+4997528,Nikola Jovic,MIA,SF,F,estimated from ESPN F
 3899664,Simone Fontecchio,MIA,SF,F,Basketball-Reference 2026-27
 4066993,Dru Smith,MIA,SG,G,Basketball-Reference 2026-27
 4601025,Pelle Larsson,MIA,SG,G,Basketball-Reference 2026-27
 5107157,Ryan Conwell,MIA,SG,G,Basketball-Reference 2026-27
 2528210,Tim Hardaway Jr.,MIA,SG,G,Basketball-Reference 2026-27
+4837356,Tre Donaldson,MIA,SG,G,estimated from ESPN G
 4277922,Jericho Sims,MIL,C,C,Basketball-Reference 2026-27
 5105623,Kel'el Ware,MIL,C,C,Basketball-Reference 2026-27
 3133628,Myles Turner,MIL,C,C,Basketball-Reference 2026-27
