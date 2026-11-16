@@ -9,12 +9,12 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4701230,Jalen Johnson,ATL,2001-12-18,1,"6' 8""",219 lbs
 4431714,Jalen Wilson,ATL,2000-11-04,22,"6' 6""",220 lbs
 3146557,Jock Landale,ATL,1995-10-25,31,"6' 11""",255 lbs
-4585618,Keshon Gilbert,ATL,2003-06-30,00,"6' 4""",200 lbs
 5149077,Kingston Flemings,ATL,2007-01-03,4,"6' 3""",183 lbs
 4397020,Luguentz Dort,ATL,1999-04-19,0,"6' 4""",220 lbs
 4712863,Mouhamed Gueye,ATL,2002-11-09,18,"6' 11""",210 lbs
 4278039,Nickeil Alexander-Walker,ATL,1998-09-02,7,"6' 5""",205 lbs
 4431680,Onyeka Okongwu,ATL,2000-12-11,17,"6' 10""",240 lbs
+4684443,Rafael Castro,ATL,2003-03-30,,"6' 9""",224 lbs
 4431941,RayJ Dennis,ATL,2001-03-30,10,"6' 2""",180 lbs
 5106262,Zuby Ejiofor,ATL,2004-04-20,20,"6' 8""",245 lbs
 5242502,Ben Saraf,BKN,2006-04-14,77,"6' 6""",200 lbs
@@ -37,7 +37,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 5105626,Tyler Bilodeau,BKN,2004-04-17,34,"6' 8""",228 lbs
 4702745,Amari Williams,BOS,2002-01-28,77,"7' 0""",262 lbs
 4593841,Baylor Scheierman,BOS,2000-09-26,55,"6' 6""",213 lbs
-5142621,Chris Cenac Jr.,BOS,,,,
+5142621,Chris Cenac Jr.,BOS,2007-02-01,12,"6' 11""",240 lbs
 3078576,Derrick White,BOS,1994-07-02,9,"6' 4""",200 lbs
 4433188,Devin Carter,BOS,2002-03-18,99,"6' 2""",188 lbs
 5106283,Dillon Mitchell,BOS,2003-10-03,20,"6' 8""",210 lbs
@@ -83,6 +83,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4278067,Nic Claxton,CHI,1999-04-17,9,"6' 11""",215 lbs
 5242496,Noa Essengue,CHI,2006-12-18,2,"6' 11""",206 lbs
 2595516,Norman Powell,CHI,1993-05-25,24,"6' 4""",215 lbs
+4593049,Orlando Robinson,CHI,2000-07-10,00,"6' 10""",235 lbs
 4431687,Patrick Williams,CHI,2001-08-26,44,"6' 6""",215 lbs
 5105555,Tobe Awaka,CHI,2004-01-30,19,"6' 8""",255 lbs
 4395626,Tre Jones,CHI,2000-01-08,30,"6' 1""",185 lbs
@@ -94,14 +95,16 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 3992,James Harden,CLE,1989-08-26,1,"6' 5""",220 lbs
 4066328,Jarrett Allen,CLE,1998-04-21,31,"6' 9""",243 lbs
 4683747,Jaylon Tyson,CLE,2002-12-02,20,"6' 6""",215 lbs
+4997530,Khalifa Diop,CLE,2002-01-15,18,"6' 11""",231 lbs
 2995706,Mario Hezonja,CLE,1995-02-25,33,"6' 8""",220 lbs
 5041951,Meleek Thomas,CLE,2006-08-06,15,"6' 3""",190 lbs
-4702134,Norchad Omier,CLE,2001-08-28,15,"6' 7""",248 lbs
+5106268,Nae'Qwan Tomlin,CLE,2000-12-19,35,"6' 8""",210 lbs
+4702134,Norchad Omier,CLE,2001-08-28,77,"6' 7""",248 lbs
 4576087,Peyton Watson,CLE,2002-09-11,8,"6' 8""",200 lbs
-5177362,Riley Minix,CLE,,,,
+5177362,Riley Minix,CLE,2000-09-22,12,"6' 7""",230 lbs
 4066757,Sam Merrill,CLE,1996-05-15,5,"6' 4""",205 lbs
 3934723,Thomas Bryant,CLE,1997-07-31,3,"6' 9""",248 lbs
-4431734,Tristan Enaruna,CLE,2001-06-26,21,"6' 8""",220 lbs
+4431734,Tristan Enaruna,CLE,,,,
 5023693,Tyrese Proctor,CLE,2004-04-01,24,"6' 4""",185 lbs
 3138160,Caleb Martin,DAL,1995-09-28,16,"6' 5""",205 lbs
 5041939,Cooper Flagg,DAL,2006-12-21,32,"6' 9""",205 lbs
@@ -140,7 +143,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4431690,Zeke Nnaji,DEN,2001-01-09,22,"6' 10""",240 lbs
 4684742,Ausar Thompson,DET,2003-01-30,9,"6' 7""",205 lbs
 4432166,Cade Cunningham,DET,2001-09-25,2,"6' 6""",220 lbs
-4700852,Chaz Lanier,DET,2001-12-19,8,"6' 3""",206 lbs
+4700852,Chaz Lanier,DET,,,,
 5107199,Daniss Jenkins,DET,2001-08-17,24,"6' 4""",165 lbs
 3157465,Duncan Robinson,DET,1994-04-22,55,"6' 7""",215 lbs
 5258459,Ebuka Okorie,DET,2007-04-10,23,"6' 2""",186 lbs
@@ -177,7 +180,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4871144,Alperen Sengun,HOU,2002-07-25,28,"6' 11""",243 lbs
 4684740,Amen Thompson,HOU,2003-01-30,1,"6' 7""",200 lbs
 3037789,Bogdan Bogdanovic,HOU,1992-08-18,31,"6' 5""",225 lbs
-5105837,Bruce Thornton,HOU,,,,
+5105837,Bruce Thornton,HOU,2003-09-14,2,"6' 0""",229 lbs
 3102529,Clint Capela,HOU,1994-05-18,30,"6' 10""",256 lbs
 2991230,Fred VanVleet,HOU,1994-02-25,5,"6' 0""",197 lbs
 4592857,Isaiah Crawford,HOU,2001-11-01,27,"6' 6""",220 lbs
@@ -233,13 +236,14 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4066457,Austin Reaves,LAL,1998-05-29,15,"6' 5""",197 lbs
 4683774,Bronny James,LAL,2004-10-06,9,"6' 2""",210 lbs
 5113969,Cameron Carr,LAL,2004-11-21,43,"6' 5""",184 lbs
+5105817,Carson Cooper,LAL,2004-04-09,,"6' 11""",245 lbs
 4702972,Chris Manon,LAL,2001-12-09,30,"6' 4""",209 lbs
 4277811,Collin Sexton,LAL,1999-01-04,10,"6' 3""",190 lbs
 4868423,Jaden Hardy,LAL,2002-07-05,7,"6' 3""",198 lbs
 4592691,Jake LaRavia,LAL,2001-11-03,12,"6' 7""",235 lbs
 4278077,Jarred Vanderbilt,LAL,1999-04-03,2,"6' 8""",214 lbs
 3155535,Kevon Looney,LAL,1996-02-06,55,"6' 9""",222 lbs
-4596528,Lawson Lovering,LAL,2003-05-09,,"7' 1""",233 lbs
+4596528,Lawson Lovering,LAL,,,,
 3945274,Luka Doncic,LAL,1999-02-28,77,"6' 8""",230 lbs
 3907498,Matisse Thybulle,LAL,1997-03-04,4,"6' 5""",202 lbs
 4397014,Quentin Grimes,LAL,2000-05-08,5,"6' 4""",210 lbs
@@ -248,7 +252,6 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4433137,Ziaire Williams,LAL,2001-09-12,11,"6' 9""",185 lbs
 4433083,Cam Spencer,MEM,2000-04-06,24,"6' 3""",205 lbs
 5041935,Cameron Boozer,MEM,2007-07-18,27,"6' 8""",253 lbs
-5105817,Carson Cooper,MEM,2004-04-09,20,"6' 11""",245 lbs
 4903027,Cedric Coward,MEM,2003-09-11,23,"6' 5""",206 lbs
 5105550,GG Jackson,MEM,2004-12-17,45,"6' 9""",210 lbs
 4432810,Isaiah Stewart,MEM,2001-05-22,28,"6' 8""",250 lbs
@@ -260,6 +263,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4594326,Kris Murray,MEM,2000-08-19,17,"6' 8""",218 lbs
 4595400,Olivier-Maxence Prosper,MEM,2002-07-03,18,"6' 7""",230 lbs
 4593016,Quinten Post,MEM,2000-03-21,41,"7' 0""",238 lbs
+5105462,Richie Saunders,MEM,2001-09-19,5,"6' 5""",205 lbs
 4431785,Scotty Pippen Jr.,MEM,2000-11-10,1,"6' 2""",170 lbs
 4684806,Taylor Hendricks,MEM,2003-11-22,22,"6' 9""",215 lbs
 4065733,Ty Jerome,MEM,1997-07-08,2,"6' 5""",195 lbs
@@ -308,6 +312,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4431671,Jaden McDaniels,MIN,2000-09-29,3,"6' 9""",185 lbs
 4432247,Jaylen Clark,MIN,2001-10-13,7,"6' 5""",205 lbs
 5279133,Joan Beringer,MIN,2006-11-11,19,"6' 11""",230 lbs
+4433569,Johni Broome,MIN,2002-07-19,22,"6' 10""",235 lbs
 4433247,Jonathan Kuminga,MIN,2002-10-06,24,"6' 7""",225 lbs
 4432816,LaMelo Ball,MIN,2001-08-22,1,"6' 7""",180 lbs
 5157587,Rocco Zikarsky,MIN,2006-07-11,44,"7' 3""",254 lbs
@@ -334,7 +339,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 5061589,Yves Missi,NO,2004-05-14,21,"6' 11""",235 lbs
 4395628,Zion Williamson,NO,2000-07-06,1,"6' 6""",284 lbs
 6585,Andre Drummond,NY,1993-08-10,0,"6' 11""",279 lbs
-4897943,Dalton Knecht,NY,2001-04-19,99,"6' 6""",215 lbs
+4897943,Dalton Knecht,NY,2001-04-19,1,"6' 6""",215 lbs
 4683730,Jaden Akins,NY,2003-02-25,14,"6' 4""",195 lbs
 3934672,Jalen Brunson,NY,1996-08-31,11,"6' 2""",190 lbs
 4432808,James Wiseman,NY,2001-03-31,35,"6' 11""",240 lbs
@@ -357,7 +362,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4684208,Brooks Barnhizer,OKC,2002-03-02,23,"6' 6""",226 lbs
 4683692,Cason Wallace,OKC,2003-11-07,22,"6' 3""",195 lbs
 4433255,Chet Holmgren,OKC,2002-05-01,7,"7' 1""",208 lbs
-4433159,Dalen Terry,OKC,2002-07-12,,"6' 6""",210 lbs
+4433159,Dalen Terry,OKC,,,,
 4222252,Isaiah Hartenstein,OKC,1998-05-05,55,"7' 0""",250 lbs
 4593803,Jalen Williams,OKC,2001-04-14,8,"6' 5""",211 lbs
 4683778,Jared McCain,OKC,2004-02-20,3,"6' 3""",195 lbs
@@ -366,6 +371,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 3133626,Kenrich Williams,OKC,1994-12-02,34,"6' 7""",210 lbs
 4432185,Micah Peavy,OKC,2001-07-16,,"6' 7""",220 lbs
 5159925,Nikola Topic,OKC,2005-08-10,44,"6' 6""",200 lbs
+4702384,Nique Clifford,OKC,2002-02-09,,"6' 5""",175 lbs
 4278073,Shai Gilgeous-Alexander,OKC,1998-07-12,2,"6' 6""",195 lbs
 5061603,Thomas Sorber,OKC,2005-12-25,12,"6' 9""",250 lbs
 4593034,Alex Morales,ORL,1997-11-21,30,"6' 6""",180 lbs
@@ -465,8 +471,8 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4594327,Keegan Murray,SAC,2000-08-19,13,"6' 8""",225 lbs
 4395650,Leaky Black,SAC,1999-06-14,19,"6' 6""",209 lbs
 4066262,Malik Monk,SAC,1998-02-04,0,"6' 3""",200 lbs
+2488653,Mason Plumlee,SAC,1990-03-05,24,"7' 0""",254 lbs
 4898371,Maxime Raynaud,SAC,2003-04-07,42,"7' 1""",250 lbs
-4702384,Nique Clifford,SAC,2002-02-09,10,"6' 5""",175 lbs
 4431679,Precious Achiuwa,SAC,1999-09-19,9,"6' 8""",243 lbs
 4709131,Sean Pedulla,SAC,2002-10-10,3,"6' 1""",195 lbs
 3064440,Zach LaVine,SAC,1995-03-10,8,"6' 5""",200 lbs
@@ -498,7 +504,7 @@ Player ID,Player,Team,Birth Date,Jersey,Height,Weight
 4065663,Josh Okogie,UTAH,1998-09-01,21,"6' 4""",213 lbs
 3102530,Jusuf Nurkic,UTAH,1994-08-23,30,"6' 11""",290 lbs
 4433627,Keyonte George,UTAH,2003-11-08,3,"6' 4""",185 lbs
-4683736,Kobe Bufkin,UTAH,2003-09-21,4,"6' 4""",195 lbs
+4683736,Kobe Bufkin,UTAH,2003-09-21,0,"6' 4""",195 lbs
 4684793,Kyle Filipowski,UTAH,2003-11-07,2,"6' 11""",250 lbs
 4066336,Lauri Markkanen,UTAH,1997-05-22,23,"7' 1""",240 lbs
 4277919,Mo Bamba,UTAH,1998-05-12,44,"7' 0""",231 lbs

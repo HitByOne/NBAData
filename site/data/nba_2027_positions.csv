@@ -37,6 +37,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4251,Paul George,BOS,PF,F,Basketball-Reference 2026-27
 4065804,Sam Hauser,BOS,PF,F,Basketball-Reference 2026-27
 3078576,Derrick White,BOS,PG,G,Basketball-Reference 2026-27
+4433188,Devin Carter,BOS,PG,G,Basketball-Reference 2026-27
 3195,Mike Conley,BOS,PG,G,Basketball-Reference 2026-27
 4066354,Payton Pritchard,BOS,PG,G,Basketball-Reference 2026-27
 4593841,Baylor Scheierman,BOS,SF,G,Basketball-Reference 2026-27
@@ -323,7 +324,6 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4433255,Chet Holmgren,OKC,PF,C,Basketball-Reference 2026-27
 3133626,Kenrich Williams,OKC,PF,G,Basketball-Reference 2026-27
 5241364,Bennett Stirtz,OKC,PG,G,Basketball-Reference 2026-27
-5159925,Nikola Topic,OKC,PG,G,estimated from ESPN G
 4278073,Shai Gilgeous-Alexander,OKC,PG,G,Basketball-Reference 2026-27
 4593803,Jalen Williams,OKC,SF,G,Basketball-Reference 2026-27
 4900671,Ajay Mitchell,OKC,SG,G,Basketball-Reference 2026-27
@@ -334,6 +334,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4683778,Jared McCain,OKC,SG,G,Basketball-Reference 2026-27
 5105800,Josh Dix,OKC,SG,G,Basketball-Reference 2026-27
 4432185,Micah Peavy,OKC,SG,G,Basketball-Reference 2026-27
+5159925,Nikola Topic,OKC,SG,G,estimated from ESPN G
 4702384,Nique Clifford,OKC,SG,G,Basketball-Reference 2026-27
 4397204,Colin Castleton,ORL,C,C,Basketball-Reference 2026-27
 4348700,Goga Bitadze,ORL,C,C,Basketball-Reference 2026-27
@@ -412,6 +413,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4845367,Stephon Castle,SA,SG,G,Basketball-Reference 2026-27
 3155942,Domantas Sabonis,SAC,C,F,Basketball-Reference 2026-27
 4433174,Dylan Cardwell,SAC,C,C,Basketball-Reference 2026-27
+2488653,Mason Plumlee,SAC,C,C,Basketball-Reference 2026-27
 4431679,Precious Achiuwa,SAC,C,F,Basketball-Reference 2026-27
 5107897,Jonathan Mogbo,SAC,PF,F,Basketball-Reference 2026-27
 4594327,Keegan Murray,SAC,PF,F,Basketball-Reference 2026-27
