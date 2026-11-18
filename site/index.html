@@ -896,6 +896,17 @@
   .tn-notes b{color:var(--t);margin-right:3px;}
   @container (max-width:1000px){ .tn-floor{grid-template-columns:minmax(0,1fr);} }
 
+  .ds-open{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+  .ds-caret{font-size:11px;opacity:.6;} .ds-open.on .ds-caret{opacity:1;color:var(--t-accent-1,#FF7A2F);}
+  .ds-pct{font-size:11px;opacity:.65;margin-left:2px;}
+  .ds-xrow > td{padding:0 0 10px !important;background:none !important;}
+  .ds-detail{position:sticky;left:0;box-sizing:border-box;white-space:normal;padding:12px 14px;border-radius:14px;background:var(--t-card2,rgba(255,255,255,.04));box-shadow:inset 0 0 0 1px var(--t-line,rgba(255,255,255,.08));}
+  .ds-detail{position:sticky;} .ds-detail td:first-child{white-space:nowrap;}
+  .ds-dh{font-size:13px;margin-bottom:8px;padding-right:28px;}
+  .ds-close{position:absolute;top:8px;right:6px;font:inherit;font-size:18px;line-height:1;background:none;border:0;color:inherit;cursor:pointer;padding:2px 6px;opacity:.7;}
+  .ds-detail table{width:100%;border-collapse:collapse;font-size:13px;} .ds-detail th,.ds-detail td{white-space:normal;padding:6px 5px;border-top:1px solid var(--t-line,rgba(255,255,255,.08));text-align:left;vertical-align:top;}
+  .ds-detail th{border-top:0;font-size:11px;opacity:.7;} .ds-detail .num{text-align:right;}
+  .ds-hit{font-size:10px;font-weight:800;color:var(--t-over,#2EE6A0);} .ds-miss{font-size:10px;font-weight:800;color:var(--t-under,#FF6B6B);}
   .ng-chip{display:inline-block;white-space:nowrap;font-weight:700;font-size:12px;padding:2px 8px;border-radius:999px;background:rgba(51,214,166,.14);border:1px solid rgba(51,214,166,.45);}
   .ng-chip small{font-weight:500;opacity:.75;margin-left:2px;} .ng-chip.out{opacity:.45;text-decoration:line-through;}
   .ng-off{opacity:.4;} .ng-inj{font-size:10px;font-weight:800;color:#ff5c6c;letter-spacing:.3px;} .ng-inj.dtd{color:#e3a93b;}
@@ -4895,46 +4906,64 @@ function renderStreaks(){
   </div>
   <div class="panel" id="defstreak-panel">
     <div class="panel-title">Defensive Streaks &mdash; What They Keep Giving Up</div>
-    <div class="panel-note">Pick a position, a stat and a number. Every defense is checked game by game: the streak is how many of their most recent games in a row the opponent cleared that number. "Any single player" asks whether one player did it (a 30-point guard every night); "Position total" adds the whole group together. Chips show each game's number &mdash; green cleared it, red didn't.</div>
+    <div class="panel-note">Pick a position, a stat and a number (e.g. PF &middot; Points &middot; at least 15). Every defense is checked game by game. <b>Starters only</b> counts just the player who started at that spot; <b>Last 5 / Last 10 / Season</b> sets the hit rate and average. "Any single player" asks whether one player did it; "Position total" adds the group together. Streak = most recent games in a row. Chips: green cleared it, red didn't. <b>Tap a team</b> to see who it was each game. <b>Playing</b> follows the Today / Tomorrow pick above.</div>
     <div class="controls">
       <select id="ds-pos"><option value="ALL">All positions</option><option value="G">Guards</option><option value="F">Forwards</option><option value="PG">PG</option><option value="SG">SG</option><option value="SF">SF</option><option value="PF">PF</option><option value="C">C</option></select>
       <select id="ds-stat"><option>Points</option><option>Rebounds</option><option>Assists</option><option>3PM</option><option>Pts+Reb+Ast</option><option>Double Double</option></select>
       <select id="ds-scope"><option value="single">Any single player</option><option value="total">Position total</option></select>
       <label class="ctl-label">at least <input type="number" id="ds-thresh" value="30" min="0" step="1" style="width:70px"></label>
+      <div class="pill-group" id="ds-start-pills">
+        <span class="pill active" data-start="1">Starters only</span><span class="pill" data-start="">Everyone</span>
+      </div>
+      <div class="pill-group" id="ds-win-pills">
+        <span class="pill" data-win="5">Last 5</span><span class="pill active" data-win="10">Last 10</span><span class="pill" data-win="0">Season</span>
+      </div>
+      <div class="pill-group" id="ds-play-pills">
+        <span class="pill active" data-play="">All teams</span><span class="pill" data-play="1" id="ds-play-day">Playing</span>
+      </div>
       <div class="pill-group" id="ds-min-pills">
-        <span class="pill active" data-min="1">All</span><span class="pill" data-min="2">2+ streak</span><span class="pill" data-min="3">3+ streak</span>
+        <span class="pill active" data-min="1">Any streak</span><span class="pill" data-min="2">2+ streak</span><span class="pill" data-min="3">3+ streak</span>
       </div>
     </div>
     <div id="defstreak-table"></div>
+
   </div>`;
 }
 
 const DS_DEFAULTS = {'Points':30, 'Rebounds':12, 'Assists':10, '3PM':5, 'Pts+Reb+Ast':45, 'Double Double':1};
 const DS_POS_SETS = {ALL:['PG','SG','SF','PF','C'], G:['PG','SG'], F:['SF','PF'], PG:['PG'], SG:['SG'], SF:['SF'], PF:['PF'], C:['C']};
-function computeDefenseStreaks(posKey, stat, scope, threshold){
+// What each defense gives up to a position, game by game. Options: starters (only the player who started at that
+// spot), win (last N games for the rate/average; 0 = season). A game where nobody qualified (no starter listed at
+// that spot) is skipped rather than counted as a miss.
+function computeDefenseStreaks(posKey, stat, scope, threshold, opt = {}){
   const set = DS_POS_SETS[posKey] || [];
   const byDef = {};
   (DATA.playerGame || []).forEach(r=>{
     if(!r.Opponent) return;
     const d = byDef[r.Opponent] || (byDef[r.Opponent] = {});
     const w = num(r.Week);
-    const g = d[w] || (d[w] = {total:0, max:0});
-    if(set.includes(r.Position)){
+    const g = d[w] || (d[w] = {total:0, max:0, n:0, team:r.Team, players:[]});
+    if(set.includes(r.Position) && (!opt.starters || isStarter(r)) && num(r.Minutes) > 0){
       const v = getStatValue(r, stat);
-      g.total += v;
+      g.total += v; g.n++;
       if(v > g.max) g.max = v;
+      g.players.push({name:r.Player, pos:r.Position, start:isStarter(r), min:num(r.Minutes), val:v});
     }
   });
   return Object.entries(byDef).map(([def, weeks])=>{
-    const list = Object.keys(weeks).map(Number).sort((a,b)=>a-b).map(w=>{
+    const all = Object.keys(weeks).map(Number).sort((a,b)=>a-b).filter(w=>weeks[w].n).map(w=>{
       const val = scope === 'total' ? weeks[w].total : weeks[w].max;
-      return {week:w, val:Math.round(val*10)/10, hit: val >= threshold};
+      return {week:w, val:Math.round(val*10)/10, hit: val >= threshold, team:weeks[w].team,
+        players:weeks[w].players.sort((a,b)=>b.val-a.val)};
     });
     let streak = 0;
-    for(let i = list.length - 1; i >= 0; i--){ if(list[i].hit) streak++; else break; }
+    for(let i = all.length - 1; i >= 0; i--){ if(all[i].hit) streak++; else break; }
+    const list = opt.win ? all.slice(-opt.win) : all;
     const hits = list.filter(x=>x.hit).length;
-    return {Defense:def, Streak:streak, Hits:hits, Games:list.length, Rate: list.length ? hits/list.length : 0, list};
-  });
+    const avg = list.length ? list.reduce((a,x)=>a+x.val,0)/list.length : 0;
+    return {Defense:def, Streak:streak, Hits:hits, Games:list.length, Rate: list.length ? hits/list.length : 0,
+      Avg: Math.round(avg*10)/10, list, all};
+  }).filter(r=>r.Games);
 }
 // Who plays on the next game day (today, until tonight's games are done): team -> opponent, home/away, tip time.
 function slateDays(){ return [...new Set(tnSlate().map(g => num(g.week)))].sort((a, b) => a - b); }
@@ -4965,32 +4994,71 @@ function nextGameChip(team, slate, player){
 function mountDefStreaks(){
   const container = $('#defstreak-table');
   if(!container) return;
-  let minStreak = 1;
+  let minStreak = 1, starters = true, win = 10, playing = false, open = '';
   let dsSlate = nextSlateMap();
   window._dsSetDay = week => { dsSlate = nextSlateMap(week); apply(); };
+  const chip = x => `<span class="heat" style="margin-right:4px;${x.hit ? 'background:rgba(51,214,166,0.18);border:1px solid rgba(51,214,166,0.5);' : 'background:rgba(255,92,108,0.14);border:1px solid rgba(255,92,108,0.45);'}">${dayLabel(x.week)}: ${x.val}</span>`;
   const cols = [
-    {key:'_sort', label:'Streak', numeric:true, render:(v,row)=>{ const v2 = row.Streak; return `<span class="heat" style="${v2>=2 ? 'background:rgba(227,169,59,0.22);border:1px solid rgba(227,169,59,0.6);' : (v2===1 ? 'background:rgba(51,214,166,0.18);border:1px solid rgba(51,214,166,0.5);' : '')}">${v2} game${v2===1?'':'s'}</span>`; }},
-    {key:'Defense', label:'Defense', render:teamChip},
+    {key:'Rate', label:'Hit rate', numeric:true, render:(v,row)=>`<b>${row.Hits}/${row.Games}</b> <span class="ds-pct">${Math.round(row.Rate*100)}%</span>`},
+    {key:'Defense', label:'Defense', render:(v,row)=>`<button type="button" class="ds-open${open === v ? ' on' : ''}" data-def="${v}">${teamChip(v)} <span class="ds-caret">${open === v ? '&#9662;' : '&#9656;'}</span></button>`},
     {key:'_next', label: 'Next game', render:(v,row)=>nextGameChip(row.Defense, dsSlate, '')},
-    {key:'Rate', label:'Season', numeric:true, render:(v,row)=>`${row.Hits}/${row.Games}`},
-    {key:'list', label:'Last 10 games (oldest to newest)', render:(v)=>v.slice(-10).map(x=>
-      `<span class="heat" style="margin-right:4px;${x.hit ? 'background:rgba(51,214,166,0.18);border:1px solid rgba(51,214,166,0.5);' : 'background:rgba(255,92,108,0.14);border:1px solid rgba(255,92,108,0.45);'}">${dayLabel(x.week)}: ${x.val}</span>`).join('')},
+    {key:'Avg', label:'Avg allowed', numeric:true, render:v=>fmt(v)},
+    {key:'Streak', label:'Streak', numeric:true, render:v=>`<span class="heat" style="${v>=2 ? 'background:rgba(227,169,59,0.22);border:1px solid rgba(227,169,59,0.6);' : (v===1 ? 'background:rgba(51,214,166,0.18);border:1px solid rgba(51,214,166,0.5);' : '')}">${v} in a row</span>`},
+    {key:'list', label:'Games (oldest to newest)', render:(v)=>v.map(chip).join('')},
   ];
-  function apply(){
-    const rows = computeDefenseStreaks($('#ds-pos').value, $('#ds-stat').value, $('#ds-scope').value, num($('#ds-thresh').value));
-    const shown = rows.filter(r=>r.Streak >= minStreak || minStreak === 1);
-    if(!shown.length){ container.innerHTML = '<div class="empty">No defense has an active streak that long for this setting. Try a lower number.</div>'; return; }
-    shown.forEach(r=>{ r._sort = r.Streak*100 + r.Rate*10; r._next = dsSlate.map[r.Defense] ? 1 : 0; });
-    cols[2].label = dsSlate.label || 'Next game';
-    buildTable(container, cols, shown, {defaultSort:'_sort', defaultDir:'desc'});
+  let lastRows = [];
+  function detail(rows){
+    const btn = open && container.querySelector(`.ds-open[data-def="${open}"]`);
+    const r = btn && rows.find(x => x.Defense === open);
+    if(!r || container.querySelector('.ds-xrow')) return;
+    const tr = btn.closest('tr');
+    const stat = $('#ds-stat').value, pos = $('#ds-pos').value, scope = $('#ds-scope').value;
+    const body = r.list.slice().reverse().map(g => {
+      const ps = scope === 'total' ? g.players : g.players.slice(0, 1);
+      return `<tr><td>${dayLabel(g.week)}</td><td>${g.team}</td>
+        <td>${ps.map(p => `${frEsc(p.name)}<br><span class="cv-dim">${p.pos}${p.start ? '' : ' &middot; bench'} &middot; ${fmt(p.min, 0)} min</span>${scope === 'total' ? ` <b>${fmt(p.val)}</b>` : ''}`).join('<br>')}</td>
+        <td class="num"><b>${fmt(g.val)}</b></td><td>${g.hit ? '<span class="ds-hit">HIT</span>' : '<span class="ds-miss">MISS</span>'}</td></tr>`;
+    }).join('');
+    tr.insertAdjacentHTML('afterend', `<tr class="ds-xrow"><td colspan="${cols.length}"><div class="ds-detail" style="max-width:${Math.max(260, container.clientWidth - 2)}px"><div class="ds-dh"><span><b>${teamName(r.Defense)}</b> vs ${starters ? 'starting ' : ''}${pos === 'ALL' ? 'players' : pos} &middot; ${stat} ${$('#ds-thresh').value}+ &middot; <b>${r.Hits} of ${r.Games}</b> &middot; avg ${fmt(r.Avg)}</span>
+      <button type="button" class="ds-close" aria-label="Close">&times;</button></div>
+      <table data-no-enhance><thead><tr><th>Day</th><th>Vs</th><th>${scope === 'total' ? 'Players' : 'Top player'}</th><th class="num">${TN_STAT_SHORT[stat] || stat}</th><th></th></tr></thead><tbody>${body}</tbody></table></div></td></tr>`);
+    const c = container.querySelector('.ds-close'); if(c) c.addEventListener('click', () => { open = ''; apply(); });
   }
+  function apply(){
+    const rows = computeDefenseStreaks($('#ds-pos').value, $('#ds-stat').value, $('#ds-scope').value, num($('#ds-thresh').value), {starters, win});
+    rows.forEach(r=>{ r._next = dsSlate.map[r.Defense] ? 1 : 0; });
+    const shown = rows.filter(r=>(r.Streak >= minStreak || minStreak === 1) && (!playing || r._next));
+    const dp = $('#ds-play-day');
+    if(dp) dp.textContent = dsSlate.label ? `Playing ${/^(today|tomorrow)$/i.test(dsSlate.label) ? dsSlate.label.toLowerCase() : dsSlate.label}` : 'Playing';
+    lastRows = shown;
+    if(!shown.length){ container.innerHTML = '<div class="empty">No defense matches this setting. Try a lower number or a longer window.</div>'; return; }
+    cols[2].label = dsSlate.label || 'Next game';
+    cols[5].label = (win ? `Last ${win}` : 'Season') + ' (oldest to newest)';
+    buildTable(container, cols, shown, {defaultSort:'Rate', defaultDir:'desc'});
+    wire();
+  }
+  // tap a team -> who it was each game. Re-wired after header sorts too (buildTable redraws the table itself).
+  function wire(){
+    container.querySelectorAll('.ds-open').forEach(b => {
+      if(b._w) return; b._w = 1;
+      b.addEventListener('click', () => {
+        open = open === b.dataset.def ? '' : b.dataset.def; apply();
+        if(open){ const d = container.querySelector('.ds-xrow'); if(d) d.scrollIntoView({behavior:'smooth', block:'nearest'}); }
+      });
+    });
+    detail(lastRows);   // the open team's games sit right under its row (also after a header sort)
+  }
+  new MutationObserver(wire).observe(container, {childList: true, subtree: true});
+  const pills = (id, fn) => $$(`#${id} .pill`).forEach(p => p.addEventListener('click', () => {
+    $$(`#${id} .pill`).forEach(x => x.classList.remove('active')); p.classList.add('active'); fn(p.dataset); apply();
+  }));
+  pills('ds-start-pills', d => { starters = !!d.start; });
+  pills('ds-win-pills', d => { win = num(d.win); });
+  pills('ds-play-pills', d => { playing = !!d.play; });
   $('#ds-stat').addEventListener('change', ()=>{ $('#ds-thresh').value = DS_DEFAULTS[$('#ds-stat').value] ?? 1; apply(); });
   ['ds-pos','ds-scope'].forEach(id=>$('#'+id).addEventListener('change', apply));
   $('#ds-thresh').addEventListener('input', apply);
-  $$('#ds-min-pills .pill').forEach(p=>p.addEventListener('click', ()=>{
-    $$('#ds-min-pills .pill').forEach(x=>x.classList.remove('active'));
-    p.classList.add('active'); minStreak = num(p.dataset.min); apply();
-  }));
+  pills('ds-min-pills', d => { minStreak = num(d.min); });
   apply();
 }
 function mountStreaks(){
