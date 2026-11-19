@@ -15,16 +15,12 @@ CLE,Jaylon Tyson,G,Out,Right Ankle,2026-11-20,2026-11-18
 CLE,Nae'Qwan Tomlin,F,Out,Back,2026-11-29,2026-11-17
 CLE,Peyton Watson,G,Out,Back Bruise,2026-11-20,2026-11-18
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-27,2026-11-17
-DAL,Max Christie,G,Day-To-Day,Left Ankle Sprain,2026-11-18,2026-11-17
-DAL,Santi Aldama,F,Day-To-Day,Left Ankle Sprain,2026-11-18,2026-11-17
 DAL,Sergio de Larrea,F,Out,Right Knee Strain,2026-11-27,2026-11-17
 DAL,Tarik Biberovic,F,Out,Right Heel Inflammation,2026-11-27,2026-11-17
-DAL,Tobi Lawal,F,Day-To-Day,Right Groin,2026-11-18,2026-11-17
-DAL,Walter Clayton Jr.,G,Day-To-Day,Right Ankle Sprain,2026-11-18,2026-11-17
+DAL,Tobi Lawal,F,Out,Right Groin,2026-11-21,2026-11-18
 DEN,Julian Strawther,G,Out,Left Knee Sprain,2026-11-29,2026-10-17
-DET,Cade Cunningham,G,Day-To-Day,Right Knee Soreness,2026-11-18,2026-11-18
+DET,Cade Cunningham,G,Out,Right Knee Soreness,2026-11-20,2026-11-19
 DET,Duncan Robinson,F,Out,Left Quadriceps Strain,2026-11-27,2026-11-17
-DET,Isaiah Joe,G,Out,Right Hip Bruise,2026-11-18,2026-11-18
 DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-24,2026-11-08
 DET,Ronald Holland II,F,Out,Left Knee Bruise,2026-11-20,2026-11-18
 DET,Taurean Prince,F,Out,Right Knee Soreness,2026-11-20,2026-11-18
@@ -34,6 +30,7 @@ GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
 GS,Stephen Curry,G,Out,Right Abdomen,2026-12-12,2026-11-12
+HOU,Alperen Sengun,C,Day-To-Day,Eye,2026-11-20,2026-11-19
 HOU,Clint Capela,C,Out,Right Ankle Sprain,2026-11-20,2026-11-17
 IND,Andrew Nembhard,G,Out,Left Hip Soreness,2026-11-20,2026-11-18
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
@@ -64,7 +61,6 @@ NO,Trey Murphy III,F,Out,Knee Tendinitis,2026-11-20,2026-11-17
 OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
 OKC,Chet Holmgren,C,Out,Right Knee,2027-01-02,2026-10-31
 OKC,Jalen Williams,G,Out,Left Leg Fracture,2027-03-02,2026-10-28
-OKC,Jaylin Williams,F,Out,Back Spasms,2026-11-18,2026-11-17
 OKC,Thomas Sorber,C,Out,Knee,2027-01-31,2026-11-18
 ORL,Izaiyah Nelson,F,Out,Left Ankle Surgery,2026-11-28,2026-11-18
 ORL,Jonathan Isaac,F,Out,Left Knee Not Specified,2026-11-22,2026-11-15
@@ -89,6 +85,7 @@ SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-12-03,2026-11-16
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
 SAC,Maxime Raynaud,C,Out,Right Knee Dislocated,2026-11-25,2026-11-18
+TOR,Collin Murray-Boyles,F,Day-To-Day,Illness,2026-11-20,2026-11-19
 TOR,Kawhi Leonard,F,Out,Left Knee Inflammation,2026-11-27,2026-11-17
 TOR,Nate Bittle,C,Out,Right Foot Fracture,2026-11-23,2026-11-14
 TOR,RJ Barrett,F,Out,Hamstring Soreness,2026-11-20,2026-11-18
