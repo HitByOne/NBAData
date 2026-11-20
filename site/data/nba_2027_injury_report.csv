@@ -30,7 +30,7 @@ DET,Ronald Holland II,F,Out,Left Knee Bruise,2026-11-22,2026-11-19
 DET,Taurean Prince,F,Out,Right Knee Surgery,2026-12-13,2026-11-19
 DET,Ugonna Onyenso,C,Day-To-Day,Left Foot,2026-11-21,2026-11-19
 GS,Brandon Williams,G,Out,Left Hamstring Strain,2026-11-22,2026-11-18
-GS,Draymond Green,F,Out,Rest,2026-11-22,2026-11-19
+GS,Draymond Green,F,Day-To-Day,Rest,2026-11-22,2026-11-20
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
@@ -53,10 +53,10 @@ MEM,Jerami Grant,F,Day-To-Day,Left Calf Not Specified,2026-11-21,2026-11-20
 MEM,Richie Saunders,G,Out,Right Knee Surgery,2026-12-01,2026-11-07
 MEM,Scotty Pippen Jr.,G,Out,Back Soreness,2026-11-25,2026-11-16
 MEM,Ty Jerome,G,Out,Right Hip,2026-11-21,2026-11-19
-MEM,Zach Edey,C,Out,Ankle,2026-11-21,2026-11-19
+MEM,Zach Edey,C,Day-To-Day,Ankle,2026-11-21,2026-11-20
 MIA,Myron Gardner,F,Day-To-Day,Hamstring,2026-11-22,2026-11-19
-MIL,Kyle Kuzma,F,Out,Right Shoulder Bruise,2026-11-21,2026-11-19
-MIL,Myles Turner,C,Out,Left Shoulder Bruise,2026-11-21,2026-11-19
+MIL,Kyle Kuzma,F,Day-To-Day,Right Shoulder Bruise,2026-11-21,2026-11-20
+MIL,Myles Turner,C,Day-To-Day,Left Shoulder Bruise,2026-11-21,2026-11-20
 MIL,Ousmane Dieng,F,Out,Left Finger Surgery,2026-12-14,2026-11-15
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
@@ -83,9 +83,9 @@ PHI,Jaylen Brown,G,Out,Left Hamstring Not Specified,2026-11-23,2026-11-18
 PHI,Tyrese Maxey,G,Day-To-Day,Right Foot Soreness,2026-11-21,2026-11-19
 PHX,Mark Williams,C,Out,Left Shoulder Surgery,2027-02-03,2026-09-11
 POR,Chris Youngblood,G,Out,Right Heel Bruise,2026-11-21,2026-11-19
-POR,Deni Avdija,F,Out,Foot,2026-11-21,2026-11-20
+POR,Deni Avdija,F,Day-To-Day,Foot,2026-11-21,2026-11-20
 POR,Ja Morant,G,Out,Left Hamstring Not Specified,2026-12-01,2026-11-08
-POR,Robert Williams III,C,Out,Rest,2026-11-21,2026-11-18
+POR,Robert Williams III,C,Day-To-Day,Rest,2026-11-21,2026-11-20
 POR,Shaedon Sharpe,G,Out,Right Knee Surgery,2027-03-02,2026-08-24
 POR,Vit Krejci,G,Out,Left Ankle,2027-01-12,2026-11-11
 SA,Dylan Harper,G,Out,Hip Soreness,2026-12-13,2026-11-19
