@@ -6,7 +6,9 @@ ATL,Jock Landale,C,Out,Right Hip Inflammation,2026-11-22,2026-11-19
 ATL,Kingston Flemings,G,Out,Back Strain,2026-11-22,2026-11-20
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-12-12,2026-11-13
 BKN,Grant Nelson,F,Out,Right Ankle Sprain,2026-11-23,2026-11-19
-CHA,Brandon Miller,F,Day-To-Day,Right Ankle Not Specified,2026-11-20,2026-11-21
+BKN,Nolan Traore,G,Out,Right Hamstring,2026-11-20,2026-11-21
+BOS,Derrick White,G,Day-To-Day,Left Shoulder,2026-11-21,2026-11-21
+BOS,Jayson Tatum,F,Day-To-Day,Rest,2026-11-21,2026-11-21
 CHA,Dennis Schroder,G,Out,Left Hamstring Strain,2026-11-25,2026-11-08
 CHA,Grant Williams,F,Out,Right Hamstring,2026-11-23,2026-11-19
 CHA,Grayson Allen,G,Out,Concussion,2026-11-23,2026-11-19
@@ -36,16 +38,14 @@ GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
 GS,Stephen Curry,G,Out,Right Abdomen,2026-12-12,2026-11-12
-HOU,Alperen Sengun,C,Day-To-Day,Eye,2026-11-20,2026-11-19
 HOU,Clint Capela,C,Out,Right Ankle Sprain,2026-11-23,2026-11-19
-HOU,Steven Adams,C,Day-To-Day,Right Quadriceps Bruise,2026-11-20,2026-11-19
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
 IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-10-30
 IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-12-13,2026-11-20
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-29,2026-10-15
 LAC,Brandon Ingram,F,Out,Right Achilles Surgery,2026-11-23,2026-11-20
 LAC,Jordan Miller,G,Out,Left Shoulder Surgery,2027-03-02,2026-08-26
-LAL,Austin Reaves,G,Out,Left Heel Bruise,2026-11-23,2026-11-20
+LAL,Austin Reaves,G,Out,Left Heel Bruise,2026-11-23,2026-11-21
 MEM,Cameron Boozer,F,Out,Ankle,2026-11-23,2026-11-20
 MEM,GG Jackson,F,Out,Left Foot Surgery,2027-01-18,2026-11-17
 MEM,Javon Small,G,Out,Personal,2026-11-23,2026-11-20
@@ -90,7 +90,6 @@ SA,Dylan Harper,G,Out,Hip Soreness,2026-12-13,2026-11-19
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-12-03,2026-11-16
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
-SAC,De'Andre Hunter,F,Day-To-Day,Left Hip Soreness,2026-11-20,2026-11-20
 SAC,Maxime Raynaud,C,Out,Right Knee Dislocated,2026-11-25,2026-11-18
 SAC,Precious Achiuwa,F,Out,Left Lower Leg Bruise,2026-11-21,2026-11-20
 TOR,Collin Murray-Boyles,F,Out,Concussion,2026-11-23,2026-11-19
