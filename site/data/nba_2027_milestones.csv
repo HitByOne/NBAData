@@ -132,7 +132,7 @@ Jaylen Clark,MIN,SG,Steals,94,100,6
 Caleb Love,PHI,SG,3PM,94,100,6
 Aaron Wiggins,ATL,SG,Blocks,94,100,6
 Daniss Jenkins,DET,PG,Games Played,94,100,6
-Dominick Barlow,PHI,PF,Steals,94,100,6
+Dominick Barlow,PHI,C,Steals,94,100,6
 Shai Gilgeous-Alexander,OKC,PG,Double Doubles,44,50,6
 Precious Achiuwa,SAC,C,Double Doubles,44,50,6
 Derrick White,BOS,PG,Double Doubles,19,25,6
@@ -563,7 +563,7 @@ Ryan Dunn,PHX,SF,Double Doubles,5,25,20
 Josh Okogie,UTAH,SG,Double Doubles,5,25,20
 Bogdan Bogdanovic,HOU,SG,Double Doubles,5,25,20
 Jake LaRavia,LAL,PF,Double Doubles,5,25,20
-Dominick Barlow,PHI,PF,Double Doubles,5,25,20
+Dominick Barlow,PHI,C,Double Doubles,5,25,20
 Jeremiah Fears,NO,PG,Double Doubles,5,25,20
 Karlo Matkovic,NO,PF,Double Doubles,5,25,20
 De'Anthony Melton,GS,SG,Points,3979,4000,21
@@ -925,7 +925,7 @@ CJ McCollum,ATL,PG,Blocks,368,400,32
 Jordan Hawkins,CHI,SG,3PM,268,300,32
 Day'Ron Sharpe,BKN,C,Games Played,268,300,32
 Nic Claxton,CHI,C,Steals,268,300,32
-Dominick Barlow,PHI,PF,Games Played,168,200,32
+Dominick Barlow,PHI,C,Games Played,168,200,32
 Drake Powell,BKN,SG,Games Played,68,100,32
 Dylan Harper,SA,SG,Steals,68,100,32
 Landry Shamet,NY,SG,Blocks,68,100,32
@@ -1094,7 +1094,7 @@ Paul George,BOS,PF,Rebounds,5959,6000,41
 Rudy Gobert,MIN,C,Blocks,1859,1900,41
 Jalen Suggs,ORL,PG,Rebounds,959,1000,41
 Myles Turner,MIL,C,Assists,959,1000,41
-Dominick Barlow,PHI,PF,Points,959,1000,41
+Dominick Barlow,PHI,C,Points,959,1000,41
 De'Aaron Fox,SA,PG,3PM,959,1000,41
 Paul George,BOS,PF,Games Played,959,1000,41
 Jaren Jackson Jr.,UTAH,C,Games Played,459,500,41
@@ -1603,7 +1603,7 @@ Bogdan Bogdanovic,HOU,SG,Blocks,132,200,68
 Yaxel Lendeborg,GS,SF,3PM,32,100,68
 RayJ Dennis,ATL,PG,Games Played,32,100,68
 Jamison Battle,TOR,SF,Steals,32,100,68
-Dominick Barlow,PHI,PF,3PM,32,100,68
+Dominick Barlow,PHI,C,3PM,32,100,68
 Yanic Konan Niederhauser,LAC,C,Blocks,32,100,68
 Mike Conley,BOS,PG,Games Played,1231,1300,69
 Dejounte Murray,NO,PG,3PM,631,700,69
@@ -2170,7 +2170,7 @@ Matas Buzelis,CHI,SF,Blocks,202,300,98
 Jonathan Kuminga,MIN,SF,Steals,202,300,98
 Trendon Watford,NO,PF,3PM,102,200,98
 Marcus Sasser,DAL,PG,Steals,102,200,98
-Dominick Barlow,PHI,PF,Blocks,102,200,98
+Dominick Barlow,PHI,C,Blocks,102,200,98
 Georges Niang,GS,PF,Rebounds,1401,1500,99
 Al Horford,GS,C,Steals,901,1000,99
 Mitchell Robinson,BOS,C,Blocks,701,800,99
@@ -2653,7 +2653,7 @@ Christian Braun,DEN,SG,Rebounds,1169,1500,331
 De'Andre Hunter,SAC,SF,Points,5668,6000,332
 Kyle Kuzma,MIL,PF,Assists,1667,2000,333
 Ace Bailey,UTAH,SF,Assists,167,500,333
-Dominick Barlow,PHI,PF,Assists,167,500,333
+Dominick Barlow,PHI,C,Assists,167,500,333
 Sidy Cissoko,POR,SF,Assists,166,500,334
 Tyler Herro,MIL,SG,Assists,1665,2000,335
 Michael Porter Jr.,BKN,SF,Assists,665,1000,335
@@ -2702,7 +2702,7 @@ Terrence Shannon Jr.,MIN,SG,Rebounds,145,500,355
 Luka Garza,BOS,C,Assists,145,500,355
 Isaac Okoro,CHI,SG,Rebounds,1144,1500,356
 Rayan Rupert,PHI,SF,Points,644,1000,356
-Dominick Barlow,PHI,PF,Rebounds,644,1000,356
+Dominick Barlow,PHI,C,Rebounds,644,1000,356
 Myron Gardner,MIA,SF,Rebounds,143,500,357
 Julian Reese,NO,C,Rebounds,143,500,357
 Devin Carter,BOS,PG,Assists,143,500,357

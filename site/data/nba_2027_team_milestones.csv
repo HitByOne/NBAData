@@ -414,7 +414,7 @@ Jordan Goodwin,PHX,PG,Double Doubles,2,10,8
 Brice Sensabaugh,UTAH,SF,Double Doubles,2,10,8
 Reed Sheppard,HOU,PG,Double Doubles,2,10,8
 Jabari Walker,PHI,PF,Double Doubles,2,10,8
-Dominick Barlow,PHI,PF,Double Doubles,2,10,8
+Dominick Barlow,PHI,C,Double Doubles,2,10,8
 Mikal Bridges,NY,SF,Double Doubles,2,10,8
 Tyler Kolek,NY,PG,Double Doubles,2,10,8
 Brook Lopez,LAC,C,Double Doubles,2,10,8
@@ -1000,7 +1000,7 @@ Alex Caruso,OKC,SG,Games Played,122,150,28
 Max Christie,DAL,SG,Games Played,122,150,28
 Javon Small,MEM,PG,3PM,72,100,28
 Michael Porter Jr.,BKN,SF,Steals,72,100,28
-Dominick Barlow,PHI,PF,Games Played,72,100,28
+Dominick Barlow,PHI,C,Games Played,72,100,28
 Ben Sheppard,IND,SG,Blocks,22,50,28
 Chaney Johnson,BKN,SF,Steals,22,50,28
 Leonard Miller,CHI,SF,Blocks,22,50,28
@@ -1010,7 +1010,7 @@ Thomas Bryant,CLE,C,Steals,22,50,28
 Trae Young,WSH,PG,Games Played,22,50,28
 Collin Gillespie,PHX,PG,Blocks,22,50,28
 Ziaire Williams,LAL,SF,3PM,22,50,28
-Dominick Barlow,PHI,PF,3PM,22,50,28
+Dominick Barlow,PHI,C,3PM,22,50,28
 Cam Christie,LAC,SG,Steals,22,50,28
 Bones Hyland,MIN,PG,Blocks,22,50,28
 Scottie Barnes,TOR,PF,Points,6471,6500,29
@@ -1367,7 +1367,7 @@ Mikal Bridges,NY,SF,Blocks,113,150,37
 Cooper Flagg,DAL,SF,Steals,113,150,37
 Jordan Poole,NO,SG,3PM,113,150,37
 Amen Thompson,HOU,SF,3PM,63,100,37
-Dominick Barlow,PHI,PF,Steals,63,100,37
+Dominick Barlow,PHI,C,Steals,63,100,37
 Sidy Cissoko,POR,SF,Steals,63,100,37
 Zach LaVine,SAC,SG,Steals,63,100,37
 Precious Achiuwa,SAC,C,Blocks,63,100,37
@@ -1696,7 +1696,7 @@ Alex Caruso,OKC,SG,Blocks,53,100,47
 Jamaree Bouyea,PHX,PG,Games Played,53,100,47
 Cameron Johnson,DEN,PF,Steals,53,100,47
 Ryan Rollins,MIL,PG,Blocks,53,100,47
-Dominick Barlow,PHI,PF,Blocks,53,100,47
+Dominick Barlow,PHI,C,Blocks,53,100,47
 Brook Lopez,LAC,C,Steals,53,100,47
 Dylan Cardwell,SAC,C,Games Played,53,100,47
 Devin Booker,PHX,SG,Games Played,752,800,48
@@ -2070,7 +2070,7 @@ Mario Hezonja,CLE,PF,Rebounds,97,250,153
 Nikola Jovic,MIA,SF,Assists,346,500,154
 Coby White,CHA,PG,Assists,96,250,154
 Sion James,CHA,SG,Rebounds,344,500,156
-Dominick Barlow,PHI,PF,Rebounds,344,500,156
+Dominick Barlow,PHI,C,Rebounds,344,500,156
 Donovan Clingan,POR,C,Rebounds,1593,1750,157
 Ben Saraf,BKN,SG,Rebounds,93,250,157
 Bryce McGowens,NO,SG,Rebounds,93,250,157
@@ -2094,7 +2094,7 @@ Anthony Edwards,MIN,SG,Rebounds,2338,2500,162
 Justin Edwards,PHI,SF,Points,838,1000,162
 LeBron James,PHI,PF,Rebounds,88,250,162
 LeBron James,PHI,PF,Assists,88,250,162
-Dominick Barlow,PHI,PF,Assists,88,250,162
+Dominick Barlow,PHI,C,Assists,88,250,162
 Zach Edey,MEM,C,Assists,88,250,162
 Jahmai Mashack,MEM,SG,Rebounds,88,250,162
 Jaylin Williams,OKC,C,Points,1337,1500,163
@@ -2537,7 +2537,7 @@ Jakob Poeltl,TOR,C,Points,3060,3500,440
 Terrence Shannon Jr.,MIN,SG,Points,559,1000,441
 Jarace Walker,IND,PF,Points,1558,2000,442
 Saddiq Bey,NO,SF,Points,1558,2000,442
-Dominick Barlow,PHI,PF,Points,557,1000,443
+Dominick Barlow,PHI,C,Points,557,1000,443
 Kenrich Williams,OKC,PF,Points,2554,3000,446
 Will Richard,GS,SG,Points,554,1000,446
 Chet Holmgren,OKC,PF,Points,3053,3500,447
