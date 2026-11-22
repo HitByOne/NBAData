@@ -17,6 +17,7 @@ CHA,Kon Knueppel,G,Out,Left Hamstring Strain,2026-12-12,2026-11-08
 CHI,Caleb Wilson,F,Out,Right Hand,2026-12-13,2026-11-12
 CHI,Jalen Smith,F,Day-To-Day,Illness,2026-11-22,2026-11-21
 CHI,Norman Powell,G,Day-To-Day,Right Hamstring,2026-11-22,2026-11-22
+CHI,Patrick Williams,F,Day-To-Day,Left Thumb,2026-11-22,2026-11-22
 CHI,Tobe Awaka,F,Out,Back,2026-11-25,2026-11-17
 CLE,Evan Mobley,C,Out,Left Toe Sprain,2026-11-29,2026-11-16
 CLE,Jaylon Tyson,G,Out,Right Ankle,2026-11-23,2026-11-19
@@ -34,8 +35,7 @@ DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-24,2026-11-08
 DET,Ronald Holland II,F,Out,Left Knee Bruise,2026-11-22,2026-11-21
 DET,Taurean Prince,F,Out,Right Knee Surgery,2026-12-13,2026-11-20
 DET,Ugonna Onyenso,C,Day-To-Day,Left Foot,2026-11-21,2026-11-19
-GS,Brandon Williams,G,Out,Left Hamstring Strain,2026-11-22,2026-11-18
-GS,Draymond Green,F,Day-To-Day,Rest,2026-11-22,2026-11-20
+GS,Brandon Williams,G,Out,Left Hamstring Strain,2026-11-25,2026-11-22
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
@@ -68,9 +68,9 @@ NO,Dejounte Murray,G,Out,Ankle,2026-11-27,2026-11-13
 NO,Trendon Watford,F,Out,Right Ankle Sprain,2026-11-27,2026-11-21
 NO,Trey Murphy III,F,Out,Knee,2026-11-23,2026-11-21
 NO,Zion Williamson,F,Out,Left Thigh Bruise,2026-11-23,2026-11-22
-NY,Jordan Clarkson,G,Out,Right Foot Plantar Fasciitis,2026-11-22,2026-11-20
-NY,Karl-Anthony Towns,C,Out,Illness,2026-11-22,2026-11-21
-NY,OG Anunoby,F,Out,Calf,2026-11-22,2026-11-21
+NY,Jordan Clarkson,G,Day-To-Day,Right Foot Plantar Fasciitis,2026-11-22,2026-11-22
+NY,Karl-Anthony Towns,C,Day-To-Day,Illness,2026-11-22,2026-11-22
+NY,OG Anunoby,F,Day-To-Day,Calf,2026-11-22,2026-11-22
 OKC,Alex Caruso,G,Out,Right Hip Soreness,2026-11-23,2026-11-21
 OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
 OKC,Chet Holmgren,C,Out,Right Knee,2027-01-02,2026-10-31
@@ -80,7 +80,7 @@ OKC,Nikola Topic,G,Out,Left Hip Soreness,2026-11-23,2026-11-21
 OKC,Shai Gilgeous-Alexander,G,Day-To-Day,Back Bruise,2026-11-22,2026-11-21
 OKC,Thomas Sorber,C,Out,Knee,2027-01-31,2026-11-18
 ORL,Izaiyah Nelson,F,Out,Left Ankle Surgery,2026-11-29,2026-11-18
-ORL,Jonathan Isaac,F,Out,Left Knee Not Specified,2026-11-29,2026-11-21
+ORL,Jonathan Isaac,F,Out,Left Knee Not Specified,2026-11-28,2026-11-21
 ORL,Noah Penda,F,Out,Right Hamstring Strain,2026-11-29,2026-11-14
 ORL,Paolo Banchero,F,Out,Right Ankle Sprain,2026-11-29,2026-10-24
 PHI,Adem Bona,C,Out,Back Sprain,2026-11-23,2026-11-20
