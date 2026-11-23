@@ -119,3 +119,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-21,SF,Deni Avdija,POR,NY,PRA,PRA 41.5,41.5,,,boost
 2026-11-21,PF,LeBron James,PHI,MIL,PRA,PRA 33.8,33.8,,,boost
 2026-11-21,C,Daniel Gafford,DAL,LAC,PRA,PRA 21.4,21.4,,,boost
+2026-11-22,PG,Cade Cunningham,DET,ATL,Rebounds,REB 6.4,6.4,,,boost
+2026-11-22,SG,Desmond Bane,ORL,WSH,Assists,AST 3.8,3.8,,,boost
+2026-11-22,SF,Franz Wagner,ORL,WSH,PRA,PRA 49.1,49.1,,,boost
+2026-11-22,PF,Jalen Johnson,ATL,DET,PRA,PRA 46.5,46.5,,,boost
+2026-11-22,C,Karl-Anthony Towns,NY,IND,Rebounds,REB 15.7,15.7,,,boost
