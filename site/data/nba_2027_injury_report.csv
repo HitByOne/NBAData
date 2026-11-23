@@ -5,22 +5,22 @@ ATL,Henri Veesaar,C,Out,Right Knee,2027-07-01,2026-09-21
 ATL,Jock Landale,C,Out,Right Hip Inflammation,2026-11-27,2026-11-21
 ATL,Mouhamed Gueye,F,Out,Left Foot Fracture,2026-12-12,2026-11-13
 BKN,Grant Nelson,F,Day-To-Day,Right Ankle Sprain,2026-11-23,2026-11-22
-BKN,Nolan Traore,G,Out,Right Hamstring Strain,2026-11-25,2026-11-22
+BKN,Nolan Traore,G,Out,Right Hamstring Strain,2027-01-27,2026-11-23
 BOS,Mitchell Robinson,C,Out,Illness,2026-11-24,2026-11-22
-BOS,Paul George,F,Out,Rest,2026-11-24,2026-11-22
+BOS,Paul George,F,Day-To-Day,Rest,2026-11-24,2026-11-23
 CHA,Brandon Miller,F,Day-To-Day,Right Knee Bruise,2026-11-23,2026-11-22
 CHA,Dennis Schroder,G,Out,Left Hamstring Strain,2026-11-25,2026-11-08
 CHA,Grant Williams,F,Out,Right Hamstring,2026-11-25,2026-11-22
 CHA,Grayson Allen,G,Out,Concussion,2026-11-25,2026-11-22
 CHA,Kon Knueppel,G,Out,Left Hamstring Strain,2026-12-12,2026-11-08
 CHI,Caleb Wilson,F,Out,Right Hand,2026-12-13,2026-11-12
-CHI,Nic Claxton,C,Out,Illness,2026-11-23,2026-11-22
+CHI,Nic Claxton,C,Day-To-Day,Illness,2026-11-23,2026-11-23
 CHI,Norman Powell,G,Out,Right Hamstring Strain,2026-11-28,2026-11-22
 CLE,Evan Mobley,C,Out,Left Toe Sprain,2026-11-29,2026-11-16
 CLE,Jaylon Tyson,G,Out,Right Ankle,2026-11-23,2026-11-22
 CLE,Nae'Qwan Tomlin,F,Out,Back,2026-11-29,2026-11-17
 DAL,Dereck Lively II,C,Out,Right Foot Surgery,2026-11-27,2026-11-20
-DAL,P.J. Washington,F,Out,Illness,2026-11-24,2026-11-22
+DAL,P.J. Washington,F,Day-To-Day,Illness,2026-11-24,2026-11-23
 DAL,Sergio de Larrea,F,Out,Right Knee Strain,2026-11-27,2026-11-17
 DAL,Tarik Biberovic,F,Out,Right Heel Inflammation,2026-11-27,2026-11-17
 DAL,Tobi Lawal,F,Out,Right Groin,2026-11-24,2026-11-22
@@ -36,17 +36,17 @@ GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
 GS,Stephen Curry,G,Out,Right Abdomen,2026-12-12,2026-11-12
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
 IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-10-30
-IND,T.J. McConnell,G,Out,Left Hamstring,2026-11-23,2026-11-21
+IND,T.J. McConnell,G,Day-To-Day,Left Hamstring,2026-11-23,2026-11-23
 IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-12-13,2026-11-20
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-29,2026-10-15
 LAC,Jordan Miller,G,Out,Left Shoulder Surgery,2027-03-02,2026-08-26
 LAL,Austin Reaves,G,Out,Left Heel Bruise,2026-11-27,2026-11-23
 MEM,Cameron Boozer,F,Out,Right Ankle Sprain,2026-11-25,2026-11-22
 MEM,GG Jackson,F,Out,Left Foot Surgery,2027-01-18,2026-11-17
-MEM,Jerami Grant,F,Day-To-Day,Left Calf Not Specified,2026-12-12,2026-11-23
+MEM,Jerami Grant,F,Out,Left Calf Not Specified,2026-12-12,2026-11-23
 MEM,Richie Saunders,G,Out,Right Knee Surgery,2026-12-01,2026-11-07
 MEM,Scotty Pippen Jr.,G,Out,Back Soreness,2026-11-25,2026-11-16
-MIA,Giannis Antetokounmpo,F,Out,Groin,2026-11-25,2026-11-22
+MIA,Giannis Antetokounmpo,F,Day-To-Day,Groin,2026-11-25,2026-11-23
 MIL,Ousmane Dieng,F,Out,Left Finger Surgery,2026-11-23,2026-11-22
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
 MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
@@ -58,19 +58,19 @@ NO,Trendon Watford,F,Out,Right Ankle Sprain,2026-11-27,2026-11-21
 NO,Trey Murphy III,F,Day-To-Day,Knee,2026-11-23,2026-11-22
 NO,Zion Williamson,F,Day-To-Day,Left Thigh Bruise,2026-11-23,2026-11-22
 NY,Jordan Clarkson,G,Out,Right Foot Plantar Fasciitis,2026-11-25,2026-11-22
-NY,Miles McBride,G,Out,Left Abdomen,2026-11-25,2026-11-23
-NY,OG Anunoby,F,Out,Left Calf Soreness,2026-11-25,2026-11-22
-OKC,Aday Mara,C,Out,Right Lower Leg Bruise,2026-11-23,2026-11-22
-OKC,Alex Caruso,G,Out,Right Hip Soreness,2026-11-23,2026-11-21
+NY,Miles McBride,G,Day-To-Day,Left Abdomen,2026-11-25,2026-11-23
+NY,OG Anunoby,F,Day-To-Day,Left Calf Soreness,2026-11-25,2026-11-23
+OKC,Aday Mara,C,Day-To-Day,Right Lower Leg Bruise,2026-11-23,2026-11-23
+OKC,Alex Caruso,G,Day-To-Day,Right Hip Soreness,2026-11-23,2026-11-23
 OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
 OKC,Chet Holmgren,C,Out,Right Knee,2027-01-02,2026-10-31
 OKC,Jalen Williams,G,Out,Left Leg Fracture,2027-03-02,2026-10-28
-OKC,Jaylin Williams,F,Out,Back Spasms,2026-11-23,2026-11-21
-OKC,Nikola Topic,G,Out,Left Hip Soreness,2026-11-23,2026-11-21
-OKC,Shai Gilgeous-Alexander,G,Out,Back Bruise,2026-11-23,2026-11-22
+OKC,Jaylin Williams,F,Day-To-Day,Back Spasms,2026-11-23,2026-11-23
+OKC,Nikola Topic,G,Day-To-Day,Left Hip Soreness,2026-11-23,2026-11-23
+OKC,Shai Gilgeous-Alexander,G,Day-To-Day,Back Bruise,2026-11-23,2026-11-23
 OKC,Thomas Sorber,C,Out,Knee,2027-01-31,2026-11-18
 ORL,Izaiyah Nelson,F,Out,Left Ankle Surgery,2026-11-29,2026-11-18
-ORL,Jonathan Isaac,F,Out,Left Knee Not Specified,2026-11-28,2026-11-21
+ORL,Jonathan Isaac,F,Out,Left Knee Not Specified,2026-11-29,2026-11-21
 ORL,Noah Penda,F,Out,Right Hamstring Strain,2026-11-29,2026-11-14
 ORL,Paolo Banchero,F,Out,Right Ankle Sprain,2026-11-29,2026-10-24
 PHI,Adem Bona,C,Out,Back Sprain,2026-11-23,2026-11-22
@@ -88,6 +88,7 @@ SA,Dylan Harper,G,Out,Hip Soreness,2026-12-13,2026-11-19
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Jordan McLaughlin,G,Day-To-Day,Left Shoulder Bruise,2026-11-23,2026-11-23
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-12-03,2026-11-16
+SA,Victor Wembanyama,F,Day-To-Day,Back,2026-11-23,2026-11-23
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
 SAC,Maxime Raynaud,C,Out,Right Knee Dislocated,2026-11-25,2026-11-18
 TOR,Collin Murray-Boyles,F,Day-To-Day,Concussion,2026-11-23,2026-11-22
@@ -95,7 +96,7 @@ TOR,Kawhi Leonard,F,Out,Left Knee Inflammation,2026-12-03,2026-11-20
 TOR,Nate Bittle,C,Out,Right Foot Fracture,2026-11-27,2026-11-22
 TOR,RJ Barrett,F,Out,Right Hamstring Strain,2026-12-13,2026-11-19
 UTAH,Jaren Jackson Jr.,F,Out,Right Knee Not Specified,2026-12-14,2026-10-27
-UTAH,Jaxson Hayes,C,Out,Left Knee Not Specified,2026-11-23,2026-11-23
+UTAH,Jaxson Hayes,C,Day-To-Day,Left Knee Not Specified,2026-11-23,2026-11-23
 UTAH,Jusuf Nurkic,C,Out,Right Foot Strain,2026-11-29,2026-11-20
 UTAH,Lauri Markkanen,F,Out,Right Hand Fracture,2027-01-04,2026-11-11
 WSH,Jamir Watkins,G,Out,Left Knee Surgery,2027-04-02,2026-07-30
