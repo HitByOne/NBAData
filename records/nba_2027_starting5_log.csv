@@ -124,3 +124,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-22,SF,Franz Wagner,ORL,WSH,PRA,PRA 49.1,49.1,,,boost
 2026-11-22,PF,Jalen Johnson,ATL,DET,PRA,PRA 46.5,46.5,,,boost
 2026-11-22,C,Karl-Anthony Towns,NY,IND,Rebounds,REB 15.7,15.7,,,boost
+2026-11-23,PG,Tyrese Maxey,PHI,POR,Points,PTS 31.9,31.9,,,boost
+2026-11-23,SG,Stephon Castle,SA,SAC,Assists,AST 7.5,7.5,,,boost
+2026-11-23,SF,Deni Avdija,POR,PHI,Points,PTS 27.1,27.1,,,boost
+2026-11-23,PF,Scottie Barnes,TOR,MIL,Points,PTS 31.3,31.3,,,boost
+2026-11-23,C,Alperen Sengun,HOU,LAC,PRA,PRA 48.0,48.0,,,boost
