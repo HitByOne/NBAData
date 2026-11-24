@@ -12,6 +12,7 @@ CHA,Grayson Allen,G,Out,Concussion,2026-11-25,2026-11-22
 CHA,Kon Knueppel,G,Out,Left Hamstring Strain,2026-12-12,2026-11-08
 CHA,Ryan Kalkbrenner,C,Day-To-Day,Left Hip Soreness,2026-11-25,2026-11-24
 CHI,Caleb Wilson,F,Out,Right Hand,2026-12-13,2026-11-12
+CHI,Jalen Smith,F,Day-To-Day,Illness,2026-11-25,2026-11-24
 CHI,Norman Powell,G,Out,Right Hamstring Strain,2026-11-28,2026-11-22
 CLE,Evan Mobley,C,Out,Left Toe Sprain,2026-11-29,2026-11-16
 CLE,Nae'Qwan Tomlin,F,Out,Back,2026-11-29,2026-11-17
@@ -21,10 +22,10 @@ DAL,Sergio de Larrea,F,Out,Right Knee Strain,2026-11-27,2026-11-17
 DAL,Tarik Biberovic,F,Out,Right Heel Inflammation,2026-11-27,2026-11-17
 DAL,Tobi Lawal,F,Out,Right Groin,2026-11-27,2026-11-23
 DET,Cade Cunningham,G,Day-To-Day,Knee,2026-11-24,2026-11-23
-DET,Duncan Robinson,F,Out,Left Quadriceps Strain,2026-11-27,2026-11-17
-DET,Ebuka Okorie,G,Out,Left Oblique Strain,2026-11-30,2026-11-23
-DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-30,2026-11-23
-DET,Taurean Prince,F,Out,Right Knee Surgery,2026-12-13,2026-11-20
+DET,Duncan Robinson,F,Out,Left Quadriceps Strain,2026-11-27,2026-11-24
+DET,Ebuka Okorie,G,Out,Left Oblique Strain,2026-12-13,2026-11-24
+DET,Jalen Duren,C,Out,Right Hamstring Strain,2026-11-30,2026-11-24
+DET,Taurean Prince,F,Out,Right Knee Surgery,2026-12-26,2026-11-24
 GS,Brandon Williams,G,Out,Left Hamstring Strain,2026-11-25,2026-11-23
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
@@ -32,10 +33,9 @@ GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
 GS,Stephen Curry,G,Out,Right Abdomen,2026-12-12,2026-11-12
 IND,Aaron Nesmith,G,Day-To-Day,Foot,2026-11-27,2026-11-24
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
-IND,Johnny Furphy,G,Out,Right Knee Surgery,2027-01-02,2026-10-30
 IND,Larry Nance Jr.,F,Day-To-Day,Right Ankle Soreness,2026-11-27,2026-11-24
 IND,T.J. McConnell,G,Day-To-Day,Left Hamstring,2026-11-27,2026-11-24
-IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-12-13,2026-11-20
+IND,Tyrese Haliburton,G,Out,Left Hamstring Strain,2026-12-13,2026-11-24
 LAC,Bradley Beal,G,Out,Right Knee Inflammation,2026-11-29,2026-10-15
 LAC,Jordan Miller,G,Out,Left Shoulder Surgery,2027-03-02,2026-08-26
 LAL,Austin Reaves,G,Out,Left Heel Bruise,2026-11-27,2026-11-24
@@ -44,16 +44,16 @@ MEM,GG Jackson,F,Out,Left Foot Surgery,2027-01-18,2026-11-17
 MEM,Jerami Grant,F,Out,Left Calf Not Specified,2026-12-12,2026-11-23
 MEM,Richie Saunders,G,Out,Right Knee Surgery,2026-12-01,2026-11-07
 MEM,Scotty Pippen Jr.,G,Out,Back Soreness,2026-11-25,2026-11-16
-MIA,Giannis Antetokounmpo,F,Day-To-Day,Groin,2026-11-25,2026-11-23
+MIA,Giannis Antetokounmpo,F,Day-To-Day,Groin,2026-11-25,2026-11-24
 MIN,Anthony Edwards,G,Out,Right Knee Surgery,2026-12-21,2026-10-29
-MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-04-02,2026-10-05
+MIN,Donte DiVincenzo,G,Out,Right Achilles Surgery,2027-01-03,2026-11-24
 MIN,Jaylen Clark,G,Out,Right Hamstring Not Specified,2026-11-29,2026-11-15
 NO,Bennedict Mathurin,G,Out,Left Foot Plantar Fasciitis,2026-11-27,2026-11-19
 NO,Dejounte Murray,G,Out,Ankle,2026-11-27,2026-11-13
 NO,Trendon Watford,F,Out,Right Ankle Sprain,2026-11-27,2026-11-21
-NY,Jordan Clarkson,G,Out,Right Foot Plantar Fasciitis,2026-11-25,2026-11-22
-NY,Miles McBride,G,Day-To-Day,Left Abdomen,2026-11-25,2026-11-23
-NY,OG Anunoby,F,Day-To-Day,Left Calf Soreness,2026-11-25,2026-11-23
+NY,Jordan Clarkson,G,Out,Right Foot Plantar Fasciitis,2026-11-25,2026-11-24
+NY,Miles McBride,G,Day-To-Day,Left Abdomen,2026-11-25,2026-11-24
+NY,OG Anunoby,F,Day-To-Day,Left Calf Soreness,2026-11-25,2026-11-24
 OKC,Aday Mara,C,Day-To-Day,Right Lower Leg Bruise,2026-11-25,2026-11-24
 OKC,Alex Caruso,G,Out,Right Hip Soreness,2026-11-25,2026-11-23
 OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
@@ -90,4 +90,5 @@ UTAH,Lauri Markkanen,F,Out,Right Hand Fracture,2027-01-04,2026-11-11
 WSH,Jamir Watkins,G,Out,Left Knee Surgery,2027-04-02,2026-07-30
 WSH,Justin Champagnie,F,Out,Right Foot Not Specified,2027-02-25,2026-10-28
 WSH,Reece Beekman,G,Out,Shoulder,2026-12-03,2026-11-02
+WSH,Tre Mann,G,Day-To-Day,Illness,2026-11-24,2026-11-24
 WSH,Tristan Vukcevic,F,Out,Left Hip Pinched Nerve,2026-11-30,2026-11-23
