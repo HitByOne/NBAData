@@ -129,3 +129,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-23,SF,Deni Avdija,POR,PHI,Points,PTS 27.1,27.1,,,boost
 2026-11-23,PF,Scottie Barnes,TOR,MIL,Points,PTS 31.3,31.3,,,boost
 2026-11-23,C,Alperen Sengun,HOU,LAC,PRA,PRA 48.0,48.0,,,boost
+2026-11-24,PG,Jalen Suggs,ORL,DET,Assists,AST 4.6,4.6,,,boost
+2026-11-24,SG,Caleb Martin,DAL,DEN,Assists,AST 3.4,3.4,,,boost
+2026-11-24,SF,Ausar Thompson,DET,ORL,Points,PTS 13.9,13.9,,,boost
+2026-11-24,PF,Paul George,BOS,WSH,3PM,3PM 4.7,4.7,,,boost
+2026-11-24,C,Alex Sarr,WSH,BOS,3PM,3PM 1.7,1.7,,,boost
