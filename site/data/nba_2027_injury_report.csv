@@ -27,7 +27,7 @@ DET,Taurean Prince,F,Out,Right Knee Surgery,2026-12-26,2026-11-24
 GS,Jimmy Butler III,F,Out,Right Knee Surgery,2027-01-02,2026-10-16
 GS,Kristaps Porzingis,C,Out,Illness,2027-01-02,2026-11-06
 GS,Moses Moody,G,Out,Left Knee Surgery,2026-12-01,2026-10-16
-GS,Stephen Curry,G,Out,Right Abdomen,2026-12-12,2026-11-12
+GS,Stephen Curry,G,Out,Right Abdomen,2026-12-12,2026-11-26
 IND,Aaron Nesmith,G,Day-To-Day,Foot,2026-11-27,2026-11-24
 IND,Ben Sheppard,G,Out,Left Knee,2027-01-02,2026-10-28
 IND,Larry Nance Jr.,F,Day-To-Day,Right Ankle Soreness,2026-11-27,2026-11-24
@@ -48,6 +48,7 @@ NO,Bennedict Mathurin,G,Out,Left Foot Plantar Fasciitis,2026-11-27,2026-11-19
 NO,Dejounte Murray,G,Out,Ankle,2026-11-27,2026-11-13
 NO,Julian Reese,F,Day-To-Day,Right Knee,2026-11-25,2026-11-25
 NO,Trendon Watford,F,Out,Right Ankle Sprain,2026-11-27,2026-11-21
+NY,Andre Drummond,C,Day-To-Day,Head Not Specified,2026-11-25,2026-11-26
 NY,Jordan Clarkson,G,Out,Right Foot Plantar Fasciitis,2026-11-27,2026-11-24
 NY,Miles McBride,G,Out,Left Groin Soreness,2026-11-27,2026-11-25
 NY,OG Anunoby,F,Out,Left Calf Soreness,2026-11-27,2026-11-25
@@ -70,11 +71,10 @@ POR,Chris Youngblood,G,Out,Right Heel Bruise,2026-11-27,2026-11-20
 POR,Ja Morant,G,Out,Left Hamstring Not Specified,2026-12-01,2026-11-08
 POR,Shaedon Sharpe,G,Out,Right Knee Surgery,2027-03-02,2026-08-24
 POR,Vit Krejci,G,Out,Left Ankle,2027-01-12,2026-11-11
-SA,De'Aaron Fox,G,Day-To-Day,Right Lower Leg Bruise,2026-11-25,2026-11-25
+SA,De'Aaron Fox,G,Out,Right Lower Leg Bruise,2026-11-27,2026-11-26
 SA,Dylan Harper,G,Out,Hip Soreness,2026-12-13,2026-11-19
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-12-03,2026-11-16
-SA,Victor Wembanyama,F,Day-To-Day,Back,2026-11-25,2026-11-25
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
 SAC,Maxime Raynaud,C,Out,Right Knee Dislocated,2026-12-02,2026-11-25
 SAC,Zach LaVine,G,Out,Right Knee Soreness,2026-11-29,2026-11-25
