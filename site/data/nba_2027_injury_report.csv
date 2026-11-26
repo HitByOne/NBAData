@@ -10,9 +10,9 @@ BOS,Mitchell Robinson,C,Out,Illness,2026-11-27,2026-11-23
 CHA,Dennis Schroder,G,Out,Left Hamstring Strain,2026-12-12,2026-11-24
 CHA,Grayson Allen,G,Out,Concussion,2026-11-28,2026-11-25
 CHA,Kon Knueppel,G,Out,Left Hamstring Strain,2026-12-12,2026-11-08
-CHA,Ryan Kalkbrenner,C,Out,Left Hip Soreness,2026-11-28,2026-11-25
+CHA,Ryan Kalkbrenner,C,Day-To-Day,Left Hip Soreness,2026-11-28,2026-11-26
 CHI,Caleb Wilson,F,Out,Right Hand,2026-12-13,2026-11-12
-CHI,Jalen Smith,F,Out,Illness,2026-11-28,2026-11-25
+CHI,Jalen Smith,F,Day-To-Day,Illness,2026-11-28,2026-11-26
 CHI,Norman Powell,G,Out,Right Hamstring Strain,2026-11-28,2026-11-22
 CLE,Evan Mobley,C,Out,Left Toe Sprain,2026-11-29,2026-11-16
 CLE,Nae'Qwan Tomlin,F,Out,Back,2026-11-29,2026-11-17
@@ -49,11 +49,11 @@ MIN,Jaylen Clark,G,Out,Right Hamstring Not Specified,2026-11-29,2026-11-15
 MIN,LaMelo Ball,G,Day-To-Day,Left Ankle,2026-11-27,2026-11-26
 NO,Bennedict Mathurin,G,Out,Left Foot Plantar Fasciitis,2026-11-27,2026-11-19
 NO,Dejounte Murray,G,Out,Ankle,2026-11-27,2026-11-13
-NO,Julian Reese,F,Day-To-Day,Right Knee,2026-11-25,2026-11-25
+NO,Julian Reese,F,Day-To-Day,Right Knee,2026-12-01,2026-11-25
 NO,Trendon Watford,F,Out,Right Ankle Sprain,2026-11-27,2026-11-21
 NY,Andre Drummond,C,Day-To-Day,Head Not Specified,2026-11-27,2026-11-26
 NY,Jordan Clarkson,G,Out,Right Foot Plantar Fasciitis,2026-11-27,2026-11-24
-NY,Miles McBride,G,Out,Left Groin Soreness,2026-11-27,2026-11-25
+NY,Miles McBride,G,Day-To-Day,Left Groin Soreness,2026-11-27,2026-11-26
 NY,OG Anunoby,F,Out,Left Calf Soreness,2026-11-27,2026-11-25
 OKC,Aday Mara,C,Out,Right Lower Leg Bruise,2026-11-28,2026-11-24
 OKC,Cason Wallace,G,Out,Left Shoulder Surgery,2027-03-02,2026-10-31
@@ -74,13 +74,13 @@ POR,Chris Youngblood,G,Out,Right Heel Bruise,2026-11-27,2026-11-20
 POR,Ja Morant,G,Out,Left Hamstring Not Specified,2026-12-01,2026-11-08
 POR,Shaedon Sharpe,G,Out,Right Knee Surgery,2027-03-02,2026-08-24
 POR,Vit Krejci,G,Out,Left Ankle,2027-01-12,2026-11-11
-SA,De'Aaron Fox,G,Out,Right Lower Leg Bruise,2026-11-27,2026-11-26
+SA,De'Aaron Fox,G,Day-To-Day,Right Lower Leg Bruise,2026-11-27,2026-11-26
 SA,Dylan Harper,G,Out,Hip Soreness,2026-12-13,2026-11-19
 SA,Jayden Quaintance,F,Out,Right Knee Surgery,2026-12-03,2026-10-05
 SA,Tobias Harris,F,Out,Left Calf Strain,2026-12-03,2026-11-16
 SAC,Ben Simmons,G,Out,Right Achilles Surgery,2027-10-01,2026-10-21
 SAC,Maxime Raynaud,C,Out,Right Knee Dislocated,2026-12-02,2026-11-25
-SAC,Zach LaVine,G,Out,Right Knee Soreness,2026-11-29,2026-11-25
+SAC,Zach LaVine,G,Day-To-Day,Right Knee Soreness,2026-11-29,2026-11-26
 TOR,Kawhi Leonard,F,Out,Left Knee Inflammation,2026-12-03,2026-11-24
 TOR,Nate Bittle,C,Out,Right Foot Fracture,2026-11-27,2026-11-22
 TOR,RJ Barrett,F,Out,Right Hamstring Strain,2026-12-13,2026-11-19
