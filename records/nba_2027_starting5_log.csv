@@ -139,3 +139,8 @@ Date,Pos,Player,Team,Opponent,Stat,Pick,Projection,Line,Decimal,Mode
 2026-11-25,SF,Kevin Durant,HOU,PHX,Assists,AST 5.1,5.1,,,boost
 2026-11-25,PF,Miles Bridges,PHX,HOU,Assists,AST 4.5,4.5,,,boost
 2026-11-25,C,Alperen Sengun,HOU,PHX,PRA,PRA 51.5,51.5,,,boost
+2026-11-27,PG,Darius Garland,LAC,NO,PRA,PRA 37.5,37.5,,,boost
+2026-11-27,SG,Ja'Kobe Walter,TOR,BKN,3PM,3PM 3.6,3.6,,,boost
+2026-11-27,SF,Ace Bailey,UTAH,DEN,PRA,PRA 27.6,27.6,,,boost
+2026-11-27,PF,Pascal Siakam,IND,PHI,Points,PTS 27.9,27.9,,,boost
+2026-11-27,C,Brook Lopez,LAC,NO,Rebounds,REB 7.2,7.2,,,boost
