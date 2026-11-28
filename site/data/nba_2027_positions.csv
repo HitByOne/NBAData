@@ -126,6 +126,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 3978,DeMar DeRozan,DEN,SF,G,Basketball-Reference 2026-27
 4592427,Spencer Jones,DEN,SF,F,Basketball-Reference 2026-27
 4431767,Christian Braun,DEN,SG,G,Basketball-Reference 2026-27
+4432181,Julian Strawther,DEN,SG,G,Basketball-Reference 2026-27
 4433621,Jalen Duren,DET,C,C,Basketball-Reference 2026-27
 4278562,Paul Reed,DET,C,F,Basketball-Reference 2026-27
 5107818,Isaac Jones,DET,PF,C,Basketball-Reference 2026-27
@@ -207,7 +208,6 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4702352,Kobe Sanders,LAC,SG,G,Basketball-Reference 2026-27
 2991139,Kris Dunn,LAC,SG,G,Basketball-Reference 2026-27
 3155535,Kevon Looney,LAL,C,F,Basketball-Reference 2026-27
-4596528,Lawson Lovering,LAL,C,C,Basketball-Reference 2026-27
 4278580,Sandro Mamukelashvili,LAL,C,F,Basketball-Reference 2026-27
 4433136,Walker Kessler,LAL,C,C,Basketball-Reference 2026-27
 5105817,Carson Cooper,LAL,PF,C,Basketball-Reference 2026-27
@@ -225,6 +225,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4868423,Jaden Hardy,LAL,SG,G,Basketball-Reference 2026-27
 4397014,Quentin Grimes,LAL,SG,G,Basketball-Reference 2026-27
 4432810,Isaiah Stewart,MEM,C,C,Basketball-Reference 2026-27
+4596528,Lawson Lovering,MEM,C,C,Basketball-Reference 2026-27
 4593016,Quinten Post,MEM,C,C,Basketball-Reference 2026-27
 4600663,Zach Edey,MEM,C,C,Basketball-Reference 2026-27
 5041935,Cameron Boozer,MEM,PF,F,Basketball-Reference 2026-27
@@ -451,6 +452,7 @@ Player ID,Player,Team,Position,ESPN Pos,Source
 4277961,Jaren Jackson Jr.,UTAH,C,F,Basketball-Reference 2026-27
 4397077,Jaxson Hayes,UTAH,C,C,Basketball-Reference 2026-27
 4684682,Jonas Aidoo,UTAH,C,C,Basketball-Reference 2026-27
+3102530,Jusuf Nurkic,UTAH,C,C,estimated from ESPN C
 4684793,Kyle Filipowski,UTAH,C,F,Basketball-Reference 2026-27
 4277919,Mo Bamba,UTAH,C,C,Basketball-Reference 2026-27
 4065673,Tony Bradley,UTAH,C,C,Basketball-Reference 2026-27
